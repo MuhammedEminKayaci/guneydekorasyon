@@ -1,0 +1,13 @@
+# Güney Mağaza Dekorasyon — Web Sitesi
+
+Eski statik sitenin (295 elle kopyalanmış HTML) Astro ile yeniden kurulumu.
+
+- Eski site (referans, dokunulmaz): `~/Desktop/PROJELERİM/İsmail Duman - Güney Dekorasyon`
+
+## Yol haritası
+1. [x] Proje klasörü
+2. [ ] Astro kurulumu
+3. [ ] Ana sayfa (birebir mantık, profesyonel + %100 responsive)
+4. [ ] Gelişmiş header & footer
+5. [ ] Kategori sistemi (arama, filtreleme, sıralama — e-ticaret mantığı)
+6. [ ] Ürün sayfaları
