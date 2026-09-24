@@ -1,0 +1,22 @@
+---
+import { PROMISES } from '../../data/home';
+import Icon from '../ui/Icon.astro';
+---
+
+<section class="bg-steel-900 text-white" aria-label="Çalışma güvencelerimiz">
+  <div class="container-page">
+    <ul class="grid gap-px bg-steel-700 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      PROMISES.map((item) => (
+        <li class="flex gap-4 bg-steel-900 py-8 sm:px-6 sm:first:pl-0 lg:py-10">
+          <Icon name={item.icon} class="size-7 shrink-0 text-signal-500" />
+          <div>
+            <h3 class="font-bold">{item.title}</h3>
+            <p class="mt-1 text-sm text-steel-300">{item.text}</p>
+          </div>
+        </li>
+      ))
+    }
+    </ul>
+  </div>
+</section>

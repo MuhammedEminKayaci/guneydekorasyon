@@ -1,0 +1,22 @@
+---
+// Lucide ikonları, build sırasında satır içi SVG olarak basılır (JS yok).
+// Kullanım: <Icon name="Phone" class="size-5" />
+import * as icons from 'lucide-static';
+
+export interface Props {
+  name: keyof typeof icons;
+  class?: string;
+  label?: string;
+}
+
+const { name, class: className = 'size-5', label } = Astro.props;
+const raw = String(icons[name]);
+const svg = raw
+  .replace(/\s(width|height|class)="[^"]*"/g, '')
+  .replace(
+    '<svg',
+    `<svg class="${className}" ${label ? `role="img" aria-label="${label}"` : 'aria-hidden="true"'} focusable="false"`,
+  );
+---
+
+<Fragment set:html={svg} />

@@ -1,0 +1,22 @@
+---
+// Marka ikonları (WhatsApp, Instagram...) simple-icons paketinden.
+import { siFacebook, siInstagram, siWhatsapp, siYoutube } from 'simple-icons';
+
+const brands = {
+  whatsapp: siWhatsapp,
+  instagram: siInstagram,
+  facebook: siFacebook,
+  youtube: siYoutube,
+};
+
+export interface Props {
+  name: keyof typeof brands;
+  class?: string;
+}
+
+const { name, class: className = 'size-5' } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+  <path d={brands[name].path} />
+</svg>

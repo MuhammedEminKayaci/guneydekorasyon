@@ -1,0 +1,98 @@
+---
+// Temel footer. 4. adımda harita, sosyal medya, yasal sayfalar ve bülten alanlarıyla genişletilecek.
+import { Image } from 'astro:assets';
+import logo from '../../assets/images/marka/logo.png';
+import { CATEGORIES, categoryHref } from '../../data/categories';
+import { CONTACT, SITE, whatsappLink } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+import BrandIcon from '../ui/BrandIcon.astro';
+
+const corporate = [
+  { name: 'Hakkımızda', href: '/hakkimizda/' },
+  { name: 'Projeler', href: '/projeler/' },
+  { name: 'Sıkça sorulan sorular', href: '/#sss' },
+  { name: 'İletişim', href: '/iletisim/' },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-steel-950 text-steel-300">
+  <div class="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr] lg:py-16">
+    <div>
+      <Image src={logo} alt={SITE.name} width={180} class="h-auto w-44" />
+      <p class="mt-5 max-w-xs text-sm leading-relaxed">
+        Mağaza içi raf, orta sistem ve stand üretiminde tasarımdan montaja anahtar teslim çözümler.
+      </p>
+    </div>
+
+    <nav aria-labelledby="footer-urunler">
+      <h2 id="footer-urunler" class="text-sm font-bold text-white">Ürünler</h2>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {
+          CATEGORIES.map((cat) => (
+            <li>
+              <a href={categoryHref(cat.slug)} class="hover:text-white">
+                {cat.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="footer-kurumsal">
+      <h2 id="footer-kurumsal" class="text-sm font-bold text-white">Kurumsal</h2>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {
+          corporate.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white">
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div>
+      <h2 class="text-sm font-bold text-white">İletişim</h2>
+      <address class="mt-4 space-y-3 text-sm not-italic">
+        <p class="flex gap-3">
+          <Icon name="MapPin" class="mt-0.5 size-4 shrink-0" />
+          {[CONTACT.address.street, CONTACT.address.district, CONTACT.address.city].filter(Boolean).join(', ')}
+        </p>
+        {
+          CONTACT.phones.map((phone) => (
+            <p class="flex gap-3">
+              <Icon name="Phone" class="mt-0.5 size-4 shrink-0" />
+              <a href={`tel:${phone.tel}`} class="hover:text-white">
+                {phone.display}
+              </a>
+            </p>
+          ))
+        }
+        <p class="flex gap-3">
+          <Icon name="Mail" class="mt-0.5 size-4 shrink-0" />
+          <a href={`mailto:${CONTACT.email}`} class="break-all hover:text-white">
+            {CONTACT.email}
+          </a>
+        </p>
+        <p class="flex gap-3">
+          <Icon name="Clock" class="mt-0.5 size-4 shrink-0" />
+          {CONTACT.hours.label}
+        </p>
+      </address>
+      <a href={whatsappLink()} class="btn-whatsapp mt-6 min-h-11 text-sm" target="_blank" rel="noopener">
+        <BrandIcon name="whatsapp" class="size-4.5" />
+        WhatsApp ile yazın
+      </a>
+    </div>
+  </div>
+
+  <div class="border-t border-steel-800">
+    <div class="container-page flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {SITE.name}. Tüm hakları saklıdır.</p>
+    </div>
+  </div>
+</footer>

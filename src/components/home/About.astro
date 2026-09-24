@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import { ABOUT, STATS } from '../../data/home';
+import { whatsappLink } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+import BrandIcon from '../ui/BrandIcon.astro';
+---
+
+<section class="bg-galvanized py-16 sm:py-24" aria-labelledby="hakkimizda-baslik">
+  <div class="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <div class="relative pb-16 sm:pb-20 lg:pr-16">
+      <Image
+        src={ABOUT.images.main}
+        alt="Kendi ürettiğimiz duvar raf sistemiyle kurulmuş giyim mağazası"
+        widths={[480, 720, 960, 1200]}
+        sizes="(min-width: 1024px) 45vw, 100vw"
+        class="aspect-4/3 w-full object-cover lg:aspect-5/4"
+      />
+      <Image
+        src={ABOUT.images.small}
+        alt="Metal ızgara panel ve askı aparatlarının yakın görünümü"
+        widths={[320, 480]}
+        sizes="(min-width: 1024px) 18vw, 45vw"
+        class="absolute right-0 bottom-0 aspect-square w-[45%] border-8 border-galvanized object-cover lg:w-[42%]"
+      />
+    </div>
+
+    <div>
+      <h2 id="hakkimizda-baslik" class="section-title">Tasarımdan montaja tek elden</h2>
+      <p class="mt-5 max-w-xl text-lg text-steel-700">{ABOUT.text}</p>
+
+      <ul class="mt-6 space-y-3">
+        {
+          ABOUT.checklist.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-signal-500 text-white">
+                <Icon name="Check" class="size-3.5" />
+              </span>
+              <span class="font-medium">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <dl class="mt-10 grid grid-cols-2 gap-x-8 gap-y-6">
+        {
+          STATS.map((stat) => (
+            <div class="border-t-2 border-steel-900 pt-3">
+              <dt class="sr-only">{stat.label}</dt>
+              <dd>
+                <span class="text-4xl font-extrabold tracking-tight">{stat.value}</span>
+                {stat.unit && <span class="ml-1 text-lg font-semibold">{stat.unit}</span>}
+                <span class="mt-1 block text-sm text-steel-500">{stat.label}</span>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="/hakkimizda/" class="btn-outline">Bizi tanıyın</a>
+        <a
+          href={whatsappLink('Merhaba, mağazam için teklif almak istiyorum.')}
+          class="btn-whatsapp"
+          target="_blank"
+          rel="noopener"
+        >
+          <BrandIcon name="whatsapp" class="size-5" />
+          Teklif isteyin
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

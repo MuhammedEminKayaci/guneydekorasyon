@@ -1,0 +1,150 @@
+---
+// Temel header. 4. adımda mega menü, arama ve gelişmiş mobil menü ile genişletilecek.
+import { Image } from 'astro:assets';
+import logo from '../../assets/images/marka/logo.png';
+import { CATEGORIES, categoryHref } from '../../data/categories';
+import { CONTACT, whatsappLink } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+import BrandIcon from '../ui/BrandIcon.astro';
+
+const secondary = [
+  { name: 'Projeler', href: '/projeler/' },
+  { name: 'Hakkımızda', href: '/hakkimizda/' },
+  { name: 'İletişim', href: '/iletisim/' },
+];
+const path = Astro.url.pathname;
+const isActive = (href: string) => path.startsWith(href);
+---
+
+<a
+  href="#icerik"
+  class="sr-only z-60 bg-white px-4 py-2 font-semibold focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+>
+  İçeriğe geç
+</a>
+
+<header class="sticky top-0 z-50 bg-steel-900 text-white">
+  <div class="container-page flex h-18 items-center gap-6">
+    <a href="/" class="shrink-0" aria-label="Güney Mağaza Dekorasyon ana sayfa">
+      <Image src={logo} alt="" width={164} class="h-auto w-34 sm:w-41" loading="eager" />
+    </a>
+
+    <nav class="hidden flex-1 xl:block" aria-label="Ana menü">
+      <ul class="flex items-center gap-1">
+        {
+          CATEGORIES.map((cat) => (
+            <li>
+              <a
+                href={categoryHref(cat.slug)}
+                class:list={[
+                  'block px-3 py-2 text-[0.95rem] font-medium whitespace-nowrap transition-colors hover:text-white',
+                  isActive(categoryHref(cat.slug)) ? 'text-white' : 'text-steel-300',
+                ]}
+                aria-current={isActive(categoryHref(cat.slug)) ? 'page' : undefined}
+              >
+                {cat.name}
+              </a>
+            </li>
+          ))
+        }
+        <li class="mx-2 h-5 w-px bg-steel-700" aria-hidden="true" />
+        {
+          secondary.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  'block px-3 py-2 text-[0.95rem] font-medium whitespace-nowrap transition-colors hover:text-white',
+                  isActive(item.href) ? 'text-white' : 'text-steel-300',
+                ]}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2">
+      <a
+        href={`tel:${CONTACT.phones[0].tel}`}
+        class="hidden items-center gap-2 px-3 py-2 text-sm font-semibold whitespace-nowrap text-steel-300 hover:text-white lg:flex xl:hidden 2xl:flex"
+      >
+        <Icon name="Phone" class="size-4" />
+        {CONTACT.phones[0].display}
+      </a>
+      <a href={whatsappLink()} class="btn-whatsapp min-h-10 px-4 text-sm" target="_blank" rel="noopener">
+        <BrandIcon name="whatsapp" class="size-4.5" />
+        <span class="hidden sm:inline">WhatsApp</span>
+        <span class="sr-only sm:hidden">WhatsApp ile yazın</span>
+      </a>
+      <button
+        type="button"
+        class="grid size-10 place-items-center text-white xl:hidden"
+        aria-label="Menüyü aç"
+        aria-controls="mobil-menu"
+        data-menu-open
+      >
+        <Icon name="Menu" class="size-6" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<dialog
+  id="mobil-menu"
+  class="m-0 ml-auto h-dvh max-h-none w-full max-w-sm bg-white p-0 text-steel-900 backdrop:bg-steel-950/60"
+  aria-label="Menü"
+>
+  <div class="flex h-18 items-center justify-between border-b border-steel-200 px-4">
+    <span class="font-bold">Menü</span>
+    <button type="button" class="grid size-10 place-items-center" aria-label="Menüyü kapat" data-menu-close>
+      <Icon name="X" class="size-6" />
+    </button>
+  </div>
+  <nav class="px-4 py-4" aria-label="Mobil menü">
+    <ul class="divide-y divide-steel-200">
+      {
+        CATEGORIES.map((cat) => (
+          <li>
+            <a href={categoryHref(cat.slug)} class="flex items-center justify-between py-4 text-lg font-semibold">
+              {cat.name}
+              <Icon name="ChevronRight" class="size-5 text-steel-300" />
+            </a>
+          </li>
+        ))
+      }
+      {
+        secondary.map((item) => (
+          <li>
+            <a href={item.href} class="block py-4 text-steel-700">
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="mt-6 grid gap-3">
+      <a href={whatsappLink()} class="btn-whatsapp" target="_blank" rel="noopener">
+        <BrandIcon name="whatsapp" class="size-5" />
+        WhatsApp ile yazın
+      </a>
+      <a href={`tel:${CONTACT.phones[0].tel}`} class="btn-outline">
+        <Icon name="Phone" class="size-4" />
+        {CONTACT.phones[0].display}
+      </a>
+    </div>
+  </nav>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('mobil-menu') as HTMLDialogElement;
+  document.querySelector('[data-menu-open]')?.addEventListener('click', () => dialog.showModal());
+  document.querySelector('[data-menu-close]')?.addEventListener('click', () => dialog.close());
+  // Arka plana tıklayınca kapat
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+</script>

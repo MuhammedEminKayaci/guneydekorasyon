@@ -32,6 +32,16 @@ export const localBusinessSchema = () => ({
   sameAs: Object.values(CONTACT.social).filter(Boolean),
 });
 
+export const faqSchema = (items: readonly { q: string; a: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+});
+
 export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',

@@ -1,0 +1,84 @@
+---
+// Proje görselleri + müşteri yorumları. Yatay kaydırmalı, klavye ve dokunmatikle çalışır.
+import { Image } from 'astro:assets';
+import { TESTIMONIALS } from '../../data/home';
+import Icon from '../ui/Icon.astro';
+---
+
+<section class="py-16 sm:py-24" aria-labelledby="yorumlar-baslik" data-carousel>
+  <div class="container-page flex flex-wrap items-end justify-between gap-6">
+    <div>
+      <h2 id="yorumlar-baslik" class="section-title">Kurduğumuz mağazalar</h2>
+      <p class="section-lead">Birlikte çalıştığımız mağaza sahiplerinin yorumları.</p>
+    </div>
+    <div class="flex gap-2">
+      <button
+        type="button"
+        class="grid size-11 place-items-center border border-steel-200 transition-colors hover:border-steel-900 disabled:opacity-40"
+        aria-label="Önceki proje"
+        data-prev
+      >
+        <Icon name="ChevronLeft" class="size-5" />
+      </button>
+      <button
+        type="button"
+        class="grid size-11 place-items-center border border-steel-200 transition-colors hover:border-steel-900 disabled:opacity-40"
+        aria-label="Sonraki proje"
+        data-next
+      >
+        <Icon name="ChevronRight" class="size-5" />
+      </button>
+    </div>
+  </div>
+
+  <ul
+    class="container-page mt-10 flex snap-x snap-mandatory scroll-px-4 sm:scroll-px-6 lg:scroll-px-8 gap-6 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    data-track
+    tabindex="0"
+    aria-label="Proje ve yorum listesi"
+  >
+    {
+      TESTIMONIALS.map((item) => (
+        <li class="w-[85%] shrink-0 snap-start sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
+          <figure>
+            <Image
+              src={item.image}
+              alt={item.alt}
+              widths={[400, 640, 800]}
+              sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 85vw"
+              class="aspect-4/3 w-full object-cover"
+            />
+            <blockquote class="mt-5 text-lg leading-relaxed font-medium">“{item.quote}”</blockquote>
+            <figcaption class="mt-3 text-sm text-steel-500">
+              {item.author}, {item.city}
+            </figcaption>
+          </figure>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="container-page mt-10">
+    <a href="/projeler/" class="btn-outline">Tüm projelerimizi görün</a>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]')!;
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]')!;
+    const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+
+    const step = () => (track.firstElementChild as HTMLElement).offsetWidth + 24;
+    const update = () => {
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    };
+
+    prev.addEventListener('click', () => track.scrollBy({ left: -step() }));
+    next.addEventListener('click', () => track.scrollBy({ left: step() }));
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+</script>

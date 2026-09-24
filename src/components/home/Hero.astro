@@ -1,0 +1,225 @@
+---
+import { Image } from 'astro:assets';
+import { HERO_SLIDES } from '../../data/home';
+import { whatsappLink } from '../../config/site';
+import Icon from '../ui/Icon.astro';
+import BrandIcon from '../ui/BrandIcon.astro';
+
+const resolveHref = (href: string) =>
+  href === 'whatsapp' ? whatsappLink('Merhaba, mağazam için teklif almak istiyorum.') : href;
+---
+
+<section
+  class="hero relative isolate h-[min(86svh,52rem)] min-h-[36rem] overflow-hidden bg-steel-900"
+  aria-roledescription="carousel"
+  aria-label="Öne çıkan mağaza projeleri"
+  data-hero
+>
+  {
+    HERO_SLIDES.map((slide, i) => (
+      <div
+        class:list={['hero-slide absolute inset-0', i === 0 && 'is-active']}
+        role="group"
+        aria-roledescription="slide"
+        aria-label={`${i + 1} / ${HERO_SLIDES.length}`}
+        aria-hidden={i === 0 ? 'false' : 'true'}
+        data-slide
+      >
+        <Image
+          src={slide.image}
+          alt={slide.alt}
+          widths={[640, 960, 1280, 1920, 2560]}
+          sizes="100vw"
+          loading={i === 0 ? 'eager' : 'lazy'}
+          fetchpriority={i === 0 ? 'high' : 'auto'}
+          class="hero-image absolute inset-0 size-full object-cover"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-steel-950/55 via-transparent to-transparent" />
+
+        <div class="container-page absolute inset-x-0 bottom-0 pb-20 sm:pb-24 lg:pb-16">
+          <div class="hero-panel max-w-xl bg-white shadow-[0_24px_48px_-24px_rgb(0_0_0/0.45)]">
+            <div class="awning" />
+            <div class="px-6 pt-5 pb-7 sm:px-8 sm:pb-8">
+              {i === 0 ? (
+                <h1 class="text-display font-extrabold text-steel-950">{slide.title}</h1>
+              ) : (
+                <p class="text-display font-extrabold text-steel-950">{slide.title}</p>
+              )}
+              <p class="mt-4 max-w-md text-lg text-steel-500">{slide.text}</p>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href={resolveHref(slide.cta.href)} class="btn-primary" tabindex={i === 0 ? 0 : -1}>
+                  {slide.cta.label}
+                </a>
+                <a
+                  href={whatsappLink()}
+                  class="btn-outline"
+                  target="_blank"
+                  rel="noopener"
+                  tabindex={i === 0 ? 0 : -1}
+                >
+                  <BrandIcon name="whatsapp" class="size-5 text-whatsapp-dark" />
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+
+  <div class="container-page pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between gap-4 pb-6 lg:justify-end">
+    <div class="pointer-events-auto flex items-center gap-2" role="tablist" aria-label="Slayt seç">
+      {
+        HERO_SLIDES.map((_, i) => (
+          <button
+            type="button"
+            role="tab"
+            class="hero-dot group relative h-8 w-10 sm:w-14"
+            aria-label={`${i + 1}. slayt`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            data-dot={i}
+          >
+            <span class="absolute inset-x-0 top-1/2 h-0.75 -translate-y-1/2 overflow-hidden bg-white/35">
+              <span class="hero-progress block h-full w-full origin-left bg-white" />
+            </span>
+          </button>
+        ))
+      }
+    </div>
+    <div class="pointer-events-auto flex gap-2">
+      <button
+        type="button"
+        class="grid size-11 place-items-center bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-steel-950"
+        aria-label="Önceki slayt"
+        data-prev
+      >
+        <Icon name="ChevronLeft" class="size-5" />
+      </button>
+      <button
+        type="button"
+        class="grid size-11 place-items-center bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-steel-950"
+        aria-label="Sonraki slayt"
+        data-next
+      >
+        <Icon name="ChevronRight" class="size-5" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 900ms var(--ease-out-quart),
+      visibility 0s linear 900ms;
+  }
+  .hero-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 900ms var(--ease-out-quart),
+      visibility 0s;
+  }
+
+  /* Aktif slaytta fotoğraf çok yavaş yaklaşır: tek hareketli öğe */
+  .hero-slide .hero-image {
+    transform: scale(1.06);
+    transition: transform 7s linear;
+  }
+  .hero-slide.is-active .hero-image {
+    transform: scale(1);
+  }
+
+  .hero-panel {
+    transform: translateY(1rem);
+    opacity: 0;
+    transition:
+      transform 700ms var(--ease-out-quart) 250ms,
+      opacity 700ms var(--ease-out-quart) 250ms;
+  }
+  .hero-slide.is-active .hero-panel {
+    transform: none;
+    opacity: 1;
+  }
+
+  .hero-progress {
+    transform: scaleX(0);
+  }
+  .hero-dot[aria-selected='true'] .hero-progress {
+    animation: hero-progress var(--hero-interval, 6500ms) linear forwards;
+  }
+  [data-hero][data-paused] .hero-dot[aria-selected='true'] .hero-progress {
+    animation-play-state: paused;
+  }
+  [data-hero][data-static] .hero-dot[aria-selected='true'] .hero-progress {
+    animation: none;
+    transform: scaleX(1);
+  }
+
+  @keyframes hero-progress {
+    to {
+      transform: scaleX(1);
+    }
+  }
+</style>
+
+<script>
+  const INTERVAL = 6500;
+
+  document.querySelectorAll<HTMLElement>('[data-hero]').forEach((hero) => {
+    const slides = [...hero.querySelectorAll<HTMLElement>('[data-slide]')];
+    const dots = [...hero.querySelectorAll<HTMLButtonElement>('[data-dot]')];
+    let current = 0;
+
+    hero.style.setProperty('--hero-interval', `${INTERVAL}ms`);
+    // Hareket azaltma açıksa otomatik geçiş yok; ilerleme çubuğu animasyonu çalışmadığı için geçiş de tetiklenmez.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) hero.dataset.static = '';
+
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', String(!active));
+        slide.querySelectorAll('a').forEach((a) => (a.tabIndex = active ? 0 : -1));
+      });
+      dots.forEach((dot, i) => dot.setAttribute('aria-selected', String(i === current)));
+    };
+
+    // Otomatik geçişin tek kaynağı: aktif ilerleme çubuğunun animasyonu bitince sonraki slayt.
+    // Duraklatma CSS'te animation-play-state ile yapılır, böylece kalan süre korunur.
+    hero.addEventListener('animationend', (e) => {
+      if ((e.target as HTMLElement).classList.contains('hero-progress')) show(current + 1);
+    });
+
+    const pause = () => (hero.dataset.paused = '');
+    const resume = () => delete hero.dataset.paused;
+
+    hero.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+    hero.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
+
+    hero.addEventListener('pointerenter', pause);
+    hero.addEventListener('pointerleave', resume);
+    hero.addEventListener('focusin', pause);
+    hero.addEventListener('focusout', (e) => {
+      if (!hero.contains(e.relatedTarget as Node)) resume();
+    });
+    document.addEventListener('visibilitychange', () => (document.hidden ? pause() : resume()));
+
+    // Dokunmatik kaydırma
+    let startX = 0;
+    hero.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX), { passive: true });
+    hero.addEventListener(
+      'touchend',
+      (e) => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+      },
+      { passive: true },
+    );
+  });
+</script>

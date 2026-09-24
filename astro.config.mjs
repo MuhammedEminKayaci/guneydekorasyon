@@ -12,8 +12,8 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.google(),
-      name: 'Manrope',
-      cssVariable: '--font-manrope',
+      name: 'Archivo',
+      cssVariable: '--font-archivo',
       weights: ['400 800'],
       subsets: ['latin', 'latin-ext'],
       fallbacks: ['system-ui', 'sans-serif'],

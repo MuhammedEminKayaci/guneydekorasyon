@@ -7,7 +7,7 @@ Eski statik sitenin (295 elle kopyalanmış HTML) Astro ile yeniden kurulumu.
 ## Yol haritası
 1. [x] Proje klasörü
 2. [x] Astro kurulumu
-3. [ ] Ana sayfa (birebir mantık, profesyonel + %100 responsive)
+3. [x] Ana sayfa (birebir mantık, profesyonel + %100 responsive)
 4. [ ] Gelişmiş header & footer
 5. [ ] Kategori sistemi (arama, filtreleme, sıralama — e-ticaret mantığı)
 6. [ ] Ürün sayfaları

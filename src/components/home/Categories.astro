@@ -1,0 +1,51 @@
+---
+// Ürün grupları: raf rafı gibi dizilmiş ürün görselleri. Mobilde yatay kaydırılır.
+import { Image } from 'astro:assets';
+import { CATEGORIES, categoryHref } from '../../data/categories';
+import Icon from '../ui/Icon.astro';
+---
+
+<section class="py-16 sm:py-24" aria-labelledby="kategoriler-baslik">
+  <div class="container-page">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h2 id="kategoriler-baslik" class="section-title">Ürün grupları</h2>
+        <p class="section-lead">Mağazanın duvarından ortasına, vitrininden askısına kadar her şeyi kendi atölyemizde üretiyoruz.</p>
+      </div>
+    </div>
+  </div>
+
+  <ul
+    class="container-page mt-10 flex snap-x snap-mandatory scroll-px-4 sm:scroll-px-6 lg:scroll-px-8 gap-4 overflow-x-auto pb-4 [scrollbar-width:none] sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:pb-0 lg:grid-cols-5 [&::-webkit-scrollbar]:hidden"
+  >
+    {
+      CATEGORIES.map((cat, i) => (
+        <li class="w-[68%] shrink-0 snap-start sm:w-auto">
+          <a href={categoryHref(cat.slug)} class="group block">
+            <div class="relative aspect-square overflow-hidden bg-galvanized">
+              <Image
+                src={cat.image}
+                alt=""
+                widths={[320, 480, 640]}
+                sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 68vw"
+                loading={i < 3 ? 'eager' : 'lazy'}
+                class="size-full object-contain p-6 mix-blend-multiply transition-transform duration-500 ease-out-quart group-hover:scale-[1.04]"
+              />
+            </div>
+            <div class="h-1.5 bg-steel-900 transition-colors group-hover:bg-signal-500" aria-hidden="true" />
+            <div class="mt-4 flex items-start justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold">{cat.name}</h3>
+                <p class="mt-1 text-sm leading-snug text-steel-500">{cat.summary}</p>
+              </div>
+              <Icon
+                name="ArrowUpRight"
+                class="mt-1 size-5 shrink-0 text-steel-300 transition-colors group-hover:text-signal-500"
+              />
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
