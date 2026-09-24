@@ -1,0 +1,51 @@
+---
+// Çerez ve yerel depolama politikası. Sitenin kendisi çerez kullanmaz; teklif listesi tarayıcının
+// yerel deposunda tutulur. Harici içerik: Google Haritalar (footer).
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { CONTACT } from '../../config/site';
+---
+
+<LegalLayout
+  title="Çerez Politikası"
+  description="Güney Mağaza Dekorasyon web sitesinde kullanılan çerezler ve yerel depolama hakkında bilgilendirme."
+  path="/cerez-politikasi/"
+  updated="24 Eylül 2026"
+>
+  <p>
+    Bu sayfa, web sitemizi ziyaret ettiğinizde tarayıcınızda hangi bilgilerin saklandığını açıklar.
+  </p>
+
+  <h2>Sitemizin kullandığı depolama</h2>
+  <p>
+    Sitemiz reklam veya takip amaçlı çerez kullanmaz. Tek kullandığımız, tarayıcınızın yerel deposudur (localStorage):
+  </p>
+  <ul>
+    <li>
+      <strong>Teklif listesi:</strong> Teklif listesine eklediğiniz ürünler ve adetleri, sayfalar arasında kaybolmasın
+      diye yalnızca kendi tarayıcınızda saklanır. Bu bilgi bize gönderilmez; siz “WhatsApp ile gönder” butonuna
+      basmadıkça kimseyle paylaşılmaz.
+    </li>
+  </ul>
+  <p>
+    Listeyi teklif panelindeki “Listeyi temizle” bağlantısıyla veya tarayıcınızın site verilerini silerek istediğiniz
+    zaman kaldırabilirsiniz.
+  </p>
+
+  <h2>Üçüncü taraf içerikler</h2>
+  <ul>
+    <li>
+      <strong>Google Haritalar:</strong> Sayfanın alt bölümündeki konum haritası Google tarafından sunulur. Harita
+      yüklendiğinde Google kendi çerezlerini kullanabilir. Ayrıntılar için Google Gizlilik Politikası’na bakabilirsiniz.
+    </li>
+    <li>
+      <strong>WhatsApp:</strong> WhatsApp bağlantılarına tıkladığınızda WhatsApp uygulaması veya web sitesi açılır;
+      bu noktadan sonra WhatsApp’ın gizlilik politikası geçerlidir.
+    </li>
+  </ul>
+
+  <h2>İletişim</h2>
+  <p>
+    Sorularınız için <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> adresine yazabilirsiniz. Kişisel
+    verilerinizin işlenmesine ilişkin ayrıntılar için <a href="/kvkk/">KVKK Aydınlatma Metni</a>’ni inceleyin.
+  </p>
+</LegalLayout>

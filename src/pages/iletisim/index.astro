@@ -1,0 +1,174 @@
+---
+// İletişim: iletişim kanalları, WhatsApp'a giden mesaj formu (e-posta alternatifiyle) ve harita.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Icon from '../../components/ui/Icon.astro';
+import BrandIcon from '../../components/ui/BrandIcon.astro';
+import { CONTACT, SITE, whatsappLink } from '../../config/site';
+import { breadcrumbSchema, localBusinessSchema } from '../../lib/schema';
+
+// E-posta sadece @ işaretinden sonra satır atlasın
+const [emailUser, emailDomain] = CONTACT.email.split('@');
+const address = [CONTACT.address.street, CONTACT.address.district, CONTACT.address.city].filter(Boolean).join(', ');
+const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(CONTACT.mapQuery)}&hl=tr&z=14&output=embed`;
+const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapQuery)}`;
+---
+
+<BaseLayout
+  title="İletişim"
+  description={`Güney Mağaza Dekorasyon iletişim: ${CONTACT.phones[0].display}, ${CONTACT.email}. ${address}. ${CONTACT.hours.label}.`}
+  jsonLd={[breadcrumbSchema([{ name: 'Ana sayfa', path: '/' }, { name: 'İletişim', path: '/iletisim/' }]), localBusinessSchema()]}
+>
+  <section class="border-b border-steel-200 bg-galvanized">
+    <div class="container-page pt-6 pb-10">
+      <Breadcrumbs items={[{ name: 'İletişim', href: '/iletisim/' }]} />
+      <h1 class="mt-6 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl">Bizimle iletişime geçin</h1>
+      <p class="mt-4 max-w-2xl text-lg text-steel-700">
+        Projenizi dinleyelim, ihtiyacınıza en uygun çözümü birlikte planlayalım. En hızlı yanıt için WhatsApp’tan
+        yazabilir veya doğrudan arayabilirsiniz.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href={whatsappLink('Merhaba, bilgi almak istiyorum.')} target="_blank" rel="noopener" class="btn-whatsapp rounded-full px-6">
+          <BrandIcon name="whatsapp" class="size-5" />
+          WhatsApp’tan yazın
+        </a>
+        <a href={`tel:${CONTACT.phones[0].tel}`} class="btn-outline rounded-full px-6">
+          <Icon name="Phone" class="size-4" />
+          {CONTACT.phones[0].display}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page grid gap-10 py-12 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:py-16">
+    <!-- İletişim bilgileri -->
+    <div class="space-y-4">
+      <div class="rounded-3xl border border-steel-200 p-6">
+        <h2 class="flex items-center gap-2 font-bold"><Icon name="Phone" class="size-5 text-signal-500" />Telefon</h2>
+        <ul class="mt-3 space-y-2" role="list">
+          {
+            CONTACT.phones.map((p) => (
+              <li class="flex items-center justify-between gap-4">
+                <a href={`tel:${p.tel}`} class="text-lg font-semibold hover:text-signal-500">{p.display}</a>
+                <span class="text-sm text-steel-500">{p.label}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="rounded-3xl border border-steel-200 p-6">
+          <h2 class="flex items-center gap-2 font-bold"><Icon name="Mail" class="size-5 text-signal-500" />E-posta</h2>
+          <a href={`mailto:${CONTACT.email}`} class="mt-3 block font-semibold hover:text-signal-500">{emailUser}@<wbr />{emailDomain}</a>
+        </div>
+        <div class="rounded-3xl border border-steel-200 p-6">
+          <h2 class="flex items-center gap-2 font-bold"><Icon name="Clock" class="size-5 text-signal-500" />Çalışma saatleri</h2>
+          <p class="mt-3 font-semibold">{CONTACT.hours.label}</p>
+        </div>
+      </div>
+      <div class="rounded-3xl border border-steel-200 p-6">
+        <h2 class="flex items-center gap-2 font-bold"><Icon name="MapPin" class="size-5 text-signal-500" />Adres</h2>
+        <p class="mt-3 font-semibold">{address}</p>
+        <a href={mapLink} target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-signal-500 hover:underline">
+          Yol tarifi al
+          <Icon name="ArrowUpRight" class="size-4" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Mesaj formu -->
+    <form class="rounded-3xl bg-galvanized p-6 sm:p-8" data-contact-form novalidate>
+      <h2 class="text-2xl font-bold">Bize yazın</h2>
+      <p class="mt-1 text-steel-500">Mesajınız WhatsApp üzerinden doğrudan bize ulaşır. İsterseniz e-posta ile de gönderebilirsiniz.</p>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <label class="field"><span>Ad soyad</span><input name="ad" type="text" required autocomplete="name" /></label>
+        <label class="field"><span>Telefon</span><input name="telefon" type="tel" required autocomplete="tel" inputmode="tel" /></label>
+        <label class="field sm:col-span-2"><span>Konu <span class="font-normal text-steel-500">(isteğe bağlı)</span></span><input name="konu" type="text" /></label>
+        <label class="field sm:col-span-2"><span>Mesajınız</span><textarea name="mesaj" rows="5" required></textarea></label>
+      </div>
+      <p class="mt-4 hidden text-sm font-medium text-signal-600" role="alert" data-contact-error>Ad soyad, telefon ve mesaj alanlarını doldurun.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <button type="submit" value="whatsapp" class="btn-whatsapp rounded-full px-6">
+          <BrandIcon name="whatsapp" class="size-5" />
+          WhatsApp ile gönder
+        </button>
+        <button type="submit" value="eposta" class="btn-outline rounded-full px-6">
+          <Icon name="Mail" class="size-4" />
+          E-posta ile gönder
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <section class="container-page pb-16" aria-label="Konum haritası">
+    <div class="overflow-hidden rounded-3xl border border-steel-200">
+      <iframe
+        src={mapEmbed}
+        title={`${SITE.name} konum haritası`}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="block h-[26rem] w-full lg:h-[32rem]"></iframe>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .field {
+    display: grid;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    border: 1px solid var(--color-steel-200);
+    border-radius: 0.75rem;
+    background: white;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    outline: none;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    border-color: var(--color-steel-500);
+  }
+  .field [aria-invalid='true'] {
+    border-color: var(--color-signal-500);
+  }
+</style>
+
+<script>
+  import { CONTACT } from '../../config/site';
+
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]')!;
+  const error = form.querySelector<HTMLElement>('[data-contact-error]')!;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const via = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value ?? 'whatsapp';
+    const required = ['ad', 'telefon', 'mesaj'].map((k) => form.elements.namedItem(k) as HTMLInputElement);
+    required.forEach((el) => el.setAttribute('aria-invalid', String(!el.value.trim())));
+    const missing = required.find((el) => !el.value.trim());
+    if (missing) {
+      error.classList.remove('hidden');
+      missing.focus();
+      return;
+    }
+    error.classList.add('hidden');
+
+    const data = new FormData(form);
+    const get = (k: string) => String(data.get(k) ?? '').trim();
+    const subject = get('konu') || 'Web sitesinden mesaj';
+    const intro = get('konu') ? `Merhaba, ${get('konu')} hakkında yazıyorum.` : 'Merhaba, web sitenizden yazıyorum.';
+    const body = [get('mesaj'), '', `Ad soyad: ${get('ad')}`, `Telefon: ${get('telefon')}`].join('\n');
+
+    if (via === 'eposta') {
+      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } else {
+      const text = [intro, '', body].join('\n');
+      window.open(`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    }
+  });
+</script>

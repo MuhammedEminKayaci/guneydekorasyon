@@ -6,7 +6,8 @@ import type { ImageMetadata } from 'astro';
 import manken from '../assets/images/anasayfa/kategoriler/kapak-1.png';
 import raf from '../assets/images/anasayfa/kategoriler/kapak-2.png';
 import aski from '../assets/images/anasayfa/kategoriler/kapak-3.png';
-import stand from '../assets/images/anasayfa/kategoriler/kapak-4.png';
+// Standlar kategorisindeki ürünler konfeksiyon askılığı: kapak da katalogdan
+import stand from '../assets/images/urunler/standlar/9.png';
 import orta from '../assets/images/anasayfa/kategoriler/kapak-5.png';
 
 // Mega menü tanıtım panelleri (mağaza render'ları)
@@ -82,7 +83,7 @@ export const CATEGORIES: Category[] = [
   {
     slug: 'standlar',
     name: 'Standlar',
-    summary: 'Teşhir masaları ve ürün standları',
+    summary: 'Tekerlekli konfeksiyon askılıkları ve standlar',
     image: stand,
     children: [],
   },

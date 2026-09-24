@@ -4,6 +4,8 @@ import { Font } from 'astro:assets';
 import Seo, { type Props as SeoProps } from '../components/seo/Seo.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import QuickView from '../components/product/QuickView.astro';
+import MobileActionBar from '../components/layout/MobileActionBar.astro';
 import { SITE } from '../config/site';
 import '../styles/global.css';
 
@@ -21,11 +23,13 @@ export type Props = SeoProps;
     <Font cssVariable="--font-archivo" preload />
     <Seo {...Astro.props} />
   </head>
-  <body>
+  <body class="pb-[calc(4rem+env(safe-area-inset-bottom))] lg:pb-0">
     <Header />
     <main id="icerik">
       <slot />
     </main>
     <Footer />
+    <QuickView />
+    <MobileActionBar />
   </body>
 </html>

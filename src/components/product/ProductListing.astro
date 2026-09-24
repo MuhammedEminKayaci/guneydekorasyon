@@ -1,0 +1,487 @@
+---
+// E-ticaret tarzı ürün listesi: arama, çok seçimli filtreler (anlık sayılarla), sıralama, sayfalama.
+// Tüm ürünler sunucuda HTML olarak basılır (SEO); filtreleme tarayıcıda yapılır ve durum URL'ye yazılır
+// (?q=&kategori=&renk=&cinsiyet=&tip=&kol=&sirala=&sayfa=), böylece filtreli sayfa paylaşılabilir.
+import Icon from '../ui/Icon.astro';
+import BrandIcon from '../ui/BrandIcon.astro';
+import ProductCard from './ProductCard.astro';
+import { COLOR_SWATCHES, COLOR_ORDER } from '../../lib/colors';
+import { ATTR_LABELS, type AttrKey, type Product } from '../../lib/catalog';
+import { whatsappLink } from '../../config/site';
+
+export interface Props {
+  products: Product[];
+  /** Alt kategori filtresi: ürün yolunun `depth`. elemanı seçeneklerden biriyle eşleşir */
+  categoryFacet?: { label: string; depth: number; options: { slug: string; name: string }[] };
+  /** Kartlarda kategori adını göster (karma listeler) */
+  showCategory?: boolean;
+  /** Sonuç yokken WhatsApp mesajında geçecek bağlam */
+  context: string;
+}
+
+const { products, categoryFacet, showCategory = false, context } = Astro.props;
+const PAGE_SIZE = 24;
+
+const slug = (s: string) =>
+  s
+    .toLocaleLowerCase('tr')
+    .replace(/ç/g, 'c').replace(/ğ/g, 'g').replace(/ı/g, 'i')
+    .replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ü/g, 'u')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const FIXED_ORDER: Partial<Record<AttrKey, string[]>> = {
+  renk: COLOR_ORDER,
+  cinsiyet: ['Kadın', 'Erkek', 'Çocuk'],
+  tip: ['Tam boy', 'Gövde', 'Kafa', 'Alt beden', 'Bacak ve ayak'],
+  kol: ['Kollu', 'Kolsuz'],
+};
+
+type Facet = { key: string; label: string; options: { value: string; label: string; count: number }[] };
+const facets: Facet[] = [];
+
+if (categoryFacet) {
+  const options = categoryFacet.options
+    .map((o) => ({ value: o.slug, label: o.name, count: products.filter((p) => p.path[categoryFacet.depth] === o.slug).length }))
+    .filter((o) => o.count > 0);
+  if (options.length > 1) facets.push({ key: 'kategori', label: categoryFacet.label, options });
+}
+// Kategoriyle birebir örtüşen özellik filtresi tekrar olur (ör. "Kadın Polyester Manken" ↔ "Kadın"): gösterme
+const mirrorsCategory = (key: AttrKey) => {
+  if (!categoryFacet) return false;
+  const byCat = new Map<string, Set<string | undefined>>();
+  products.forEach((p) => {
+    const c = p.path[categoryFacet.depth];
+    if (!byCat.has(c)) byCat.set(c, new Set());
+    byCat.get(c)!.add(p.attrs[key]);
+  });
+  const values = new Set(products.map((p) => p.attrs[key]));
+  return [...byCat.values()].every((v) => v.size === 1) && values.size === byCat.size;
+};
+
+for (const key of ['renk', 'cinsiyet', 'tip', 'kol'] as AttrKey[]) {
+  const counts = new Map<string, number>();
+  products.forEach((p) => p.attrs[key] && counts.set(p.attrs[key]!, (counts.get(p.attrs[key]!) ?? 0) + 1));
+  if (counts.size < 2 || mirrorsCategory(key)) continue;
+  const order = FIXED_ORDER[key] ?? [];
+  const options = [...counts.entries()]
+    .sort((a, b) => {
+      const ia = order.indexOf(a[0]);
+      const ib = order.indexOf(b[0]);
+      return ia >= 0 && ib >= 0 ? ia - ib : b[1] - a[1];
+    })
+    .map(([value, count]) => ({ value: slug(value), label: value, count }));
+  facets.push({ key, label: ATTR_LABELS[key], options });
+}
+
+const sorted = [...products].sort((a, b) => a.order - b.order);
+---
+
+<section class="product-listing scroll-mt-40" data-listing data-page-size={PAGE_SIZE} data-kat-depth={categoryFacet?.depth ?? ''} aria-label="Ürünler">
+  <div class="grid gap-8 lg:grid-cols-[16.5rem_1fr] xl:gap-10">
+    <!-- Filtre paneli: mobilde tam ekran, masaüstünde yapışkan kenar çubuğu -->
+    <aside
+      id="filtreler"
+      class="filter-panel fixed inset-0 z-[65] flex flex-col bg-white lg:static lg:z-auto lg:block lg:bg-transparent"
+      aria-label="Filtreler"
+      data-filter-panel
+    >
+      <div class="flex h-16 shrink-0 items-center justify-between border-b border-steel-200 px-5 lg:hidden">
+        <p class="text-lg font-bold">Filtreler</p>
+        <button type="button" class="-mr-2 grid size-10 place-items-center rounded-full hover:bg-galvanized" aria-label="Filtreleri kapat" data-filter-close>
+          <Icon name="X" class="size-5" />
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto px-5 lg:sticky lg:top-40 lg:max-h-[calc(100dvh-11rem)] lg:overflow-y-auto lg:px-0 lg:pr-2">
+        {
+          facets.length === 0 && (
+            <p class="py-6 text-sm text-steel-500">Bu kategoride filtrelenecek ek özellik yok. Arama kutusunu kullanabilirsiniz.</p>
+          )
+        }
+        {
+          facets.map((facet) => (
+            <details class="facet group border-b border-steel-200 py-1 last:border-b-0" open>
+              <summary class="flex cursor-pointer list-none items-center justify-between py-3 font-bold [&::-webkit-details-marker]:hidden">
+                {facet.label}
+                <Icon name="ChevronDown" class="size-4 text-steel-500 transition-transform group-open:rotate-180" />
+              </summary>
+              <ul class="space-y-1 pb-3" role="list">
+                {facet.options.map((o) => (
+                  <li>
+                    <label class="facet-option flex cursor-pointer items-center gap-2.5 rounded-lg px-2 py-1.5 text-[0.95rem] transition-colors hover:bg-galvanized has-[:disabled]:cursor-default has-[:disabled]:opacity-40 has-[:disabled]:hover:bg-transparent">
+                      <input type="checkbox" name={facet.key} value={o.value} data-label={o.label} class="peer sr-only" />
+                      {facet.key === 'renk' ? (
+                        <span
+                          class="size-5 shrink-0 rounded-full border border-steel-200 ring-2 ring-transparent ring-offset-2 peer-checked:ring-signal-500 peer-focus-visible:ring-steel-900"
+                          style={`background:${COLOR_SWATCHES[o.label] ?? '#ccc'}`}
+                        />
+                      ) : (
+                        <span class="grid size-5 shrink-0 place-items-center rounded-md border border-steel-300 bg-white text-white peer-checked:border-signal-500 peer-checked:bg-signal-500 peer-focus-visible:ring-2 peer-focus-visible:ring-steel-900">
+                          <Icon name="Check" class="size-3.5" />
+                        </span>
+                      )}
+                      <span class="min-w-0 flex-1 truncate peer-checked:font-semibold">{o.label}</span>
+                      <span class="text-xs text-steel-500 tabular-nums" data-count>
+                        {o.count}
+                      </span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))
+        }
+      </div>
+
+      <div class="grid shrink-0 grid-cols-[auto_1fr] gap-3 border-t border-steel-200 p-4 lg:hidden">
+        <button type="button" class="btn-outline rounded-full" data-clear-all>Temizle</button>
+        <button type="button" class="btn-primary rounded-full" data-filter-close>
+          <span data-apply-label>Ürünleri göster</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="min-w-0">
+      <!-- Araç çubuğu -->
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="relative min-w-0 flex-1 basis-full sm:basis-64">
+          <label class="sr-only" for="liste-arama">Bu listede ara</label>
+          <Icon name="Search" class="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-steel-500" />
+          <input
+            id="liste-arama"
+            type="search"
+            placeholder="Bu listede ara: ad veya katalog no"
+            autocomplete="off"
+            class="h-11 w-full rounded-full border border-steel-200 bg-white pr-4 pl-10 text-base outline-none transition-colors focus:border-steel-900 sm:text-[0.95rem]"
+            data-list-search
+          />
+        </div>
+        <button type="button" class="btn-outline min-h-11 rounded-full px-4 lg:hidden" data-filter-open aria-controls="filtreler">
+          <Icon name="SlidersHorizontal" class="size-4" />
+          Filtrele
+          <span class="grid h-5 min-w-5 place-items-center rounded-full bg-signal-500 px-1 text-xs text-white empty:hidden" data-active-count></span>
+        </button>
+        <label class="relative ml-auto">
+          <span class="sr-only">Sırala</span>
+          <select
+            class="h-11 appearance-none rounded-full border border-steel-200 bg-white pr-10 pl-4 text-base font-medium outline-none focus:border-steel-900 sm:text-[0.95rem]"
+            data-sort
+          >
+            <option value="onerilen">Önerilen sıralama</option>
+            <option value="ad-artan">Ada göre (A–Z)</option>
+            <option value="ad-azalan">Ada göre (Z–A)</option>
+            <option value="katalog">Katalog no</option>
+          </select>
+          <Icon name="ChevronDown" class="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-steel-500" />
+        </label>
+      </div>
+
+      <div class="mt-4 flex min-h-8 flex-wrap items-center gap-2">
+        <p class="mr-2 text-sm text-steel-500" aria-live="polite" data-result-count>
+          <strong class="text-steel-900">{products.length}</strong> ürün
+        </p>
+        <div class="contents" data-chips></div>
+      </div>
+
+      <ul class="mt-5 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-5 xl:grid-cols-4" role="list" data-grid>
+        {
+          sorted.map((p, i) => (
+            <ProductCard product={p} eager={i < 4} showCategory={showCategory} hidden={i >= PAGE_SIZE} />
+          ))
+        }
+      </ul>
+
+      <div class="hidden rounded-3xl bg-galvanized px-6 py-14 text-center" data-empty>
+        <Icon name="SearchX" class="mx-auto size-10 text-steel-300" />
+        <p class="mt-4 text-lg font-bold">Seçtiğiniz kriterlere uygun ürün bulunamadı</p>
+        <p class="mx-auto mt-2 max-w-md text-steel-500">
+          Filtreleri azaltmayı deneyin. Aradığınız modeli bulamadıysanız bize yazın, ölçünüze göre üretelim.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <button type="button" class="btn-outline rounded-full" data-clear-all>Filtreleri temizle</button>
+          <a href={whatsappLink(`Merhaba, sitenizde ${context} içinde aradığım ürünü bulamadım.`)} target="_blank" rel="noopener" class="btn-whatsapp rounded-full">
+            <BrandIcon name="whatsapp" class="size-5" />
+            WhatsApp'tan sorun
+          </a>
+        </div>
+      </div>
+
+      <nav class="mt-12 flex flex-wrap items-center justify-center gap-1.5" aria-label="Sayfalar" data-pagination></nav>
+    </div>
+  </div>
+</section>
+
+<!-- JS kapalıysa tüm ürünler görünsün -->
+<noscript><style>[data-product][hidden]{display:block!important}</style></noscript>
+
+<style>
+  /* Mobil filtre paneli kapalıyken ekran dışında */
+  @media (max-width: 63.99rem) {
+    .filter-panel {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition:
+        transform 280ms var(--ease-out-quart),
+        visibility 0s linear 280ms;
+    }
+    .filter-panel[data-open] {
+      transform: none;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+  }
+</style>
+
+<script>
+  import { normalize, matchesAll } from '../../scripts/catalog-client';
+
+  const slug = (s: string) => normalize(s).replace(/\s+/g, '-');
+
+  document.querySelectorAll<HTMLElement>('[data-listing]').forEach((root) => {
+    const PAGE_SIZE = Number(root.dataset.pageSize);
+    const katDepth = root.dataset.katDepth === '' ? -1 : Number(root.dataset.katDepth);
+    const grid = root.querySelector<HTMLElement>('[data-grid]')!;
+    const panel = root.querySelector<HTMLElement>('[data-filter-panel]')!;
+    const searchInput = root.querySelector<HTMLInputElement>('[data-list-search]')!;
+    const sortSelect = root.querySelector<HTMLSelectElement>('[data-sort]')!;
+    const countEl = root.querySelector<HTMLElement>('[data-result-count]')!;
+    const chipsEl = root.querySelector<HTMLElement>('[data-chips]')!;
+    const emptyEl = root.querySelector<HTMLElement>('[data-empty]')!;
+    const pager = root.querySelector<HTMLElement>('[data-pagination]')!;
+    const activeCount = root.querySelector<HTMLElement>('[data-active-count]');
+    const applyLabel = root.querySelector<HTMLElement>('[data-apply-label]');
+    const inputs = [...panel.querySelectorAll<HTMLInputElement>('input[type=checkbox]')];
+    const facetKeys = [...new Set(inputs.map((i) => i.name))];
+    const facetLabels: Record<string, string> = {};
+    panel.querySelectorAll('details.facet').forEach((d) => {
+      const key = d.querySelector<HTMLInputElement>('input')?.name;
+      if (key) facetLabels[key] = d.querySelector('summary')!.textContent!.trim();
+    });
+
+    const cards = [...grid.querySelectorAll<HTMLElement>('[data-product]')].map((el) => {
+      const kat = (el.dataset.kat ?? '').split('/');
+      return {
+        el,
+        words: normalize(el.dataset.text ?? '').split(' '),
+        name: el.dataset.name ?? '',
+        code: el.dataset.code ?? '',
+        order: Number(el.dataset.order),
+        attrs: {
+          kategori: katDepth >= 0 ? kat[katDepth] : '',
+          renk: el.dataset.renk ? slug(el.dataset.renk) : '',
+          cinsiyet: el.dataset.cinsiyet ? slug(el.dataset.cinsiyet) : '',
+          tip: el.dataset.tip ? slug(el.dataset.tip) : '',
+          kol: el.dataset.kol ? slug(el.dataset.kol) : '',
+        } as Record<string, string>,
+      };
+    });
+    type Card = (typeof cards)[number];
+
+    // ---- Durum ----
+    const state = {
+      q: '',
+      sel: Object.fromEntries(facetKeys.map((k) => [k, new Set<string>()])) as Record<string, Set<string>>,
+      sort: 'onerilen',
+      page: 1,
+    };
+
+    const readUrl = () => {
+      const params = new URLSearchParams(location.search);
+      state.q = params.get('q') ?? '';
+      facetKeys.forEach((k) => (state.sel[k] = new Set((params.get(k) ?? '').split(',').filter(Boolean))));
+      state.sort = params.get('sirala') ?? 'onerilen';
+      state.page = Math.max(1, Number(params.get('sayfa')) || 1);
+      searchInput.value = state.q;
+      sortSelect.value = [...sortSelect.options].some((o) => o.value === state.sort) ? state.sort : 'onerilen';
+      inputs.forEach((i) => (i.checked = state.sel[i.name].has(i.value)));
+    };
+
+    const writeUrl = () => {
+      const params = new URLSearchParams(location.search);
+      const set = (k: string, v: string) => (v ? params.set(k, v) : params.delete(k));
+      set('q', state.q.trim());
+      facetKeys.forEach((k) => set(k, [...state.sel[k]].join(',')));
+      set('sirala', state.sort === 'onerilen' ? '' : state.sort);
+      set('sayfa', state.page > 1 ? String(state.page) : '');
+      const qs = params.toString();
+      history.replaceState(history.state, '', `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`);
+    };
+
+    // ---- Eşleşme ----
+    const tokens = () => normalize(state.q).split(' ').filter(Boolean);
+    const matches = (c: Card, except?: string) => {
+      const t = tokens();
+      if (t.length && !matchesAll(c.words, t)) return false;
+      return facetKeys.every((k) => k === except || state.sel[k].size === 0 || state.sel[k].has(c.attrs[k]));
+    };
+
+    const collator = new Intl.Collator('tr', { numeric: true });
+    const sorters: Record<string, (a: Card, b: Card) => number> = {
+      onerilen: (a, b) => a.order - b.order,
+      'ad-artan': (a, b) => collator.compare(a.name, b.name) || a.order - b.order,
+      'ad-azalan': (a, b) => collator.compare(b.name, a.name) || a.order - b.order,
+      katalog: (a, b) => collator.compare(a.code, b.code),
+    };
+
+    // ---- Çizim ----
+    function apply({ scroll = false } = {}) {
+      const matched = cards.filter((c) => matches(c)).sort(sorters[state.sort] ?? sorters.onerilen);
+      const pages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
+      state.page = Math.min(state.page, pages);
+      const start = (state.page - 1) * PAGE_SIZE;
+      const visible = new Set(matched.slice(start, start + PAGE_SIZE));
+
+      // Sıralı ve görünür kartlar önce; DOM sırası = görsel sıra (klavye gezinmesi için)
+      const matchedSet = new Set(matched);
+      [...matched, ...cards.filter((c) => !matchedSet.has(c))].forEach((c) => {
+        c.el.hidden = !visible.has(c);
+        grid.appendChild(c.el);
+      });
+
+      // Seçenek sayıları: diğer filtreler uygulanmış haliyle
+      inputs.forEach((input) => {
+        const n = cards.filter((c) => matches(c, input.name) && c.attrs[input.name] === input.value).length;
+        input.closest('label')!.querySelector('[data-count]')!.textContent = String(n);
+        input.disabled = n === 0 && !input.checked;
+      });
+      // Seçimlerle tamamen boşalan filtre grubunu gizle (ör. plastik mankende renk yok)
+      panel.querySelectorAll<HTMLDetailsElement>('details.facet').forEach((d) => {
+        d.hidden = [...d.querySelectorAll('input')].every((i) => i.disabled);
+      });
+
+      const total = matched.length;
+      countEl.innerHTML = `<strong class="text-steel-900">${total}</strong> ürün`;
+      if (applyLabel) applyLabel.textContent = `${total} ürünü göster`;
+      emptyEl.classList.toggle('hidden', total > 0);
+      grid.hidden = total === 0;
+
+      renderChips();
+      renderPager(pages);
+      writeUrl();
+      if (scroll) root.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
+
+    function renderChips() {
+      const chip = (label: string, attrs: string) =>
+        `<button type="button" class="inline-flex items-center gap-1.5 rounded-full bg-steel-950 py-1.5 pr-2.5 pl-3.5 text-sm font-medium text-white hover:bg-signal-500" ${attrs}>${label}<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>`;
+      const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+      let html = '';
+      let n = 0;
+      if (state.q.trim()) {
+        html += chip(`"${esc(state.q.trim())}"`, 'data-chip-q aria-label="Aramayı kaldır"');
+      }
+      facetKeys.forEach((k) =>
+        state.sel[k].forEach((v) => {
+          const label = inputs.find((i) => i.name === k && i.value === v)?.dataset.label ?? v;
+          html += chip(`${esc(facetLabels[k] ?? k)}: ${esc(label)}`, `data-chip-key="${k}" data-chip-value="${v}" aria-label="${esc(label)} filtresini kaldır"`);
+          n++;
+        }),
+      );
+      if (html) html += `<button type="button" class="ml-1 text-sm font-semibold text-signal-500 hover:underline" data-clear-all>Tümünü temizle</button>`;
+      chipsEl.innerHTML = html;
+      if (activeCount) activeCount.textContent = n ? String(n) : '';
+    }
+
+    function renderPager(pages: number) {
+      if (pages <= 1) {
+        pager.innerHTML = '';
+        return;
+      }
+      const p = state.page;
+      const nums = new Set([1, pages, p - 1, p, p + 1].filter((n) => n >= 1 && n <= pages));
+      const sortedNums = [...nums].sort((a, b) => a - b);
+      const btn = (label: string, page: number, opts: { current?: boolean; disabled?: boolean; aria?: string } = {}) =>
+        `<button type="button" class="grid h-11 min-w-11 place-items-center rounded-full px-3 text-sm font-semibold transition-colors ${
+          opts.current ? 'bg-steel-950 text-white' : 'border border-steel-200 hover:border-steel-900'
+        } disabled:pointer-events-none disabled:opacity-40" data-page="${page}" ${opts.current ? 'aria-current="page"' : ''} ${
+          opts.disabled ? 'disabled' : ''
+        } ${opts.aria ? `aria-label="${opts.aria}"` : ''}>${label}</button>`;
+      let html = btn('‹', p - 1, { disabled: p === 1, aria: 'Önceki sayfa' });
+      sortedNums.forEach((n, i) => {
+        if (i > 0 && n - sortedNums[i - 1] > 1) html += '<span class="px-1 text-steel-500">…</span>';
+        html += btn(String(n), n, { current: n === p, aria: `${n}. sayfa` });
+      });
+      html += btn('›', p + 1, { disabled: p === pages, aria: 'Sonraki sayfa' });
+      pager.innerHTML = html;
+    }
+
+    // ---- Olaylar ----
+    inputs.forEach((input) =>
+      input.addEventListener('change', () => {
+        const set = state.sel[input.name];
+        if (input.checked) set.add(input.value);
+        else set.delete(input.value);
+        state.page = 1;
+        apply();
+      }),
+    );
+
+    let searchTimer: number | undefined;
+    searchInput.addEventListener('input', () => {
+      window.clearTimeout(searchTimer);
+      searchTimer = window.setTimeout(() => {
+        state.q = searchInput.value;
+        state.page = 1;
+        apply();
+      }, 150);
+    });
+
+    sortSelect.addEventListener('change', () => {
+      state.sort = sortSelect.value;
+      state.page = 1;
+      apply();
+    });
+
+    const clearAll = () => {
+      state.q = '';
+      searchInput.value = '';
+      facetKeys.forEach((k) => state.sel[k].clear());
+      inputs.forEach((i) => (i.checked = false));
+      state.page = 1;
+      apply();
+    };
+
+    root.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      if (t.closest('[data-clear-all]')) return clearAll();
+      const chip = t.closest<HTMLElement>('[data-chip-key]');
+      if (chip) {
+        const { chipKey, chipValue } = chip.dataset;
+        state.sel[chipKey!].delete(chipValue!);
+        inputs.forEach((i) => i.name === chipKey && i.value === chipValue && (i.checked = false));
+        state.page = 1;
+        return apply();
+      }
+      if (t.closest('[data-chip-q]')) {
+        state.q = '';
+        searchInput.value = '';
+        state.page = 1;
+        return apply();
+      }
+      const pageBtn = t.closest<HTMLButtonElement>('[data-page]');
+      if (pageBtn && !pageBtn.disabled) {
+        state.page = Number(pageBtn.dataset.page);
+        return apply({ scroll: true });
+      }
+    });
+
+    // Mobil filtre paneli
+    const openPanel = () => {
+      panel.setAttribute('data-open', '');
+      document.documentElement.style.overflow = 'hidden';
+      panel.querySelector<HTMLElement>('[data-filter-close]')?.focus();
+    };
+    const closePanel = () => {
+      panel.removeAttribute('data-open');
+      document.documentElement.style.overflow = '';
+    };
+    root.querySelector('[data-filter-open]')?.addEventListener('click', openPanel);
+    panel.querySelectorAll('[data-filter-close]').forEach((b) => b.addEventListener('click', closePanel));
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && panel.hasAttribute('data-open') && closePanel());
+    matchMedia('(min-width: 64rem)').addEventListener('change', (e) => e.matches && closePanel());
+
+    readUrl();
+    apply();
+  });
+</script>

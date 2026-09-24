@@ -24,5 +24,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Arama sonuçları ve 404 dizine eklenmez
+      filter: (page) => !/\/(arama|404)\/?$/.test(new URL(page).pathname),
+    }),
+  ],
 });

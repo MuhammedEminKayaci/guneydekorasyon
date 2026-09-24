@@ -1,6 +1,7 @@
 ---
-// Anlık önerili ürün/kategori araması. Header'da (masaüstü) ve mobil ikinci satırda kullanılır.
-// İndeks sayfaya bir kez gömülür (#arama-indeksi), bu bileşen onu okur.
+// Anlık önerili arama: kategoriler + ürünler (katalog no ile de aranabilir).
+// Veri /katalog.json'dan ilk odakta indirilir. Header'da (masaüstü) ve mobil ikinci satırda kullanılır.
+// Ürün önerisine tıklanınca hızlı bakış açılır; link yedeği ürünün kategori sayfasıdır (katalog no ile filtreli).
 import Icon from '../ui/Icon.astro';
 import { POPULAR_SEARCHES } from '../../lib/search-index';
 
@@ -16,7 +17,7 @@ const { id, class: className, hotkey = false } = Astro.props;
 
 <div class:list={['header-search relative', className]} data-search data-hotkey={hotkey ? '' : undefined}>
   <form action="/arama/" method="get" role="search" class="relative" data-search-form>
-    <label for={id} class="sr-only">Ürün veya kategori ara</label>
+    <label for={id} class="sr-only">Ürün, kategori veya katalog no ara</label>
     <Icon
       name="Search"
       class="pointer-events-none absolute top-1/2 left-4 size-4.5 -translate-y-1/2 text-steel-500"
@@ -25,14 +26,14 @@ const { id, class: className, hotkey = false } = Astro.props;
       id={id}
       name="q"
       type="search"
-      placeholder="Ürün, kategori veya model ara…"
+      placeholder="Ürün, kategori veya katalog no ara…"
       autocomplete="off"
       spellcheck="false"
       role="combobox"
       aria-expanded="false"
       aria-controls={`${id}-liste`}
       aria-autocomplete="list"
-      class="peer h-11 w-full rounded-full border border-transparent bg-white pr-24 pl-11 text-base text-steel-900 lg:text-[0.95rem] shadow-[inset_0_0_0_1px_var(--color-steel-200)] transition-shadow outline-none placeholder:text-steel-500 focus:shadow-[inset_0_0_0_2px_var(--color-signal-500)] lg:h-12 [&::-webkit-search-cancel-button]:hidden"
+      class="peer h-11 w-full rounded-full border border-transparent bg-white pr-24 pl-11 text-base text-steel-900 shadow-[inset_0_0_0_1px_var(--color-steel-200)] transition-shadow outline-none placeholder:text-steel-500 focus:shadow-[inset_0_0_0_2px_var(--color-signal-500)] lg:h-12 lg:text-[0.95rem] [&::-webkit-search-cancel-button]:hidden"
       data-search-input
     />
     {
@@ -74,7 +75,14 @@ const { id, class: className, hotkey = false } = Astro.props;
         }
       </div>
     </div>
-    <ul id={`${id}-liste`} role="listbox" aria-label="Arama önerileri" class="max-h-[60vh] overflow-y-auto py-2" data-search-list></ul>
+    <div
+      id={`${id}-liste`}
+      role="listbox"
+      aria-label="Arama önerileri"
+      class="max-h-[min(60vh,32rem)] overflow-y-auto"
+      data-search-list
+    >
+    </div>
     <p class="hidden px-5 py-6 text-sm text-steel-500" data-search-empty></p>
     <a
       href="/arama/"
@@ -88,61 +96,56 @@ const { id, class: className, hotkey = false } = Astro.props;
 </div>
 
 <script>
-  import type { SearchItem } from '../../lib/search-index';
+  import type { CatalogData, CatalogProduct, SearchCategory } from '../../lib/search-index';
+  import { loadCatalog, normalize, wordMatch, matchesAll, escapeHtml } from '../../scripts/catalog-client';
 
-  const normalize = (s: string) =>
-    s
-      .toLocaleLowerCase('tr')
-      .replace(/ç/g, 'c').replace(/ğ/g, 'g').replace(/ı/g, 'i')
-      .replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ü/g, 'u')
-      .replace(/[^a-z0-9× ]+/g, ' ')
-      .trim();
+  type Indexed<T> = T & { _name: string[]; _all: string[] };
+  type Option = { href: string; productId?: string };
+  let index: { categories: Indexed<SearchCategory>[]; products: Indexed<CatalogProduct>[] } | undefined;
 
-  const indexEl = document.getElementById('arama-indeksi');
-  const index: (SearchItem & { _name: string[]; _all: string[] })[] = indexEl
-    ? (JSON.parse(indexEl.textContent || '[]') as SearchItem[]).map((item) => ({
-        ...item,
-        _name: normalize(item.name).split(/\s+/),
-        _all: normalize(`${item.name} ${item.path} ${item.terms}`).split(/\s+/),
-      }))
-    : [];
+  const words = (s: string) => normalize(s).split(' ').filter(Boolean);
+  const buildIndex = (data: CatalogData) => ({
+    categories: data.categories.map((c) => ({ ...c, _name: words(c.name), _all: words(`${c.name} ${c.path} ${c.terms}`) })),
+    products: data.products.map((p) => ({
+      ...p,
+      _name: words(p.name),
+      _all: words(`${p.name} ${p.code} ${p.cat} ${Object.values(p.attrs).join(' ')}`),
+    })),
+  });
 
-  // "rafı" → "raf", "askılar" → "aski": kelime kökü yaklaşık eşleşmesi
-  const wordMatch = (word: string, token: string) =>
-    word.startsWith(token) || (word.length >= 3 && token.startsWith(word));
-
-  const search = (query: string) => {
-    const tokens = normalize(query).split(/\s+/).filter(Boolean);
-    if (!tokens.length) return [];
-    return index
-      .map((item) => {
-        if (!tokens.every((t) => item._all.some((w) => wordMatch(w, t)))) return null;
-        // Puan: adda geçen her kelime +2, aranan kelimelerin hepsi adda geçiyorsa +3,
-        // ad aranan bir kelimeyle başlıyorsa +2, ana kategori +1
-        const inName = tokens.filter((t) => item._name.some((w) => wordMatch(w, t))).length;
-        let score = inName * 2;
-        if (inName === tokens.length) score += 3;
-        if (tokens.some((t) => wordMatch(item._name[0] ?? '', t))) score += 2;
-        if (item.path === 'Kategori') score += 1;
-        return { item, score };
-      })
-      .filter((r): r is NonNullable<typeof r> => r !== null)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 7)
-      .map((r) => r.item);
-  };
-
-  const escape = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  // Puan: adda geçen her kelime +2, aranan kelimelerin hepsi adda geçiyorsa +3,
+  // ad aranan bir kelimeyle başlıyorsa +2; katalog no ile başlayan ürün +10
+  function score(item: { _name: string[] }, tokens: string[]) {
+    const inName = tokens.filter((t) => item._name.some((w) => wordMatch(w, t))).length;
+    let s = inName * 2;
+    if (inName === tokens.length) s += 3;
+    if (tokens.some((t) => wordMatch(item._name[0] ?? '', t))) s += 2;
+    return s;
+  }
+  function rank<T extends { _name: string[]; _all: string[] }>(
+    items: T[],
+    tokens: string[],
+    limit: number,
+    codeOf?: (i: T) => string,
+  ) {
+    const q = tokens.join(' ');
+    return items
+      .filter((i) => matchesAll(i._all, tokens))
+      .map((i) => ({ i, s: score(i, tokens) + (codeOf && normalize(codeOf(i)).startsWith(q) ? 10 : 0) }))
+      .sort((a, b) => b.s - a.s)
+      .slice(0, limit)
+      .map((r) => r.i);
+  }
 
   document.querySelectorAll<HTMLElement>('[data-search]').forEach((root) => {
     const form = root.querySelector<HTMLFormElement>('[data-search-form]')!;
     const input = root.querySelector<HTMLInputElement>('[data-search-input]')!;
     const panel = root.querySelector<HTMLElement>('[data-search-panel]')!;
     const popular = root.querySelector<HTMLElement>('[data-search-popular]')!;
-    const list = root.querySelector<HTMLUListElement>('[data-search-list]')!;
+    const list = root.querySelector<HTMLElement>('[data-search-list]')!;
     const empty = root.querySelector<HTMLElement>('[data-search-empty]')!;
     const all = root.querySelector<HTMLAnchorElement>('[data-search-all]')!;
-    let results: SearchItem[] = [];
+    let options: Option[] = [];
     let active = -1;
 
     const open = () => {
@@ -163,35 +166,83 @@ const { id, class: className, hotkey = false } = Astro.props;
       el?.scrollIntoView({ block: 'nearest' });
     };
 
+    const optionHtml = (i: number, opt: Option, thumb: string, title: string, sub: string, cover = false) => `
+      <div id="${input.id}-oneri-${i}" role="option" aria-selected="false" data-index="${i}" class="aria-selected:[&>a]:bg-galvanized">
+        <a href="${opt.href}" tabindex="-1" ${opt.productId ? `data-product-id="${opt.productId}"` : ''} class="mx-2 flex items-center gap-3 rounded-xl px-3 py-2 hover:bg-galvanized">
+          <img src="${thumb}" alt="" width="44" height="44" loading="lazy" class="size-11 shrink-0 rounded-lg border border-steel-200 bg-white ${cover ? 'object-cover' : 'object-contain p-0.5'}" />
+          <span class="min-w-0">
+            <span class="block truncate font-semibold">${escapeHtml(title)}</span>
+            <span class="block truncate text-xs text-steel-500">${escapeHtml(sub)}</span>
+          </span>
+        </a>
+      </div>`;
+    const heading = (text: string) =>
+      `<p class="px-5 pt-3 pb-1 text-xs font-semibold text-steel-500" role="presentation">${text}</p>`;
+
     const render = () => {
       const q = input.value.trim();
-      results = search(q);
+      const tokens = words(q);
       popular.classList.toggle('hidden', q.length > 0);
-      list.innerHTML = results
-        .map(
-          (r, i) => `
-          <li id="${input.id}-oneri-${i}" role="option" aria-selected="false" data-index="${i}" class="aria-selected:[&>a]:bg-galvanized">
-            <a href="${r.href}" tabindex="-1" class="flex items-center gap-3 px-3 mx-2 py-2 rounded-xl hover:bg-galvanized">
-              <img src="${r.thumb}" alt="" width="44" height="44" class="size-11 shrink-0 rounded-lg border border-steel-200 bg-white object-contain p-0.5" loading="lazy" />
-              <span class="min-w-0">
-                <span class="block truncate font-semibold">${escape(r.name)}</span>
-                <span class="block truncate text-xs text-steel-500">${escape(r.path)}</span>
-              </span>
-            </a>
-          </li>`,
-        )
-        .join('');
-      list.classList.toggle('hidden', !results.length);
-      empty.classList.toggle('hidden', !q || results.length > 0);
-      empty.textContent = q ? `"${q}" ile eşleşen kategori bulunamadı. Aradığınız ürünü WhatsApp'tan sorabilirsiniz.` : '';
       all.classList.toggle('hidden', !q);
       all.classList.toggle('flex', !!q);
       all.href = `/arama/?q=${encodeURIComponent(q)}`;
       all.querySelector('span')!.textContent = `"${q}" için tüm sonuçlar`;
       active = -1;
+
+      if (!index || !tokens.length) {
+        list.innerHTML = q && !index ? '<p class="px-5 py-4 text-sm text-steel-500">Yükleniyor…</p>' : '';
+        options = [];
+        empty.classList.add('hidden');
+        return;
+      }
+
+      const cats = rank(index.categories, tokens, 3);
+      const prods = rank(index.products, tokens, 6, (p) => p.code);
+      const catOptions: Option[] = cats.map((c) => ({ href: c.href }));
+      const prodOptions: Option[] = prods.map((p) => ({
+        href: `${p.catHref}?q=${encodeURIComponent(p.code)}`,
+        productId: p.id,
+      }));
+      options = [...catOptions, ...prodOptions];
+
+      let html = '';
+      if (cats.length) {
+        html += heading('Kategoriler');
+        html += cats.map((c, i) => optionHtml(i, catOptions[i], c.thumb, c.name, `${c.path} · ${c.count} ürün`)).join('');
+      }
+      if (prods.length) {
+        html += heading('Ürünler');
+        html += prods
+          .map((p, j) =>
+            optionHtml(cats.length + j, prodOptions[j], p.thumb, p.name, `${p.cat} · ${p.code}`, p.fit === 'cover'),
+          )
+          .join('');
+      }
+      list.innerHTML = html + (options.length ? '<div class="h-2"></div>' : '');
+      empty.classList.toggle('hidden', options.length > 0);
+      empty.textContent = `"${q}" ile eşleşen ürün bulunamadı. Aradığınız ürünü WhatsApp'tan sorabilirsiniz.`;
+    };
+
+    const ensureIndex = () => {
+      if (index) return;
+      loadCatalog()
+        .then((data) => {
+          index ??= buildIndex(data);
+          render();
+        })
+        .catch(() => {
+          list.innerHTML = '<p class="px-5 py-4 text-sm text-steel-500">Öneriler yüklenemedi. Ara butonuyla arama yapabilirsiniz.</p>';
+        });
+    };
+
+    const openQuickView = (productId: string) => {
+      close();
+      input.blur();
+      document.dispatchEvent(new CustomEvent('hizli-bakis:ac', { detail: { id: productId } }));
     };
 
     input.addEventListener('focus', () => {
+      ensureIndex();
       render();
       open();
     });
@@ -200,25 +251,33 @@ const { id, class: className, hotkey = false } = Astro.props;
       open();
     });
     input.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown' && results.length) {
+      if (e.key === 'ArrowDown' && options.length) {
         e.preventDefault();
-        setActive((active + 1) % results.length);
-      } else if (e.key === 'ArrowUp' && results.length) {
+        setActive((active + 1) % options.length);
+      } else if (e.key === 'ArrowUp' && options.length) {
         e.preventDefault();
-        setActive((active - 1 + results.length) % results.length);
+        setActive((active - 1 + options.length) % options.length);
       } else if (e.key === 'Escape') {
         close();
         input.blur();
       }
     });
 
-    // Seçili öneri varsa ona git, yoksa tam eşleşen kategoriye, o da yoksa arama sayfasına
+    // Seçili öneri: ürünse hızlı bakış, kategoriyse sayfaya git. Seçim yoksa form arama sayfasına gider.
     form.addEventListener('submit', (e) => {
-      const pick = active >= 0 ? results[active] : results.find((r) => normalize(r.name) === normalize(input.value));
-      if (pick) {
-        e.preventDefault();
-        window.location.href = pick.href;
-      }
+      const opt = options[active];
+      if (!opt) return;
+      e.preventDefault();
+      if (opt.productId) openQuickView(opt.productId);
+      else window.location.href = opt.href;
+    });
+
+    list.addEventListener('click', (e) => {
+      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[data-product-id]');
+      const me = e as MouseEvent;
+      if (!link || me.metaKey || me.ctrlKey || me.shiftKey || me.button !== 0) return;
+      e.preventDefault();
+      openQuickView(link.dataset.productId!);
     });
 
     root.querySelectorAll<HTMLButtonElement>('[data-search-chip]').forEach((chip) =>

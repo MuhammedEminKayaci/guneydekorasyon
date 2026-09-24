@@ -1,0 +1,175 @@
+---
+// Hızlı bakış: ürün galerisi + bilgiler + eylemler. Tüm sayfalarda tek örnek.
+// Açmak için: [data-quick-view="<ürün id>"] tıklaması veya "hizli-bakis:ac" olayı ({ id }).
+import Icon from '../ui/Icon.astro';
+---
+
+<dialog
+  id="hizli-bakis"
+  class="quick-view m-0 h-dvh max-h-none w-full max-w-none overflow-hidden bg-white p-0 text-steel-900 backdrop:bg-steel-950/70 backdrop:backdrop-blur-sm md:m-auto md:h-auto md:max-h-[min(90dvh,48rem)] md:w-[calc(100%-3rem)] md:max-w-5xl md:rounded-3xl"
+  aria-labelledby="hizli-bakis-baslik"
+>
+  <button
+    type="button"
+    class="absolute top-3 right-3 z-20 grid size-10 place-items-center rounded-full bg-white/90 shadow-md backdrop-blur hover:bg-white"
+    aria-label="Kapat"
+    data-qv-close
+  >
+    <Icon name="X" class="size-5" />
+  </button>
+  <div class="grid h-full overflow-y-auto md:max-h-[min(90dvh,48rem)] md:grid-cols-[1.1fr_1fr]" data-qv-body>
+    <div class="grid min-h-[60vh] place-items-center p-10 text-steel-500" data-qv-loading>Yükleniyor…</div>
+  </div>
+</dialog>
+
+<style>
+  .quick-view[open] {
+    animation: qv-in 260ms var(--ease-out-quart);
+  }
+  @keyframes qv-in {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem) scale(0.985);
+    }
+  }
+</style>
+
+<script>
+  import { CONTACT } from '../../config/site';
+  import { COLOR_SWATCHES } from '../../lib/colors';
+  import type { CatalogProduct } from '../../lib/search-index';
+  import { findProduct, escapeHtml } from '../../scripts/catalog-client';
+  import * as quote from '../../scripts/quote-list';
+
+  const dialog = document.getElementById('hizli-bakis') as HTMLDialogElement;
+  const body = dialog.querySelector<HTMLElement>('[data-qv-body]')!;
+  const ATTR_LABELS: Record<string, string> = { renk: 'Renk', cinsiyet: 'Cinsiyet', tip: 'Tip', kol: 'Kol' };
+  let current: CatalogProduct | undefined;
+  let imageIndex = 0;
+
+  const swatch = (color: string) =>
+    `<span class="inline-block size-4 rounded-full border border-steel-200 align-[-3px]" style="background:${COLOR_SWATCHES[color] ?? '#ccc'}"></span>`;
+
+  function render(p: CatalogProduct) {
+    const rows: [string, string][] = [
+      ['Kategori', `<a href="${p.catHref}" class="font-medium text-signal-500 hover:underline">${escapeHtml(p.cat)}</a>`],
+      ['Katalog no', `<span class="font-semibold">${escapeHtml(p.code)}</span>`],
+      ...Object.entries(p.attrs).map(([k, v]) => [
+        ATTR_LABELS[k] ?? k,
+        k === 'renk' ? `${swatch(v!)} <span class="ml-1">${escapeHtml(v!)}</span>` : escapeHtml(v!),
+      ] as [string, string]),
+      ...(p.specs ?? []).map(([k, v]) => [escapeHtml(k), escapeHtml(v)] as [string, string]),
+    ];
+    const multi = p.images.length > 1;
+    const inList = quote.has(p.id);
+    const whatsappText = encodeURIComponent(`Merhaba, ${p.name} (katalog no: ${p.code}) hakkında bilgi ve fiyat almak istiyorum.`);
+
+    body.innerHTML = `
+      <div class="relative bg-galvanized md:rounded-l-3xl">
+        <div class="relative aspect-square md:aspect-auto md:h-full md:min-h-[32rem]">
+          <img src="${p.images[0]}" alt="${escapeHtml(p.name)}" class="absolute inset-0 size-full ${p.fit === 'cover' ? 'object-cover' : 'object-contain p-8 mix-blend-multiply md:p-12'}" data-qv-image />
+          ${
+            multi
+              ? `<button type="button" class="absolute top-1/2 left-3 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white shadow-md hover:bg-galvanized" aria-label="Önceki görsel" data-qv-step="-1"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+                 <button type="button" class="absolute top-1/2 right-3 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-white shadow-md hover:bg-galvanized" aria-label="Sonraki görsel" data-qv-step="1"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+                 <div class="absolute inset-x-0 bottom-3 flex justify-center gap-2" role="tablist" aria-label="Görsel seç">
+                   ${p.images
+                     .map(
+                       (src, i) =>
+                         `<button type="button" role="tab" aria-selected="${i === 0}" aria-label="${i + 1}. görsel" class="size-14 overflow-hidden rounded-lg border-2 border-transparent bg-white aria-selected:border-signal-500" data-qv-thumb="${i}"><img src="${src}" alt="" class="size-full ${p.fit === 'cover' ? 'object-cover' : 'object-contain p-1'}" loading="lazy" /></button>`,
+                     )
+                     .join('')}
+                 </div>`
+              : ''
+          }
+        </div>
+      </div>
+      <div class="flex flex-col p-6 sm:p-8">
+        <p class="text-sm text-steel-500">${escapeHtml(p.cat)}</p>
+        <h2 id="hizli-bakis-baslik" class="mt-1 pr-10 text-2xl leading-tight font-bold sm:text-3xl">${escapeHtml(p.name)}</h2>
+        <p class="mt-3 text-steel-700">${escapeHtml(p.intro)}</p>
+        <dl class="mt-6 divide-y divide-steel-200 border-y border-steel-200 text-sm">
+          ${rows.map(([k, v]) => `<div class="flex justify-between gap-4 py-2.5"><dt class="text-steel-500">${k}</dt><dd class="text-right">${v}</dd></div>`).join('')}
+        </dl>
+        <p class="mt-4 text-sm text-steel-500">Ölçü, renk ve adet ihtiyacınıza göre üretiyoruz. Fiyat için teklif isteyin.</p>
+        <div class="mt-auto grid gap-3 pt-6 sm:grid-cols-2">
+          <button type="button" class="btn ${inList ? 'border border-steel-900 bg-white text-steel-900' : 'bg-signal-500 text-white hover:bg-signal-600'} rounded-full" data-qv-add aria-pressed="${inList}">
+            ${inList ? 'Listede, listeyi gör' : 'Teklif listesine ekle'}
+          </button>
+          <a href="https://wa.me/${CONTACT.whatsapp}?text=${whatsappText}" target="_blank" rel="noopener" class="btn-whatsapp rounded-full">WhatsApp'tan sor</a>
+        </div>
+      </div>`;
+    imageIndex = 0;
+  }
+
+  function showImage(i: number) {
+    if (!current) return;
+    imageIndex = (i + current.images.length) % current.images.length;
+    body.querySelector<HTMLImageElement>('[data-qv-image]')!.src = current.images[imageIndex];
+    body.querySelectorAll('[data-qv-thumb]').forEach((t, j) => t.setAttribute('aria-selected', String(j === imageIndex)));
+  }
+
+  async function open(id: string) {
+    document.querySelectorAll<HTMLDialogElement>('dialog[open]').forEach((d) => d !== dialog && d.close());
+    body.innerHTML = '<div class="grid min-h-[60vh] place-items-center p-10 text-steel-500 md:col-span-2">Yükleniyor…</div>';
+    if (!dialog.open) dialog.showModal();
+    try {
+      current = await findProduct(id);
+    } catch {
+      current = undefined;
+    }
+    if (!current) {
+      body.innerHTML = '<div class="grid min-h-[40vh] place-items-center p-10 text-center text-steel-500 md:col-span-2">Ürün bilgisi yüklenemedi. Lütfen sayfayı yenileyip tekrar deneyin.</div>';
+      return;
+    }
+    render(current);
+  }
+
+  document.addEventListener('click', (e) => {
+    const trigger = (e.target as HTMLElement).closest<HTMLElement>('[data-quick-view]');
+    if (!trigger) return;
+    e.preventDefault();
+    open(trigger.dataset.quickView!);
+  });
+  document.addEventListener('hizli-bakis:ac', (e) => open((e as CustomEvent<{ id: string }>).detail.id));
+
+  body.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    const step = t.closest<HTMLElement>('[data-qv-step]');
+    if (step) showImage(imageIndex + Number(step.dataset.qvStep));
+    const thumb = t.closest<HTMLElement>('[data-qv-thumb]');
+    if (thumb) showImage(Number(thumb.dataset.qvThumb));
+    if (t.closest('[data-qv-add]') && current) {
+      if (quote.has(current.id)) {
+        document.dispatchEvent(new CustomEvent('teklif:ac'));
+      } else {
+        quote.add({ id: current.id, name: current.name, code: current.code, thumb: current.thumb });
+        render(current);
+      }
+    }
+  });
+
+  dialog.addEventListener('keydown', (e) => {
+    if (!current || current.images.length < 2) return;
+    if (e.key === 'ArrowRight') showImage(imageIndex + 1);
+    if (e.key === 'ArrowLeft') showImage(imageIndex - 1);
+  });
+
+  // Dokunmatik kaydırma ile görsel değiştir
+  let startX = 0;
+  body.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX), { passive: true });
+  body.addEventListener(
+    'touchend',
+    (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (current && current.images.length > 1 && Math.abs(dx) > 50 && (e.target as HTMLElement).closest('[data-qv-image]'))
+        showImage(imageIndex + (dx < 0 ? 1 : -1));
+    },
+    { passive: true },
+  );
+
+  dialog.querySelector('[data-qv-close]')!.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+</script>

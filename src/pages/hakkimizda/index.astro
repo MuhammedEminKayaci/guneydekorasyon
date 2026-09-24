@@ -1,0 +1,148 @@
+---
+// Hakkımızda: firma hikâyesi, rakamlar, değerler ve çalışma süreci.
+// Rakamlar ana sayfayla aynı kaynaktan gelir (data/home.ts → STATS).
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Icon from '../../components/ui/Icon.astro';
+import BrandIcon from '../../components/ui/BrandIcon.astro';
+import QuoteBand from '../../components/home/QuoteBand.astro';
+import { STATS, PROMISES } from '../../data/home';
+import { whatsappLink } from '../../config/site';
+import { breadcrumbSchema, localBusinessSchema } from '../../lib/schema';
+import heroImage from '../../assets/images/anasayfa/slider/4.jpg';
+import sideImage from '../../assets/images/anasayfa/slider/3.jpg';
+
+const values = [
+  { icon: 'Ruler', title: 'Ölçüye özel', text: 'Mekâna ve ihtiyaca tam uyumlu planlama.' },
+  { icon: 'Timer', title: 'Kısa termin', text: 'Planlı üretim akışıyla onaydan sonra ortalama 7–15 gün.' },
+  { icon: 'Wrench', title: 'Profesyonel montaj', text: 'Mağazanızın çalışmasını aksatmadan kurulum.' },
+  { icon: 'ShieldCheck', title: 'Dayanıklı malzeme', text: 'Uzun ömürlü, sağlam ve güvenli çözümler.' },
+  { icon: 'MessagesSquare', title: 'Şeffaf iletişim', text: 'Süreç boyunca net bilgi ve tek muhatap.' },
+  { icon: 'Recycle', title: 'Verimli üretim', text: 'Ölçüye göre kesim ile minimum malzeme israfı.' },
+] as const;
+
+const steps = [
+  { title: 'Keşif ve tasarım', text: 'Yerinde ölçüm, ihtiyaç analizi ve mağazanıza özel yerleşim planı.' },
+  { title: 'Üretim', text: 'Kendi atölyemizde, kalite kontrolünden geçen üretim.' },
+  { title: 'Lojistik', text: 'Zamanında sevkiyat ve montaj için saha hazırlığı.' },
+  { title: 'Montaj ve teslim', text: 'Temiz kurulum, son kontrol ve anahtar teslim.' },
+];
+---
+
+<BaseLayout
+  title="Hakkımızda"
+  description="Güney Mağaza Dekorasyon: raf sistemleri, orta sistemler, stand, manken ve askı üretiminde tasarımdan montaja uçtan uca hizmet. Güngören, İstanbul."
+  image={heroImage.src}
+  jsonLd={[breadcrumbSchema([{ name: 'Ana sayfa', path: '/' }, { name: 'Hakkımızda', path: '/hakkimizda/' }]), localBusinessSchema()]}
+>
+  <section class="border-b border-steel-200 bg-galvanized">
+    <div class="container-page pt-6 pb-12 lg:pb-16">
+      <Breadcrumbs items={[{ name: 'Hakkımızda', href: '/hakkimizda/' }]} />
+      <div class="mt-8 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <h1 class="text-4xl leading-[1.05] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+            Mağaza deneyimini tasarlıyor, üretiyor ve kuruyoruz
+          </h1>
+          <p class="mt-6 text-lg text-steel-700">
+            Güney Mağaza Dekorasyon olarak raf, orta sistem ve stand çözümlerinde tasarımdan üretime, montajdan satış
+            sonrası desteğe kadar uçtan uca hizmet veriyoruz. Manken ve askı tedarikiyle mağazanızın ihtiyacını tek
+            noktadan karşılıyoruz.
+          </p>
+          <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-medium" role="list">
+            <li class="flex items-center gap-2"><Icon name="Check" class="size-4 text-signal-500" />Ölçüye özel tasarım</li>
+            <li class="flex items-center gap-2"><Icon name="Check" class="size-4 text-signal-500" />Hızlı üretim ve kurulum</li>
+            <li class="flex items-center gap-2"><Icon name="Check" class="size-4 text-signal-500" />2 yıl garanti</li>
+          </ul>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/projeler/" class="btn-primary rounded-full px-6">Projelerimizi görün</a>
+            <a href={whatsappLink('Merhaba, mağazam için bilgi almak istiyorum.')} target="_blank" rel="noopener" class="btn-whatsapp rounded-full px-6">
+              <BrandIcon name="whatsapp" class="size-5" />
+              Teklif isteyin
+            </a>
+          </div>
+        </div>
+        <div class="relative pb-12 lg:pb-16">
+          <Image src={heroImage} alt="Ahşap raflı duvar sistemiyle kurduğumuz aksesuar mağazası" widths={[640, 960, 1280]} sizes="(min-width: 1024px) 45vw, 100vw" loading="eager" class="aspect-4/3 w-full rounded-3xl object-cover" />
+          <Image src={sideImage} alt="Altın kemerli askılık sistemiyle butik mağaza" widths={[320, 480]} sizes="(min-width: 1024px) 18vw, 40vw" class="absolute bottom-0 left-[-4%] aspect-square w-[40%] rounded-3xl border-8 border-galvanized object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rakamlar -->
+  <section class="bg-steel-950 text-white" aria-label="Rakamlarla Güney">
+    <div class="container-page">
+    <dl class="grid grid-cols-2 gap-px bg-white/10 lg:grid-cols-4">
+      {
+        STATS.map((s) => (
+          <div class="bg-steel-950 px-2 py-10 sm:px-6 lg:py-14">
+            <dt class="sr-only">{s.label}</dt>
+            <dd>
+              <span class="text-4xl font-extrabold tracking-tight sm:text-5xl">{s.value}</span>
+              {s.unit && <span class="ml-1 text-xl font-semibold">{s.unit}</span>}
+              <span class="mt-2 block text-steel-300">{s.label}</span>
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+    </div>
+  </section>
+
+  <!-- Değerler -->
+  <section class="container-page py-16 lg:py-24" aria-labelledby="degerler">
+    <h2 id="degerler" class="section-title">Nasıl çalışıyoruz</h2>
+    <p class="section-lead">Her projede aynı ilkelerle ilerliyoruz.</p>
+    <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+      {
+        values.map((v) => (
+          <li class="rounded-3xl border border-steel-200 p-6">
+            <span class="grid size-12 place-items-center rounded-2xl bg-signal-50 text-signal-500">
+              <Icon name={v.icon} class="size-6" />
+            </span>
+            <h3 class="mt-5 text-lg font-bold">{v.title}</h3>
+            <p class="mt-1 text-steel-700">{v.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- Süreç -->
+  <section class="border-y border-steel-200 bg-galvanized py-16 lg:py-24" aria-labelledby="surec">
+    <div class="container-page">
+      <h2 id="surec" class="section-title">Keşiften anahtar teslime 4 adım</h2>
+      <ol class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
+        {
+          steps.map((s, i) => (
+            <li class="relative rounded-3xl bg-white p-6">
+              <span class="text-5xl font-extrabold text-steel-200 tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="mt-4 text-lg font-bold">{s.title}</h3>
+              <p class="mt-1 text-steel-700">{s.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Güvenceler -->
+  <section class="container-page py-16" aria-label="Güvencelerimiz">
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
+      {
+        PROMISES.map((p) => (
+          <li class="flex gap-4">
+            <Icon name={p.icon} class="size-7 shrink-0 text-signal-500" />
+            <div>
+              <h3 class="font-bold">{p.title}</h3>
+              <p class="mt-1 text-sm text-steel-700">{p.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <QuoteBand />
+</BaseLayout>

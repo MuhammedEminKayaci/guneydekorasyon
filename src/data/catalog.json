@@ -1,0 +1,9344 @@
+[
+ {
+  "id": "dr-01",
+  "slug": "metal-depo-rafi-dr-01",
+  "name": "Metal Depo Rafı",
+  "code": "DR-01",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 0
+ },
+ {
+  "id": "dr-02",
+  "slug": "metal-depo-rafi-dr-02",
+  "name": "Metal Depo Rafı",
+  "code": "DR-02",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 1
+ },
+ {
+  "id": "dr-03",
+  "slug": "metal-depo-rafi-dr-03",
+  "name": "Metal Depo Rafı",
+  "code": "DR-03",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 2
+ },
+ {
+  "id": "dr-04",
+  "slug": "metal-depo-rafi-dr-04",
+  "name": "Metal Depo Rafı",
+  "code": "DR-04",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 3
+ },
+ {
+  "id": "dr-05",
+  "slug": "metal-depo-rafi-dr-05",
+  "name": "Metal Depo Rafı",
+  "code": "DR-05",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 4
+ },
+ {
+  "id": "dr-06",
+  "slug": "metal-depo-rafi-dr-06",
+  "name": "Metal Depo Rafı",
+  "code": "DR-06",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 5
+ },
+ {
+  "id": "dr-07",
+  "slug": "metal-depo-rafi-dr-07",
+  "name": "Metal Depo Rafı",
+  "code": "DR-07",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 6
+ },
+ {
+  "id": "dr-08",
+  "slug": "metal-depo-rafi-dr-08",
+  "name": "Metal Depo Rafı",
+  "code": "DR-08",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 7
+ },
+ {
+  "id": "dr-09",
+  "slug": "metal-depo-rafi-dr-09",
+  "name": "Metal Depo Rafı",
+  "code": "DR-09",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 8
+ },
+ {
+  "id": "dr-10",
+  "slug": "depo-raf-sistemi-uygulamasi-dr-10",
+  "name": "Depo Raf Sistemi Uygulaması",
+  "code": "DR-10",
+  "path": [
+   "raf-sistemleri",
+   "depo-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/depo/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 9
+ },
+ {
+  "id": "r40-m1",
+  "slug": "40x40-raf-sistemi-model-1-r40-m1",
+  "name": "40×40 Raf Sistemi Model 1",
+  "code": "R40-M1",
+  "path": [
+   "raf-sistemleri",
+   "40x40-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/40x40/model-1/1.png",
+   "urunler/raf-sistemleri/40x40/model-1/2.png",
+   "urunler/raf-sistemleri/40x40/model-1/3.png",
+   "urunler/raf-sistemleri/40x40/model-1/4.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 10
+ },
+ {
+  "id": "r40-m2",
+  "slug": "40x40-raf-sistemi-model-2-r40-m2",
+  "name": "40×40 Raf Sistemi Model 2",
+  "code": "R40-M2",
+  "path": [
+   "raf-sistemleri",
+   "40x40-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/40x40/model-2/1.png",
+   "urunler/raf-sistemleri/40x40/model-2/2.png",
+   "urunler/raf-sistemleri/40x40/model-2/3.png",
+   "urunler/raf-sistemleri/40x40/model-2/4.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 11
+ },
+ {
+  "id": "r40-u1",
+  "slug": "40x40-raf-sistemi-uygulamasi-1-r40-u1",
+  "name": "40×40 Raf Sistemi Uygulaması 1",
+  "code": "R40-U1",
+  "path": [
+   "raf-sistemleri",
+   "40x40-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/40x40/2.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 12
+ },
+ {
+  "id": "r40-u2",
+  "slug": "40x40-raf-sistemi-uygulamasi-2-r40-u2",
+  "name": "40×40 Raf Sistemi Uygulaması 2",
+  "code": "R40-U2",
+  "path": [
+   "raf-sistemleri",
+   "40x40-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/40x40/3.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 13
+ },
+ {
+  "id": "r40-u3",
+  "slug": "40x40-raf-sistemi-uygulamasi-3-r40-u3",
+  "name": "40×40 Raf Sistemi Uygulaması 3",
+  "code": "R40-U3",
+  "path": [
+   "raf-sistemleri",
+   "40x40-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/40x40/4.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 14
+ },
+ {
+  "id": "r40-u4",
+  "slug": "40x40-raf-sistemi-uygulamasi-4-r40-u4",
+  "name": "40×40 Raf Sistemi Uygulaması 4",
+  "code": "R40-U4",
+  "path": [
+   "raf-sistemleri",
+   "40x40-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/40x40/5.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 15
+ },
+ {
+  "id": "r40-u5",
+  "slug": "40x40-raf-sistemi-uygulamasi-5-r40-u5",
+  "name": "40×40 Raf Sistemi Uygulaması 5",
+  "code": "R40-U5",
+  "path": [
+   "raf-sistemleri",
+   "40x40-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/40x40/6.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 16
+ },
+ {
+  "id": "br-01",
+  "slug": "silindir-boru-raf-sistemi-br-01",
+  "name": "Silindir Boru Raf Sistemi",
+  "code": "BR-01",
+  "path": [
+   "raf-sistemleri",
+   "boru-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/boru/silindir/1.png",
+   "urunler/raf-sistemleri/boru/silindir/2.png",
+   "urunler/raf-sistemleri/boru/silindir/3.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 17
+ },
+ {
+  "id": "br-02",
+  "slug": "boru-raf-sistemi-model-2-br-02",
+  "name": "Boru Raf Sistemi Model 2",
+  "code": "BR-02",
+  "path": [
+   "raf-sistemleri",
+   "boru-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/boru/model-2/1.png",
+   "urunler/raf-sistemleri/boru/model-2/2.png",
+   "urunler/raf-sistemleri/boru/model-2/3.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 18
+ },
+ {
+  "id": "br-03",
+  "slug": "boru-raf-sistemi-model-3-br-03",
+  "name": "Boru Raf Sistemi Model 3",
+  "code": "BR-03",
+  "path": [
+   "raf-sistemleri",
+   "boru-raf"
+  ],
+  "images": [
+   "urunler/raf-sistemleri/boru/model-3/1.png",
+   "urunler/raf-sistemleri/boru/model-3/2.png",
+   "urunler/raf-sistemleri/boru/model-3/3.png"
+  ],
+  "fit": "cover",
+  "attrs": {},
+  "order": 19
+ },
+ {
+  "id": "os-01",
+  "slug": "altin-orta-teshir-unitesi-os-01",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-01",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 20
+ },
+ {
+  "id": "os-02",
+  "slug": "altin-orta-teshir-unitesi-os-02",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-02",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 21
+ },
+ {
+  "id": "os-03",
+  "slug": "altin-orta-teshir-unitesi-os-03",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-03",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 22
+ },
+ {
+  "id": "os-04",
+  "slug": "altin-orta-teshir-unitesi-os-04",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-04",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 23
+ },
+ {
+  "id": "os-05",
+  "slug": "altin-orta-teshir-unitesi-os-05",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-05",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 24
+ },
+ {
+  "id": "os-06",
+  "slug": "altin-orta-teshir-unitesi-os-06",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-06",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 25
+ },
+ {
+  "id": "os-07",
+  "slug": "altin-orta-teshir-unitesi-os-07",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-07",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 26
+ },
+ {
+  "id": "os-08",
+  "slug": "altin-orta-teshir-unitesi-os-08",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-08",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 27
+ },
+ {
+  "id": "os-09",
+  "slug": "altin-orta-teshir-unitesi-os-09",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-09",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 28
+ },
+ {
+  "id": "os-10",
+  "slug": "altin-orta-teshir-unitesi-os-10",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-10",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 29
+ },
+ {
+  "id": "os-11",
+  "slug": "gumus-orta-teshir-unitesi-os-11",
+  "name": "Gümüş Orta Teşhir Ünitesi",
+  "code": "OS-11",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 30
+ },
+ {
+  "id": "os-12",
+  "slug": "gumus-orta-teshir-unitesi-os-12",
+  "name": "Gümüş Orta Teşhir Ünitesi",
+  "code": "OS-12",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 31
+ },
+ {
+  "id": "os-13",
+  "slug": "gumus-orta-teshir-unitesi-os-13",
+  "name": "Gümüş Orta Teşhir Ünitesi",
+  "code": "OS-13",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 32
+ },
+ {
+  "id": "os-14",
+  "slug": "altin-orta-teshir-unitesi-os-14",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-14",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 33
+ },
+ {
+  "id": "os-15",
+  "slug": "siyah-orta-teshir-unitesi-os-15",
+  "name": "Siyah Orta Teşhir Ünitesi",
+  "code": "OS-15",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 34
+ },
+ {
+  "id": "os-16",
+  "slug": "siyah-orta-teshir-unitesi-os-16",
+  "name": "Siyah Orta Teşhir Ünitesi",
+  "code": "OS-16",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/16.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 35
+ },
+ {
+  "id": "os-17",
+  "slug": "siyah-orta-teshir-unitesi-os-17",
+  "name": "Siyah Orta Teşhir Ünitesi",
+  "code": "OS-17",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/17.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 36
+ },
+ {
+  "id": "os-18",
+  "slug": "siyah-orta-teshir-unitesi-os-18",
+  "name": "Siyah Orta Teşhir Ünitesi",
+  "code": "OS-18",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/18.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 37
+ },
+ {
+  "id": "os-19",
+  "slug": "siyah-orta-teshir-unitesi-os-19",
+  "name": "Siyah Orta Teşhir Ünitesi",
+  "code": "OS-19",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/19.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 38
+ },
+ {
+  "id": "os-20",
+  "slug": "altin-orta-teshir-unitesi-os-20",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-20",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/20.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 39
+ },
+ {
+  "id": "os-21",
+  "slug": "altin-orta-teshir-unitesi-os-21",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-21",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/21.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 40
+ },
+ {
+  "id": "os-22",
+  "slug": "altin-orta-teshir-unitesi-os-22",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-22",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/22.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 41
+ },
+ {
+  "id": "os-23",
+  "slug": "altin-orta-teshir-unitesi-os-23",
+  "name": "Altın Orta Teşhir Ünitesi",
+  "code": "OS-23",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/23.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 42
+ },
+ {
+  "id": "os-24",
+  "slug": "siyah-orta-teshir-unitesi-os-24",
+  "name": "Siyah Orta Teşhir Ünitesi",
+  "code": "OS-24",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/24.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 43
+ },
+ {
+  "id": "os-25",
+  "slug": "gumus-orta-teshir-unitesi-os-25",
+  "name": "Gümüş Orta Teşhir Ünitesi",
+  "code": "OS-25",
+  "path": [
+   "orta-sistemleri"
+  ],
+  "images": [
+   "urunler/orta-sistemleri/25.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 44
+ },
+ {
+  "id": "st-01",
+  "slug": "siyah-tekerlekli-konfeksiyon-askiligi-st-01",
+  "name": "Siyah Tekerlekli Konfeksiyon Askılığı",
+  "code": "ST-01",
+  "path": [
+   "standlar"
+  ],
+  "images": [
+   "urunler/standlar/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 45
+ },
+ {
+  "id": "st-02",
+  "slug": "gumus-tekerlekli-konfeksiyon-askiligi-st-02",
+  "name": "Gümüş Tekerlekli Konfeksiyon Askılığı",
+  "code": "ST-02",
+  "path": [
+   "standlar"
+  ],
+  "images": [
+   "urunler/standlar/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 46
+ },
+ {
+  "id": "st-03",
+  "slug": "gumus-tekerlekli-konfeksiyon-askiligi-st-03",
+  "name": "Gümüş Tekerlekli Konfeksiyon Askılığı",
+  "code": "ST-03",
+  "path": [
+   "standlar"
+  ],
+  "images": [
+   "urunler/standlar/4.png",
+   "urunler/standlar/3.png",
+   "urunler/standlar/5.png",
+   "urunler/standlar/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 47
+ },
+ {
+  "id": "st-04",
+  "slug": "gumus-tekerlekli-konfeksiyon-askiligi-st-04",
+  "name": "Gümüş Tekerlekli Konfeksiyon Askılığı",
+  "code": "ST-04",
+  "path": [
+   "standlar"
+  ],
+  "images": [
+   "urunler/standlar/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 48
+ },
+ {
+  "id": "st-05",
+  "slug": "gumus-tekerlekli-konfeksiyon-askiligi-st-05",
+  "name": "Gümüş Tekerlekli Konfeksiyon Askılığı",
+  "code": "ST-05",
+  "path": [
+   "standlar"
+  ],
+  "images": [
+   "urunler/standlar/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 49
+ },
+ {
+  "id": "st-06",
+  "slug": "siyah-tekerlekli-konfeksiyon-askiligi-st-06",
+  "name": "Siyah Tekerlekli Konfeksiyon Askılığı",
+  "code": "ST-06",
+  "path": [
+   "standlar"
+  ],
+  "images": [
+   "urunler/standlar/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 50
+ },
+ {
+  "id": "ktm-01",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-01",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-01",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 51
+ },
+ {
+  "id": "ktm-02",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-02",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-02",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 52
+ },
+ {
+  "id": "ktm-03",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-03",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-03",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 53
+ },
+ {
+  "id": "ktm-04",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-04",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-04",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 54
+ },
+ {
+  "id": "ktm-05",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-05",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-05",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 55
+ },
+ {
+  "id": "ktm-06",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-06",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-06",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 56
+ },
+ {
+  "id": "ktm-07",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-07",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-07",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 57
+ },
+ {
+  "id": "ktm-08",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-08",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-08",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 58
+ },
+ {
+  "id": "ktm-09",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-09",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-09",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 59
+ },
+ {
+  "id": "ktm-10",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-10",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-10",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 60
+ },
+ {
+  "id": "ktm-12",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-12",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-12",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 61
+ },
+ {
+  "id": "ktm-13",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-13",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-13",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 62
+ },
+ {
+  "id": "ktm-14",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-14",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-14",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 63
+ },
+ {
+  "id": "ktm-15",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-15",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-15",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 64
+ },
+ {
+  "id": "ktm-16",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-16",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-16",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/16.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 65
+ },
+ {
+  "id": "ktm-17",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-17",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-17",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/17.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 66
+ },
+ {
+  "id": "ktm-18",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-18",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-18",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/18.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 67
+ },
+ {
+  "id": "ktm-19",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-19",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-19",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/19.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 68
+ },
+ {
+  "id": "ktm-20",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-20",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-20",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/20.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 69
+ },
+ {
+  "id": "ktm-21",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-21",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-21",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/21.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 70
+ },
+ {
+  "id": "ktm-22",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-22",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-22",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/22.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 71
+ },
+ {
+  "id": "ktm-23",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-23",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-23",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/23.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 72
+ },
+ {
+  "id": "ktm-24",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-24",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-24",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/24.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 73
+ },
+ {
+  "id": "ktm-25",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-25",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-25",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/25.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 74
+ },
+ {
+  "id": "ktm-26",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-26",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-26",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/26.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 75
+ },
+ {
+  "id": "ktm-27",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-27",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-27",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/27.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 76
+ },
+ {
+  "id": "ktm-28",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-28",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-28",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/28.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 77
+ },
+ {
+  "id": "ktm-29",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-29",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-29",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/29.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 78
+ },
+ {
+  "id": "ktm-30",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-30",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-30",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/30.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 79
+ },
+ {
+  "id": "ktm-31",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-31",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-31",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/31.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 80
+ },
+ {
+  "id": "ktm-32",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-32",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-32",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/32.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 81
+ },
+ {
+  "id": "ktm-33",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-33",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-33",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/33.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 82
+ },
+ {
+  "id": "ktm-34",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-34",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-34",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/34.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 83
+ },
+ {
+  "id": "ktm-35",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-35",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-35",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/35.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 84
+ },
+ {
+  "id": "ktm-36",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-36",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-36",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/36.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 85
+ },
+ {
+  "id": "ktm-37",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-37",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-37",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/37.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 86
+ },
+ {
+  "id": "ktm-38",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-38",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-38",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/38.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 87
+ },
+ {
+  "id": "ktm-39",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-39",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-39",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/39.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 88
+ },
+ {
+  "id": "ktm-40",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-40",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-40",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/40.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 89
+ },
+ {
+  "id": "ktm-41",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-41",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-41",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/41.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 90
+ },
+ {
+  "id": "ktm-42",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-42",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-42",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/42.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 91
+ },
+ {
+  "id": "ktm-43",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-43",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-43",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/43.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 92
+ },
+ {
+  "id": "ktm-44",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-44",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-44",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/44.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 93
+ },
+ {
+  "id": "ktm-45",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-45",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-45",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/45.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 94
+ },
+ {
+  "id": "ktm-46",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-46",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-46",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/46.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 95
+ },
+ {
+  "id": "ktm-47",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-47",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-47",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/47.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 96
+ },
+ {
+  "id": "ktm-48",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-48",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-48",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/48.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 97
+ },
+ {
+  "id": "ktm-49",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-49",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-49",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/49.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 98
+ },
+ {
+  "id": "ktm-50",
+  "slug": "kollu-kadin-terzi-mankeni-ktm-50",
+  "name": "Kollu Kadın Terzi Mankeni",
+  "code": "KTM-50",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kollu/50.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kollu",
+   "cinsiyet": "Kadın"
+  },
+  "order": 99
+ },
+ {
+  "id": "kts-01",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-01",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-01",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 100
+ },
+ {
+  "id": "kts-02",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-02",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-02",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 101
+ },
+ {
+  "id": "kts-03",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-03",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-03",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 102
+ },
+ {
+  "id": "kts-04",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-04",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-04",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 103
+ },
+ {
+  "id": "kts-05",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-05",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-05",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 104
+ },
+ {
+  "id": "kts-06",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-06",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-06",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 105
+ },
+ {
+  "id": "kts-07",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-07",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-07",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 106
+ },
+ {
+  "id": "kts-08",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-08",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-08",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 107
+ },
+ {
+  "id": "kts-09",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-09",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-09",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 108
+ },
+ {
+  "id": "kts-10",
+  "slug": "kolsuz-kadin-terzi-mankeni-kts-10",
+  "name": "Kolsuz Kadın Terzi Mankeni",
+  "code": "KTS-10",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/kadin/kolsuz/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "kol": "Kolsuz",
+   "cinsiyet": "Kadın"
+  },
+  "order": 109
+ },
+ {
+  "id": "etm-01",
+  "slug": "erkek-terzi-mankeni-etm-01",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-01",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 110
+ },
+ {
+  "id": "etm-02",
+  "slug": "erkek-terzi-mankeni-etm-02",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-02",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 111
+ },
+ {
+  "id": "etm-03",
+  "slug": "erkek-terzi-mankeni-etm-03",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-03",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 112
+ },
+ {
+  "id": "etm-04",
+  "slug": "erkek-terzi-mankeni-etm-04",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-04",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 113
+ },
+ {
+  "id": "etm-05",
+  "slug": "erkek-terzi-mankeni-etm-05",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-05",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 114
+ },
+ {
+  "id": "etm-06",
+  "slug": "erkek-terzi-mankeni-etm-06",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-06",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 115
+ },
+ {
+  "id": "etm-07",
+  "slug": "erkek-terzi-mankeni-etm-07",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-07",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 116
+ },
+ {
+  "id": "etm-08",
+  "slug": "erkek-terzi-mankeni-etm-08",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-08",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 117
+ },
+ {
+  "id": "etm-09",
+  "slug": "erkek-terzi-mankeni-etm-09",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-09",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 118
+ },
+ {
+  "id": "etm-10",
+  "slug": "erkek-terzi-mankeni-etm-10",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-10",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 119
+ },
+ {
+  "id": "etm-11",
+  "slug": "erkek-terzi-mankeni-etm-11",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-11",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 120
+ },
+ {
+  "id": "etm-12",
+  "slug": "erkek-terzi-mankeni-etm-12",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-12",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 121
+ },
+ {
+  "id": "etm-13",
+  "slug": "erkek-terzi-mankeni-etm-13",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-13",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 122
+ },
+ {
+  "id": "etm-14",
+  "slug": "erkek-terzi-mankeni-etm-14",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-14",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 123
+ },
+ {
+  "id": "etm-15",
+  "slug": "erkek-terzi-mankeni-etm-15",
+  "name": "Erkek Terzi Mankeni",
+  "code": "ETM-15",
+  "path": [
+   "mankenler",
+   "terzi-mankeni",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/terzi/erkek/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek"
+  },
+  "order": 124
+ },
+ {
+  "id": "pm-p01",
+  "slug": "kadin-plastik-govde-manken-pm-p01",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-P01",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 125
+ },
+ {
+  "id": "pm-p02",
+  "slug": "kadin-plastik-govde-manken-pm-p02",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-P02",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 126
+ },
+ {
+  "id": "pm-p03",
+  "slug": "kadin-plastik-govde-manken-pm-p03",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-P03",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 127
+ },
+ {
+  "id": "pm-p04",
+  "slug": "kadin-plastik-govde-manken-pm-p04",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-P04",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 128
+ },
+ {
+  "id": "pm-p05",
+  "slug": "erkek-plastik-govde-manken-pm-p05",
+  "name": "Erkek Plastik Gövde Manken",
+  "code": "PM-P05",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Erkek"
+  },
+  "order": 129
+ },
+ {
+  "id": "pm-p06",
+  "slug": "erkek-plastik-govde-manken-pm-p06",
+  "name": "Erkek Plastik Gövde Manken",
+  "code": "PM-P06",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Erkek"
+  },
+  "order": 130
+ },
+ {
+  "id": "pm-p07",
+  "slug": "kadin-plastik-manken-kafasi-pm-p07",
+  "name": "Kadın Plastik Manken Kafası",
+  "code": "PM-P07",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Kadın"
+  },
+  "order": 131
+ },
+ {
+  "id": "pm-p08",
+  "slug": "erkek-plastik-manken-kafasi-pm-p08",
+  "name": "Erkek Plastik Manken Kafası",
+  "code": "PM-P08",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Erkek"
+  },
+  "order": 132
+ },
+ {
+  "id": "pm-p09",
+  "slug": "erkek-plastik-manken-kafasi-pm-p09",
+  "name": "Erkek Plastik Manken Kafası",
+  "code": "PM-P09",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Erkek"
+  },
+  "order": 133
+ },
+ {
+  "id": "pm-p10",
+  "slug": "erkek-plastik-manken-kafasi-pm-p10",
+  "name": "Erkek Plastik Manken Kafası",
+  "code": "PM-P10",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Erkek"
+  },
+  "order": 134
+ },
+ {
+  "id": "pm-p11",
+  "slug": "erkek-plastik-manken-kafasi-pm-p11",
+  "name": "Erkek Plastik Manken Kafası",
+  "code": "PM-P11",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Erkek"
+  },
+  "order": 135
+ },
+ {
+  "id": "pm-p12",
+  "slug": "kadin-plastik-manken-kafasi-pm-p12",
+  "name": "Kadın Plastik Manken Kafası",
+  "code": "PM-P12",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Kadın"
+  },
+  "order": 136
+ },
+ {
+  "id": "pm-p13",
+  "slug": "kadin-plastik-manken-kafasi-pm-p13",
+  "name": "Kadın Plastik Manken Kafası",
+  "code": "PM-P13",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Kadın"
+  },
+  "order": 137
+ },
+ {
+  "id": "pm-p14",
+  "slug": "cocuk-plastik-manken-kafasi-pm-p14",
+  "name": "Çocuk Plastik Manken Kafası",
+  "code": "PM-P14",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 138
+ },
+ {
+  "id": "pm-p15",
+  "slug": "cocuk-plastik-manken-kafasi-pm-p15",
+  "name": "Çocuk Plastik Manken Kafası",
+  "code": "PM-P15",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Kafa",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 139
+ },
+ {
+  "id": "pm-p16",
+  "slug": "plastik-bacak-manken-pm-p16",
+  "name": "Plastik Bacak Manken",
+  "code": "PM-P16",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/16.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Bacak ve ayak"
+  },
+  "order": 140
+ },
+ {
+  "id": "pm-p17",
+  "slug": "plastik-bacak-manken-pm-p17",
+  "name": "Plastik Bacak Manken",
+  "code": "PM-P17",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/17.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Bacak ve ayak"
+  },
+  "order": 141
+ },
+ {
+  "id": "pm-p18",
+  "slug": "plastik-bacak-manken-pm-p18",
+  "name": "Plastik Bacak Manken",
+  "code": "PM-P18",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/18.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Bacak ve ayak"
+  },
+  "order": 142
+ },
+ {
+  "id": "pm-p19",
+  "slug": "plastik-bacak-manken-pm-p19",
+  "name": "Plastik Bacak Manken",
+  "code": "PM-P19",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/19.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Bacak ve ayak"
+  },
+  "order": 143
+ },
+ {
+  "id": "pm-p20",
+  "slug": "kadin-ve-erkek-tam-boy-plastik-manken-seti-pm-p20",
+  "name": "Kadın ve Erkek Tam Boy Plastik Manken Seti",
+  "code": "PM-P20",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/20.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy"
+  },
+  "order": 144
+ },
+ {
+  "id": "pm-01",
+  "slug": "erkek-tam-boy-plastik-manken-pm-01",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-01",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 145
+ },
+ {
+  "id": "pm-02",
+  "slug": "kadin-plastik-govde-manken-pm-02",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-02",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 146
+ },
+ {
+  "id": "pm-03",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-03",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-03",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 147
+ },
+ {
+  "id": "pm-04",
+  "slug": "erkek-tam-boy-plastik-manken-pm-04",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-04",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 148
+ },
+ {
+  "id": "pm-05",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-05",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-05",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 149
+ },
+ {
+  "id": "pm-06",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-06",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-06",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 150
+ },
+ {
+  "id": "pm-07",
+  "slug": "plastik-alt-beden-manken-pm-07",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-07",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 151
+ },
+ {
+  "id": "pm-08",
+  "slug": "kadin-plastik-govde-manken-pm-08",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-08",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 152
+ },
+ {
+  "id": "pm-09",
+  "slug": "erkek-tam-boy-plastik-manken-pm-09",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-09",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 153
+ },
+ {
+  "id": "pm-10",
+  "slug": "kadin-plastik-govde-manken-pm-10",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-10",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 154
+ },
+ {
+  "id": "pm-11",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-11",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-11",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 155
+ },
+ {
+  "id": "pm-12",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-12",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-12",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 156
+ },
+ {
+  "id": "pm-13",
+  "slug": "kadin-plastik-govde-manken-pm-13",
+  "name": "Kadın Plastik Gövde Manken",
+  "code": "PM-13",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Kadın"
+  },
+  "order": 157
+ },
+ {
+  "id": "pm-14",
+  "slug": "cocuk-plastik-govde-manken-pm-14",
+  "name": "Çocuk Plastik Gövde Manken",
+  "code": "PM-14",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 158
+ },
+ {
+  "id": "pm-15",
+  "slug": "erkek-plastik-govde-manken-pm-15",
+  "name": "Erkek Plastik Gövde Manken",
+  "code": "PM-15",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Erkek"
+  },
+  "order": 159
+ },
+ {
+  "id": "pm-16",
+  "slug": "plastik-alt-beden-manken-pm-16",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-16",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/16.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 160
+ },
+ {
+  "id": "pm-17",
+  "slug": "erkek-plastik-govde-manken-pm-17",
+  "name": "Erkek Plastik Gövde Manken",
+  "code": "PM-17",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/17.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Erkek"
+  },
+  "order": 161
+ },
+ {
+  "id": "pm-18",
+  "slug": "plastik-alt-beden-manken-pm-18",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-18",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/18.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 162
+ },
+ {
+  "id": "pm-19",
+  "slug": "plastik-alt-beden-manken-pm-19",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-19",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/19.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 163
+ },
+ {
+  "id": "pm-20",
+  "slug": "plastik-alt-beden-manken-pm-20",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-20",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/20.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 164
+ },
+ {
+  "id": "pm-21",
+  "slug": "cocuk-plastik-govde-manken-pm-21",
+  "name": "Çocuk Plastik Gövde Manken",
+  "code": "PM-21",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/21.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 165
+ },
+ {
+  "id": "pm-22",
+  "slug": "kadin-tam-boy-plastik-manken-pm-22",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-22",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/22.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 166
+ },
+ {
+  "id": "pm-23",
+  "slug": "plastik-alt-beden-manken-pm-23",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-23",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/23.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 167
+ },
+ {
+  "id": "pm-24",
+  "slug": "plastik-alt-beden-manken-pm-24",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-24",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/24.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 168
+ },
+ {
+  "id": "pm-25",
+  "slug": "plastik-alt-beden-manken-pm-25",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-25",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/25.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 169
+ },
+ {
+  "id": "pm-26",
+  "slug": "kadin-tam-boy-plastik-manken-pm-26",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-26",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/26.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 170
+ },
+ {
+  "id": "pm-27",
+  "slug": "kadin-tam-boy-plastik-manken-pm-27",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-27",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/27.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 171
+ },
+ {
+  "id": "pm-28",
+  "slug": "kadin-tam-boy-plastik-manken-pm-28",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-28",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/28.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 172
+ },
+ {
+  "id": "pm-29",
+  "slug": "erkek-tam-boy-plastik-manken-pm-29",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-29",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/29.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 173
+ },
+ {
+  "id": "pm-30",
+  "slug": "kadin-tam-boy-plastik-manken-pm-30",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-30",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/30.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 174
+ },
+ {
+  "id": "pm-31",
+  "slug": "erkek-tam-boy-plastik-manken-pm-31",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-31",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/31.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 175
+ },
+ {
+  "id": "pm-32",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-32",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-32",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/32.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 176
+ },
+ {
+  "id": "pm-33",
+  "slug": "erkek-tam-boy-plastik-manken-pm-33",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-33",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/33.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 177
+ },
+ {
+  "id": "pm-34",
+  "slug": "erkek-tam-boy-plastik-manken-pm-34",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-34",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/34.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 178
+ },
+ {
+  "id": "pm-35",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-35",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-35",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/35.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 179
+ },
+ {
+  "id": "pm-36",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-36",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-36",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/36.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 180
+ },
+ {
+  "id": "pm-37",
+  "slug": "erkek-tam-boy-plastik-manken-pm-37",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-37",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/37.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 181
+ },
+ {
+  "id": "pm-38",
+  "slug": "kadin-tam-boy-plastik-manken-pm-38",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-38",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/38.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 182
+ },
+ {
+  "id": "pm-39",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-39",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-39",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/39.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 183
+ },
+ {
+  "id": "pm-40",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-40",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-40",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/40.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 184
+ },
+ {
+  "id": "pm-41",
+  "slug": "plastik-alt-beden-manken-pm-41",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-41",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/41.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 185
+ },
+ {
+  "id": "pm-42",
+  "slug": "plastik-alt-beden-manken-pm-42",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-42",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/42.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 186
+ },
+ {
+  "id": "pm-43",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-43",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-43",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/43.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 187
+ },
+ {
+  "id": "pm-44",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-44",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-44",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/44.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 188
+ },
+ {
+  "id": "pm-45",
+  "slug": "erkek-tam-boy-plastik-manken-pm-45",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-45",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/45.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 189
+ },
+ {
+  "id": "pm-46",
+  "slug": "plastik-alt-beden-manken-pm-46",
+  "name": "Plastik Alt Beden Manken",
+  "code": "PM-46",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/46.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Alt beden"
+  },
+  "order": 190
+ },
+ {
+  "id": "pm-47",
+  "slug": "erkek-tam-boy-plastik-manken-pm-47",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-47",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/47.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 191
+ },
+ {
+  "id": "pm-48",
+  "slug": "erkek-tam-boy-plastik-manken-pm-48",
+  "name": "Erkek Tam Boy Plastik Manken",
+  "code": "PM-48",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/48.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Erkek"
+  },
+  "order": 192
+ },
+ {
+  "id": "pm-49",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-49",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-49",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/49.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 193
+ },
+ {
+  "id": "pm-50",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-50",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-50",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/50.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 194
+ },
+ {
+  "id": "pm-51",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-51",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-51",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/51.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 195
+ },
+ {
+  "id": "pm-52",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-52",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-52",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/52.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 196
+ },
+ {
+  "id": "pm-53",
+  "slug": "erkek-plastik-govde-manken-pm-53",
+  "name": "Erkek Plastik Gövde Manken",
+  "code": "PM-53",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/53.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Gövde",
+   "cinsiyet": "Erkek"
+  },
+  "order": 197
+ },
+ {
+  "id": "pm-54",
+  "slug": "kadin-tam-boy-plastik-manken-pm-54",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-54",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/54.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 198
+ },
+ {
+  "id": "pm-55",
+  "slug": "kadin-tam-boy-plastik-manken-pm-55",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-55",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/55.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 199
+ },
+ {
+  "id": "pm-56",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-56",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-56",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/56.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 200
+ },
+ {
+  "id": "pm-57",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-57",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-57",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/57.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 201
+ },
+ {
+  "id": "pm-58",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-58",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-58",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/58.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 202
+ },
+ {
+  "id": "pm-59",
+  "slug": "kadin-tam-boy-plastik-manken-pm-59",
+  "name": "Kadın Tam Boy Plastik Manken",
+  "code": "PM-59",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/59.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Kadın"
+  },
+  "order": 203
+ },
+ {
+  "id": "pm-60",
+  "slug": "cocuk-tam-boy-plastik-manken-pm-60",
+  "name": "Çocuk Tam Boy Plastik Manken",
+  "code": "PM-60",
+  "path": [
+   "mankenler",
+   "plastik-manken"
+  ],
+  "images": [
+   "urunler/mankenler/plastik/modeller/60.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "tip": "Tam boy",
+   "cinsiyet": "Çocuk"
+  },
+  "order": 204
+ },
+ {
+  "id": "pkm-a-01",
+  "slug": "altin-kadin-polyester-manken-pkm-a-01",
+  "name": "Altın Kadın Polyester Manken",
+  "code": "PKM-A-01",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Altın"
+  },
+  "order": 205
+ },
+ {
+  "id": "pkm-a-05",
+  "slug": "altin-kadin-polyester-manken-pkm-a-05",
+  "name": "Altın Kadın Polyester Manken",
+  "code": "PKM-A-05",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Altın"
+  },
+  "order": 206
+ },
+ {
+  "id": "pkm-a-07",
+  "slug": "altin-kadin-polyester-manken-pkm-a-07",
+  "name": "Altın Kadın Polyester Manken",
+  "code": "PKM-A-07",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Altın"
+  },
+  "order": 207
+ },
+ {
+  "id": "pkm-a-08",
+  "slug": "altin-kadin-polyester-manken-pkm-a-08",
+  "name": "Altın Kadın Polyester Manken",
+  "code": "PKM-A-08",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Altın"
+  },
+  "order": 208
+ },
+ {
+  "id": "pkm-b-01",
+  "slug": "gumus-kadin-polyester-manken-pkm-b-01",
+  "name": "Gümüş Kadın Polyester Manken",
+  "code": "PKM-B-01",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Gümüş"
+  },
+  "order": 209
+ },
+ {
+  "id": "pkm-b-02",
+  "slug": "bronz-kadin-polyester-manken-pkm-b-02",
+  "name": "Bronz Kadın Polyester Manken",
+  "code": "PKM-B-02",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Bronz"
+  },
+  "order": 210
+ },
+ {
+  "id": "pkm-b-03",
+  "slug": "bronz-kadin-polyester-manken-pkm-b-03",
+  "name": "Bronz Kadın Polyester Manken",
+  "code": "PKM-B-03",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Bronz"
+  },
+  "order": 211
+ },
+ {
+  "id": "pkm-b-04",
+  "slug": "siyah-kadin-polyester-manken-pkm-b-04",
+  "name": "Siyah Kadın Polyester Manken",
+  "code": "PKM-B-04",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Siyah"
+  },
+  "order": 212
+ },
+ {
+  "id": "pkm-b-05",
+  "slug": "gri-kadin-polyester-manken-pkm-b-05",
+  "name": "Gri Kadın Polyester Manken",
+  "code": "PKM-B-05",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Gri"
+  },
+  "order": 213
+ },
+ {
+  "id": "pkm-b-06",
+  "slug": "siyah-kadin-polyester-manken-pkm-b-06",
+  "name": "Siyah Kadın Polyester Manken",
+  "code": "PKM-B-06",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Siyah"
+  },
+  "order": 214
+ },
+ {
+  "id": "pkm-b-07",
+  "slug": "siyah-kadin-polyester-manken-pkm-b-07",
+  "name": "Siyah Kadın Polyester Manken",
+  "code": "PKM-B-07",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Siyah"
+  },
+  "order": 215
+ },
+ {
+  "id": "pkm-b-08",
+  "slug": "beyaz-kadin-polyester-manken-pkm-b-08",
+  "name": "Beyaz Kadın Polyester Manken",
+  "code": "PKM-B-08",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Beyaz"
+  },
+  "order": 216
+ },
+ {
+  "id": "pkm-b-09",
+  "slug": "beyaz-kadin-polyester-manken-pkm-b-09",
+  "name": "Beyaz Kadın Polyester Manken",
+  "code": "PKM-B-09",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Beyaz"
+  },
+  "order": 217
+ },
+ {
+  "id": "pkm-b-10",
+  "slug": "beyaz-kadin-polyester-manken-pkm-b-10",
+  "name": "Beyaz Kadın Polyester Manken",
+  "code": "PKM-B-10",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-1/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Beyaz"
+  },
+  "order": 218
+ },
+ {
+  "id": "pkm-c-01",
+  "slug": "gumus-kadin-polyester-manken-pkm-c-01",
+  "name": "Gümüş Kadın Polyester Manken",
+  "code": "PKM-C-01",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Gümüş"
+  },
+  "order": 219
+ },
+ {
+  "id": "pkm-c-02",
+  "slug": "gumus-kadin-polyester-manken-pkm-c-02",
+  "name": "Gümüş Kadın Polyester Manken",
+  "code": "PKM-C-02",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Gümüş"
+  },
+  "order": 220
+ },
+ {
+  "id": "pkm-c-03",
+  "slug": "gumus-kadin-polyester-manken-pkm-c-03",
+  "name": "Gümüş Kadın Polyester Manken",
+  "code": "PKM-C-03",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Gümüş"
+  },
+  "order": 221
+ },
+ {
+  "id": "pkm-c-04",
+  "slug": "altin-kadin-polyester-manken-pkm-c-04",
+  "name": "Altın Kadın Polyester Manken",
+  "code": "PKM-C-04",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Altın"
+  },
+  "order": 222
+ },
+ {
+  "id": "pkm-c-05",
+  "slug": "altin-kadin-polyester-manken-pkm-c-05",
+  "name": "Altın Kadın Polyester Manken",
+  "code": "PKM-C-05",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Altın"
+  },
+  "order": 223
+ },
+ {
+  "id": "pkm-c-06",
+  "slug": "altin-kadin-polyester-manken-pkm-c-06",
+  "name": "Altın Kadın Polyester Manken",
+  "code": "PKM-C-06",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Altın"
+  },
+  "order": 224
+ },
+ {
+  "id": "pkm-c-07",
+  "slug": "ten-rengi-kadin-polyester-manken-pkm-c-07",
+  "name": "Ten Rengi Kadın Polyester Manken",
+  "code": "PKM-C-07",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Ten rengi"
+  },
+  "order": 225
+ },
+ {
+  "id": "pkm-c-08",
+  "slug": "beyaz-kadin-polyester-manken-pkm-c-08",
+  "name": "Beyaz Kadın Polyester Manken",
+  "code": "PKM-C-08",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Beyaz"
+  },
+  "order": 226
+ },
+ {
+  "id": "pkm-c-09",
+  "slug": "ten-rengi-kadin-polyester-manken-pkm-c-09",
+  "name": "Ten Rengi Kadın Polyester Manken",
+  "code": "PKM-C-09",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Ten rengi"
+  },
+  "order": 227
+ },
+ {
+  "id": "pkm-c-10",
+  "slug": "ten-rengi-kadin-polyester-manken-pkm-c-10",
+  "name": "Ten Rengi Kadın Polyester Manken",
+  "code": "PKM-C-10",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "kadin"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/kadin/seri-2/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Kadın",
+   "renk": "Ten rengi"
+  },
+  "order": 228
+ },
+ {
+  "id": "pem-a-02",
+  "slug": "altin-erkek-polyester-manken-pem-a-02",
+  "name": "Altın Erkek Polyester Manken",
+  "code": "PEM-A-02",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Altın"
+  },
+  "order": 229
+ },
+ {
+  "id": "pem-a-03",
+  "slug": "altin-erkek-polyester-manken-pem-a-03",
+  "name": "Altın Erkek Polyester Manken",
+  "code": "PEM-A-03",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Altın"
+  },
+  "order": 230
+ },
+ {
+  "id": "pem-a-04",
+  "slug": "altin-erkek-polyester-manken-pem-a-04",
+  "name": "Altın Erkek Polyester Manken",
+  "code": "PEM-A-04",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Altın"
+  },
+  "order": 231
+ },
+ {
+  "id": "pem-b-01",
+  "slug": "gumus-erkek-polyester-manken-pem-b-01",
+  "name": "Gümüş Erkek Polyester Manken",
+  "code": "PEM-B-01",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Gümüş"
+  },
+  "order": 232
+ },
+ {
+  "id": "pem-b-02",
+  "slug": "siyah-erkek-polyester-manken-pem-b-02",
+  "name": "Siyah Erkek Polyester Manken",
+  "code": "PEM-B-02",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Siyah"
+  },
+  "order": 233
+ },
+ {
+  "id": "pem-b-03",
+  "slug": "gri-erkek-polyester-manken-pem-b-03",
+  "name": "Gri Erkek Polyester Manken",
+  "code": "PEM-B-03",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Gri"
+  },
+  "order": 234
+ },
+ {
+  "id": "pem-b-04",
+  "slug": "beyaz-erkek-polyester-manken-pem-b-04",
+  "name": "Beyaz Erkek Polyester Manken",
+  "code": "PEM-B-04",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Beyaz"
+  },
+  "order": 235
+ },
+ {
+  "id": "pem-b-05",
+  "slug": "beyaz-erkek-polyester-manken-pem-b-05",
+  "name": "Beyaz Erkek Polyester Manken",
+  "code": "PEM-B-05",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Beyaz"
+  },
+  "order": 236
+ },
+ {
+  "id": "pem-b-06",
+  "slug": "siyah-erkek-polyester-manken-pem-b-06",
+  "name": "Siyah Erkek Polyester Manken",
+  "code": "PEM-B-06",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Siyah"
+  },
+  "order": 237
+ },
+ {
+  "id": "pem-b-07",
+  "slug": "beyaz-erkek-polyester-manken-pem-b-07",
+  "name": "Beyaz Erkek Polyester Manken",
+  "code": "PEM-B-07",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Beyaz"
+  },
+  "order": 238
+ },
+ {
+  "id": "pem-b-08",
+  "slug": "beyaz-erkek-polyester-manken-pem-b-08",
+  "name": "Beyaz Erkek Polyester Manken",
+  "code": "PEM-B-08",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Beyaz"
+  },
+  "order": 239
+ },
+ {
+  "id": "pem-b-09",
+  "slug": "bakir-erkek-polyester-manken-pem-b-09",
+  "name": "Bakır Erkek Polyester Manken",
+  "code": "PEM-B-09",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Bakır"
+  },
+  "order": 240
+ },
+ {
+  "id": "pem-b-10",
+  "slug": "siyah-erkek-polyester-manken-pem-b-10",
+  "name": "Siyah Erkek Polyester Manken",
+  "code": "PEM-B-10",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Siyah"
+  },
+  "order": 241
+ },
+ {
+  "id": "pem-b-11",
+  "slug": "bronz-erkek-polyester-manken-pem-b-11",
+  "name": "Bronz Erkek Polyester Manken",
+  "code": "PEM-B-11",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "erkek"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/erkek/seri-1/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Erkek",
+   "renk": "Bronz"
+  },
+  "order": 242
+ },
+ {
+  "id": "pcm-06",
+  "slug": "altin-cocuk-polyester-manken-pcm-06",
+  "name": "Altın Çocuk Polyester Manken",
+  "code": "PCM-06",
+  "path": [
+   "mankenler",
+   "polyester-manken",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/mankenler/polyester/cocuk/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "cinsiyet": "Çocuk",
+   "renk": "Altın"
+  },
+  "order": 243
+ },
+ {
+  "id": "aak-01",
+  "slug": "naturel-klasik-ahsap-aski-aak-01",
+  "name": "Naturel Klasik Ahşap Askı",
+  "code": "AAK-01",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 244
+ },
+ {
+  "id": "aak-02",
+  "slug": "naturel-klasik-ahsap-aski-aak-02",
+  "name": "Naturel Klasik Ahşap Askı",
+  "code": "AAK-02",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 245
+ },
+ {
+  "id": "aak-03",
+  "slug": "kahverengi-klasik-ahsap-aski-aak-03",
+  "name": "Kahverengi Klasik Ahşap Askı",
+  "code": "AAK-03",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 246
+ },
+ {
+  "id": "aak-04",
+  "slug": "kahverengi-klasik-ahsap-aski-aak-04",
+  "name": "Kahverengi Klasik Ahşap Askı",
+  "code": "AAK-04",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 247
+ },
+ {
+  "id": "aak-05",
+  "slug": "naturel-klasik-ahsap-aski-aak-05",
+  "name": "Naturel Klasik Ahşap Askı",
+  "code": "AAK-05",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 248
+ },
+ {
+  "id": "aak-06",
+  "slug": "naturel-klasik-ahsap-aski-aak-06",
+  "name": "Naturel Klasik Ahşap Askı",
+  "code": "AAK-06",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 249
+ },
+ {
+  "id": "aak-07",
+  "slug": "siyah-klasik-ahsap-aski-aak-07",
+  "name": "Siyah Klasik Ahşap Askı",
+  "code": "AAK-07",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 250
+ },
+ {
+  "id": "aak-08",
+  "slug": "siyah-klasik-ahsap-aski-aak-08",
+  "name": "Siyah Klasik Ahşap Askı",
+  "code": "AAK-08",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 251
+ },
+ {
+  "id": "aak-09",
+  "slug": "siyah-klasik-ahsap-aski-aak-09",
+  "name": "Siyah Klasik Ahşap Askı",
+  "code": "AAK-09",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 252
+ },
+ {
+  "id": "aak-10",
+  "slug": "siyah-klasik-ahsap-aski-aak-10",
+  "name": "Siyah Klasik Ahşap Askı",
+  "code": "AAK-10",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 253
+ },
+ {
+  "id": "aak-11",
+  "slug": "siyah-klasik-ahsap-aski-aak-11",
+  "name": "Siyah Klasik Ahşap Askı",
+  "code": "AAK-11",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 254
+ },
+ {
+  "id": "aak-12",
+  "slug": "beyaz-klasik-ahsap-aski-aak-12",
+  "name": "Beyaz Klasik Ahşap Askı",
+  "code": "AAK-12",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 255
+ },
+ {
+  "id": "aak-13",
+  "slug": "gri-klasik-ahsap-aski-aak-13",
+  "name": "Gri Klasik Ahşap Askı",
+  "code": "AAK-13",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gri"
+  },
+  "order": 256
+ },
+ {
+  "id": "aak-14",
+  "slug": "gri-klasik-ahsap-aski-aak-14",
+  "name": "Gri Klasik Ahşap Askı",
+  "code": "AAK-14",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gri"
+  },
+  "order": 257
+ },
+ {
+  "id": "aak-15",
+  "slug": "beyaz-klasik-ahsap-aski-aak-15",
+  "name": "Beyaz Klasik Ahşap Askı",
+  "code": "AAK-15",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/klasik/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 258
+ },
+ {
+  "id": "aac-01",
+  "slug": "siyah-ahsap-ceket-askisi-aac-01",
+  "name": "Siyah Ahşap Ceket Askısı",
+  "code": "AAC-01",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 259
+ },
+ {
+  "id": "aac-02",
+  "slug": "siyah-ahsap-ceket-askisi-aac-02",
+  "name": "Siyah Ahşap Ceket Askısı",
+  "code": "AAC-02",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 260
+ },
+ {
+  "id": "aac-03",
+  "slug": "naturel-ahsap-ceket-askisi-aac-03",
+  "name": "Naturel Ahşap Ceket Askısı",
+  "code": "AAC-03",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 261
+ },
+ {
+  "id": "aac-04",
+  "slug": "lacivert-ahsap-ceket-askisi-aac-04",
+  "name": "Lacivert Ahşap Ceket Askısı",
+  "code": "AAC-04",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Lacivert"
+  },
+  "order": 262
+ },
+ {
+  "id": "aac-05",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-05",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-05",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 263
+ },
+ {
+  "id": "aac-06",
+  "slug": "naturel-ahsap-ceket-askisi-aac-06",
+  "name": "Naturel Ahşap Ceket Askısı",
+  "code": "AAC-06",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 264
+ },
+ {
+  "id": "aac-07",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-07",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-07",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 265
+ },
+ {
+  "id": "aac-08",
+  "slug": "naturel-ahsap-ceket-askisi-aac-08",
+  "name": "Naturel Ahşap Ceket Askısı",
+  "code": "AAC-08",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 266
+ },
+ {
+  "id": "aac-09",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-09",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-09",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 267
+ },
+ {
+  "id": "aac-10",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-10",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-10",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 268
+ },
+ {
+  "id": "aac-11",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-11",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-11",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 269
+ },
+ {
+  "id": "aac-12",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-12",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-12",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 270
+ },
+ {
+  "id": "aac-13",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-13",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-13",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 271
+ },
+ {
+  "id": "aac-14",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-14",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-14",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 272
+ },
+ {
+  "id": "aac-15",
+  "slug": "kahverengi-ahsap-ceket-askisi-aac-15",
+  "name": "Kahverengi Ahşap Ceket Askısı",
+  "code": "AAC-15",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "ceket"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/ceket/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 273
+ },
+ {
+  "id": "aap-01",
+  "slug": "beyaz-ahsap-pantolon-askisi-aap-01",
+  "name": "Beyaz Ahşap Pantolon Askısı",
+  "code": "AAP-01",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 274
+ },
+ {
+  "id": "aap-02",
+  "slug": "gri-ahsap-pantolon-askisi-aap-02",
+  "name": "Gri Ahşap Pantolon Askısı",
+  "code": "AAP-02",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gri"
+  },
+  "order": 275
+ },
+ {
+  "id": "aap-03",
+  "slug": "siyah-ahsap-pantolon-askisi-aap-03",
+  "name": "Siyah Ahşap Pantolon Askısı",
+  "code": "AAP-03",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 276
+ },
+ {
+  "id": "aap-04",
+  "slug": "naturel-ahsap-pantolon-askisi-aap-04",
+  "name": "Naturel Ahşap Pantolon Askısı",
+  "code": "AAP-04",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 277
+ },
+ {
+  "id": "aap-05",
+  "slug": "naturel-ahsap-pantolon-askisi-aap-05",
+  "name": "Naturel Ahşap Pantolon Askısı",
+  "code": "AAP-05",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 278
+ },
+ {
+  "id": "aap-06",
+  "slug": "siyah-ahsap-pantolon-askisi-aap-06",
+  "name": "Siyah Ahşap Pantolon Askısı",
+  "code": "AAP-06",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 279
+ },
+ {
+  "id": "aap-07",
+  "slug": "siyah-ahsap-pantolon-askisi-aap-07",
+  "name": "Siyah Ahşap Pantolon Askısı",
+  "code": "AAP-07",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 280
+ },
+ {
+  "id": "aap-08",
+  "slug": "lacivert-ahsap-pantolon-askisi-aap-08",
+  "name": "Lacivert Ahşap Pantolon Askısı",
+  "code": "AAP-08",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Lacivert"
+  },
+  "order": 281
+ },
+ {
+  "id": "aap-09",
+  "slug": "naturel-ahsap-pantolon-askisi-aap-09",
+  "name": "Naturel Ahşap Pantolon Askısı",
+  "code": "AAP-09",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 282
+ },
+ {
+  "id": "aap-10",
+  "slug": "siyah-ahsap-pantolon-askisi-aap-10",
+  "name": "Siyah Ahşap Pantolon Askısı",
+  "code": "AAP-10",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 283
+ },
+ {
+  "id": "aap-11",
+  "slug": "naturel-ahsap-pantolon-askisi-aap-11",
+  "name": "Naturel Ahşap Pantolon Askısı",
+  "code": "AAP-11",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 284
+ },
+ {
+  "id": "aap-12",
+  "slug": "siyah-ahsap-pantolon-askisi-aap-12",
+  "name": "Siyah Ahşap Pantolon Askısı",
+  "code": "AAP-12",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 285
+ },
+ {
+  "id": "aap-13",
+  "slug": "naturel-ahsap-pantolon-askisi-aap-13",
+  "name": "Naturel Ahşap Pantolon Askısı",
+  "code": "AAP-13",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 286
+ },
+ {
+  "id": "aap-14",
+  "slug": "gri-ahsap-pantolon-askisi-aap-14",
+  "name": "Gri Ahşap Pantolon Askısı",
+  "code": "AAP-14",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gri"
+  },
+  "order": 287
+ },
+ {
+  "id": "aap-15",
+  "slug": "naturel-ahsap-pantolon-askisi-aap-15",
+  "name": "Naturel Ahşap Pantolon Askısı",
+  "code": "AAP-15",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 288
+ },
+ {
+  "id": "aap-16",
+  "slug": "mavi-ahsap-pantolon-askisi-aap-16",
+  "name": "Mavi Ahşap Pantolon Askısı",
+  "code": "AAP-16",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/16.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Mavi"
+  },
+  "order": 289
+ },
+ {
+  "id": "aap-17",
+  "slug": "siyah-ahsap-pantolon-askisi-aap-17",
+  "name": "Siyah Ahşap Pantolon Askısı",
+  "code": "AAP-17",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/17.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 290
+ },
+ {
+  "id": "aap-18",
+  "slug": "siyah-ahsap-pantolon-askisi-aap-18",
+  "name": "Siyah Ahşap Pantolon Askısı",
+  "code": "AAP-18",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/18.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 291
+ },
+ {
+  "id": "aap-19",
+  "slug": "naturel-ahsap-pantolon-askisi-aap-19",
+  "name": "Naturel Ahşap Pantolon Askısı",
+  "code": "AAP-19",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/19.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 292
+ },
+ {
+  "id": "aap-20",
+  "slug": "kahverengi-ahsap-pantolon-askisi-aap-20",
+  "name": "Kahverengi Ahşap Pantolon Askısı",
+  "code": "AAP-20",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "pantolon"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/pantolon/20.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 293
+ },
+ {
+  "id": "aab-01",
+  "slug": "naturel-ahsap-bluz-askisi-aab-01",
+  "name": "Naturel Ahşap Bluz Askısı",
+  "code": "AAB-01",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 294
+ },
+ {
+  "id": "aab-02",
+  "slug": "siyah-ahsap-bluz-askisi-aab-02",
+  "name": "Siyah Ahşap Bluz Askısı",
+  "code": "AAB-02",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 295
+ },
+ {
+  "id": "aab-03",
+  "slug": "siyah-ahsap-bluz-askisi-aab-03",
+  "name": "Siyah Ahşap Bluz Askısı",
+  "code": "AAB-03",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 296
+ },
+ {
+  "id": "aab-04",
+  "slug": "siyah-ahsap-bluz-askisi-aab-04",
+  "name": "Siyah Ahşap Bluz Askısı",
+  "code": "AAB-04",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 297
+ },
+ {
+  "id": "aab-05",
+  "slug": "kirmizi-ahsap-bluz-askisi-aab-05",
+  "name": "Kırmızı Ahşap Bluz Askısı",
+  "code": "AAB-05",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kırmızı"
+  },
+  "order": 298
+ },
+ {
+  "id": "aab-06",
+  "slug": "naturel-ahsap-bluz-askisi-aab-06",
+  "name": "Naturel Ahşap Bluz Askısı",
+  "code": "AAB-06",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 299
+ },
+ {
+  "id": "aab-07",
+  "slug": "yesil-ahsap-bluz-askisi-aab-07",
+  "name": "Yeşil Ahşap Bluz Askısı",
+  "code": "AAB-07",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Yeşil"
+  },
+  "order": 300
+ },
+ {
+  "id": "aab-08",
+  "slug": "kahverengi-ahsap-bluz-askisi-aab-08",
+  "name": "Kahverengi Ahşap Bluz Askısı",
+  "code": "AAB-08",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 301
+ },
+ {
+  "id": "aab-09",
+  "slug": "naturel-ahsap-bluz-askisi-aab-09",
+  "name": "Naturel Ahşap Bluz Askısı",
+  "code": "AAB-09",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 302
+ },
+ {
+  "id": "aab-10",
+  "slug": "beyaz-ahsap-bluz-askisi-aab-10",
+  "name": "Beyaz Ahşap Bluz Askısı",
+  "code": "AAB-10",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "bluz"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/bluz/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 303
+ },
+ {
+  "id": "aca-01",
+  "slug": "beyaz-ahsap-cocuk-askisi-aca-01",
+  "name": "Beyaz Ahşap Çocuk Askısı",
+  "code": "ACA-01",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 304
+ },
+ {
+  "id": "aca-02",
+  "slug": "naturel-ahsap-cocuk-askisi-aca-02",
+  "name": "Naturel Ahşap Çocuk Askısı",
+  "code": "ACA-02",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 305
+ },
+ {
+  "id": "aca-03",
+  "slug": "kahverengi-ahsap-cocuk-askisi-aca-03",
+  "name": "Kahverengi Ahşap Çocuk Askısı",
+  "code": "ACA-03",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 306
+ },
+ {
+  "id": "aca-04",
+  "slug": "siyah-ahsap-cocuk-askisi-aca-04",
+  "name": "Siyah Ahşap Çocuk Askısı",
+  "code": "ACA-04",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 307
+ },
+ {
+  "id": "aca-05",
+  "slug": "yesil-ahsap-cocuk-askisi-aca-05",
+  "name": "Yeşil Ahşap Çocuk Askısı",
+  "code": "ACA-05",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Yeşil"
+  },
+  "order": 308
+ },
+ {
+  "id": "aca-06",
+  "slug": "naturel-ahsap-cocuk-askisi-aca-06",
+  "name": "Naturel Ahşap Çocuk Askısı",
+  "code": "ACA-06",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 309
+ },
+ {
+  "id": "aca-07",
+  "slug": "gri-ahsap-cocuk-askisi-aca-07",
+  "name": "Gri Ahşap Çocuk Askısı",
+  "code": "ACA-07",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gri"
+  },
+  "order": 310
+ },
+ {
+  "id": "aca-08",
+  "slug": "naturel-ahsap-cocuk-askisi-aca-08",
+  "name": "Naturel Ahşap Çocuk Askısı",
+  "code": "ACA-08",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 311
+ },
+ {
+  "id": "aca-09",
+  "slug": "naturel-ahsap-cocuk-askisi-aca-09",
+  "name": "Naturel Ahşap Çocuk Askısı",
+  "code": "ACA-09",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 312
+ },
+ {
+  "id": "aca-10",
+  "slug": "lacivert-ahsap-cocuk-askisi-aca-10",
+  "name": "Lacivert Ahşap Çocuk Askısı",
+  "code": "ACA-10",
+  "path": [
+   "askilar",
+   "ahsap-aski",
+   "cocuk"
+  ],
+  "images": [
+   "urunler/askilar/ahsap/cocuk/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Lacivert"
+  },
+  "order": 313
+ },
+ {
+  "id": "pa-01",
+  "slug": "beyaz-plastik-ceket-askisi-pa-01",
+  "name": "Beyaz Plastik Ceket Askısı",
+  "code": "PA-01",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 314
+ },
+ {
+  "id": "pa-02",
+  "slug": "beyaz-plastik-ceket-askisi-pa-02",
+  "name": "Beyaz Plastik Ceket Askısı",
+  "code": "PA-02",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 315
+ },
+ {
+  "id": "pa-03",
+  "slug": "siyah-plastik-ceket-askisi-pa-03",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-03",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 316
+ },
+ {
+  "id": "pa-04",
+  "slug": "siyah-plastik-ceket-askisi-pa-04",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-04",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 317
+ },
+ {
+  "id": "pa-05",
+  "slug": "altin-plastik-ceket-askisi-pa-05",
+  "name": "Altın Plastik Ceket Askısı",
+  "code": "PA-05",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 318
+ },
+ {
+  "id": "pa-06",
+  "slug": "gumus-plastik-ceket-askisi-pa-06",
+  "name": "Gümüş Plastik Ceket Askısı",
+  "code": "PA-06",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 319
+ },
+ {
+  "id": "pa-07",
+  "slug": "bakir-plastik-ceket-askisi-pa-07",
+  "name": "Bakır Plastik Ceket Askısı",
+  "code": "PA-07",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Bakır"
+  },
+  "order": 320
+ },
+ {
+  "id": "pa-08",
+  "slug": "gumus-plastik-ceket-askisi-pa-08",
+  "name": "Gümüş Plastik Ceket Askısı",
+  "code": "PA-08",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 321
+ },
+ {
+  "id": "pa-09",
+  "slug": "beyaz-plastik-ceket-askisi-pa-09",
+  "name": "Beyaz Plastik Ceket Askısı",
+  "code": "PA-09",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 322
+ },
+ {
+  "id": "pa-10",
+  "slug": "gri-plastik-ceket-askisi-pa-10",
+  "name": "Gri Plastik Ceket Askısı",
+  "code": "PA-10",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gri"
+  },
+  "order": 323
+ },
+ {
+  "id": "pa-11",
+  "slug": "gumus-plastik-ceket-askisi-pa-11",
+  "name": "Gümüş Plastik Ceket Askısı",
+  "code": "PA-11",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 324
+ },
+ {
+  "id": "pa-12",
+  "slug": "gumus-plastik-ceket-askisi-pa-12",
+  "name": "Gümüş Plastik Ceket Askısı",
+  "code": "PA-12",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 325
+ },
+ {
+  "id": "pa-13",
+  "slug": "siyah-plastik-ceket-askisi-pa-13",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-13",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 326
+ },
+ {
+  "id": "pa-14",
+  "slug": "siyah-plastik-ceket-askisi-pa-14",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-14",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 327
+ },
+ {
+  "id": "pa-15",
+  "slug": "altin-plastik-ceket-askisi-pa-15",
+  "name": "Altın Plastik Ceket Askısı",
+  "code": "PA-15",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 328
+ },
+ {
+  "id": "pa-16",
+  "slug": "altin-plastik-ceket-askisi-pa-16",
+  "name": "Altın Plastik Ceket Askısı",
+  "code": "PA-16",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/16.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 329
+ },
+ {
+  "id": "pa-17",
+  "slug": "altin-plastik-ceket-askisi-pa-17",
+  "name": "Altın Plastik Ceket Askısı",
+  "code": "PA-17",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/17.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 330
+ },
+ {
+  "id": "pa-18",
+  "slug": "altin-plastik-ceket-askisi-pa-18",
+  "name": "Altın Plastik Ceket Askısı",
+  "code": "PA-18",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/18.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 331
+ },
+ {
+  "id": "pa-19",
+  "slug": "siyah-plastik-ceket-askisi-pa-19",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-19",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/19.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 332
+ },
+ {
+  "id": "pa-20",
+  "slug": "siyah-plastik-ceket-askisi-pa-20",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-20",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/20.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 333
+ },
+ {
+  "id": "pa-21",
+  "slug": "siyah-plastik-ceket-askisi-pa-21",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-21",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/21.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 334
+ },
+ {
+  "id": "pa-22",
+  "slug": "siyah-plastik-ceket-askisi-pa-22",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-22",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/22.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 335
+ },
+ {
+  "id": "pa-23",
+  "slug": "siyah-plastik-ceket-askisi-pa-23",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-23",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/23.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 336
+ },
+ {
+  "id": "pa-24",
+  "slug": "beyaz-plastik-ceket-askisi-pa-24",
+  "name": "Beyaz Plastik Ceket Askısı",
+  "code": "PA-24",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/24.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 337
+ },
+ {
+  "id": "pa-25",
+  "slug": "siyah-plastik-ceket-askisi-pa-25",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-25",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/25.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 338
+ },
+ {
+  "id": "pa-26",
+  "slug": "siyah-plastik-ceket-askisi-pa-26",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-26",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/26.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 339
+ },
+ {
+  "id": "pa-27",
+  "slug": "siyah-plastik-ceket-askisi-pa-27",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-27",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/27.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 340
+ },
+ {
+  "id": "pa-28",
+  "slug": "siyah-plastik-ceket-askisi-pa-28",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-28",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/28.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 341
+ },
+ {
+  "id": "pa-29",
+  "slug": "siyah-plastik-ceket-askisi-pa-29",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-29",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/29.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 342
+ },
+ {
+  "id": "pa-30",
+  "slug": "siyah-plastik-ceket-askisi-pa-30",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-30",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/30.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 343
+ },
+ {
+  "id": "pa-31",
+  "slug": "siyah-plastik-ceket-askisi-pa-31",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-31",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/31.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 344
+ },
+ {
+  "id": "pa-32",
+  "slug": "siyah-plastik-ceket-askisi-pa-32",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-32",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/32.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 345
+ },
+ {
+  "id": "pa-33",
+  "slug": "siyah-plastik-ceket-askisi-pa-33",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-33",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/33.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 346
+ },
+ {
+  "id": "pa-34",
+  "slug": "mavi-plastik-ceket-askisi-pa-34",
+  "name": "Mavi Plastik Ceket Askısı",
+  "code": "PA-34",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/34.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Mavi"
+  },
+  "order": 347
+ },
+ {
+  "id": "pa-35",
+  "slug": "siyah-plastik-ceket-askisi-pa-35",
+  "name": "Siyah Plastik Ceket Askısı",
+  "code": "PA-35",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-1/35.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 348
+ },
+ {
+  "id": "as",
+  "slug": "aski-koprusu-as",
+  "name": "Askı Köprüsü",
+  "code": "AS",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/as.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 349
+ },
+ {
+  "id": "asu",
+  "slug": "uzun-aski-koprusu-asu",
+  "name": "Uzun Askı Köprüsü",
+  "code": "ASU",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/asu.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 350
+ },
+ {
+  "id": "ba",
+  "slug": "plastik-aski-ba-ba",
+  "name": "Plastik Askı BA",
+  "code": "BA",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ba.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 351
+ },
+ {
+  "id": "bb1",
+  "slug": "plastik-aski-bb1-bb1",
+  "name": "Plastik Askı BB1",
+  "code": "BB1",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bb1.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 352
+ },
+ {
+  "id": "bb2",
+  "slug": "plastik-aski-bb2-bb2",
+  "name": "Plastik Askı BB2",
+  "code": "BB2",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bb2.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 353
+ },
+ {
+  "id": "bb3",
+  "slug": "plastik-aski-bb3-bb3",
+  "name": "Plastik Askı BB3",
+  "code": "BB3",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bb3.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 354
+ },
+ {
+  "id": "bb221",
+  "slug": "plastik-aski-bb221-bb221",
+  "name": "Plastik Askı BB221",
+  "code": "BB221",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bb221.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 355
+ },
+ {
+  "id": "bb321",
+  "slug": "plastik-aski-bb321-bb321",
+  "name": "Plastik Askı BB321",
+  "code": "BB321",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bb321.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 356
+ },
+ {
+  "id": "bb421",
+  "slug": "plastik-aski-bb421-bb421",
+  "name": "Plastik Askı BB421",
+  "code": "BB421",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bb421.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 357
+ },
+ {
+  "id": "bb521",
+  "slug": "plastik-aski-bb521-bb521",
+  "name": "Plastik Askı BB521",
+  "code": "BB521",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bb521.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 358
+ },
+ {
+  "id": "beden",
+  "slug": "beden-belirleyici-beden",
+  "name": "Beden Belirleyici",
+  "code": "BEDEN",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/beden.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 359
+ },
+ {
+  "id": "bordo",
+  "slug": "bordo-flok-aski-bordo",
+  "name": "Bordo Flok Askı",
+  "code": "BORDO",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bordo.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Bordo"
+  },
+  "order": 360
+ },
+ {
+  "id": "br",
+  "slug": "plastik-aski-br-br",
+  "name": "Plastik Askı BR",
+  "code": "BR",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/br.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 361
+ },
+ {
+  "id": "bw",
+  "slug": "plastik-aski-bw-bw",
+  "name": "Plastik Askı BW",
+  "code": "BW",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/bw.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 362
+ },
+ {
+  "id": "c",
+  "slug": "plastik-aski-c-c",
+  "name": "Plastik Askı C",
+  "code": "C",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/c.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 363
+ },
+ {
+  "id": "c42",
+  "slug": "plastik-aski-c42-c42",
+  "name": "Plastik Askı C42",
+  "code": "C42",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/c42.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 364
+ },
+ {
+  "id": "ctp-43",
+  "slug": "plastik-aski-ctp-43-ctp-43",
+  "name": "Plastik Askı CTP-43",
+  "code": "CTP-43",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ctp-43.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 365
+ },
+ {
+  "id": "cw",
+  "slug": "plastik-aski-cw-cw",
+  "name": "Plastik Askı CW",
+  "code": "CW",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/cw.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 366
+ },
+ {
+  "id": "ec-43-47",
+  "slug": "plastik-aski-ec-43-47-ec-43-47",
+  "name": "Plastik Askı EC-43-47",
+  "code": "EC-43-47",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ec-43-47.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 367
+ },
+ {
+  "id": "ec",
+  "slug": "plastik-aski-ec-ec",
+  "name": "Plastik Askı EC",
+  "code": "EC",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ec.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 368
+ },
+ {
+  "id": "ef",
+  "slug": "plastik-aski-ef-ef",
+  "name": "Plastik Askı EF",
+  "code": "EF",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ef.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 369
+ },
+ {
+  "id": "em-1",
+  "slug": "plastik-aski-em-1-em-1",
+  "name": "Plastik Askı EM-1",
+  "code": "EM-1",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/em-1.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 370
+ },
+ {
+  "id": "em-2",
+  "slug": "plastik-aski-em-2-em-2",
+  "name": "Plastik Askı EM-2",
+  "code": "EM-2",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/em-2.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 371
+ },
+ {
+  "id": "em-3",
+  "slug": "plastik-aski-em-3-em-3",
+  "name": "Plastik Askı EM-3",
+  "code": "EM-3",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/em-3.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 372
+ },
+ {
+  "id": "em",
+  "slug": "plastik-aski-em-em",
+  "name": "Plastik Askı EM",
+  "code": "EM",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/em.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 373
+ },
+ {
+  "id": "emp",
+  "slug": "plastik-aski-emp-emp",
+  "name": "Plastik Askı EMP",
+  "code": "EMP",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/emp.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 374
+ },
+ {
+  "id": "hd-36",
+  "slug": "plastik-aski-hd-36-hd-36",
+  "name": "Plastik Askı HD-36",
+  "code": "HD-36",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/hd-36.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 375
+ },
+ {
+  "id": "hd-36s",
+  "slug": "plastik-aski-hd-36s-hd-36s",
+  "name": "Plastik Askı HD-36S",
+  "code": "HD-36S",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/hd-36s.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 376
+ },
+ {
+  "id": "hm-28",
+  "slug": "plastik-aski-hm-28-hm-28",
+  "name": "Plastik Askı HM-28",
+  "code": "HM-28",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/hm-28.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 377
+ },
+ {
+  "id": "hm-32",
+  "slug": "plastik-aski-hm-32-hm-32",
+  "name": "Plastik Askı HM-32",
+  "code": "HM-32",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/hm-32.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 378
+ },
+ {
+  "id": "kanca",
+  "slug": "aski-kancasi-cesitleri-kanca",
+  "name": "Askı Kancası Çeşitleri",
+  "code": "KANCA",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/kanca.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 379
+ },
+ {
+  "id": "kartela",
+  "slug": "kartela-askisi-kartela",
+  "name": "Kartela Askısı",
+  "code": "KARTELA",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/kartela.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 380
+ },
+ {
+  "id": "km-26",
+  "slug": "plastik-aski-km-26-km-26",
+  "name": "Plastik Askı KM-26",
+  "code": "KM-26",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/km-26.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 381
+ },
+ {
+  "id": "km-30",
+  "slug": "plastik-aski-km-30-km-30",
+  "name": "Plastik Askı KM-30",
+  "code": "KM-30",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/km-30.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 382
+ },
+ {
+  "id": "kravat",
+  "slug": "kravat-askisi-kravat",
+  "name": "Kravat Askısı",
+  "code": "KRAVAT",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/kravat.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 383
+ },
+ {
+  "id": "ktm",
+  "slug": "plastik-aski-ktm-ktm",
+  "name": "Plastik Askı KTM",
+  "code": "KTM",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ktm.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 384
+ },
+ {
+  "id": "kts",
+  "slug": "plastik-aski-kts-kts",
+  "name": "Plastik Askı KTS",
+  "code": "KTS",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/kts.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 385
+ },
+ {
+  "id": "lb",
+  "slug": "plastik-aski-lb-lb",
+  "name": "Plastik Askı LB",
+  "code": "LB",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/lb.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 386
+ },
+ {
+  "id": "logobas",
+  "slug": "logo-baskili-plastik-aski-ornekleri-logobas",
+  "name": "Logo Baskılı Plastik Askı Örnekleri",
+  "code": "LOGOBAS",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/logobas.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 387
+ },
+ {
+  "id": "m25",
+  "slug": "plastik-aski-m25-m25",
+  "name": "Plastik Askı M25",
+  "code": "M25",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/m25.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 388
+ },
+ {
+  "id": "m27",
+  "slug": "plastik-aski-m27-m27",
+  "name": "Plastik Askı M27",
+  "code": "M27",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/m27.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 389
+ },
+ {
+  "id": "manken",
+  "slug": "manken-askisi-manken",
+  "name": "Manken Askısı",
+  "code": "MANKEN",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/manken.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 390
+ },
+ {
+  "id": "mau-1",
+  "slug": "plastik-aski-mau-1-mau-1",
+  "name": "Plastik Askı MAU-1",
+  "code": "MAU-1",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/mau-1.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 391
+ },
+ {
+  "id": "mau",
+  "slug": "plastik-aski-mau-mau",
+  "name": "Plastik Askı MAU",
+  "code": "MAU",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/mau.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 392
+ },
+ {
+  "id": "mavi",
+  "slug": "mavi-flok-aski-mavi",
+  "name": "Mavi Flok Askı",
+  "code": "MAVİ",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/mavi.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Mavi"
+  },
+  "order": 393
+ },
+ {
+  "id": "mb",
+  "slug": "plastik-aski-mb-mb",
+  "name": "Plastik Askı MB",
+  "code": "MB",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/mb.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 394
+ },
+ {
+  "id": "ml-1",
+  "slug": "plastik-aski-ml-1-ml-1",
+  "name": "Plastik Askı ML-1",
+  "code": "ML-1",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ml-1.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 395
+ },
+ {
+  "id": "ml",
+  "slug": "plastik-aski-ml-ml",
+  "name": "Plastik Askı ML",
+  "code": "ML",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ml.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 396
+ },
+ {
+  "id": "mod",
+  "slug": "flok-aski-mod",
+  "name": "Flok Askı",
+  "code": "MOD",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/mod.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 397
+ },
+ {
+  "id": "mt",
+  "slug": "plastik-aski-mt-mt",
+  "name": "Plastik Askı MT",
+  "code": "MT",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/mt.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 398
+ },
+ {
+  "id": "na38",
+  "slug": "plastik-aski-na38-na38",
+  "name": "Plastik Askı NA38",
+  "code": "NA38",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/na38.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 399
+ },
+ {
+  "id": "nl",
+  "slug": "plastik-aski-nl-nl",
+  "name": "Plastik Askı NL",
+  "code": "NL",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/nl.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 400
+ },
+ {
+  "id": "pantolon",
+  "slug": "pantolon-klipsi-pantolon",
+  "name": "Pantolon Klipsi",
+  "code": "PANTOLON",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/pantolon.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 401
+ },
+ {
+  "id": "parmak",
+  "slug": "parmak-aski-parmak",
+  "name": "Parmak Askı",
+  "code": "PARMAK",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/parmak.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 402
+ },
+ {
+  "id": "paspas",
+  "slug": "paspas-askisi-paspas",
+  "name": "Paspas Askısı",
+  "code": "PASPAS",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/paspas.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 403
+ },
+ {
+  "id": "pt",
+  "slug": "plastik-aski-pt-pt",
+  "name": "Plastik Askı PT",
+  "code": "PT",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/pt.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 404
+ },
+ {
+  "id": "rw-36",
+  "slug": "plastik-aski-rw-36-rw-36",
+  "name": "Plastik Askı RW-36",
+  "code": "RW-36",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/rw-36.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 405
+ },
+ {
+  "id": "sa",
+  "slug": "plastik-aski-sa-sa",
+  "name": "Plastik Askı SA",
+  "code": "SA",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/sa.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 406
+ },
+ {
+  "id": "sa42",
+  "slug": "plastik-aski-sa42-sa42",
+  "name": "Plastik Askı SA42",
+  "code": "SA42",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/sa42.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 407
+ },
+ {
+  "id": "sal",
+  "slug": "halka-sal-askisi-sal",
+  "name": "Halka Şal Askısı",
+  "code": "SAL",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/sal.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 408
+ },
+ {
+  "id": "st38",
+  "slug": "plastik-aski-st38-st38",
+  "name": "Plastik Askı ST38",
+  "code": "ST38",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/st38.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 409
+ },
+ {
+  "id": "st41",
+  "slug": "plastik-aski-st41-st41",
+  "name": "Plastik Askı ST41",
+  "code": "ST41",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/st41.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 410
+ },
+ {
+  "id": "stb",
+  "slug": "plastik-aski-stb-stb",
+  "name": "Plastik Askı STB",
+  "code": "STB",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/stb.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 411
+ },
+ {
+  "id": "swg-1",
+  "slug": "plastik-aski-swg-1-swg-1",
+  "name": "Plastik Askı SWG-1",
+  "code": "SWG-1",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/swg-1.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 412
+ },
+ {
+  "id": "swg",
+  "slug": "plastik-aski-swg-swg",
+  "name": "Plastik Askı SWG",
+  "code": "SWG",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/swg.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 413
+ },
+ {
+  "id": "swgg",
+  "slug": "plastik-aski-swgg-swgg",
+  "name": "Plastik Askı SWGG",
+  "code": "SWGG",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/swgg.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 414
+ },
+ {
+  "id": "swggm",
+  "slug": "plastik-aski-swggm-swggm",
+  "name": "Plastik Askı SWGGM",
+  "code": "SWGGM",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/swggm.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 415
+ },
+ {
+  "id": "t38",
+  "slug": "plastik-aski-t38-t38",
+  "name": "Plastik Askı T38",
+  "code": "T38",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/t38.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 416
+ },
+ {
+  "id": "terlik",
+  "slug": "terlik-askisi-terlik",
+  "name": "Terlik Askısı",
+  "code": "TERLİK",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/terlik.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 417
+ },
+ {
+  "id": "tk-1",
+  "slug": "plastik-aski-tk-1-tk-1",
+  "name": "Plastik Askı TK-1",
+  "code": "TK-1",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/tk-1.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 418
+ },
+ {
+  "id": "tk",
+  "slug": "plastik-aski-tk-tk",
+  "name": "Plastik Askı TK",
+  "code": "TK",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/tk.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 419
+ },
+ {
+  "id": "tk42",
+  "slug": "plastik-aski-tk42-tk42",
+  "name": "Plastik Askı TK42",
+  "code": "TK42",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/tk42.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 420
+ },
+ {
+  "id": "tk42g",
+  "slug": "plastik-aski-tk42g-tk42g",
+  "name": "Plastik Askı TK42G",
+  "code": "TK42G",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/tk42g.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 421
+ },
+ {
+  "id": "tr",
+  "slug": "plastik-aski-tr-tr",
+  "name": "Plastik Askı TR",
+  "code": "TR",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/tr.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 422
+ },
+ {
+  "id": "ts",
+  "slug": "plastik-aski-ts-ts",
+  "name": "Plastik Askı TS",
+  "code": "TS",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/ts.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 423
+ },
+ {
+  "id": "upt38",
+  "slug": "plastik-aski-upt38-upt38",
+  "name": "Plastik Askı UPT38",
+  "code": "UPT38",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/upt38.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 424
+ },
+ {
+  "id": "urb",
+  "slug": "plastik-aski-urb-urb",
+  "name": "Plastik Askı URB",
+  "code": "URB",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/urb.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 425
+ },
+ {
+  "id": "urbm",
+  "slug": "plastik-aski-urbm-urbm",
+  "name": "Plastik Askı URBM",
+  "code": "URBM",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/urbm.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 426
+ },
+ {
+  "id": "urbs",
+  "slug": "plastik-aski-urbs-urbs",
+  "name": "Plastik Askı URBS",
+  "code": "URBS",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/urbs.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 427
+ },
+ {
+  "id": "wd",
+  "slug": "plastik-aski-wd-wd",
+  "name": "Plastik Askı WD",
+  "code": "WD",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/wd.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 428
+ },
+ {
+  "id": "wth34",
+  "slug": "plastik-aski-wth34-wth34",
+  "name": "Plastik Askı WTH34",
+  "code": "WTH34",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/wth34.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 429
+ },
+ {
+  "id": "yp-15",
+  "slug": "plastik-aski-yp-15-yp-15",
+  "name": "Plastik Askı YP-15",
+  "code": "YP-15",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/yp-15.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 430
+ },
+ {
+  "id": "yp-21",
+  "slug": "plastik-aski-yp-21-yp-21",
+  "name": "Plastik Askı YP-21",
+  "code": "YP-21",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/yp-21.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 431
+ },
+ {
+  "id": "yp-27-1",
+  "slug": "plastik-aski-yp-27-1-yp-27-1",
+  "name": "Plastik Askı YP-27-1",
+  "code": "YP-27-1",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/yp-27-1.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 432
+ },
+ {
+  "id": "yp15",
+  "slug": "plastik-aski-yp15-yp15",
+  "name": "Plastik Askı YP15",
+  "code": "YP15",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/plastik/seri-2/yp15.jpg"
+  ],
+  "fit": "contain",
+  "attrs": {},
+  "order": 433
+ },
+ {
+  "id": "sa-43",
+  "slug": "sal-askisi-sa-43",
+  "name": "Şal Askısı",
+  "code": "ŞA-43",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/43-sal-askisi-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "12 cm"
+   ],
+   [
+    "Koli adedi",
+    "1250 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "59×39×30 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 434
+ },
+ {
+  "id": "bsa-44",
+  "slug": "buyuk-sal-askisi-bsa-44",
+  "name": "Büyük Şal Askısı",
+  "code": "BŞA-44",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/44-buyuk-sal-askisi-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "19 cm – 23 cm"
+   ],
+   [
+    "Koli adedi",
+    "19 cm: 1000 adet, 23 cm: 900 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "59×39×30 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 435
+ },
+ {
+  "id": "ksa-45",
+  "slug": "kugu-sal-askisi-ksa-45",
+  "name": "Kuğu Şal Askısı",
+  "code": "KŞA-45",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/45-kugu-sal-askisi-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "12 cm"
+   ],
+   [
+    "Koli adedi",
+    "1250 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "59×39×30 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 436
+ },
+ {
+  "id": "ea-46",
+  "slug": "esarp-askisi-ea-46",
+  "name": "Eşarp Askısı",
+  "code": "EA-46",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/46-esarp-askisi-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "26 cm"
+   ],
+   [
+    "Koli adedi",
+    "1000 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "45×29×29 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 437
+ },
+ {
+  "id": "m-27",
+  "slug": "ic-camasir-askisi-m-27",
+  "name": "İç Çamaşır Askısı",
+  "code": "M 27",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/47-m-27-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "27 cm"
+   ],
+   [
+    "Koli adedi",
+    "1000 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "45×29×29 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 438
+ },
+ {
+  "id": "mb-26",
+  "slug": "ic-camasir-askisi-mb-26",
+  "name": "İç Çamaşır Askısı",
+  "code": "MB 26",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/48-mb-26-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "26 cm"
+   ],
+   [
+    "Koli adedi",
+    "750 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "59×39×30 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 439
+ },
+ {
+  "id": "mt-21-mt-27",
+  "slug": "mayo-askisi-mt-21-mt-27",
+  "name": "Mayo Askısı",
+  "code": "MT 21 – MT 27",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/49-mt-21-27-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "21 cm – 27 cm"
+   ],
+   [
+    "Koli adedi",
+    "MT 21: 1250 adet, MT 27: 900 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "68×43×38 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 440
+ },
+ {
+  "id": "kbg-27",
+  "slug": "mayo-ve-ic-camasir-askisi-kbg-27",
+  "name": "Mayo ve İç Çamaşır Askısı",
+  "code": "KBG 27",
+  "path": [
+   "askilar",
+   "plastik-aski"
+  ],
+  "images": [
+   "urunler/askilar/esarp/50-kbg-27-foto.jpg"
+  ],
+  "fit": "cover",
+  "attrs": {
+   "renk": "Şeffaf"
+  },
+  "specs": [
+   [
+    "Malzeme",
+    "Şeffaf plastik"
+   ],
+   [
+    "Askı ölçüsü",
+    "27 cm"
+   ],
+   [
+    "Koli adedi",
+    "300 adet"
+   ],
+   [
+    "Koli ölçüsü",
+    "59×39×30 cm"
+   ],
+   [
+    "Baskı türü",
+    "Yaldız, tampon baskı"
+   ]
+  ],
+  "order": 441
+ },
+ {
+  "id": "9000-01",
+  "slug": "gumus-mandalli-kanca-9000-01-9000-01",
+  "name": "Gümüş Mandallı Kanca 9000-01",
+  "code": "9000-01",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9000-01-280-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 442
+ },
+ {
+  "id": "9000-01-b",
+  "slug": "altin-mandalli-kanca-9000-01-b-9000-01-b",
+  "name": "Altın Mandallı Kanca 9000-01-B",
+  "code": "9000-01-B",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9000-01-b-283-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 443
+ },
+ {
+  "id": "9000-01-d",
+  "slug": "gumus-mandalli-kanca-9000-01-d-9000-01-d",
+  "name": "Gümüş Mandallı Kanca 9000-01-D",
+  "code": "9000-01-D",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9000-01-d-285-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 444
+ },
+ {
+  "id": "9000-02",
+  "slug": "siyah-mandalli-kanca-9000-02-9000-02",
+  "name": "Siyah Mandallı Kanca 9000-02",
+  "code": "9000-02",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9000-02-286-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 445
+ },
+ {
+  "id": "9000-02-b",
+  "slug": "siyah-mandalli-kanca-9000-02-b-9000-02-b",
+  "name": "Siyah Mandallı Kanca 9000-02-B",
+  "code": "9000-02-B",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9000-02-b-287-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 446
+ },
+ {
+  "id": "9000-5x5",
+  "slug": "bakir-mandalli-kanca-9000-5x5-9000-5x5",
+  "name": "Bakır Mandallı Kanca 9000-5X5",
+  "code": "9000-5X5",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9000-5x5-289-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Bakır"
+  },
+  "order": 447
+ },
+ {
+  "id": "9000-l",
+  "slug": "beyaz-mandalli-kanca-9000-l-9000-l",
+  "name": "Beyaz Mandallı Kanca 9000-L",
+  "code": "9000-L",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9000-l-291-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 448
+ },
+ {
+  "id": "9001",
+  "slug": "bakir-mandalli-alt-aski-9001-9001",
+  "name": "Bakır Mandallı Alt Askı 9001",
+  "code": "9001",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9001-292-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Bakır"
+  },
+  "order": 449
+ },
+ {
+  "id": "9007-01",
+  "slug": "gumus-s-kanca-9007-01-9007-01",
+  "name": "Gümüş S Kanca 9007-01",
+  "code": "9007-01",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9007-01-294-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 450
+ },
+ {
+  "id": "9007",
+  "slug": "gumus-s-kanca-9007-9007",
+  "name": "Gümüş S Kanca 9007",
+  "code": "9007",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9007-293-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 451
+ },
+ {
+  "id": "9008",
+  "slug": "gumus-s-kanca-9008-9008",
+  "name": "Gümüş S Kanca 9008",
+  "code": "9008",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9008-296-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 452
+ },
+ {
+  "id": "9009",
+  "slug": "altin-s-kanca-9009-9009",
+  "name": "Altın S Kanca 9009",
+  "code": "9009",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9009-297-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 453
+ },
+ {
+  "id": "9020",
+  "slug": "gumus-aski-kancasi-9020-9020",
+  "name": "Gümüş Askı Kancası 9020",
+  "code": "9020",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9020-298-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 454
+ },
+ {
+  "id": "9021",
+  "slug": "altin-aski-kancasi-9021-9021",
+  "name": "Altın Askı Kancası 9021",
+  "code": "9021",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9021-300-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Altın"
+  },
+  "order": 455
+ },
+ {
+  "id": "9401",
+  "slug": "bakir-mandalli-tel-aski-9401-9401",
+  "name": "Bakır Mandallı Tel Askı 9401",
+  "code": "9401",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9401-301-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Bakır"
+  },
+  "order": 456
+ },
+ {
+  "id": "9450",
+  "slug": "beyaz-tel-aski-9450-9450",
+  "name": "Beyaz Tel Askı 9450",
+  "code": "9450",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9450-302-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 457
+ },
+ {
+  "id": "9502",
+  "slug": "gumus-tel-mayo-askisi-9502-9502",
+  "name": "Gümüş Tel Mayo Askısı 9502",
+  "code": "9502",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "klasik"
+  ],
+  "images": [
+   "urunler/askilar/metal/klasik/9502-303-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 458
+ },
+ {
+  "id": "9101",
+  "slug": "kirmizi-esarp-askisi-9101-9101",
+  "name": "Kırmızı Eşarp Askısı 9101",
+  "code": "9101",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9101-321-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kırmızı"
+  },
+  "order": 459
+ },
+ {
+  "id": "9102",
+  "slug": "naturel-esarp-askisi-9102-9102",
+  "name": "Naturel Eşarp Askısı 9102",
+  "code": "9102",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9102-322-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 460
+ },
+ {
+  "id": "9110",
+  "slug": "siyah-esarp-askisi-9110-9110",
+  "name": "Siyah Eşarp Askısı 9110",
+  "code": "9110",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9110-323-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 461
+ },
+ {
+  "id": "9111",
+  "slug": "siyah-esarp-askisi-9111-9111",
+  "name": "Siyah Eşarp Askısı 9111",
+  "code": "9111",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9111-324-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 462
+ },
+ {
+  "id": "9120",
+  "slug": "gumus-esarp-askisi-9120-9120",
+  "name": "Gümüş Eşarp Askısı 9120",
+  "code": "9120",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9120-325-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 463
+ },
+ {
+  "id": "9121",
+  "slug": "gumus-esarp-askisi-9121-9121",
+  "name": "Gümüş Eşarp Askısı 9121",
+  "code": "9121",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9121-326-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 464
+ },
+ {
+  "id": "9201",
+  "slug": "naturel-halka-esarp-askisi-9201-9201",
+  "name": "Naturel Halka Eşarp Askısı 9201",
+  "code": "9201",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9201-327-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 465
+ },
+ {
+  "id": "9202",
+  "slug": "siyah-halka-esarp-askisi-9202-9202",
+  "name": "Siyah Halka Eşarp Askısı 9202",
+  "code": "9202",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9202-328-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 466
+ },
+ {
+  "id": "9203",
+  "slug": "siyah-halka-esarp-askisi-9203-9203",
+  "name": "Siyah Halka Eşarp Askısı 9203",
+  "code": "9203",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9203-329-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 467
+ },
+ {
+  "id": "9204",
+  "slug": "kahverengi-halka-esarp-askisi-9204-9204",
+  "name": "Kahverengi Halka Eşarp Askısı 9204",
+  "code": "9204",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9204-330-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 468
+ },
+ {
+  "id": "9302",
+  "slug": "siyah-mandalli-aski-9302-9302",
+  "name": "Siyah Mandallı Askı 9302",
+  "code": "9302",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9302-331-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 469
+ },
+ {
+  "id": "9311",
+  "slug": "kirmizi-mandalli-aski-9311-9311",
+  "name": "Kırmızı Mandallı Askı 9311",
+  "code": "9311",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/9311-332-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kırmızı"
+  },
+  "order": 470
+ },
+ {
+  "id": "cnt-01",
+  "slug": "siyah-aski-cnt-01-cnt-01",
+  "name": "Siyah Askı CNT-01",
+  "code": "CNT-01",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/cnt-01-333-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 471
+ },
+ {
+  "id": "zg-01",
+  "slug": "kahverengi-halka-aski-zg-01-zg-01",
+  "name": "Kahverengi Halka Askı ZG-01",
+  "code": "ZG-01",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "esarp"
+  ],
+  "images": [
+   "urunler/askilar/metal/esarp/zg-01-334-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 472
+ },
+ {
+  "id": "9601",
+  "slug": "naturel-mayo-askisi-9601-9601",
+  "name": "Naturel Mayo Askısı 9601",
+  "code": "9601",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9601-578-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 473
+ },
+ {
+  "id": "9602",
+  "slug": "beyaz-mayo-askisi-9602-9602",
+  "name": "Beyaz Mayo Askısı 9602",
+  "code": "9602",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9602-583-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 474
+ },
+ {
+  "id": "9603",
+  "slug": "naturel-mayo-askisi-9603-9603",
+  "name": "Naturel Mayo Askısı 9603",
+  "code": "9603",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9603-586-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 475
+ },
+ {
+  "id": "9604",
+  "slug": "beyaz-mayo-askisi-9604-9604",
+  "name": "Beyaz Mayo Askısı 9604",
+  "code": "9604",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9604-589-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 476
+ },
+ {
+  "id": "9605",
+  "slug": "beyaz-mayo-askisi-9605-9605",
+  "name": "Beyaz Mayo Askısı 9605",
+  "code": "9605",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9605-593-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 477
+ },
+ {
+  "id": "9606",
+  "slug": "naturel-mayo-askisi-9606-9606",
+  "name": "Naturel Mayo Askısı 9606",
+  "code": "9606",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9606-598-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 478
+ },
+ {
+  "id": "9607",
+  "slug": "naturel-mayo-askisi-9607-9607",
+  "name": "Naturel Mayo Askısı 9607",
+  "code": "9607",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9607-600-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 479
+ },
+ {
+  "id": "9608",
+  "slug": "gumus-mayo-askisi-9608-9608",
+  "name": "Gümüş Mayo Askısı 9608",
+  "code": "9608",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9608-603-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 480
+ },
+ {
+  "id": "9609",
+  "slug": "gumus-mandalli-mayo-askisi-9609-9609",
+  "name": "Gümüş Mandallı Mayo Askısı 9609",
+  "code": "9609",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9609-609-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 481
+ },
+ {
+  "id": "9610",
+  "slug": "gumus-mandalli-mayo-askisi-9610-9610",
+  "name": "Gümüş Mandallı Mayo Askısı 9610",
+  "code": "9610",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9610-610-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gümüş"
+  },
+  "order": 482
+ },
+ {
+  "id": "9611",
+  "slug": "mavi-mandalli-mayo-askisi-9611-9611",
+  "name": "Mavi Mandallı Mayo Askısı 9611",
+  "code": "9611",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9611-612-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Mavi"
+  },
+  "order": 483
+ },
+ {
+  "id": "9612",
+  "slug": "naturel-mandalli-mayo-askisi-9612-9612",
+  "name": "Naturel Mandallı Mayo Askısı 9612",
+  "code": "9612",
+  "path": [
+   "askilar",
+   "metal-aski",
+   "mayo"
+  ],
+  "images": [
+   "urunler/askilar/metal/mayo/9612-613-temiz.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 484
+ },
+ {
+  "id": "ba-01",
+  "slug": "siyah-logo-baskili-aski-ba-01",
+  "name": "Siyah Logo Baskılı Askı",
+  "code": "BA-01",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/1.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 485
+ },
+ {
+  "id": "ba-02",
+  "slug": "beyaz-logo-baskili-aski-ba-02",
+  "name": "Beyaz Logo Baskılı Askı",
+  "code": "BA-02",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/2.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 486
+ },
+ {
+  "id": "ba-03",
+  "slug": "siyah-logo-baskili-aski-ba-03",
+  "name": "Siyah Logo Baskılı Askı",
+  "code": "BA-03",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/3.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 487
+ },
+ {
+  "id": "ba-04",
+  "slug": "siyah-logo-baskili-aski-ba-04",
+  "name": "Siyah Logo Baskılı Askı",
+  "code": "BA-04",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/4.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 488
+ },
+ {
+  "id": "ba-05",
+  "slug": "naturel-logo-baskili-aski-ba-05",
+  "name": "Naturel Logo Baskılı Askı",
+  "code": "BA-05",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/5.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 489
+ },
+ {
+  "id": "ba-06",
+  "slug": "siyah-logo-baskili-aski-ba-06",
+  "name": "Siyah Logo Baskılı Askı",
+  "code": "BA-06",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/6.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 490
+ },
+ {
+  "id": "ba-07",
+  "slug": "beyaz-logo-baskili-aski-ba-07",
+  "name": "Beyaz Logo Baskılı Askı",
+  "code": "BA-07",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/7.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Beyaz"
+  },
+  "order": 491
+ },
+ {
+  "id": "ba-08",
+  "slug": "siyah-logo-baskili-aski-ba-08",
+  "name": "Siyah Logo Baskılı Askı",
+  "code": "BA-08",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/8.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 492
+ },
+ {
+  "id": "ba-09",
+  "slug": "naturel-logo-baskili-aski-ba-09",
+  "name": "Naturel Logo Baskılı Askı",
+  "code": "BA-09",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/9.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Naturel"
+  },
+  "order": 493
+ },
+ {
+  "id": "ba-10",
+  "slug": "kahverengi-logo-baskili-aski-ba-10",
+  "name": "Kahverengi Logo Baskılı Askı",
+  "code": "BA-10",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/10.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 494
+ },
+ {
+  "id": "ba-11",
+  "slug": "kahverengi-logo-baskili-aski-ba-11",
+  "name": "Kahverengi Logo Baskılı Askı",
+  "code": "BA-11",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/11.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 495
+ },
+ {
+  "id": "ba-12",
+  "slug": "kahverengi-logo-baskili-aski-ba-12",
+  "name": "Kahverengi Logo Baskılı Askı",
+  "code": "BA-12",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/12.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Kahverengi"
+  },
+  "order": 496
+ },
+ {
+  "id": "ba-13",
+  "slug": "gri-logo-baskili-aski-ba-13",
+  "name": "Gri Logo Baskılı Askı",
+  "code": "BA-13",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/13.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Gri"
+  },
+  "order": 497
+ },
+ {
+  "id": "ba-14",
+  "slug": "siyah-logo-baskili-aski-ba-14",
+  "name": "Siyah Logo Baskılı Askı",
+  "code": "BA-14",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/14.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 498
+ },
+ {
+  "id": "ba-15",
+  "slug": "siyah-logo-baskili-aski-ba-15",
+  "name": "Siyah Logo Baskılı Askı",
+  "code": "BA-15",
+  "path": [
+   "askilar",
+   "baskili-aski"
+  ],
+  "images": [
+   "urunler/askilar/baskili/15.png"
+  ],
+  "fit": "contain",
+  "attrs": {
+   "renk": "Siyah"
+  },
+  "order": 499
+ }
+]

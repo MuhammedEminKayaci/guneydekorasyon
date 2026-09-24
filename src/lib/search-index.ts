@@ -1,10 +1,11 @@
-// Header aramasının öneri indeksi. Build sırasında üretilir, sayfaya JSON olarak gömülür.
-// 5. adımda ürünler de bu indekse eklenecek.
+// Tarayıcı tarafında kullanılan katalog verisi (/katalog.json): header araması, hızlı bakış, teklif listesi.
+// Build sırasında üretilir; sayfalar ilk ihtiyaç anında indirir.
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import { CATEGORIES, categoryHref } from '../data/categories';
+import { PRODUCTS, productImage, productCategoryName, allCategoryNodes, type AttrKey } from './catalog';
+import { contentFor } from '../data/category-content';
 
-export interface SearchItem {
+export interface SearchCategory {
   name: string;
   /** Üst kategori yolu, ör. "Askılar › Ahşap Askı" */
   path: string;
@@ -12,48 +13,76 @@ export interface SearchItem {
   thumb: string;
   /** Aramada eşleşme için ek kelimeler */
   terms: string;
+  count: number;
 }
 
-const thumb = async (image: ImageMetadata) =>
-  (await getImage({ src: image, width: 96, height: 96, fit: 'contain', background: '#ffffff', format: 'webp' })).src;
+export interface CatalogProduct {
+  id: string;
+  name: string;
+  code: string;
+  /** Kategori adı (en derin) */
+  cat: string;
+  /** Kategori sayfası */
+  catHref: string;
+  /** Kategori kısa açıklaması (hızlı bakış) */
+  intro: string;
+  thumb: string;
+  images: string[];
+  fit: 'contain' | 'cover';
+  attrs: Partial<Record<AttrKey, string>>;
+  specs?: [string, string][];
+}
 
-let cache: SearchItem[] | undefined;
+export interface CatalogData {
+  categories: SearchCategory[];
+  products: CatalogProduct[];
+}
 
-export async function getSearchIndex(): Promise<SearchItem[]> {
+const thumb = async (image: ImageMetadata, fit: 'contain' | 'cover' = 'contain') =>
+  (await getImage({ src: image, width: 160, height: 160, fit, background: '#ffffff', format: 'webp' })).src;
+const large = async (image: ImageMetadata) => (await getImage({ src: image, width: 900, format: 'webp' })).src;
+
+let cache: CatalogData | undefined;
+
+export async function getCatalogData(): Promise<CatalogData> {
   if (cache) return cache;
-  const items: SearchItem[] = [];
+  const nodes = allCategoryNodes();
 
-  for (const cat of CATEGORIES) {
-    items.push({
-      name: cat.name,
-      path: 'Kategori',
-      href: categoryHref(cat.slug),
-      thumb: await thumb(cat.image),
-      terms: cat.summary,
+  const categories: SearchCategory[] = [];
+  for (const node of nodes) {
+    const parentNames = node.trail.slice(0, -1).map((t) => t.name);
+    categories.push({
+      name: node.name,
+      path: parentNames.length ? parentNames.join(' › ') : 'Kategori',
+      href: node.href,
+      thumb: await thumb(node.image),
+      terms: [node.category.summary, ...node.children.map((c) => c.name)].join(' '),
+      count: PRODUCTS.filter((p) => node.path.every((s, i) => p.path[i] === s)).length,
     });
-    for (const sub of cat.children) {
-      items.push({
-        name: sub.name,
-        path: cat.name,
-        href: categoryHref(cat.slug, sub.slug),
-        thumb: await thumb(sub.image),
-        terms: `${cat.name} ${sub.children?.map((l) => l.name).join(' ') ?? ''}`,
-      });
-      for (const leaf of sub.children ?? []) {
-        items.push({
-          // "Kadın" tek başına anlamsız; "Kadın terzi mankeni" gibi tam ad üret
-          name: `${leaf.name} ${sub.name.toLocaleLowerCase('tr')}`,
-          path: `${cat.name} › ${sub.name}`,
-          href: categoryHref(cat.slug, sub.slug, leaf.slug),
-          thumb: await thumb(leaf.image ?? sub.image),
-          terms: `${cat.name} ${sub.name}`,
-        });
-      }
-    }
   }
 
-  cache = items;
-  return items;
+  const nodeByPath = new Map(nodes.map((n) => [n.path.join('/'), n]));
+  const products: CatalogProduct[] = [];
+  for (const p of PRODUCTS) {
+    const node = nodeByPath.get(p.path.join('/'))!;
+    const images = p.images.map(productImage);
+    products.push({
+      id: p.id,
+      name: p.name,
+      code: p.code,
+      cat: productCategoryName(p),
+      catHref: node.href,
+      intro: contentFor(node.path, node.name).intro,
+      thumb: await thumb(images[0], p.fit),
+      images: await Promise.all(images.map(large)),
+      fit: p.fit,
+      attrs: p.attrs,
+      ...(p.specs && { specs: p.specs }),
+    });
+  }
+
+  cache = { categories, products };
+  return cache;
 }
 
 export const POPULAR_SEARCHES = ['Terzi mankeni', 'Ahşap askı', 'Depo rafı', 'Polyester manken', 'Orta sistemi'];

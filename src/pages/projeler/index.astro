@@ -1,0 +1,192 @@
+---
+// Referans projeler: mağaza tipine göre filtrelenebilir kartlar, tıklayınca galeri.
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Icon from '../../components/ui/Icon.astro';
+import QuoteBand from '../../components/home/QuoteBand.astro';
+import { PROJECTS } from '../../data/projects';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const types = [...new Set(PROJECTS.map((p) => p.type))];
+const galleries = await Promise.all(
+  PROJECTS.map(async (p) => ({
+    slug: p.slug,
+    title: p.title,
+    images: await Promise.all(p.images.map(async (img) => (await getImage({ src: img, width: 1600, format: 'webp' })).src)),
+  })),
+);
+---
+
+<BaseLayout
+  title="Projelerimiz"
+  description="Güney Mağaza Dekorasyon referans projeleri: butik, aksesuar, ayakkabı ve iç giyim mağazaları için raf sistemi, orta sistem ve mağaza dekorasyonu uygulamaları."
+  image={PROJECTS[0].images[0].src}
+  jsonLd={breadcrumbSchema([{ name: 'Ana sayfa', path: '/' }, { name: 'Projelerimiz', path: '/projeler/' }])}
+>
+  <section class="border-b border-steel-200 bg-galvanized">
+    <div class="container-page pt-6 pb-10">
+      <Breadcrumbs items={[{ name: 'Projelerimiz', href: '/projeler/' }]} />
+      <h1 class="mt-6 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl">Projelerimiz</h1>
+      <p class="mt-4 max-w-3xl text-lg text-steel-700">
+        Tasarladığımız, ürettiğimiz ve kurduğumuz mağazalardan bir seçki. Görsellere tıklayarak galeriyi açabilirsiniz.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Mağaza tipine göre filtrele" data-project-filters>
+        <button type="button" class="chip" aria-pressed="true" data-type="">Tümü <span>{PROJECTS.length}</span></button>
+        {
+          types.map((t) => (
+            <button type="button" class="chip" aria-pressed="false" data-type={t}>
+              {t} <span>{PROJECTS.filter((p) => p.type === t).length}</span>
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12 lg:py-16">
+    <ul class="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" role="list" data-project-grid>
+      {
+        PROJECTS.map((p, i) => (
+          <li data-project-type={p.type}>
+            <button type="button" class="group block w-full text-left" data-project={p.slug} aria-label={`${p.title} galerisini aç`}>
+              <span class="relative block overflow-hidden rounded-3xl">
+                <Image
+                  src={p.images[0]}
+                  alt={`${p.title}, ${p.location}`}
+                  widths={[480, 720, 960]}
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw"
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  class="aspect-4/3 w-full object-cover transition-transform duration-700 ease-out-quart group-hover:scale-[1.04]"
+                />
+                <span class="absolute top-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold backdrop-blur">{p.type}</span>
+                {p.images.length > 1 && (
+                  <span class="absolute right-4 bottom-4 inline-flex items-center gap-1.5 rounded-full bg-steel-950/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                    <Icon name="Images" class="size-3.5" />
+                    {p.images.length} görsel
+                  </span>
+                )}
+              </span>
+              <span class="mt-4 block text-xl font-bold group-hover:text-signal-500">{p.title}</span>
+              <span class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-steel-500">
+                <span class="inline-flex items-center gap-1.5"><Icon name="MapPin" class="size-4" />{p.location}</span>
+                <span class="inline-flex items-center gap-1.5"><Icon name="Calendar" class="size-4" />{p.year}</span>
+              </span>
+              <span class="mt-2 block text-steel-700">{p.summary}</span>
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <QuoteBand />
+
+  <dialog
+  id="proje-galerisi"
+  class="m-auto h-dvh max-h-none w-full max-w-none bg-steel-950 p-0 text-white backdrop:bg-steel-950/90"
+  aria-labelledby="proje-galerisi-baslik"
+>
+  <div class="flex h-full flex-col">
+    <div class="flex items-center justify-between gap-4 px-5 py-4">
+      <p id="proje-galerisi-baslik" class="font-semibold" data-gallery-title></p>
+      <div class="flex items-center gap-4">
+        <span class="text-sm text-steel-300 tabular-nums" data-gallery-count></span>
+        <button type="button" class="grid size-10 place-items-center rounded-full bg-white/10 hover:bg-white/20" aria-label="Kapat" data-gallery-close>
+          <Icon name="X" class="size-5" />
+        </button>
+      </div>
+    </div>
+    <div class="relative flex-1">
+      <img alt="" class="absolute inset-0 size-full object-contain" data-gallery-image />
+      <button type="button" class="btn-glass absolute top-1/2 left-4 size-12 min-h-0 -translate-y-1/2 rounded-full p-0" aria-label="Önceki görsel" data-gallery-step="-1">
+        <Icon name="ChevronLeft" class="size-5" />
+      </button>
+      <button type="button" class="btn-glass absolute top-1/2 right-4 size-12 min-h-0 -translate-y-1/2 rounded-full p-0" aria-label="Sonraki görsel" data-gallery-step="1">
+        <Icon name="ChevronRight" class="size-5" />
+      </button>
+    </div>
+  </div>
+</dialog>
+
+  <script type="application/json" id="proje-galerileri" set:html={JSON.stringify(galleries)} />
+</BaseLayout>
+
+<style>
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-steel-200);
+    background: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: border-color 150ms, background 150ms, color 150ms;
+  }
+  .chip span {
+    font-size: 0.75rem;
+    color: var(--color-steel-500);
+  }
+  .chip:hover {
+    border-color: var(--color-steel-900);
+  }
+  .chip[aria-pressed='true'] {
+    border-color: var(--color-steel-950);
+    background: var(--color-steel-950);
+    color: white;
+  }
+  .chip[aria-pressed='true'] span {
+    color: var(--color-steel-300);
+  }
+</style>
+
+<script>
+  type Gallery = { slug: string; title: string; images: string[] };
+  const galleries: Gallery[] = JSON.parse(document.getElementById('proje-galerileri')!.textContent!);
+  const dialog = document.getElementById('proje-galerisi') as HTMLDialogElement;
+  const img = dialog.querySelector<HTMLImageElement>('[data-gallery-image]')!;
+  const title = dialog.querySelector<HTMLElement>('[data-gallery-title]')!;
+  const count = dialog.querySelector<HTMLElement>('[data-gallery-count]')!;
+  const steps = dialog.querySelectorAll<HTMLElement>('[data-gallery-step]');
+  let current: Gallery | undefined;
+  let index = 0;
+
+  const show = (i: number) => {
+    if (!current) return;
+    index = (i + current.images.length) % current.images.length;
+    img.src = current.images[index];
+    img.alt = `${current.title}, görsel ${index + 1}`;
+    count.textContent = current.images.length > 1 ? `${index + 1} / ${current.images.length}` : '';
+    steps.forEach((s) => (s.hidden = current!.images.length < 2));
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-project]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      current = galleries.find((g) => g.slug === btn.dataset.project);
+      if (!current) return;
+      title.textContent = current.title;
+      show(0);
+      dialog.showModal();
+    }),
+  );
+  steps.forEach((s) => s.addEventListener('click', () => show(index + Number(s.dataset.galleryStep))));
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') show(index + 1);
+    if (e.key === 'ArrowLeft') show(index - 1);
+  });
+  dialog.querySelector('[data-gallery-close]')!.addEventListener('click', () => dialog.close());
+
+  // Tip filtresi
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-project-filters] [data-type]');
+  filterButtons.forEach((btn) =>
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.type!;
+      filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      document.querySelectorAll<HTMLElement>('[data-project-type]').forEach((li) => {
+        li.hidden = !!type && li.dataset.projectType !== type;
+      });
+    }),
+  );
+</script>

@@ -1,51 +1,116 @@
 ---
-// Ürün grupları: raf rafı gibi dizilmiş ürün görselleri. Mobilde yatay kaydırılır.
+// Ürün grupları: bento düzeni. Raf sistemleri (ana iş kolu) büyük kartta, diğerleri çevresinde.
+// Model sayıları katalogdan gelir.
 import { Image } from 'astro:assets';
 import { CATEGORIES, categoryHref } from '../../data/categories';
+import { countIn, PRODUCTS } from '../../lib/catalog';
 import Icon from '../ui/Icon.astro';
+
+const FEATURED = 'raf-sistemleri';
+const featured = CATEGORIES.find((c) => c.slug === FEATURED)!;
+const others = ['mankenler', 'askilar', 'orta-sistemleri', 'standlar'].map((s) => CATEGORIES.find((c) => c.slug === s)!);
 ---
 
 <section class="py-16 sm:py-24" aria-labelledby="kategoriler-baslik">
   <div class="container-page">
-    <div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="flex flex-wrap items-end justify-between gap-6">
       <div>
         <h2 id="kategoriler-baslik" class="section-title">Ürün grupları</h2>
-        <p class="section-lead">Mağazanın duvarından ortasına, vitrininden askısına kadar her şeyi kendi atölyemizde üretiyoruz.</p>
+        <p class="section-lead">
+          Mağazanın duvarından ortasına, vitrininden askısına kadar her şeyi kendi atölyemizde üretiyoruz.
+        </p>
       </div>
+      <a href="/urunler/" class="btn-outline rounded-full px-6">
+        Tüm ürünleri görün
+        <span class="rounded-full bg-galvanized px-2 py-0.5 text-xs font-bold">{PRODUCTS.length}</span>
+      </a>
     </div>
-  </div>
 
-  <ul
-    class="container-page mt-10 flex snap-x snap-mandatory scroll-px-4 sm:scroll-px-6 lg:scroll-px-8 gap-4 overflow-x-auto pb-4 [scrollbar-width:none] sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible sm:pb-0 lg:grid-cols-5 [&::-webkit-scrollbar]:hidden"
-  >
-    {
-      CATEGORIES.map((cat, i) => (
-        <li class="w-[68%] shrink-0 snap-start sm:w-auto">
-          <a href={categoryHref(cat.slug)} class="group block">
-            <div class="relative aspect-square overflow-hidden rounded-t-2xl bg-galvanized">
+    <ul class="mt-10 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4 lg:grid-rows-2" role="list">
+      <!-- Büyük kart -->
+      <li class="col-span-2 lg:row-span-2">
+        <a
+          href={categoryHref(featured.slug)}
+          class="bento-card group relative flex h-full min-h-[26rem] flex-col overflow-hidden rounded-3xl bg-galvanized p-6 sm:min-h-[32rem] sm:p-8 lg:min-h-[40rem] lg:p-10"
+        >
+          <div class="relative z-10 max-w-sm">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-semibold text-steel-700">
+              <span class="size-1.5 rounded-full bg-signal-500"></span>
+              {countIn([featured.slug])} model
+            </span>
+            <h3 class="mt-4 text-3xl leading-tight font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+              {featured.name}
+            </h3>
+            <p class="mt-3 text-steel-700 sm:text-lg">
+              Duvar, depo ve teşhir alanları için ölçüye özel metal raf sistemleri.
+            </p>
+            <ul class="mt-5 flex flex-wrap gap-2" role="list">
+              {
+                featured.children.map((sub) => (
+                  <li class="rounded-full border border-steel-300 bg-white/70 px-3 py-1 text-sm font-medium backdrop-blur">
+                    {sub.name}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <Image
+            src={featured.image}
+            alt=""
+            widths={[480, 720, 960]}
+            sizes="(min-width: 1024px) 40vw, 90vw"
+            loading="eager"
+            class="pointer-events-none absolute right-[-6%] bottom-[-2%] h-[58%] w-auto max-w-none object-contain mix-blend-multiply transition-transform duration-700 ease-out-quart group-hover:scale-[1.04] sm:right-[-3%] sm:h-[66%] lg:right-[-2%] lg:h-[64%]"
+          />
+
+          <span
+            class="relative z-10 mt-auto grid size-14 place-items-center rounded-full bg-steel-950 text-white transition-colors group-hover:bg-signal-500"
+            aria-hidden="true"
+          >
+            <Icon name="ArrowUpRight" class="size-6 transition-transform duration-300 group-hover:rotate-45" />
+          </span>
+        </a>
+      </li>
+
+      <!-- Diğer kartlar -->
+      {
+        others.map((cat) => (
+          <li>
+            <a
+              href={categoryHref(cat.slug)}
+              class="bento-card group relative flex aspect-[4/5] h-full flex-col overflow-hidden rounded-3xl bg-galvanized p-4 sm:aspect-square sm:p-6 lg:aspect-auto"
+            >
+              <div class="relative z-10">
+                <h3 class="text-lg leading-tight font-bold sm:text-2xl">{cat.name}</h3>
+                <p class="mt-1 text-sm text-steel-500">{countIn([cat.slug])} model</p>
+              </div>
               <Image
                 src={cat.image}
                 alt=""
-                widths={[320, 480, 640]}
-                sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 68vw"
-                loading={i < 3 ? 'eager' : 'lazy'}
-                class="size-full object-contain p-6 mix-blend-multiply transition-transform duration-500 ease-out-quart group-hover:scale-[1.04]"
+                widths={[240, 360, 480]}
+                sizes="(min-width: 1024px) 20vw, 45vw"
+                class="pointer-events-none absolute inset-x-0 bottom-[5%] mx-auto h-[62%] w-auto max-w-[92%] object-contain mix-blend-multiply transition-transform duration-700 ease-out-quart group-hover:scale-[1.06]"
               />
-            </div>
-            <div class="h-1.5 rounded-b-sm bg-steel-900 transition-colors group-hover:bg-signal-500" aria-hidden="true" />
-            <div class="mt-4 flex items-start justify-between gap-3">
-              <div>
-                <h3 class="text-lg font-bold">{cat.name}</h3>
-                <p class="mt-1 text-sm leading-snug text-steel-500">{cat.summary}</p>
-              </div>
-              <Icon
-                name="ArrowUpRight"
-                class="mt-1 size-5 shrink-0 text-steel-300 transition-colors group-hover:text-signal-500"
-              />
-            </div>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+              <span
+                class="absolute right-4 bottom-4 z-10 grid size-11 place-items-center rounded-full bg-white text-steel-900 shadow-sm transition-colors group-hover:bg-signal-500 group-hover:text-white sm:right-5 sm:bottom-5"
+                aria-hidden="true"
+              >
+                <Icon name="ArrowUpRight" class="size-5 transition-transform duration-300 group-hover:rotate-45" />
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </section>
+
+<style>
+  .bento-card {
+    transition: box-shadow 300ms var(--ease-out-quart);
+  }
+  .bento-card:hover {
+    box-shadow: 0 28px 50px -32px rgb(8 13 20 / 0.5);
+  }
+</style>

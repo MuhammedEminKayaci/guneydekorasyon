@@ -1,0 +1,70 @@
+---
+// KVKK aydınlatma metni. TODO: Yayından önce firmanın hukuk danışmanı tarafından gözden geçirilmeli;
+// unvan, adres ve MERSİS/vergi bilgileri firmadan alınıp eklenmeli.
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { CONTACT, SITE } from '../../config/site';
+
+const address = [CONTACT.address.street, CONTACT.address.district, CONTACT.address.city].filter(Boolean).join(', ');
+---
+
+<LegalLayout
+  title="KVKK Aydınlatma Metni"
+  description="Güney Mağaza Dekorasyon kişisel verilerin korunması ve işlenmesi hakkında aydınlatma metni."
+  path="/kvkk/"
+  updated="24 Eylül 2026"
+>
+  <p>
+    {SITE.name} (“Firma”) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında veri sorumlusu
+    sıfatıyla, kişisel verilerinizin hangi amaçla işlendiği, kimlere aktarılabileceği ve haklarınız hakkında sizi
+    bilgilendirmek isteriz.
+  </p>
+
+  <h2>1. İşlenen kişisel veriler</h2>
+  <ul>
+    <li>Kimlik ve iletişim bilgileri: ad soyad, telefon numarası, şehir.</li>
+    <li>Talep bilgileri: teklif listesine eklediğiniz ürünler, adetler ve mesajınızda paylaştığınız diğer bilgiler.</li>
+    <li>İşlem güvenliği bilgileri: web sitesine erişim sırasında sunucu tarafından tutulan teknik kayıtlar.</li>
+  </ul>
+
+  <h2>2. İşleme amaçları</h2>
+  <ul>
+    <li>Teklif ve bilgi taleplerinizi yanıtlamak, keşif ve montaj randevusu planlamak.</li>
+    <li>Sipariş, üretim, teslimat ve satış sonrası destek süreçlerini yürütmek.</li>
+    <li>Yasal yükümlülüklerimizi yerine getirmek.</li>
+  </ul>
+
+  <h2>3. Toplama yöntemi ve hukuki sebep</h2>
+  <p>
+    Kişisel verileriniz; web sitesindeki teklif formu aracılığıyla oluşturulan WhatsApp mesajı, telefon ve e-posta
+    kanallarıyla, sizin tarafınızdan iletilmesi yoluyla toplanır. Veriler KVKK’nın 5. maddesinde belirtilen
+    “bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması” ve “veri sorumlusunun meşru menfaati” hukuki
+    sebeplerine dayanılarak işlenir.
+  </p>
+  <p>
+    Web sitesindeki teklif formu verilerinizi bir sunucuya kaydetmez; bilgileriniz yalnızca sizin onayınızla açılan
+    WhatsApp mesajıyla firmamıza iletilir. WhatsApp hizmetinin veri işleme koşulları için WhatsApp’ın kendi gizlilik
+    politikası geçerlidir.
+  </p>
+
+  <h2>4. Aktarım</h2>
+  <p>
+    Kişisel verileriniz; yalnızca yukarıdaki amaçlarla sınırlı olarak ve gerektiği ölçüde, teslimat ve montaj
+    hizmeti aldığımız iş ortaklarımıza ve yasal olarak yetkili kamu kurumlarına aktarılabilir.
+  </p>
+
+  <h2>5. Haklarınız</h2>
+  <p>KVKK’nın 11. maddesi kapsamında aşağıdaki haklara sahipsiniz:</p>
+  <ul>
+    <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme ve işlenmişse bilgi talep etme,</li>
+    <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+    <li>Eksik veya yanlış işlenmişse düzeltilmesini, KVKK’da öngörülen şartlar çerçevesinde silinmesini isteme,</li>
+    <li>İşlemenin kanuna aykırı olması sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme.</li>
+  </ul>
+
+  <h2>6. Başvuru</h2>
+  <p>
+    Haklarınıza ilişkin taleplerinizi <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> adresine e-posta ile
+    veya {address} adresine yazılı olarak iletebilirsiniz. Başvurunuz en geç 30 gün içinde ücretsiz olarak
+    sonuçlandırılır.
+  </p>
+</LegalLayout>

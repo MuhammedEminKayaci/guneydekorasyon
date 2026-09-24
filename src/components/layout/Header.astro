@@ -10,12 +10,11 @@ import Icon from '../ui/Icon.astro';
 import BrandIcon from '../ui/BrandIcon.astro';
 import HeaderSearch from './HeaderSearch.astro';
 import MobileMenu from './MobileMenu.astro';
-import QuoteDialog from './QuoteDialog.astro';
+import QuoteDrawer from './QuoteDrawer.astro';
 import logoSvg from '../../assets/images/marka/logo.svg';
 import { CATEGORIES, categoryHref } from '../../data/categories';
 import { PROMISES } from '../../data/home';
 import { CONTACT, whatsappLink } from '../../config/site';
-import { getSearchIndex } from '../../lib/search-index';
 
 const secondary = [
   { name: 'Projeler', href: '/projeler/' },
@@ -25,7 +24,6 @@ const secondary = [
 const path = Astro.url.pathname;
 const isActive = (href: string) => path.startsWith(href);
 const megaCategories = CATEGORIES.filter((c) => c.children.length > 0);
-const searchIndex = await getSearchIndex();
 ---
 
 <div
@@ -79,11 +77,16 @@ const searchIndex = await getSearchIndex();
 
           <button
             type="button"
-            class="btn-primary min-h-10 rounded-full px-4 text-sm lg:min-h-12 lg:px-6 lg:text-[0.95rem]"
+            class="btn-primary relative min-h-10 rounded-full px-4 text-sm lg:min-h-12 lg:px-6 lg:text-[0.95rem]"
             data-quote-open
           >
             <Icon name="FileText" class="hidden size-4 lg:block" />
             Teklif Al
+            <span
+              class="absolute -top-1.5 -right-1.5 grid h-5 min-w-5 place-items-center rounded-full bg-white px-1 text-[0.7rem] font-bold text-signal-600 shadow ring-2 ring-steel-950"
+              data-quote-count
+              data-hide-empty>0</span
+            >
           </button>
 
           <button
@@ -178,9 +181,14 @@ const searchIndex = await getSearchIndex();
             ))
           }
         </ul>
-        <div class="compact-only shrink-0">
-          <button type="button" class="btn-primary min-h-10 rounded-full px-5 text-sm" data-quote-open tabindex="-1">
+        <div class="compact-only shrink-0 py-1.5 pr-1.5">
+          <button type="button" class="btn-primary relative min-h-10 rounded-full px-5 text-sm" data-quote-open tabindex="-1">
             Teklif Al
+            <span
+              class="absolute -top-1.5 -right-1.5 grid h-5 min-w-5 place-items-center rounded-full bg-steel-950 px-1 text-[0.7rem] font-bold text-white ring-2 ring-white"
+              data-quote-count
+              data-hide-empty>0</span
+            >
           </button>
         </div>
       </div>
@@ -330,10 +338,8 @@ const searchIndex = await getSearchIndex();
   </nav>
 </header>
 
-<script type="application/json" id="arama-indeksi" set:html={JSON.stringify(searchIndex)} />
-
 <MobileMenu />
-<QuoteDialog />
+<QuoteDrawer />
 
 <style>
   .site-header {

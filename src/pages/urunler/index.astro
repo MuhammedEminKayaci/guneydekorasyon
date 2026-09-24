@@ -1,0 +1,40 @@
+---
+// Tüm ürünler: bütün katalog tek listede, ana kategoriye göre filtrelenebilir.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import ProductListing from '../../components/product/ProductListing.astro';
+import QuoteBand from '../../components/home/QuoteBand.astro';
+import { PRODUCTS } from '../../lib/catalog';
+import { CATEGORIES } from '../../data/categories';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const trail = [{ name: 'Tüm ürünler', href: '/urunler/' }];
+---
+
+<BaseLayout
+  title="Tüm Ürünler"
+  description={`Güney Mağaza Dekorasyon ürün kataloğu: ${PRODUCTS.length} model raf sistemi, orta sistem, stand, manken ve askı. Filtreleyin, teklif listesine ekleyin.`}
+  jsonLd={breadcrumbSchema([{ name: 'Ana sayfa', path: '/' }, { name: 'Tüm ürünler', path: '/urunler/' }])}
+>
+  <section class="border-b border-steel-200 bg-galvanized">
+    <div class="container-page pt-6 pb-10">
+      <Breadcrumbs items={trail} />
+      <h1 class="mt-6 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl">Tüm ürünler</h1>
+      <p class="mt-4 max-w-3xl text-lg text-steel-700">
+        {PRODUCTS.length} modellik kataloğumuzu kategori, renk ve tipe göre filtreleyin. Beğendiğiniz modelleri teklif
+        listesine ekleyip adetleriyle birlikte tek mesajda gönderin.
+      </p>
+    </div>
+  </section>
+
+  <div class="container-page py-10 lg:py-12">
+    <ProductListing
+      products={PRODUCTS}
+      categoryFacet={{ label: 'Kategori', depth: 0, options: CATEGORIES.map((c) => ({ slug: c.slug, name: c.name })) }}
+      showCategory
+      context="ürün kataloğu"
+    />
+  </div>
+
+  <QuoteBand />
+</BaseLayout>

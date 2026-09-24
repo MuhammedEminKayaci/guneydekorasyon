@@ -1,0 +1,118 @@
+---
+// Ürün kartı. Filtreleme için gereken veriler data-* niteliklerinde taşınır (ProductListing okur).
+// Görsele veya ada tıklayınca hızlı bakış açılır; sağ üstteki buton teklif listesine ekler.
+import { Image, getImage } from 'astro:assets';
+import Icon from '../ui/Icon.astro';
+import { COLOR_SWATCHES } from '../../lib/colors';
+import { productImage, productCategoryName, type Product } from '../../lib/catalog';
+
+export interface Props {
+  product: Product;
+  /** İlk satırdaki kartlar hemen yüklenir */
+  eager?: boolean;
+  /** Karma listelerde (tüm ürünler, arama) kategori adını göster */
+  showCategory?: boolean;
+  /** İlk sayfanın dışındaki kartlar gizli başlar (JS sayfalamayı devralır) */
+  hidden?: boolean;
+}
+
+const { product: p, eager = false, showCategory = true, hidden = false } = Astro.props;
+const images = p.images.map(productImage);
+const cover = p.fit === 'cover';
+const catName = productCategoryName(p);
+const thumb = (await getImage({ src: images[0], width: 160, height: 160, fit: p.fit, background: '#ffffff', format: 'webp' })).src;
+const searchText = [p.name, p.code, catName, ...Object.values(p.attrs)].join(' ');
+const imgClass = cover ? 'object-cover' : 'object-contain p-5 mix-blend-multiply sm:p-6';
+const widths = [240, 400, 600];
+const sizes = '(min-width: 1280px) 17rem, (min-width: 1024px) 22vw, (min-width: 640px) 30vw, 46vw';
+---
+
+<li
+  class="product-card group/card"
+  hidden={hidden}
+  data-product
+  data-id={p.id}
+  data-name={p.name}
+  data-code={p.code}
+  data-text={searchText}
+  data-kat={p.path.join('/')}
+  data-order={p.order}
+  data-renk={p.attrs.renk}
+  data-cinsiyet={p.attrs.cinsiyet}
+  data-tip={p.attrs.tip}
+  data-kol={p.attrs.kol}
+>
+  <div class="relative aspect-square overflow-hidden rounded-2xl bg-galvanized">
+    <Image
+      src={images[0]}
+      alt={`${p.name} ${p.code}`}
+      widths={widths}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+      class:list={['absolute inset-0 size-full transition duration-500 ease-out-quart', imgClass, images[1] ? 'group-hover/card:opacity-0' : 'group-hover/card:scale-[1.04]']}
+    />
+    {
+      images[1] && (
+        <Image
+          src={images[1]}
+          alt=""
+          widths={widths}
+          sizes={sizes}
+          loading="lazy"
+          class:list={['absolute inset-0 size-full opacity-0 transition-opacity duration-500 group-hover/card:opacity-100', imgClass]}
+        />
+      )
+    }
+
+    <button
+      type="button"
+      class="absolute inset-0 z-10 cursor-zoom-in"
+      data-quick-view={p.id}
+      aria-label={`${p.name} ${p.code}: hızlı bak`}
+    >
+    </button>
+
+    <span
+      class="pointer-events-none absolute inset-x-3 bottom-3 z-10 hidden translate-y-2 items-center justify-center gap-1.5 rounded-full bg-white/95 py-2 text-sm font-semibold opacity-0 shadow-md backdrop-blur transition duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100 lg:flex"
+      aria-hidden="true"
+    >
+      <Icon name="Eye" class="size-4" />
+      Hızlı bak
+    </span>
+
+    <button
+      type="button"
+      class="quote-toggle group/q absolute top-3 right-3 z-20 grid size-10 place-items-center rounded-full bg-white text-steel-900 shadow-md transition-colors hover:bg-steel-950 hover:text-white aria-pressed:bg-signal-500 aria-pressed:text-white"
+      aria-pressed="false"
+      aria-label={`${p.name} ${p.code}: teklif listesine ekle`}
+      title="Teklif listesine ekle"
+      data-add-quote
+      data-thumb={thumb}
+    >
+      <Icon name="Plus" class="size-5 group-aria-pressed/q:hidden" />
+      <Icon name="Check" class="hidden size-5 group-aria-pressed/q:block" />
+    </button>
+  </div>
+
+  <div class="mt-3 px-0.5">
+    <p class="truncate text-xs text-steel-500">
+      {showCategory && catName !== p.name && <span>{catName} · </span>}<span>{p.code}</span>
+    </p>
+    <h3 class="mt-1 leading-snug font-semibold">
+      <button type="button" class="line-clamp-2 text-left hover:text-signal-500" data-quick-view={p.id}>
+        {p.name}
+      </button>
+    </h3>
+    {
+      p.attrs.renk && (
+        <p class="mt-1.5 flex items-center gap-1.5 text-xs text-steel-500">
+          <span
+            class="inline-block size-3.5 rounded-full border border-steel-200"
+            style={`background:${COLOR_SWATCHES[p.attrs.renk] ?? '#ccc'}`}
+          />
+          {p.attrs.renk}
+        </p>
+      )
+    }
+  </div>
+</li>

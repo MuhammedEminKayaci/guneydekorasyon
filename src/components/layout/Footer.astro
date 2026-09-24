@@ -113,8 +113,8 @@ const year = new Date().getFullYear();
         }
         <p class="flex gap-3">
           <Icon name="Mail" class="mt-0.5 size-4 shrink-0 text-signal-500" />
-          <a href={`mailto:${CONTACT.email}`} class="break-all transition-colors hover:text-white">
-            {CONTACT.email}
+          <a href={`mailto:${CONTACT.email}`} class="transition-colors hover:text-white">
+            {CONTACT.email.split('@')[0]}@<wbr />{CONTACT.email.split('@')[1]}
           </a>
         </p>
         <p class="flex gap-3">
@@ -149,6 +149,11 @@ const year = new Date().getFullYear();
   <div class="border-t border-white/10">
     <div class="container-page flex flex-col gap-3 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
       <p>© {year} {SITE.name}. Tüm hakları saklıdır.</p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-2" role="list">
+        <li><a href="/kvkk/" class="hover:text-white">KVKK Aydınlatma Metni</a></li>
+        <li><a href="/cerez-politikasi/" class="hover:text-white">Çerez Politikası</a></li>
+        <li><a href="/urunler/" class="hover:text-white">Tüm ürünler</a></li>
+      </ul>
     </div>
   </div>
 </footer>
