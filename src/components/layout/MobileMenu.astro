@@ -1,5 +1,5 @@
 ---
-// Mobil / tablet menüsü: arama, akordeon kategori ağacı, iletişim eylemleri.
+// Mobil / tablet menüsü: akordeon kategori ağacı ve iletişim eylemleri (arama header ikinci satırında).
 import Logo from '../ui/Logo.astro';
 import Icon from '../ui/Icon.astro';
 import BrandIcon from '../ui/BrandIcon.astro';
@@ -27,25 +27,8 @@ const secondary = [
     </div>
 
     <div class="flex-1 overflow-y-auto overscroll-contain px-4 pb-8">
-      <form action="/arama/" method="get" role="search" class="relative mt-4">
-        <label for="mobil-arama" class="sr-only">Ürün ara</label>
-        <input
-          id="mobil-arama"
-          name="q"
-          type="search"
-          placeholder="Ürün ara"
-          class="h-12 w-full rounded-full border border-steel-200 bg-galvanized pr-12 pl-5 outline-none focus:border-steel-500"
-        />
-        <button
-          type="submit"
-          class="absolute top-1.5 right-1.5 grid size-9 place-items-center rounded-full bg-signal-500 text-white"
-          aria-label="Ara"
-        >
-          <Icon name="Search" class="size-4" />
-        </button>
-      </form>
 
-      <ul class="mt-4 divide-y divide-steel-200" role="list">
+      <ul class="mt-2 divide-y divide-steel-200" role="list">
         {
           CATEGORIES.map((cat) =>
             cat.children.length ? (

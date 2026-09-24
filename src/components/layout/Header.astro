@@ -1,15 +1,21 @@
 ---
 // İki katmanlı header.
-// Üst katman: logo, ürün arama, telefon, WhatsApp, Teklif Al.
-// Alt katman (masaüstü): kategori menüsü + mega menü. Aşağı kaydırınca üst katman gizlenir, yukarı kaydırınca geri gelir.
+// 1. katman (koyu): logo, anlık önerili arama, çalışma saati + telefon, WhatsApp, Teklif Al.
+//    Mobilde arama ikinci satırda durur, aşağı kaydırınca katlanır.
+// 2. katman (beyaz, masaüstü): Tüm Ürünler kataloğu, kategori mega menüleri, kurumsal linkler.
+//    Aşağı kaydırınca 1. katman gizlenir; 2. katmanda küçük logo ve Teklif Al belirir.
 import { Image } from 'astro:assets';
 import Logo from '../ui/Logo.astro';
 import Icon from '../ui/Icon.astro';
 import BrandIcon from '../ui/BrandIcon.astro';
+import HeaderSearch from './HeaderSearch.astro';
 import MobileMenu from './MobileMenu.astro';
 import QuoteDialog from './QuoteDialog.astro';
+import logoSvg from '../../assets/images/marka/logo.svg';
 import { CATEGORIES, categoryHref } from '../../data/categories';
+import { PROMISES } from '../../data/home';
 import { CONTACT, whatsappLink } from '../../config/site';
+import { getSearchIndex } from '../../lib/search-index';
 
 const secondary = [
   { name: 'Projeler', href: '/projeler/' },
@@ -18,279 +24,533 @@ const secondary = [
 ];
 const path = Astro.url.pathname;
 const isActive = (href: string) => path.startsWith(href);
+const megaCategories = CATEGORIES.filter((c) => c.children.length > 0);
+const searchIndex = await getSearchIndex();
 ---
+
+<div
+  class="header-overlay pointer-events-none fixed inset-0 z-40 bg-steel-950/45 opacity-0 backdrop-blur-[2px] transition-opacity duration-200"
+  data-header-overlay
+  aria-hidden="true"
+>
+</div>
 
 <a
   href="#icerik"
-  class="sr-only z-60 bg-white px-4 py-2 font-semibold focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+  class="sr-only z-60 rounded-full bg-white px-4 py-2 font-semibold focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
 >
   İçeriğe geç
 </a>
 
 <header class="site-header sticky top-0 z-50" data-header>
-  <!-- Üst katman -->
-  <div class="relative z-20 bg-steel-950 text-white" data-header-top>
-    <div class="container-page flex h-16 items-center gap-4 lg:h-20 lg:gap-8">
-      <a href="/" class="shrink-0" aria-label="Güney Mağaza Dekorasyon ana sayfa">
-        <Logo width={172} alt="" class="w-36 lg:w-43" />
-      </a>
-
-      <form action="/arama/" method="get" role="search" class="relative hidden max-w-xl flex-1 lg:block">
-        <label for="header-arama" class="sr-only">Ürün ara</label>
-        <input
-          id="header-arama"
-          name="q"
-          type="search"
-          placeholder="Ürün ara: terzi mankeni, ahşap askı, depo rafı…"
-          autocomplete="off"
-          class="h-11 w-full rounded-full border border-white/10 bg-white/6 pr-12 pl-5 text-[0.95rem] text-white placeholder:text-steel-300 transition-colors outline-none focus:border-white/40 focus:bg-white/10"
-        />
-        <button
-          type="submit"
-          class="absolute top-1 right-1 grid size-9 place-items-center rounded-full bg-signal-500 text-white transition-colors hover:bg-signal-600"
-          aria-label="Ara"
-        >
-          <Icon name="Search" class="size-4" />
-        </button>
-      </form>
-
-      <div class="ml-auto flex items-center gap-2 lg:gap-5">
-        <a href={`tel:${CONTACT.phones[0].tel}`} class="group hidden items-center gap-3 xl:flex">
-          <span class="grid size-10 place-items-center rounded-full border border-white/15 transition-colors group-hover:border-white/40">
-            <Icon name="Phone" class="size-4" />
-          </span>
-          <span class="leading-tight">
-            <span class="block text-xs text-steel-300">Hemen arayın</span>
-            <span class="block font-semibold whitespace-nowrap">{CONTACT.phones[0].display}</span>
-          </span>
+  <!-- 1. katman -->
+  <div class="relative z-20 bg-steel-950 text-white">
+    <div class="container-page">
+      <div class="flex h-16 items-center gap-3 lg:h-21 lg:gap-8">
+        <a href="/" class="shrink-0" aria-label="Güney Mağaza Dekorasyon ana sayfa">
+          <Logo width={176} alt="" class="w-34 sm:w-38 lg:w-44" />
         </a>
 
-        <a
-          href={whatsappLink()}
-          target="_blank"
-          rel="noopener"
-          class="grid size-10 place-items-center rounded-full bg-whatsapp text-steel-950 transition-colors hover:bg-whatsapp-dark hover:text-white"
-          aria-label="WhatsApp ile yazın"
-        >
-          <BrandIcon name="whatsapp" class="size-5" />
-        </a>
+        <HeaderSearch id="arama-masaustu" hotkey class="hidden max-w-2xl flex-1 lg:block" />
 
-        <button type="button" class="btn-primary min-h-10 rounded-full px-4 text-sm sm:min-h-11 sm:px-6 sm:text-[0.95rem]" data-quote-open>
-          <Icon name="FileText" class="hidden size-4 sm:block" />
-          Teklif Al
-        </button>
+        <div class="ml-auto flex items-center gap-2 sm:gap-3 xl:gap-5">
+          <a href={`tel:${CONTACT.phones[0].tel}`} class="group hidden items-center gap-3 xl:flex">
+            <span class="grid size-11 place-items-center rounded-full border border-white/15 transition-colors group-hover:border-white/40 group-hover:bg-white/5">
+              <Icon name="PhoneCall" class="size-4.5" />
+            </span>
+            <span class="leading-tight">
+              <span class="block text-xs text-steel-300">{CONTACT.hours.label.replace(':', '')}</span>
+              <span class="mt-0.5 block font-semibold whitespace-nowrap">{CONTACT.phones[0].display}</span>
+            </span>
+          </a>
 
-        <button
-          type="button"
-          class="grid size-10 place-items-center text-white lg:hidden"
-          aria-label="Menüyü aç"
-          aria-controls="mobil-menu"
-          aria-expanded="false"
-          data-menu-open
-        >
-          <Icon name="Menu" class="size-6" />
-        </button>
+          <span class="hidden h-9 w-px bg-white/10 xl:block" aria-hidden="true"></span>
+
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener"
+            class="grid size-10 place-items-center rounded-full bg-whatsapp text-steel-950 transition-colors hover:bg-whatsapp-dark hover:text-white lg:size-11 lg:border lg:border-white/15 lg:bg-transparent lg:text-whatsapp lg:hover:border-whatsapp lg:hover:bg-whatsapp lg:hover:text-steel-950"
+            aria-label="WhatsApp ile yazın"
+            title="WhatsApp ile yazın"
+          >
+            <BrandIcon name="whatsapp" class="size-5" />
+          </a>
+
+          <button
+            type="button"
+            class="btn-primary min-h-10 rounded-full px-4 text-sm lg:min-h-12 lg:px-6 lg:text-[0.95rem]"
+            data-quote-open
+          >
+            <Icon name="FileText" class="hidden size-4 lg:block" />
+            Teklif Al
+          </button>
+
+          <button
+            type="button"
+            class="-mr-2 grid size-10 place-items-center text-white lg:hidden"
+            aria-label="Menüyü aç"
+            aria-controls="mobil-menu"
+            aria-expanded="false"
+            data-menu-open
+          >
+            <Icon name="Menu" class="size-6" />
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobil arama satırı -->
+      <div class="mobile-search grid lg:hidden" data-mobile-search>
+        <div class="min-h-0">
+          <HeaderSearch id="arama-mobil" class="pb-3" />
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Alt katman: menü (masaüstü) -->
-  <nav class="relative z-10 hidden border-b border-steel-200 bg-white lg:block" aria-label="Ana menü">
-    <div class="container-page flex h-14 items-stretch justify-between">
-      <ul class="flex items-stretch" role="list">
+  <!-- 2. katman: menü (masaüstü) -->
+  <nav class="relative z-10 hidden border-b border-steel-200 bg-white lg:block" aria-label="Ana menü" data-mega-nav>
+    <div class="container-page flex h-14 items-center">
+      <a href="/" class="compact-only shrink-0" aria-label="Ana sayfa" tabindex="-1">
+        <span class="grid size-10 place-items-center overflow-hidden rounded-xl bg-steel-950">
+          <span class="block w-[1.95rem] overflow-hidden">
+            <img src={logoSvg.src} alt="" width="106" height="30" class="h-auto w-[6.6rem] max-w-none" />
+          </span>
+        </span>
+      </a>
+
+      <button
+        type="button"
+        class="mr-2 inline-flex h-10 shrink-0 items-center gap-2 rounded-full bg-steel-950 pr-4 pl-3.5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-steel-800 aria-expanded:bg-signal-500"
+        aria-expanded="false"
+        aria-controls="mega-tum-urunler"
+        data-mega-trigger="tum-urunler"
+      >
+        <Icon name="LayoutGrid" class="size-4.5" />
+        Tüm Ürünler
+      </button>
+
+      <ul class="flex h-full items-stretch" role="list">
         {
           CATEGORIES.map((cat) => {
             const href = categoryHref(cat.slug);
             const hasMega = cat.children.length > 0;
             return (
-              <li class="mega-item group/item flex items-stretch" data-mega-item={hasMega ? '' : undefined}>
+              <li class="flex items-stretch">
                 <a
                   href={href}
                   class:list={[
-                    'relative flex items-center gap-1.5 px-4 text-[0.95rem] font-semibold whitespace-nowrap transition-colors first:pl-0 hover:text-signal-500',
-                    'after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-signal-500 after:transition-transform group-hover/item:after:scale-x-100',
-                    isActive(href) ? 'text-signal-500 after:scale-x-100' : 'text-steel-900',
+                    'nav-link relative flex items-center gap-1 px-3.5 text-[0.95rem] font-semibold whitespace-nowrap transition-colors hover:text-signal-500 xl:px-4',
+                    isActive(href) ? 'is-current text-signal-500' : 'text-steel-900',
                   ]}
                   aria-current={isActive(href) ? 'page' : undefined}
-                  aria-haspopup={hasMega ? 'true' : undefined}
                   aria-expanded={hasMega ? 'false' : undefined}
+                  aria-controls={hasMega ? `mega-${cat.slug}` : undefined}
+                  data-mega-trigger={hasMega ? cat.slug : undefined}
+                  data-mega-plain={hasMega ? undefined : ''}
                 >
                   {cat.name}
-                  {hasMega && (
-                    <Icon
-                      name="ChevronDown"
-                      class="size-4 text-steel-500 transition-transform duration-200 group-hover/item:rotate-180"
-                    />
-                  )}
+                  {hasMega && <Icon name="ChevronDown" class="chevron size-4 text-steel-500 transition-transform duration-200" />}
                 </a>
-
-                {hasMega && (
-                  <div class="mega-panel absolute inset-x-0 top-full border-t border-steel-200 bg-white shadow-[0_32px_48px_-24px_rgb(8_13_20/0.35)]">
-                    <div class="container-page grid grid-cols-[1fr_22rem] gap-10 py-10">
-                      <div class="grid auto-rows-min grid-cols-3 gap-x-10 gap-y-8">
-                        {cat.children.map((sub) => (
-                          <div>
-                            <a
-                              href={categoryHref(cat.slug, sub.slug)}
-                              class="group/sub flex items-center justify-between gap-2 border-b border-steel-200 pb-3 font-bold text-steel-950 hover:text-signal-500"
-                            >
-                              {sub.name}
-                              <Icon
-                                name="ArrowRight"
-                                class="size-4 text-steel-300 transition-transform group-hover/sub:translate-x-0.5 group-hover/sub:text-signal-500"
-                              />
-                            </a>
-                            {sub.children && (
-                              <ul class="mt-3 space-y-2" role="list">
-                                {sub.children.map((leaf) => (
-                                  <li>
-                                    <a
-                                      href={categoryHref(cat.slug, sub.slug, leaf.slug)}
-                                      class="text-[0.95rem] text-steel-500 hover:text-signal-500"
-                                    >
-                                      {leaf.name}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-
-                      <a href={href} class="group/card flex flex-col overflow-hidden rounded-2xl bg-galvanized">
-                        <Image
-                          src={cat.image}
-                          alt=""
-                          width={352}
-                          densities={[1, 2]}
-                          loading="lazy"
-                          class="aspect-16/10 w-full object-contain p-4 mix-blend-multiply transition-transform duration-500 group-hover/card:scale-[1.04]"
-                        />
-                        <span class="flex items-end justify-between gap-4 border-t border-steel-200 bg-white p-5">
-                          <span>
-                            <span class="block font-bold text-steel-950">Tüm {cat.name}</span>
-                            <span class="mt-1 block text-sm leading-snug text-steel-500">{cat.summary}</span>
-                          </span>
-                          <span class="grid size-10 shrink-0 place-items-center rounded-full bg-signal-500 text-white transition-transform group-hover/card:translate-x-0.5">
-                            <Icon name="ArrowRight" class="size-4" />
-                          </span>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                )}
               </li>
             );
           })
         }
       </ul>
 
-      <ul class="flex items-stretch" role="list">
-        {
-          secondary.map((item) => (
-            <li class="flex items-stretch">
-              <a
-                href={item.href}
-                class:list={[
-                  'flex items-center px-4 text-[0.95rem] font-medium whitespace-nowrap transition-colors last:pr-0 hover:text-signal-500',
-                  isActive(item.href) ? 'text-signal-500' : 'text-steel-500',
-                ]}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-              >
-                {item.name}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      <div class="ml-auto flex items-center">
+        <ul class="hidden items-center xl:flex" role="list">
+          {
+            secondary.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    'block px-3 py-2 text-[0.95rem] font-medium whitespace-nowrap transition-colors hover:text-signal-500',
+                    isActive(item.href) ? 'text-signal-500' : 'text-steel-500',
+                  ]}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  data-mega-plain
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="compact-only shrink-0">
+          <button type="button" class="btn-primary min-h-10 rounded-full px-5 text-sm" data-quote-open tabindex="-1">
+            Teklif Al
+          </button>
+        </div>
+      </div>
     </div>
+
+    <!-- Tüm Ürünler kataloğu -->
+    <div id="mega-tum-urunler" class="mega-panel" data-mega-panel="tum-urunler">
+      <div class="container-page py-8">
+        <ul class="grid grid-cols-5 gap-6" role="list">
+          {
+            CATEGORIES.map((cat) => (
+              <li>
+                <a href={categoryHref(cat.slug)} class="group block">
+                  <span class="block aspect-4/3 overflow-hidden rounded-2xl bg-galvanized">
+                    <Image
+                      src={cat.image}
+                      alt=""
+                      width={240}
+                      densities={[1, 2]}
+                      loading="lazy"
+                      class="size-full object-contain p-4 mix-blend-multiply transition-transform duration-500 ease-out-quart group-hover:scale-105"
+                    />
+                  </span>
+                  <span class="mt-3 flex items-center justify-between gap-2 font-bold group-hover:text-signal-500">
+                    {cat.name}
+                    <Icon name="ArrowRight" class="size-4 text-steel-300 transition-transform group-hover:translate-x-0.5 group-hover:text-signal-500" />
+                  </span>
+                  <span class="mt-0.5 block text-sm leading-snug text-steel-500">{cat.summary}</span>
+                </a>
+                {cat.children.length > 0 && (
+                  <ul class="mt-3 space-y-1.5 border-t border-steel-200 pt-3 text-sm" role="list">
+                    {cat.children.map((sub) => (
+                      <li>
+                        <a href={categoryHref(cat.slug, sub.slug)} class="text-steel-700 hover:text-signal-500">
+                          {sub.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+        <ul class="mt-8 grid grid-cols-4 gap-px overflow-hidden rounded-2xl bg-steel-200" role="list">
+          {
+            PROMISES.map((item) => (
+              <li class="flex items-center gap-3 bg-galvanized px-5 py-4">
+                <Icon name={item.icon} class="size-5 shrink-0 text-signal-500" />
+                <span class="text-sm font-semibold">{item.title}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Kategori mega menüleri -->
+    {
+      megaCategories.map((cat) => (
+        <div id={`mega-${cat.slug}`} class="mega-panel" data-mega-panel={cat.slug}>
+          <div class="container-page grid grid-cols-[1fr_20rem] gap-10 py-8 xl:grid-cols-[1fr_22rem]">
+            <div>
+              <div class="flex items-center justify-between gap-4">
+                <p class="text-lg font-bold">{cat.name}</p>
+                <a
+                  href={categoryHref(cat.slug)}
+                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-signal-500 hover:text-signal-600"
+                >
+                  Tüm {cat.name.toLocaleLowerCase('tr')}
+                  <Icon name="ArrowRight" class="size-4" />
+                </a>
+              </div>
+              <ul
+                class:list={['mt-5 grid gap-5', cat.children.length >= 4 ? 'grid-cols-4' : 'grid-cols-3']}
+                role="list"
+              >
+                {cat.children.map((sub) => (
+                  <li>
+                    <a href={categoryHref(cat.slug, sub.slug)} class="group block">
+                      <span class="block aspect-4/3 overflow-hidden rounded-2xl bg-galvanized">
+                        <Image
+                          src={sub.image}
+                          alt=""
+                          width={280}
+                          densities={[1, 2]}
+                          loading="lazy"
+                          class:list={[
+                            'size-full transition-transform duration-500 ease-out-quart group-hover:scale-105',
+                            sub.photo ? 'object-cover' : 'object-contain p-4 mix-blend-multiply',
+                          ]}
+                        />
+                      </span>
+                      <span class="mt-3 flex items-center justify-between gap-2 font-semibold group-hover:text-signal-500">
+                        {sub.name}
+                        <Icon
+                          name="ArrowRight"
+                          class="size-4 text-steel-300 transition-transform group-hover:translate-x-0.5 group-hover:text-signal-500"
+                        />
+                      </span>
+                    </a>
+                    {sub.children && (
+                      <ul class="mt-2.5 flex flex-wrap gap-1.5" role="list">
+                        {sub.children.map((leaf) => (
+                          <li>
+                            <a
+                              href={categoryHref(cat.slug, sub.slug, leaf.slug)}
+                              class="inline-block rounded-full border border-steel-200 px-2.5 py-1 text-xs font-medium text-steel-700 transition-colors hover:border-steel-950 hover:bg-steel-950 hover:text-white"
+                            >
+                              {leaf.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {cat.promo && (
+              <div class="relative isolate flex min-h-80 flex-col justify-end overflow-hidden rounded-3xl bg-steel-950 p-4">
+                <Image
+                  src={cat.promo}
+                  alt=""
+                  width={400}
+                  densities={[1, 2]}
+                  loading="lazy"
+                  class="absolute inset-0 -z-10 size-full object-cover"
+                />
+                <div class="absolute inset-0 -z-10 bg-linear-to-t from-steel-950/70 via-steel-950/10 to-transparent" />
+                <div class="glass rounded-2xl p-5 text-white">
+                  <p class="text-lg leading-snug font-bold">Ölçünüze göre üretelim</p>
+                  <p class="mt-1.5 text-sm text-white/80">
+                    Mağazanızın ölçüsünü gönderin, {cat.name.toLocaleLowerCase('tr')} için size özel teklif hazırlayalım.
+                  </p>
+                  <button type="button" class="btn-primary mt-4 min-h-10 w-full rounded-full text-sm" data-quote-open>
+                    Teklif Al
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      ))
+    }
   </nav>
 </header>
+
+<script type="application/json" id="arama-indeksi" set:html={JSON.stringify(searchIndex)} />
 
 <MobileMenu />
 <QuoteDialog />
 
 <style>
   .site-header {
-    transition: transform 300ms var(--ease-out-quart);
+    transition:
+      transform 320ms var(--ease-out-quart),
+      box-shadow 200ms;
   }
-  /* Aşağı kaydırırken üst katmanı yukarı kaydırıp sadece menü çubuğunu bırak (sadece masaüstü) */
+  .site-header[data-scrolled] {
+    box-shadow: 0 12px 32px -20px rgb(8 13 20 / 0.45);
+  }
+  /* Masaüstü: aşağı kaydırınca 1. katmanı gizle, menü çubuğu kalsın */
   @media (min-width: 64rem) {
     .site-header[data-compact] {
-      transform: translateY(-5rem);
+      transform: translateY(-5.25rem);
     }
   }
 
-  /* Mega menü: fareyle üzerine gelince veya klavye odağıyla açılır; kısa gecikme titremeyi önler */
+  /* Kompakt modda 2. katmanda beliren küçük logo ve Teklif Al */
+  .compact-only {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    margin-inline: 0;
+    transition:
+      max-width 320ms var(--ease-out-quart),
+      opacity 200ms,
+      margin 320ms var(--ease-out-quart);
+  }
+  .site-header[data-compact] .compact-only {
+    max-width: 10rem;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .site-header[data-compact] a.compact-only {
+    margin-right: 0.75rem;
+  }
+  .site-header[data-compact] div.compact-only {
+    margin-left: 0.5rem;
+  }
+
+  /* Mobil arama satırı: aşağı kaydırınca katlanır */
+  .mobile-search {
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 280ms var(--ease-out-quart);
+  }
+  .site-header[data-compact] .mobile-search {
+    grid-template-rows: 0fr;
+  }
+  .site-header[data-compact] .mobile-search > div {
+    overflow: hidden;
+  }
+
+  /* Menü linki alt çizgisi */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0.875rem;
+    bottom: -1px;
+    height: 2px;
+    background: var(--color-signal-500);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms var(--ease-out-quart);
+  }
+  .nav-link:hover::after,
+  .nav-link.is-current::after,
+  .nav-link[aria-expanded='true']::after {
+    transform: scaleX(1);
+  }
+  .nav-link[aria-expanded='true'] {
+    color: var(--color-signal-500);
+  }
+  .nav-link[aria-expanded='true'] .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Mega paneller */
   .mega-panel {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    max-height: calc(100dvh - 9rem);
+    overflow-y: auto;
+    border-top: 1px solid var(--color-steel-200);
+    background: white;
+    box-shadow: 0 40px 60px -30px rgb(8 13 20 / 0.45);
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-0.5rem);
+    transform: translateY(-6px);
     transition:
       opacity 180ms ease,
-      transform 180ms ease,
-      visibility 0s linear 180ms;
+      transform 220ms var(--ease-out-quart),
+      visibility 0s linear 220ms;
   }
-  .mega-item:hover .mega-panel,
-  .mega-item:focus-within .mega-panel,
-  .mega-item[data-open] .mega-panel {
+  .mega-panel[data-visible] {
     visibility: visible;
     opacity: 1;
     transform: none;
-    transition-delay: 80ms, 80ms, 0s;
+    transition-delay: 0s;
   }
-  .mega-item[data-closed] .mega-panel {
-    visibility: hidden !important;
-    opacity: 0 !important;
+  :global(body:has([data-mega-nav][data-open])) [data-header-overlay],
+  :global(body:has(.header-search [aria-expanded='true'])) [data-header-overlay] {
+    opacity: 1;
+    pointer-events: auto;
   }
 </style>
 
 <script>
   const header = document.querySelector<HTMLElement>('[data-header]')!;
-
-  // Kaydırma yönüne göre üst katmanı gizle/göster
-  let lastY = window.scrollY;
-  let ticking = false;
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        if (y > 160 && y > lastY + 4) header.dataset.compact = '';
-        else if (y < lastY - 4 || y <= 160) delete header.dataset.compact;
-        lastY = y;
-        ticking = false;
-      });
-    },
-    { passive: true },
+  const nav = header.querySelector<HTMLElement>('[data-mega-nav]')!;
+  const overlay = document.querySelector<HTMLElement>('[data-header-overlay]')!;
+  const triggers = [...nav.querySelectorAll<HTMLElement>('[data-mega-trigger]')];
+  const panels = new Map(
+    [...nav.querySelectorAll<HTMLElement>('[data-mega-panel]')].map((p) => [p.dataset.megaPanel!, p]),
   );
+  const canHover = window.matchMedia('(hover: hover)').matches;
 
-  // Mega menü: aria-expanded senkronu ve Escape ile kapatma
-  document.querySelectorAll<HTMLElement>('[data-mega-item]').forEach((item) => {
-    const trigger = item.querySelector<HTMLAnchorElement>('a[aria-haspopup]')!;
-    const setExpanded = (open: boolean) => trigger.setAttribute('aria-expanded', String(open));
+  // ---- Mega menü ----
+  let current: string | null = null;
+  let openTimer: number | undefined;
+  let closeTimer: number | undefined;
+  // Escape ile kapatıp odağı tetikleyiciye geri verirken focus olayının menüyü yeniden açmasını engeller
+  let suppressFocusOpen = false;
 
-    item.addEventListener('mouseenter', () => {
-      delete item.dataset.closed;
-      setExpanded(true);
+  const setOpen = (key: string | null) => {
+    window.clearTimeout(openTimer);
+    window.clearTimeout(closeTimer);
+    if (key === current) return;
+    current = key;
+    panels.forEach((panel, k) => panel.toggleAttribute('data-visible', k === key));
+    triggers.forEach((t) => t.setAttribute('aria-expanded', String(t.dataset.megaTrigger === key)));
+    if (key) nav.dataset.open = key;
+    else delete nav.dataset.open;
+  };
+
+  // Menüler arası geçişte anında, ilk açılışta kısa gecikmeyle (fare geçerken yanlışlıkla açılmayı önler)
+  const scheduleOpen = (key: string) => {
+    window.clearTimeout(closeTimer);
+    window.clearTimeout(openTimer);
+    openTimer = window.setTimeout(() => setOpen(key), current ? 0 : 110);
+  };
+  const scheduleClose = () => {
+    window.clearTimeout(openTimer);
+    closeTimer = window.setTimeout(() => setOpen(null), 180);
+  };
+
+  triggers.forEach((trigger) => {
+    const key = trigger.dataset.megaTrigger!;
+    if (canHover) trigger.addEventListener('mouseenter', () => scheduleOpen(key));
+    trigger.addEventListener('focus', () => {
+      if (!suppressFocusOpen) setOpen(key);
     });
-    item.addEventListener('mouseleave', () => setExpanded(false));
-    item.addEventListener('focusin', () => {
-      delete item.dataset.closed;
-      setExpanded(true);
+    trigger.addEventListener('click', (e) => {
+      // Tüm Ürünler butonu: masaüstünde tıklama sadece açar (kapanma fare çıkınca, Escape veya
+      // karartılmış alana tıklayınca); dokunmatikte aç/kapa.
+      // Kategori linki: dokunmatikte ilk dokunuş menüyü açar, ikincisi sayfaya gider.
+      if (trigger.tagName === 'BUTTON') {
+        e.preventDefault();
+        setOpen(!canHover && current === key ? null : key);
+      } else if (!canHover && current !== key) {
+        e.preventDefault();
+        setOpen(key);
+      }
     });
-    item.addEventListener('focusout', (e) => {
-      if (!item.contains(e.relatedTarget as Node)) setExpanded(false);
-    });
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        item.dataset.closed = '';
-        setExpanded(false);
-        trigger.focus();
+    // Aşağı ok: panelin ilk linkine geç
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setOpen(key);
+        panels.get(key)?.querySelector<HTMLElement>('a, button')?.focus();
       }
     });
   });
+
+  // Mega'sı olmayan linklerin üzerine gelince açık paneli kapat
+  nav.querySelectorAll('[data-mega-plain]').forEach((el) => el.addEventListener('mouseenter', scheduleClose));
+  panels.forEach((panel) => panel.addEventListener('mouseenter', () => window.clearTimeout(closeTimer)));
+  nav.addEventListener('mouseleave', scheduleClose);
+  nav.addEventListener('focusout', (e) => {
+    if (!nav.contains(e.relatedTarget as Node)) setOpen(null);
+  });
+  overlay.addEventListener('click', () => setOpen(null));
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || !current) return;
+    const trigger = triggers.find((t) => t.dataset.megaTrigger === current);
+    setOpen(null);
+    suppressFocusOpen = true;
+    trigger?.focus({ preventScroll: true });
+    suppressFocusOpen = false;
+  });
+  // Mega menüdeki Teklif Al diyalogu açarken menüyü kapat
+  nav.querySelectorAll('[data-quote-open]').forEach((b) => b.addEventListener('click', () => setOpen(null)));
+
+  // ---- Kaydırma davranışı ----
+  let lastY = window.scrollY;
+  let ticking = false;
+  const update = () => {
+    const y = window.scrollY;
+    header.toggleAttribute('data-scrolled', y > 8);
+    const typing = header.contains(document.activeElement) && document.activeElement?.tagName === 'INPUT';
+    if (!current && !typing) {
+      if (y > 180 && y > lastY + 6) header.dataset.compact = '';
+      else if (y < lastY - 6 || y <= 180) delete header.dataset.compact;
+    }
+    lastY = y;
+    ticking = false;
+  };
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    },
+    { passive: true },
+  );
+  update();
 </script>
