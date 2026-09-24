@@ -27,6 +27,8 @@ export const CONTACT = {
     country: 'TR',
   },
   geo: null as { lat: number; lng: number } | null, // TODO: dükkan koordinatları
+  // Harita araması. Açık adres gelince buraya yazılacak (ör. "Güney Mağaza Dekorasyon, ... Sok. No:.., Güngören").
+  mapQuery: 'Güngören, İstanbul',
   hours: {
     label: 'Pzt–Cmt: 09.00–19.00',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

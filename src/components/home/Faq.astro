@@ -17,19 +17,19 @@ import BrandIcon from '../ui/BrandIcon.astro';
           alt="Montajı tamamlanmış giyim mağazası"
           widths={[480, 720]}
           sizes="(min-width: 1024px) 35vw, 100vw"
-          class="mt-8 hidden aspect-4/3 w-full object-cover lg:block"
+          class="mt-8 hidden aspect-4/3 w-full rounded-3xl object-cover lg:block"
         />
         <div class="mt-8 flex flex-wrap gap-3">
           <a
             href={whatsappLink('Merhaba, bir sorum var.')}
-            class="btn-whatsapp"
+            class="btn-whatsapp rounded-full px-6"
             target="_blank"
             rel="noopener"
           >
             <BrandIcon name="whatsapp" class="size-5" />
             WhatsApp'tan sorun
           </a>
-          <a href="/iletisim/" class="btn-outline">İletişim bilgileri</a>
+          <a href="/iletisim/" class="btn-outline rounded-full px-6">İletişim bilgileri</a>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@ import BrandIcon from '../ui/BrandIcon.astro';
           <details class="faq group" name="sss" open={i === 0}>
             <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-semibold [&::-webkit-details-marker]:hidden">
               {item.q}
-              <span class="grid size-8 shrink-0 place-items-center border border-steel-300 transition-colors group-open:border-signal-500 group-open:bg-signal-500 group-open:text-white">
+              <span class="grid size-8 shrink-0 place-items-center rounded-full border border-steel-300 transition-colors group-open:border-signal-500 group-open:bg-signal-500 group-open:text-white">
                 <Icon name="Plus" class="size-4 transition-transform duration-300 group-open:rotate-45" />
               </span>
             </summary>

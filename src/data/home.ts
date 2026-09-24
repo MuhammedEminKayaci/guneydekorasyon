@@ -1,15 +1,16 @@
 // Ana sayfa içeriği. Metinler eski siteden alındı, kopukluklar düzeltildi.
+// Görseller: aynı fotoğraf sayfada iki kez kullanılmaz.
 import slide1 from '../assets/images/anasayfa/slider/6.jpg';
-import slide2 from '../assets/images/anasayfa/slider/2.jpg';
+import slide2 from '../assets/images/anasayfa/slider/4.jpg';
 import slide3 from '../assets/images/anasayfa/slider/3.jpg';
-import slide4 from '../assets/images/anasayfa/slider/4.jpg';
+import slide4 from '../assets/images/anasayfa/slider/11.jpg';
 import project1 from '../assets/images/anasayfa/slider/1.jpg';
-import project2 from '../assets/images/anasayfa/slider/7.jpg';
-import project3 from '../assets/images/anasayfa/slider/8.jpg';
-import project4 from '../assets/images/anasayfa/slider/5.jpg';
+import project2 from '../assets/images/anasayfa/slider/2.jpg';
+import project3 from '../assets/images/anasayfa/slider/13.jpg';
+import project4 from '../assets/images/anasayfa/slider/9.jpg';
 import aboutMain from '../assets/images/anasayfa/slider/10.jpg';
-import aboutSmall from '../assets/images/anasayfa/slider/15.jpg';
-import faqImage from '../assets/images/anasayfa/slider/6.jpg';
+import aboutSmall from '../assets/images/anasayfa/slider/5.jpg';
+import faqImage from '../assets/images/anasayfa/slider/7.jpg';
 
 export const HERO_SLIDES = [
   {
@@ -21,7 +22,7 @@ export const HERO_SLIDES = [
   },
   {
     image: slide2,
-    alt: 'Ayakkabı mağazası için duvar teşhir rafları',
+    alt: 'Mont ve aksesuar mağazası için ahşap duvar raf sistemi',
     title: 'Mağazanızı baştan kuruyoruz',
     text: 'Manken, askı ve raf çözümlerini tek projede planlıyoruz.',
     cta: { label: 'Projelerimizi görün', href: '/projeler/' },
@@ -35,7 +36,7 @@ export const HERO_SLIDES = [
   },
   {
     image: slide4,
-    alt: 'Mont ve aksesuar mağazası için ahşap duvar sistemi',
+    alt: 'Dekohop mağazası için beyaz duvar raf sistemi',
     title: 'Vitrininiz satışınızı taşısın',
     text: 'Ürünü öne çıkaran teşhir sistemleri, profesyonel montaj.',
     cta: { label: 'Ücretsiz teklif isteyin', href: 'whatsapp' },
@@ -78,21 +79,21 @@ export const TESTIMONIALS = [
   },
   {
     image: project2,
-    alt: 'Giyim mağazası için metal duvar askılık sistemi',
+    alt: 'Ayakkabı mağazası için duvar teşhir rafları',
     quote: 'Zamanında ve titizlikle teslim ettiler. Raf sistemleri çok kullanışlı.',
     author: 'Ayakkabı mağazası',
     city: 'Ankara',
   },
   {
     image: project3,
-    alt: 'Montaj sonrası boş mağazada duvar raf sistemi',
+    alt: 'Butik mağaza için altın rengi duvar askılık ünitesi',
     quote: 'Vitrin tasarımı satışlarımızı olumlu etkiledi. Teşekkürler.',
     author: 'Butik',
     city: 'İzmir',
   },
   {
     image: project4,
-    alt: 'Butik mağaza için duvar askılık ve teşhir alanı',
+    alt: 'Giyim mağazası için ahşap tablalı teşhir masaları ve duvar askılıkları',
     quote: 'Montaj ekibi çok düzenli çalıştı, sonuç mükemmel.',
     author: 'Market',
     city: 'Bursa',

@@ -1,0 +1,18 @@
+---
+// Vektör (SVG) logo: her ekran yoğunluğunda keskin. Orijinal PNG'den vtracer ile çizildi,
+// kaynak: src/assets/images/marka/logo.png (renkler: #C03028 ve beyaz).
+import logo from '../../assets/images/marka/logo.svg';
+import { SITE } from '../../config/site';
+
+export interface Props {
+  width: number;
+  class?: string;
+  alt?: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const { width, class: className, alt = SITE.name, loading = 'eager' } = Astro.props;
+const height = Math.round((width * 230) / 820);
+---
+
+<img src={logo.src} alt={alt} width={width} height={height} loading={loading} decoding="async" class:list={['h-auto', className]} />

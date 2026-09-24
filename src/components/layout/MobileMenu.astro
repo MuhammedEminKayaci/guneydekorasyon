@@ -1,0 +1,153 @@
+---
+// Mobil / tablet menüsü: arama, akordeon kategori ağacı, iletişim eylemleri.
+import Logo from '../ui/Logo.astro';
+import Icon from '../ui/Icon.astro';
+import BrandIcon from '../ui/BrandIcon.astro';
+import { CATEGORIES, categoryHref } from '../../data/categories';
+import { CONTACT, whatsappLink } from '../../config/site';
+
+const secondary = [
+  { name: 'Projeler', href: '/projeler/' },
+  { name: 'Hakkımızda', href: '/hakkimizda/' },
+  { name: 'İletişim', href: '/iletisim/' },
+];
+---
+
+<dialog
+  id="mobil-menu"
+  class="mobile-menu m-0 ml-auto h-dvh max-h-none w-full max-w-md overflow-hidden bg-white p-0 text-steel-900 backdrop:bg-steel-950/60 backdrop:backdrop-blur-sm"
+  aria-label="Menü"
+>
+  <div class="flex h-full flex-col">
+    <div class="flex h-16 shrink-0 items-center justify-between bg-steel-950 px-4">
+      <Logo width={144} alt="Güney Mağaza Dekorasyon" loading="lazy" class="w-36" />
+      <button type="button" class="grid size-10 place-items-center text-white" aria-label="Menüyü kapat" data-menu-close>
+        <Icon name="X" class="size-6" />
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto overscroll-contain px-4 pb-8">
+      <form action="/arama/" method="get" role="search" class="relative mt-4">
+        <label for="mobil-arama" class="sr-only">Ürün ara</label>
+        <input
+          id="mobil-arama"
+          name="q"
+          type="search"
+          placeholder="Ürün ara"
+          class="h-12 w-full rounded-full border border-steel-200 bg-galvanized pr-12 pl-5 outline-none focus:border-steel-500"
+        />
+        <button
+          type="submit"
+          class="absolute top-1.5 right-1.5 grid size-9 place-items-center rounded-full bg-signal-500 text-white"
+          aria-label="Ara"
+        >
+          <Icon name="Search" class="size-4" />
+        </button>
+      </form>
+
+      <ul class="mt-4 divide-y divide-steel-200" role="list">
+        {
+          CATEGORIES.map((cat) =>
+            cat.children.length ? (
+              <li>
+                <details class="group">
+                  <summary class="flex cursor-pointer list-none items-center justify-between py-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
+                    {cat.name}
+                    <Icon name="ChevronDown" class="size-5 text-steel-500 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <ul class="mb-4 space-y-1 border-l-2 border-signal-500 pl-4" role="list">
+                    <li>
+                      <a href={categoryHref(cat.slug)} class="block py-2 font-semibold text-signal-500">
+                        Tüm {cat.name}
+                      </a>
+                    </li>
+                    {cat.children.map((sub) => (
+                      <li>
+                        <a href={categoryHref(cat.slug, sub.slug)} class="block py-2 font-medium">
+                          {sub.name}
+                        </a>
+                        {sub.children && (
+                          <ul class="mb-1 pl-3" role="list">
+                            {sub.children.map((leaf) => (
+                              <li>
+                                <a
+                                  href={categoryHref(cat.slug, sub.slug, leaf.slug)}
+                                  class="block py-1.5 text-sm text-steel-500"
+                                >
+                                  {leaf.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
+            ) : (
+              <li>
+                <a href={categoryHref(cat.slug)} class="flex items-center justify-between py-4 text-lg font-semibold">
+                  {cat.name}
+                  <Icon name="ChevronRight" class="size-5 text-steel-300" />
+                </a>
+              </li>
+            ),
+          )
+        }
+        {
+          secondary.map((item) => (
+            <li>
+              <a href={item.href} class="block py-4 text-steel-500">
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-6 grid gap-3">
+        <button type="button" class="btn-primary rounded-full" data-quote-open>
+          <Icon name="FileText" class="size-4" />
+          Teklif Al
+        </button>
+        <a href={whatsappLink()} class="btn-whatsapp rounded-full" target="_blank" rel="noopener">
+          <BrandIcon name="whatsapp" class="size-5" />
+          WhatsApp ile yazın
+        </a>
+        <a href={`tel:${CONTACT.phones[0].tel}`} class="btn-outline rounded-full">
+          <Icon name="Phone" class="size-4" />
+          {CONTACT.phones[0].display}
+        </a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .mobile-menu[open] {
+    animation: menu-in 280ms var(--ease-out-quart);
+  }
+  @keyframes menu-in {
+    from {
+      transform: translateX(100%);
+    }
+  }
+</style>
+
+<script>
+  const menu = document.getElementById('mobil-menu') as HTMLDialogElement;
+  const openBtn = document.querySelector<HTMLButtonElement>('[data-menu-open]');
+
+  openBtn?.addEventListener('click', () => {
+    menu.showModal();
+    openBtn.setAttribute('aria-expanded', 'true');
+  });
+  menu.addEventListener('close', () => openBtn?.setAttribute('aria-expanded', 'false'));
+  menu.querySelector('[data-menu-close]')?.addEventListener('click', () => menu.close());
+  menu.addEventListener('click', (e) => {
+    if (e.target === menu) menu.close();
+  });
+  // Masaüstü genişliğine geçilirse menüyü kapat
+  window.matchMedia('(min-width: 64rem)').addEventListener('change', (e) => e.matches && menu.close());
+</script>

@@ -10,7 +10,7 @@ const resolveHref = (href: string) =>
 ---
 
 <section
-  class="hero relative isolate h-[min(86svh,52rem)] min-h-[36rem] overflow-hidden bg-steel-900"
+  class="hero relative isolate h-[min(86svh,52rem)] min-h-[36rem] overflow-hidden bg-steel-950 lg:h-[min(calc(100svh-8.5rem),54rem)]"
   aria-roledescription="carousel"
   aria-label="Öne çıkan mağaza projeleri"
   data-hero
@@ -34,33 +34,31 @@ const resolveHref = (href: string) =>
           fetchpriority={i === 0 ? 'high' : 'auto'}
           class="hero-image absolute inset-0 size-full object-cover"
         />
-        <div class="absolute inset-0 bg-linear-to-t from-steel-950/55 via-transparent to-transparent" />
+        <div class="absolute inset-0 bg-linear-to-r from-steel-950/70 via-steel-950/25 to-transparent" />
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-steel-950/60 to-transparent" />
 
-        <div class="container-page absolute inset-x-0 bottom-0 pb-20 sm:pb-24 lg:pb-16">
-          <div class="hero-panel max-w-xl bg-white shadow-[0_24px_48px_-24px_rgb(0_0_0/0.45)]">
-            <div class="awning" />
-            <div class="px-6 pt-5 pb-7 sm:px-8 sm:pb-8">
-              {i === 0 ? (
-                <h1 class="text-display font-extrabold text-steel-950">{slide.title}</h1>
-              ) : (
-                <p class="text-display font-extrabold text-steel-950">{slide.title}</p>
-              )}
-              <p class="mt-4 max-w-md text-lg text-steel-500">{slide.text}</p>
-              <div class="mt-6 flex flex-wrap gap-3">
-                <a href={resolveHref(slide.cta.href)} class="btn-primary" tabindex={i === 0 ? 0 : -1}>
-                  {slide.cta.label}
-                </a>
-                <a
-                  href={whatsappLink()}
-                  class="btn-outline"
-                  target="_blank"
-                  rel="noopener"
-                  tabindex={i === 0 ? 0 : -1}
-                >
-                  <BrandIcon name="whatsapp" class="size-5 text-whatsapp-dark" />
-                  WhatsApp
-                </a>
-              </div>
+        <div class="container-page absolute inset-x-0 bottom-0 pb-20 sm:pb-24 lg:pb-20">
+          <div class="hero-panel glass max-w-xl rounded-[1.75rem] p-6 text-white sm:p-9">
+            {i === 0 ? (
+              <h1 class="text-display font-extrabold">{slide.title}</h1>
+            ) : (
+              <p class="text-display font-extrabold">{slide.title}</p>
+            )}
+            <p class="mt-4 max-w-md text-lg text-white/80">{slide.text}</p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href={resolveHref(slide.cta.href)} class="btn-primary rounded-full px-6" tabindex={i === 0 ? 0 : -1}>
+                {slide.cta.label}
+              </a>
+              <a
+                href={whatsappLink()}
+                class="btn-glass rounded-full px-6"
+                target="_blank"
+                rel="noopener"
+                tabindex={i === 0 ? 0 : -1}
+              >
+                <BrandIcon name="whatsapp" class="size-5" />
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>
@@ -90,7 +88,7 @@ const resolveHref = (href: string) =>
     <div class="pointer-events-auto flex gap-2">
       <button
         type="button"
-        class="grid size-11 place-items-center bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-steel-950"
+        class="btn-glass grid size-12 min-h-0 place-items-center rounded-full p-0"
         aria-label="Önceki slayt"
         data-prev
       >
@@ -98,7 +96,7 @@ const resolveHref = (href: string) =>
       </button>
       <button
         type="button"
-        class="grid size-11 place-items-center bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-steel-950"
+        class="btn-glass grid size-12 min-h-0 place-items-center rounded-full p-0"
         aria-label="Sonraki slayt"
         data-next
       >

@@ -1,84 +1,146 @@
 ---
-// Proje görselleri + müşteri yorumları. Yatay kaydırmalı, klavye ve dokunmatikle çalışır.
+// Kurduğumuz mağazalar: büyük proje görseli + cam yorum kartı, altta küçük resimlerle geçiş.
 import { Image } from 'astro:assets';
 import { TESTIMONIALS } from '../../data/home';
 import Icon from '../ui/Icon.astro';
 ---
 
-<section class="py-16 sm:py-24" aria-labelledby="yorumlar-baslik" data-carousel>
-  <div class="container-page flex flex-wrap items-end justify-between gap-6">
-    <div>
-      <h2 id="yorumlar-baslik" class="section-title">Kurduğumuz mağazalar</h2>
-      <p class="section-lead">Birlikte çalıştığımız mağaza sahiplerinin yorumları.</p>
+<section class="bg-steel-950 py-16 text-white sm:py-24" aria-labelledby="yorumlar-baslik" data-showcase>
+  <div class="container-page">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <h2 id="yorumlar-baslik" class="section-title">Kurduğumuz mağazalar</h2>
+        <p class="mt-3 max-w-2xl text-lg text-steel-300">Birlikte çalıştığımız mağaza sahiplerinin yorumları.</p>
+      </div>
+      <a href="/projeler/" class="btn-glass rounded-full px-6">
+        Tüm projelerimizi görün
+        <Icon name="ArrowUpRight" class="size-4" />
+      </a>
     </div>
-    <div class="flex gap-2">
-      <button
-        type="button"
-        class="grid size-11 place-items-center border border-steel-200 transition-colors hover:border-steel-900 disabled:opacity-40"
-        aria-label="Önceki proje"
-        data-prev
-      >
-        <Icon name="ChevronLeft" class="size-5" />
-      </button>
-      <button
-        type="button"
-        class="grid size-11 place-items-center border border-steel-200 transition-colors hover:border-steel-900 disabled:opacity-40"
-        aria-label="Sonraki proje"
-        data-next
-      >
-        <Icon name="ChevronRight" class="size-5" />
-      </button>
+
+    <div class="relative mt-10 overflow-hidden rounded-3xl bg-steel-900">
+      <div class="relative aspect-4/3 sm:aspect-16/9 lg:aspect-21/9">
+        {
+          TESTIMONIALS.map((item, i) => (
+            <div class:list={['showcase-slide absolute inset-0', i === 0 && 'is-active']} data-slide aria-hidden={i !== 0}>
+              <Image
+                src={item.image}
+                alt={item.alt}
+                widths={[640, 960, 1440, 1920]}
+                sizes="(min-width: 80rem) 78rem, 100vw"
+                class="size-full object-cover"
+              />
+            </div>
+          ))
+        }
+        <div class="absolute inset-0 hidden bg-linear-to-l from-steel-950/60 via-transparent to-transparent md:block" />
+      </div>
+
+      <div class="relative md:absolute md:right-6 md:bottom-6 md:w-[26rem] lg:right-10 lg:bottom-10">
+        {
+          TESTIMONIALS.map((item, i) => (
+            <figure
+              class:list={[
+                'showcase-quote glass p-6 md:rounded-3xl md:p-8',
+                i === 0 ? 'is-active' : 'hidden',
+              ]}
+              data-quote
+            >
+              <div class="flex gap-1 text-amber-300" aria-label="5 üzerinden 5 puan">
+                {Array.from({ length: 5 }, () => (
+                  <Icon name="Star" class="size-4 fill-current" />
+                ))}
+              </div>
+              <blockquote class="mt-4 text-lg leading-relaxed font-medium sm:text-xl">“{item.quote}”</blockquote>
+              <figcaption class="mt-4 text-sm text-white/70">
+                {item.author}, {item.city}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
     </div>
-  </div>
 
-  <ul
-    class="container-page mt-10 flex snap-x snap-mandatory scroll-px-4 sm:scroll-px-6 lg:scroll-px-8 gap-6 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-    data-track
-    tabindex="0"
-    aria-label="Proje ve yorum listesi"
-  >
-    {
-      TESTIMONIALS.map((item) => (
-        <li class="w-[85%] shrink-0 snap-start sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
-          <figure>
-            <Image
-              src={item.image}
-              alt={item.alt}
-              widths={[400, 640, 800]}
-              sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 85vw"
-              class="aspect-4/3 w-full object-cover"
-            />
-            <blockquote class="mt-5 text-lg leading-relaxed font-medium">“{item.quote}”</blockquote>
-            <figcaption class="mt-3 text-sm text-steel-500">
-              {item.author}, {item.city}
-            </figcaption>
-          </figure>
-        </li>
-      ))
-    }
-  </ul>
-
-  <div class="container-page mt-10">
-    <a href="/projeler/" class="btn-outline">Tüm projelerimizi görün</a>
+    <div class="mt-6 flex items-center gap-4">
+      <div class="grid flex-1 grid-cols-4 gap-3 sm:gap-4" role="tablist" aria-label="Proje seç">
+        {
+          TESTIMONIALS.map((item, i) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              aria-label={`${item.author}, ${item.city}`}
+              class="thumb relative overflow-hidden rounded-xl opacity-50 ring-2 ring-transparent transition hover:opacity-90 aria-selected:opacity-100 aria-selected:ring-signal-500"
+              data-thumb={i}
+            >
+              <Image src={item.image} alt="" widths={[160, 320]} sizes="20vw" class="aspect-16/9 w-full object-cover" />
+            </button>
+          ))
+        }
+      </div>
+      <div class="hidden gap-2 sm:flex">
+        <button type="button" class="btn-glass size-12 min-h-0 rounded-full p-0" aria-label="Önceki proje" data-prev>
+          <Icon name="ChevronLeft" class="size-5" />
+        </button>
+        <button type="button" class="btn-glass size-12 min-h-0 rounded-full p-0" aria-label="Sonraki proje" data-next>
+          <Icon name="ChevronRight" class="size-5" />
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
-<script>
-  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
-    const track = root.querySelector<HTMLElement>('[data-track]')!;
-    const prev = root.querySelector<HTMLButtonElement>('[data-prev]')!;
-    const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+<style>
+  .showcase-slide {
+    opacity: 0;
+    transition: opacity 700ms var(--ease-out-quart);
+  }
+  .showcase-slide.is-active {
+    opacity: 1;
+  }
+  .showcase-quote.is-active {
+    animation: quote-in 500ms var(--ease-out-quart);
+  }
+  @keyframes quote-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+  }
+  /* Mobilde yorum kartı görselin altında, düz koyu zeminde */
+  @media (max-width: 47.99rem) {
+    .showcase-quote {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: var(--color-steel-900);
+      border: 0;
+      box-shadow: none;
+    }
+  }
+</style>
 
-    const step = () => (track.firstElementChild as HTMLElement).offsetWidth + 24;
-    const update = () => {
-      prev.disabled = track.scrollLeft <= 4;
-      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+<script>
+  document.querySelectorAll<HTMLElement>('[data-showcase]').forEach((root) => {
+    const slides = [...root.querySelectorAll<HTMLElement>('[data-slide]')];
+    const quotes = [...root.querySelectorAll<HTMLElement>('[data-quote]')];
+    const thumbs = [...root.querySelectorAll<HTMLButtonElement>('[data-thumb]')];
+    let current = 0;
+
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        s.classList.toggle('is-active', i === current);
+        s.setAttribute('aria-hidden', String(i !== current));
+      });
+      quotes.forEach((q, i) => {
+        q.classList.toggle('is-active', i === current);
+        q.classList.toggle('hidden', i !== current);
+      });
+      thumbs.forEach((t, i) => t.setAttribute('aria-selected', String(i === current)));
     };
 
-    prev.addEventListener('click', () => track.scrollBy({ left: -step() }));
-    next.addEventListener('click', () => track.scrollBy({ left: step() }));
-    track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+    root.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+    root.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
   });
 </script>

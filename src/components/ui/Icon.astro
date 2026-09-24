@@ -11,12 +11,15 @@ export interface Props {
 
 const { name, class: className = 'size-5', label } = Astro.props;
 const raw = String(icons[name]);
-const svg = raw
-  .replace(/\s(width|height|class)="[^"]*"/g, '')
-  .replace(
-    '<svg',
-    `<svg class="${className}" ${label ? `role="img" aria-label="${label}"` : 'aria-hidden="true"'} focusable="false"`,
-  );
+// Sadece dış <svg> etiketindeki boyut/sınıf niteliklerini değiştir; içteki <rect width=…> gibi şekillere dokunma.
+const svg = raw.replace(/<svg[^>]*>/, (tag) =>
+  tag
+    .replace(/\s(width|height|class)="[^"]*"/g, '')
+    .replace(
+      '<svg',
+      `<svg class="${className}" ${label ? `role="img" aria-label="${label}"` : 'aria-hidden="true"'} focusable="false"`,
+    ),
+);
 ---
 
 <Fragment set:html={svg} />

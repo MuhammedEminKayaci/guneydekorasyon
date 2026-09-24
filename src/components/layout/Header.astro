@@ -1,11 +1,15 @@
 ---
-// Temel header. 4. adımda mega menü, arama ve gelişmiş mobil menü ile genişletilecek.
+// İki katmanlı header.
+// Üst katman: logo, ürün arama, telefon, WhatsApp, Teklif Al.
+// Alt katman (masaüstü): kategori menüsü + mega menü. Aşağı kaydırınca üst katman gizlenir, yukarı kaydırınca geri gelir.
 import { Image } from 'astro:assets';
-import logo from '../../assets/images/marka/logo.png';
-import { CATEGORIES, categoryHref } from '../../data/categories';
-import { CONTACT, whatsappLink } from '../../config/site';
+import Logo from '../ui/Logo.astro';
 import Icon from '../ui/Icon.astro';
 import BrandIcon from '../ui/BrandIcon.astro';
+import MobileMenu from './MobileMenu.astro';
+import QuoteDialog from './QuoteDialog.astro';
+import { CATEGORIES, categoryHref } from '../../data/categories';
+import { CONTACT, whatsappLink } from '../../config/site';
 
 const secondary = [
   { name: 'Projeler', href: '/projeler/' },
@@ -23,39 +27,174 @@ const isActive = (href: string) => path.startsWith(href);
   İçeriğe geç
 </a>
 
-<header class="sticky top-0 z-50 bg-steel-900 text-white">
-  <div class="container-page flex h-18 items-center gap-6">
-    <a href="/" class="shrink-0" aria-label="Güney Mağaza Dekorasyon ana sayfa">
-      <Image src={logo} alt="" width={164} class="h-auto w-34 sm:w-41" loading="eager" />
-    </a>
+<header class="site-header sticky top-0 z-50" data-header>
+  <!-- Üst katman -->
+  <div class="relative z-20 bg-steel-950 text-white" data-header-top>
+    <div class="container-page flex h-16 items-center gap-4 lg:h-20 lg:gap-8">
+      <a href="/" class="shrink-0" aria-label="Güney Mağaza Dekorasyon ana sayfa">
+        <Logo width={172} alt="" class="w-36 lg:w-43" />
+      </a>
 
-    <nav class="hidden flex-1 xl:block" aria-label="Ana menü">
-      <ul class="flex items-center gap-1">
+      <form action="/arama/" method="get" role="search" class="relative hidden max-w-xl flex-1 lg:block">
+        <label for="header-arama" class="sr-only">Ürün ara</label>
+        <input
+          id="header-arama"
+          name="q"
+          type="search"
+          placeholder="Ürün ara: terzi mankeni, ahşap askı, depo rafı…"
+          autocomplete="off"
+          class="h-11 w-full rounded-full border border-white/10 bg-white/6 pr-12 pl-5 text-[0.95rem] text-white placeholder:text-steel-300 transition-colors outline-none focus:border-white/40 focus:bg-white/10"
+        />
+        <button
+          type="submit"
+          class="absolute top-1 right-1 grid size-9 place-items-center rounded-full bg-signal-500 text-white transition-colors hover:bg-signal-600"
+          aria-label="Ara"
+        >
+          <Icon name="Search" class="size-4" />
+        </button>
+      </form>
+
+      <div class="ml-auto flex items-center gap-2 lg:gap-5">
+        <a href={`tel:${CONTACT.phones[0].tel}`} class="group hidden items-center gap-3 xl:flex">
+          <span class="grid size-10 place-items-center rounded-full border border-white/15 transition-colors group-hover:border-white/40">
+            <Icon name="Phone" class="size-4" />
+          </span>
+          <span class="leading-tight">
+            <span class="block text-xs text-steel-300">Hemen arayın</span>
+            <span class="block font-semibold whitespace-nowrap">{CONTACT.phones[0].display}</span>
+          </span>
+        </a>
+
+        <a
+          href={whatsappLink()}
+          target="_blank"
+          rel="noopener"
+          class="grid size-10 place-items-center rounded-full bg-whatsapp text-steel-950 transition-colors hover:bg-whatsapp-dark hover:text-white"
+          aria-label="WhatsApp ile yazın"
+        >
+          <BrandIcon name="whatsapp" class="size-5" />
+        </a>
+
+        <button type="button" class="btn-primary min-h-10 rounded-full px-4 text-sm sm:min-h-11 sm:px-6 sm:text-[0.95rem]" data-quote-open>
+          <Icon name="FileText" class="hidden size-4 sm:block" />
+          Teklif Al
+        </button>
+
+        <button
+          type="button"
+          class="grid size-10 place-items-center text-white lg:hidden"
+          aria-label="Menüyü aç"
+          aria-controls="mobil-menu"
+          aria-expanded="false"
+          data-menu-open
+        >
+          <Icon name="Menu" class="size-6" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alt katman: menü (masaüstü) -->
+  <nav class="relative z-10 hidden border-b border-steel-200 bg-white lg:block" aria-label="Ana menü">
+    <div class="container-page flex h-14 items-stretch justify-between">
+      <ul class="flex items-stretch" role="list">
         {
-          CATEGORIES.map((cat) => (
-            <li>
-              <a
-                href={categoryHref(cat.slug)}
-                class:list={[
-                  'block px-3 py-2 text-[0.95rem] font-medium whitespace-nowrap transition-colors hover:text-white',
-                  isActive(categoryHref(cat.slug)) ? 'text-white' : 'text-steel-300',
-                ]}
-                aria-current={isActive(categoryHref(cat.slug)) ? 'page' : undefined}
-              >
-                {cat.name}
-              </a>
-            </li>
-          ))
+          CATEGORIES.map((cat) => {
+            const href = categoryHref(cat.slug);
+            const hasMega = cat.children.length > 0;
+            return (
+              <li class="mega-item group/item flex items-stretch" data-mega-item={hasMega ? '' : undefined}>
+                <a
+                  href={href}
+                  class:list={[
+                    'relative flex items-center gap-1.5 px-4 text-[0.95rem] font-semibold whitespace-nowrap transition-colors first:pl-0 hover:text-signal-500',
+                    'after:absolute after:inset-x-4 after:bottom-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-signal-500 after:transition-transform group-hover/item:after:scale-x-100',
+                    isActive(href) ? 'text-signal-500 after:scale-x-100' : 'text-steel-900',
+                  ]}
+                  aria-current={isActive(href) ? 'page' : undefined}
+                  aria-haspopup={hasMega ? 'true' : undefined}
+                  aria-expanded={hasMega ? 'false' : undefined}
+                >
+                  {cat.name}
+                  {hasMega && (
+                    <Icon
+                      name="ChevronDown"
+                      class="size-4 text-steel-500 transition-transform duration-200 group-hover/item:rotate-180"
+                    />
+                  )}
+                </a>
+
+                {hasMega && (
+                  <div class="mega-panel absolute inset-x-0 top-full border-t border-steel-200 bg-white shadow-[0_32px_48px_-24px_rgb(8_13_20/0.35)]">
+                    <div class="container-page grid grid-cols-[1fr_22rem] gap-10 py-10">
+                      <div class="grid auto-rows-min grid-cols-3 gap-x-10 gap-y-8">
+                        {cat.children.map((sub) => (
+                          <div>
+                            <a
+                              href={categoryHref(cat.slug, sub.slug)}
+                              class="group/sub flex items-center justify-between gap-2 border-b border-steel-200 pb-3 font-bold text-steel-950 hover:text-signal-500"
+                            >
+                              {sub.name}
+                              <Icon
+                                name="ArrowRight"
+                                class="size-4 text-steel-300 transition-transform group-hover/sub:translate-x-0.5 group-hover/sub:text-signal-500"
+                              />
+                            </a>
+                            {sub.children && (
+                              <ul class="mt-3 space-y-2" role="list">
+                                {sub.children.map((leaf) => (
+                                  <li>
+                                    <a
+                                      href={categoryHref(cat.slug, sub.slug, leaf.slug)}
+                                      class="text-[0.95rem] text-steel-500 hover:text-signal-500"
+                                    >
+                                      {leaf.name}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+
+                      <a href={href} class="group/card flex flex-col overflow-hidden rounded-2xl bg-galvanized">
+                        <Image
+                          src={cat.image}
+                          alt=""
+                          width={352}
+                          densities={[1, 2]}
+                          loading="lazy"
+                          class="aspect-16/10 w-full object-contain p-4 mix-blend-multiply transition-transform duration-500 group-hover/card:scale-[1.04]"
+                        />
+                        <span class="flex items-end justify-between gap-4 border-t border-steel-200 bg-white p-5">
+                          <span>
+                            <span class="block font-bold text-steel-950">Tüm {cat.name}</span>
+                            <span class="mt-1 block text-sm leading-snug text-steel-500">{cat.summary}</span>
+                          </span>
+                          <span class="grid size-10 shrink-0 place-items-center rounded-full bg-signal-500 text-white transition-transform group-hover/card:translate-x-0.5">
+                            <Icon name="ArrowRight" class="size-4" />
+                          </span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </li>
+            );
+          })
         }
-        <li class="mx-2 h-5 w-px bg-steel-700" aria-hidden="true" />
+      </ul>
+
+      <ul class="flex items-stretch" role="list">
         {
           secondary.map((item) => (
-            <li>
+            <li class="flex items-stretch">
               <a
                 href={item.href}
                 class:list={[
-                  'block px-3 py-2 text-[0.95rem] font-medium whitespace-nowrap transition-colors hover:text-white',
-                  isActive(item.href) ? 'text-white' : 'text-steel-300',
+                  'flex items-center px-4 text-[0.95rem] font-medium whitespace-nowrap transition-colors last:pr-0 hover:text-signal-500',
+                  isActive(item.href) ? 'text-signal-500' : 'text-steel-500',
                 ]}
                 aria-current={isActive(item.href) ? 'page' : undefined}
               >
@@ -65,86 +204,93 @@ const isActive = (href: string) => path.startsWith(href);
           ))
         }
       </ul>
-    </nav>
-
-    <div class="ml-auto flex items-center gap-2">
-      <a
-        href={`tel:${CONTACT.phones[0].tel}`}
-        class="hidden items-center gap-2 px-3 py-2 text-sm font-semibold whitespace-nowrap text-steel-300 hover:text-white lg:flex xl:hidden 2xl:flex"
-      >
-        <Icon name="Phone" class="size-4" />
-        {CONTACT.phones[0].display}
-      </a>
-      <a href={whatsappLink()} class="btn-whatsapp min-h-10 px-4 text-sm" target="_blank" rel="noopener">
-        <BrandIcon name="whatsapp" class="size-4.5" />
-        <span class="hidden sm:inline">WhatsApp</span>
-        <span class="sr-only sm:hidden">WhatsApp ile yazın</span>
-      </a>
-      <button
-        type="button"
-        class="grid size-10 place-items-center text-white xl:hidden"
-        aria-label="Menüyü aç"
-        aria-controls="mobil-menu"
-        data-menu-open
-      >
-        <Icon name="Menu" class="size-6" />
-      </button>
-    </div>
-  </div>
-</header>
-
-<dialog
-  id="mobil-menu"
-  class="m-0 ml-auto h-dvh max-h-none w-full max-w-sm bg-white p-0 text-steel-900 backdrop:bg-steel-950/60"
-  aria-label="Menü"
->
-  <div class="flex h-18 items-center justify-between border-b border-steel-200 px-4">
-    <span class="font-bold">Menü</span>
-    <button type="button" class="grid size-10 place-items-center" aria-label="Menüyü kapat" data-menu-close>
-      <Icon name="X" class="size-6" />
-    </button>
-  </div>
-  <nav class="px-4 py-4" aria-label="Mobil menü">
-    <ul class="divide-y divide-steel-200">
-      {
-        CATEGORIES.map((cat) => (
-          <li>
-            <a href={categoryHref(cat.slug)} class="flex items-center justify-between py-4 text-lg font-semibold">
-              {cat.name}
-              <Icon name="ChevronRight" class="size-5 text-steel-300" />
-            </a>
-          </li>
-        ))
-      }
-      {
-        secondary.map((item) => (
-          <li>
-            <a href={item.href} class="block py-4 text-steel-700">
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-    <div class="mt-6 grid gap-3">
-      <a href={whatsappLink()} class="btn-whatsapp" target="_blank" rel="noopener">
-        <BrandIcon name="whatsapp" class="size-5" />
-        WhatsApp ile yazın
-      </a>
-      <a href={`tel:${CONTACT.phones[0].tel}`} class="btn-outline">
-        <Icon name="Phone" class="size-4" />
-        {CONTACT.phones[0].display}
-      </a>
     </div>
   </nav>
-</dialog>
+</header>
+
+<MobileMenu />
+<QuoteDialog />
+
+<style>
+  .site-header {
+    transition: transform 300ms var(--ease-out-quart);
+  }
+  /* Aşağı kaydırırken üst katmanı yukarı kaydırıp sadece menü çubuğunu bırak (sadece masaüstü) */
+  @media (min-width: 64rem) {
+    .site-header[data-compact] {
+      transform: translateY(-5rem);
+    }
+  }
+
+  /* Mega menü: fareyle üzerine gelince veya klavye odağıyla açılır; kısa gecikme titremeyi önler */
+  .mega-panel {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 0s linear 180ms;
+  }
+  .mega-item:hover .mega-panel,
+  .mega-item:focus-within .mega-panel,
+  .mega-item[data-open] .mega-panel {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition-delay: 80ms, 80ms, 0s;
+  }
+  .mega-item[data-closed] .mega-panel {
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+</style>
 
 <script>
-  const dialog = document.getElementById('mobil-menu') as HTMLDialogElement;
-  document.querySelector('[data-menu-open]')?.addEventListener('click', () => dialog.showModal());
-  document.querySelector('[data-menu-close]')?.addEventListener('click', () => dialog.close());
-  // Arka plana tıklayınca kapat
-  dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) dialog.close();
+  const header = document.querySelector<HTMLElement>('[data-header]')!;
+
+  // Kaydırma yönüne göre üst katmanı gizle/göster
+  let lastY = window.scrollY;
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > 160 && y > lastY + 4) header.dataset.compact = '';
+        else if (y < lastY - 4 || y <= 160) delete header.dataset.compact;
+        lastY = y;
+        ticking = false;
+      });
+    },
+    { passive: true },
+  );
+
+  // Mega menü: aria-expanded senkronu ve Escape ile kapatma
+  document.querySelectorAll<HTMLElement>('[data-mega-item]').forEach((item) => {
+    const trigger = item.querySelector<HTMLAnchorElement>('a[aria-haspopup]')!;
+    const setExpanded = (open: boolean) => trigger.setAttribute('aria-expanded', String(open));
+
+    item.addEventListener('mouseenter', () => {
+      delete item.dataset.closed;
+      setExpanded(true);
+    });
+    item.addEventListener('mouseleave', () => setExpanded(false));
+    item.addEventListener('focusin', () => {
+      delete item.dataset.closed;
+      setExpanded(true);
+    });
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget as Node)) setExpanded(false);
+    });
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        item.dataset.closed = '';
+        setExpanded(false);
+        trigger.focus();
+      }
+    });
   });
 </script>

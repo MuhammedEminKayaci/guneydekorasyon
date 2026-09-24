@@ -22,7 +22,7 @@ import Icon from '../ui/Icon.astro';
       CATEGORIES.map((cat, i) => (
         <li class="w-[68%] shrink-0 snap-start sm:w-auto">
           <a href={categoryHref(cat.slug)} class="group block">
-            <div class="relative aspect-square overflow-hidden bg-galvanized">
+            <div class="relative aspect-square overflow-hidden rounded-t-2xl bg-galvanized">
               <Image
                 src={cat.image}
                 alt=""
@@ -32,7 +32,7 @@ import Icon from '../ui/Icon.astro';
                 class="size-full object-contain p-6 mix-blend-multiply transition-transform duration-500 ease-out-quart group-hover:scale-[1.04]"
               />
             </div>
-            <div class="h-1.5 bg-steel-900 transition-colors group-hover:bg-signal-500" aria-hidden="true" />
+            <div class="h-1.5 rounded-b-sm bg-steel-900 transition-colors group-hover:bg-signal-500" aria-hidden="true" />
             <div class="mt-4 flex items-start justify-between gap-3">
               <div>
                 <h3 class="text-lg font-bold">{cat.name}</h3>
