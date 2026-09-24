@@ -1,0 +1,23 @@
+---
+// Geçici ana sayfa — kurulum doğrulaması. Asıl ana sayfa 3. adımda yazılacak.
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localBusinessSchema } from '../lib/schema';
+import logo from '../assets/images/marka/logo.png';
+import slide from '../assets/images/anasayfa/slider/6.jpg';
+---
+
+<BaseLayout jsonLd={localBusinessSchema()}>
+  <section class="mx-auto max-w-5xl px-4 py-16 text-center">
+    <Image src={logo} alt="Güney Mağaza Dekorasyon" width={220} class="mx-auto h-auto" />
+    <h1 class="mt-8 text-3xl font-extrabold text-brand-900 sm:text-5xl">Astro kurulumu hazır</h1>
+    <p class="mt-4 text-slate-600">Tailwind, font, SEO ve görsel optimizasyonu çalışıyor.</p>
+    <Image
+      src={slide}
+      alt="Örnek mağaza dekorasyonu"
+      widths={[640, 1280, 1920]}
+      sizes="(max-width: 1024px) 100vw, 1024px"
+      class="mt-10 w-full rounded-2xl"
+    />
+  </section>
+</BaseLayout>
