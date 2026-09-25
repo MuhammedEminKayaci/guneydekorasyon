@@ -52,3 +52,33 @@ export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({
     item: new URL(item.path, SITE.url).href,
   })),
 });
+
+/**
+ * Ürün yapısal verisi. Fiyat sitede yayınlanmadığı için Offer eklenmez (uydurma fiyat vermemek için);
+ * ürün özellikleri additionalProperty olarak verilir.
+ */
+export const productSchema = (p: {
+  name: string;
+  code: string;
+  description: string;
+  url: string;
+  images: string[];
+  category: string;
+  color?: string;
+  /** Sadece firmanın kendi ürettiği ürünlerde (tedarik ürünlerinde marka Güney değildir) */
+  brand?: string;
+  properties: [string, string][];
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': `${p.url}#urun`,
+  name: p.name,
+  sku: p.code,
+  description: p.description,
+  url: p.url,
+  image: p.images,
+  category: p.category,
+  ...(p.color && { color: p.color }),
+  ...(p.brand && { brand: { '@type': 'Brand', name: p.brand } }),
+  additionalProperty: p.properties.map(([name, value]) => ({ '@type': 'PropertyValue', name, value })),
+});

@@ -97,6 +97,7 @@ import Icon from '../ui/Icon.astro';
             ${inList ? 'Listede, listeyi gör' : 'Teklif listesine ekle'}
           </button>
           <a href="https://wa.me/${CONTACT.whatsapp}?text=${whatsappText}" target="_blank" rel="noopener" class="btn-whatsapp rounded-full">WhatsApp'tan sor</a>
+          <a href="${p.href}" class="btn-outline rounded-full sm:col-span-2">Ürün sayfasına git</a>
         </div>
       </div>`;
     imageIndex = 0;
@@ -143,7 +144,7 @@ import Icon from '../ui/Icon.astro';
       if (quote.has(current.id)) {
         document.dispatchEvent(new CustomEvent('teklif:ac'));
       } else {
-        quote.add({ id: current.id, name: current.name, code: current.code, thumb: current.thumb });
+        quote.add({ id: current.id, name: current.name, code: current.code, thumb: current.thumb, href: current.href });
         render(current);
       }
     }

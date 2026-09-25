@@ -13,7 +13,10 @@ export interface Props {
 
 const { title, description = SITE.description, image, noindex = false, type = 'website', jsonLd } = Astro.props;
 
-const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} | Mağaza Raf Sistemleri ve Dekorasyon`;
+// Google ~60 karakterden sonra başlığı keser: uzun başlıklarda marka ekini kısalt, gerekirse kaldır
+const withSuffix = (t: string) =>
+  [`${t} | ${SITE.name}`, `${t} | ${SITE.shortName}`].find((full) => full.length <= 62) ?? t;
+const fullTitle = title ? withSuffix(title) : `${SITE.name} | Mağaza Raf Sistemleri ve Dekorasyon`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
 const ogImage = image ? new URL(image, Astro.site ?? SITE.url).href : undefined;
 const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];

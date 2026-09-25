@@ -10,4 +10,4 @@ Eski statik sitenin (295 elle kopyalanmış HTML) Astro ile yeniden kurulumu.
 3. [x] Ana sayfa (birebir mantık, profesyonel + %100 responsive)
 4. [x] Gelişmiş header & footer
 5. [x] Kategori sistemi (arama, filtreleme, sıralama — e-ticaret mantığı)
-6. [ ] Ürün sayfaları
+6. [x] Ürün sayfaları

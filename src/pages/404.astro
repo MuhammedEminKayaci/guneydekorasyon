@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/ui/Icon.astro';
 import { CATEGORIES, categoryHref } from '../data/categories';
+import redirects from '../data/redirects.json';
 ---
 
 <BaseLayout title="Sayfa bulunamadı" description="Aradığınız sayfa bulunamadı." noindex>
@@ -40,4 +41,12 @@ import { CATEGORIES, categoryHref } from '../data/categories';
     </ul>
     <a href="/" class="btn-outline mt-10 rounded-full px-6">Ana sayfaya dönün</a>
   </section>
+  <!-- Sunucu yönlendirmesi (.htaccess/_redirects) yoksa eski adresleri burada yeni sayfalara taşı -->
+  <script is:inline define:vars={{ redirects }}>
+    (function () {
+      var path = decodeURIComponent(location.pathname).normalize('NFC');
+      var target = redirects[path];
+      if (target) location.replace(target + location.hash);
+    })();
+  </script>
 </BaseLayout>

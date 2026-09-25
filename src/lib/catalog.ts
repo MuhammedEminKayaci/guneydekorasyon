@@ -129,3 +129,25 @@ export function productCategoryName(p: Product): string {
 }
 
 export const productHref = (p: Product) => `/urun/${p.slug}/`;
+
+/** Benzer ürünler: aynı en derin kategori, önce aynı renk/tip/cinsiyet; yetmezse üst kategoriden tamamlanır. */
+export function relatedProducts(p: Product, limit = 8): Product[] {
+  const score = (q: Product) =>
+    (['renk', 'tip', 'cinsiyet', 'kol'] as AttrKey[]).reduce((s, k) => s + (p.attrs[k] && q.attrs[k] === p.attrs[k] ? 1 : 0), 0);
+  const picked: Product[] = [];
+  for (let depth = p.path.length; depth >= 1 && picked.length < limit; depth--) {
+    const pool = productsIn(p.path.slice(0, depth))
+      .filter((q) => q.id !== p.id && !picked.includes(q))
+      .sort((a, b) => score(b) - score(a) || Math.abs(a.order - p.order) - Math.abs(b.order - p.order));
+    picked.push(...pool.slice(0, limit - picked.length));
+  }
+  return picked;
+}
+
+/** Aynı kategorideki önceki/sonraki ürün (katalog sırasına göre, uçlarda başa sarar) */
+export function neighbours(p: Product): { prev: Product; next: Product } | undefined {
+  const siblings = productsIn(p.path).sort((a, b) => a.order - b.order);
+  if (siblings.length < 2) return undefined;
+  const i = siblings.findIndex((q) => q.id === p.id);
+  return { prev: siblings[(i - 1 + siblings.length) % siblings.length], next: siblings[(i + 1) % siblings.length] };
+}

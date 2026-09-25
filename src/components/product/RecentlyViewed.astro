@@ -1,0 +1,52 @@
+---
+// Son incelenen ürünler: ürün sayfaları ziyaret edilen ürünleri tarayıcıda saklar ("guney-son-bakilanlar"),
+// bu bölüm mevcut ürün hariç en fazla 6 tanesini /katalog.json'dan çizer. Kayıt yoksa görünmez.
+export interface Props {
+  currentId?: string;
+}
+
+const { currentId = '' } = Astro.props;
+---
+
+<section class="mt-16 hidden border-t border-steel-200 pt-14" aria-labelledby="son-incelenen" data-recent data-current={currentId}>
+  <h2 id="son-incelenen" class="text-2xl font-bold">Son incelediğiniz ürünler</h2>
+  <ul class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6" role="list" data-recent-list></ul>
+</section>
+
+<script>
+  import { loadCatalog, escapeHtml } from '../../scripts/catalog-client';
+
+  const section = document.querySelector<HTMLElement>('[data-recent]');
+  if (section) {
+    let ids: string[] = [];
+    try {
+      ids = JSON.parse(localStorage.getItem('guney-son-bakilanlar') || '[]');
+    } catch {
+      ids = [];
+    }
+    ids = ids.filter((id) => id !== section.dataset.current).slice(0, 6);
+    if (ids.length) {
+      loadCatalog()
+        .then(({ products }) => {
+          const items = ids.map((id) => products.find((p) => p.id === id)).filter((p) => !!p);
+          if (!items.length) return;
+          section.querySelector('[data-recent-list]')!.innerHTML = items
+            .map(
+              (p) => `
+              <li>
+                <a href="${p!.href}" class="group block">
+                  <span class="block aspect-square overflow-hidden rounded-2xl bg-galvanized">
+                    <img src="${p!.thumb}" alt="" width="160" height="160" loading="lazy" class="size-full ${p!.fit === 'cover' ? 'object-cover' : 'object-contain p-3 mix-blend-multiply'}" />
+                  </span>
+                  <span class="mt-2 block text-xs text-steel-500">${escapeHtml(p!.code)}</span>
+                  <span class="line-clamp-2 text-sm font-semibold group-hover:text-signal-500">${escapeHtml(p!.name)}</span>
+                </a>
+              </li>`,
+            )
+            .join('');
+          section.classList.remove('hidden');
+        })
+        .catch(() => {});
+    }
+  }
+</script>

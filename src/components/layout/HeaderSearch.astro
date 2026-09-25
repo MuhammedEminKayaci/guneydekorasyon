@@ -1,7 +1,6 @@
 ---
 // Anlık önerili arama: kategoriler + ürünler (katalog no ile de aranabilir).
 // Veri /katalog.json'dan ilk odakta indirilir. Header'da (masaüstü) ve mobil ikinci satırda kullanılır.
-// Ürün önerisine tıklanınca hızlı bakış açılır; link yedeği ürünün kategori sayfasıdır (katalog no ile filtreli).
 import Icon from '../ui/Icon.astro';
 import { POPULAR_SEARCHES } from '../../lib/search-index';
 
@@ -100,7 +99,7 @@ const { id, class: className, hotkey = false } = Astro.props;
   import { loadCatalog, normalize, wordMatch, matchesAll, escapeHtml } from '../../scripts/catalog-client';
 
   type Indexed<T> = T & { _name: string[]; _all: string[] };
-  type Option = { href: string; productId?: string };
+  type Option = { href: string };
   let index: { categories: Indexed<SearchCategory>[]; products: Indexed<CatalogProduct>[] } | undefined;
 
   const words = (s: string) => normalize(s).split(' ').filter(Boolean);
@@ -168,7 +167,7 @@ const { id, class: className, hotkey = false } = Astro.props;
 
     const optionHtml = (i: number, opt: Option, thumb: string, title: string, sub: string, cover = false) => `
       <div id="${input.id}-oneri-${i}" role="option" aria-selected="false" data-index="${i}" class="aria-selected:[&>a]:bg-galvanized">
-        <a href="${opt.href}" tabindex="-1" ${opt.productId ? `data-product-id="${opt.productId}"` : ''} class="mx-2 flex items-center gap-3 rounded-xl px-3 py-2 hover:bg-galvanized">
+        <a href="${opt.href}" tabindex="-1" class="mx-2 flex items-center gap-3 rounded-xl px-3 py-2 hover:bg-galvanized">
           <img src="${thumb}" alt="" width="44" height="44" loading="lazy" class="size-11 shrink-0 rounded-lg border border-steel-200 bg-white ${cover ? 'object-cover' : 'object-contain p-0.5'}" />
           <span class="min-w-0">
             <span class="block truncate font-semibold">${escapeHtml(title)}</span>
@@ -199,10 +198,7 @@ const { id, class: className, hotkey = false } = Astro.props;
       const cats = rank(index.categories, tokens, 3);
       const prods = rank(index.products, tokens, 6, (p) => p.code);
       const catOptions: Option[] = cats.map((c) => ({ href: c.href }));
-      const prodOptions: Option[] = prods.map((p) => ({
-        href: `${p.catHref}?q=${encodeURIComponent(p.code)}`,
-        productId: p.id,
-      }));
+      const prodOptions: Option[] = prods.map((p) => ({ href: p.href }));
       options = [...catOptions, ...prodOptions];
 
       let html = '';
@@ -235,12 +231,6 @@ const { id, class: className, hotkey = false } = Astro.props;
         });
     };
 
-    const openQuickView = (productId: string) => {
-      close();
-      input.blur();
-      document.dispatchEvent(new CustomEvent('hizli-bakis:ac', { detail: { id: productId } }));
-    };
-
     input.addEventListener('focus', () => {
       ensureIndex();
       render();
@@ -263,21 +253,12 @@ const { id, class: className, hotkey = false } = Astro.props;
       }
     });
 
-    // Seçili öneri: ürünse hızlı bakış, kategoriyse sayfaya git. Seçim yoksa form arama sayfasına gider.
+    // Seçili öneri varsa ona git; seçim yoksa form arama sayfasına gider
     form.addEventListener('submit', (e) => {
       const opt = options[active];
       if (!opt) return;
       e.preventDefault();
-      if (opt.productId) openQuickView(opt.productId);
-      else window.location.href = opt.href;
-    });
-
-    list.addEventListener('click', (e) => {
-      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[data-product-id]');
-      const me = e as MouseEvent;
-      if (!link || me.metaKey || me.ctrlKey || me.shiftKey || me.button !== 0) return;
-      e.preventDefault();
-      openQuickView(link.dataset.productId!);
+      window.location.href = opt.href;
     });
 
     root.querySelectorAll<HTMLButtonElement>('[data-search-chip]').forEach((chip) =>

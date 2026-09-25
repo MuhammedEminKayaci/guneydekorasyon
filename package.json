@@ -12,7 +12,8 @@
     "astro": "astro",
     "check": "astro check",
     "images": "node scripts/migrate-images.mjs",
-    "catalog": "node scripts/build-catalog.mjs"
+    "catalog": "node scripts/build-catalog.mjs",
+    "redirects": "node scripts/build-redirects.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

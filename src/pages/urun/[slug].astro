@@ -1,0 +1,394 @@
+---
+// Ürün sayfası: /urun/<slug>/ — her ürün için benzersiz başlık, açıklama, galeri, özellikler, SSS ve yapısal veri.
+import type { GetStaticPaths } from 'astro';
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Icon from '../../components/ui/Icon.astro';
+import BrandIcon from '../../components/ui/BrandIcon.astro';
+import ProductGallery from '../../components/product/ProductGallery.astro';
+import ProductCard from '../../components/product/ProductCard.astro';
+import RecentlyViewed from '../../components/product/RecentlyViewed.astro';
+import {
+  PRODUCTS,
+  allCategoryNodes,
+  countIn,
+  productImage,
+  productHref,
+  productCategoryName,
+  relatedProducts,
+  neighbours,
+  type Product,
+} from '../../lib/catalog';
+import { productContent } from '../../lib/product-content';
+import { COLOR_SWATCHES } from '../../lib/colors';
+import { breadcrumbSchema, faqSchema, productSchema } from '../../lib/schema';
+import { CONTACT, SITE, whatsappLink } from '../../config/site';
+
+export const getStaticPaths = (() =>
+  PRODUCTS.map((product) => ({ params: { slug: product.slug }, props: { product } }))) satisfies GetStaticPaths;
+
+interface Props {
+  product: Product;
+}
+
+const { product: p } = Astro.props;
+const content = productContent(p);
+const node = allCategoryNodes().find((n) => n.path.join('/') === p.path.join('/'))!;
+const catName = productCategoryName(p);
+const images = p.images.map(productImage);
+const url = new URL(productHref(p), SITE.url).href;
+const trail = [...node.trail, { name: p.name, href: productHref(p) }];
+const related = relatedProducts(p, 8);
+const around = neighbours(p);
+
+// Paylaşım görseli: 1200×630, ürün galvaniz zemin üzerinde ortalanmış
+const og = await getImage({
+  src: images[0],
+  width: 1200,
+  height: 630,
+  fit: p.fit === 'cover' ? 'cover' : 'contain',
+  background: '#eef0f2',
+  format: 'jpg',
+  quality: 85,
+});
+const schemaImages = await Promise.all(
+  images.map(async (img) => new URL((await getImage({ src: img, width: 1200, format: 'jpg', quality: 85 })).src, SITE.url).href),
+);
+const thumb = (await getImage({ src: images[0], width: 160, height: 160, fit: p.fit, background: '#ffffff', format: 'webp' })).src;
+
+const description = [content.lead, ...content.details].join(' ');
+const jsonLd = [
+  productSchema({
+    name: p.name,
+    code: p.code,
+    description,
+    url,
+    images: schemaImages,
+    category: node.trail.map((t) => t.name).join(' > '),
+    color: p.attrs.renk,
+    brand: content.ownProduct ? SITE.name : undefined,
+    properties: content.specs.filter(([k]) => k !== 'Katalog no' && k !== 'Kategori'),
+  }),
+  breadcrumbSchema([{ name: 'Ana sayfa', path: '/' }, ...trail.map((t) => ({ name: t.name, path: t.href }))]),
+  faqSchema(content.faq),
+];
+
+const whatsappText = `Merhaba, ${p.name} (katalog no: ${p.code}) hakkında bilgi ve fiyat almak istiyorum.\n${url}`;
+---
+
+<BaseLayout
+  title={content.metaTitle}
+  description={content.metaDescription}
+  image={og.src}
+  type="product"
+  jsonLd={jsonLd}
+  hideMobileBar
+>
+  <div class="container-page pt-6 pb-16 lg:pb-24">
+    <Breadcrumbs items={trail} />
+
+    <!-- Üst bölüm: galeri + satın alma kutusu -->
+    <div
+      class="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-14"
+      data-product
+      data-id={p.id}
+      data-name={p.name}
+      data-code={p.code}
+      data-href={productHref(p)}
+    >
+      <div class="lg:sticky lg:top-40 lg:self-start">
+        <ProductGallery images={images} alt={`${p.name} ${p.code}`} fit={p.fit} />
+      </div>
+
+      <div>
+        <a href={node.href} class="text-sm font-semibold text-signal-500 hover:underline">{catName}</a>
+        <h1 class="mt-2 text-3xl leading-tight font-extrabold tracking-tight sm:text-4xl">{p.name}</h1>
+
+        <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-steel-500">
+          <span class="inline-flex items-center gap-1.5">
+            Katalog no:
+            <strong class="font-semibold text-steel-900">{p.code}</strong>
+            <button
+              type="button"
+              class="grid size-7 place-items-center rounded-full hover:bg-galvanized"
+              aria-label="Katalog numarasını kopyala"
+              title="Kopyala"
+              data-copy={p.code}
+            >
+              <Icon name="Copy" class="size-3.5" />
+            </button>
+          </span>
+          {
+            p.attrs.renk && (
+              <span class="inline-flex items-center gap-1.5">
+                <span class="inline-block size-4 rounded-full border border-steel-200" style={`background:${COLOR_SWATCHES[p.attrs.renk] ?? '#ccc'}`} />
+                {p.attrs.renk}
+              </span>
+            )
+          }
+        </div>
+
+        <p class="mt-6 text-lg leading-relaxed text-steel-700">{content.lead}</p>
+
+        <ul class="mt-6 grid gap-2.5 sm:grid-cols-2" role="list">
+          {
+            content.highlights.map((h) => (
+              <li class="flex items-center gap-2.5 font-medium">
+                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-signal-50 text-signal-500">
+                  <Icon name="Check" class="size-3.5" />
+                </span>
+                {h}
+              </li>
+            ))
+          }
+        </ul>
+
+        <!-- Teklif kutusu -->
+        <div class="mt-8 rounded-3xl border border-steel-200 p-5 sm:p-6">
+          <p class="font-bold">Fiyat teklifi alın</p>
+          <p class="mt-1 text-sm text-steel-500">
+            Adedi seçin, teklif listesine ekleyin. Listeyi diğer ürünlerle birlikte tek mesajda gönderebilirsiniz.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <div class="inline-flex h-12 items-center rounded-full border border-steel-200">
+              <button type="button" class="grid size-12 place-items-center rounded-full text-lg hover:bg-galvanized" aria-label="Adedi azalt" data-qty-step="-1">−</button>
+              <input
+                type="number"
+                min="1"
+                max="99999"
+                value="1"
+                inputmode="numeric"
+                aria-label="Adet"
+                class="w-16 [appearance:textfield] bg-transparent text-center text-lg font-semibold outline-none [&::-webkit-inner-spin-button]:appearance-none"
+                data-qty
+              />
+              <button type="button" class="grid size-12 place-items-center rounded-full text-lg hover:bg-galvanized" aria-label="Adedi artır" data-qty-step="1">+</button>
+            </div>
+            <button type="button" class="btn-primary min-h-12 flex-1 rounded-full px-6" data-add-with-qty data-thumb={thumb}>
+              <Icon name="Plus" class="size-4" />
+              <span data-add-label>Teklif listesine ekle</span>
+            </button>
+          </div>
+          <div class="mt-3 grid gap-3 sm:grid-cols-2">
+            <a href={whatsappLink(whatsappText)} target="_blank" rel="noopener" class="btn-whatsapp min-h-12 rounded-full">
+              <BrandIcon name="whatsapp" class="size-5" />
+              WhatsApp'tan sor
+            </a>
+            <a href={`tel:${CONTACT.phones[0].tel}`} class="btn-outline min-h-12 rounded-full">
+              <Icon name="Phone" class="size-4" />
+              Hemen arayın
+            </a>
+          </div>
+        </div>
+
+        <!-- Güvenceler -->
+        <ul class="mt-6 grid grid-cols-2 gap-3 text-sm sm:grid-cols-3" role="list">
+          <li class="flex items-center gap-2 rounded-2xl bg-galvanized px-3 py-3"><Icon name="Truck" class="size-5 shrink-0 text-signal-500" />Türkiye geneli teslimat</li>
+          <li class="flex items-center gap-2 rounded-2xl bg-galvanized px-3 py-3"><Icon name="Ruler" class="size-5 shrink-0 text-signal-500" />Ölçüye özel seçenekler</li>
+          <li class="col-span-2 flex items-center gap-2 rounded-2xl bg-galvanized px-3 py-3 sm:col-span-1"><Icon name="Headset" class="size-5 shrink-0 text-signal-500" />Satış sonrası destek</li>
+        </ul>
+
+        <!-- Paylaş -->
+        <div class="mt-6 flex flex-wrap items-center gap-3 text-sm">
+          <span class="text-steel-500">Paylaş:</span>
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent(`${p.name} (${p.code})\n${url}`)}`}
+            target="_blank"
+            rel="noopener"
+            class="grid size-9 place-items-center rounded-full border border-steel-200 hover:border-steel-900"
+            aria-label="WhatsApp ile paylaş"
+          >
+            <BrandIcon name="whatsapp" class="size-4" />
+          </a>
+          <button type="button" class="inline-flex h-9 items-center gap-1.5 rounded-full border border-steel-200 px-3 hover:border-steel-900" data-copy={url} data-copy-label="Bağlantı kopyalandı">
+            <Icon name="Link" class="size-4" />
+            Bağlantıyı kopyala
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Açıklama, özellikler, SSS -->
+    <div class="mt-16 grid gap-12 lg:mt-24 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-16">
+      <div>
+        <section aria-labelledby="urun-aciklama">
+          <h2 id="urun-aciklama" class="section-title">Ürün açıklaması</h2>
+          <div class="mt-6 space-y-4 text-lg leading-relaxed text-steel-700">
+            <p>{content.details.join(' ')}</p>
+            {content.body.map((para) => <p>{para}</p>)}
+          </div>
+        </section>
+
+        <section class="mt-12" aria-labelledby="urun-kullanim">
+          <h2 id="urun-kullanim" class="text-2xl font-bold">Kullanım alanları</h2>
+          <ul class="mt-5 grid gap-3 sm:grid-cols-2" role="list">
+            {
+              content.usage.map((u) => (
+                <li class="flex items-center gap-3 rounded-2xl border border-steel-200 px-4 py-3 font-medium">
+                  <Icon name="Store" class="size-5 shrink-0 text-signal-500" />
+                  {u}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="mt-12" aria-labelledby="urun-sss">
+          <h2 id="urun-sss" class="text-2xl font-bold">Sıkça sorulan sorular</h2>
+          <div class="mt-5 divide-y divide-steel-200 border-y border-steel-200">
+            {
+              content.faq.map((item, i) => (
+                <details class="group" name="urun-sss" open={i === 0}>
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4 font-semibold [&::-webkit-details-marker]:hidden">
+                    {item.q}
+                    <Icon name="Plus" class="size-5 shrink-0 text-steel-500 transition-transform group-open:rotate-45" />
+                  </summary>
+                  <p class="pb-5 text-steel-700">{item.a}</p>
+                </details>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+
+      <aside class="lg:sticky lg:top-40 lg:self-start" aria-labelledby="urun-ozellikler">
+        <h2 id="urun-ozellikler" class="text-2xl font-bold">Ürün özellikleri</h2>
+        <dl class="mt-5 divide-y divide-steel-200 overflow-hidden rounded-3xl border border-steel-200">
+          {
+            content.specs.map(([k, v]) => (
+              <div class="grid grid-cols-[9rem_1fr] gap-4 px-5 py-3.5 text-sm odd:bg-galvanized/60">
+                <dt class="text-steel-500">{k}</dt>
+                <dd class="font-medium">
+                  {k === 'Kategori' ? (
+                    <a href={node.href} class="text-signal-500 hover:underline">
+                      {v}
+                    </a>
+                  ) : (
+                    v
+                  )}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+
+        {
+          around && (
+            <nav class="mt-6 grid grid-cols-2 gap-3" aria-label="Kategorideki diğer ürünler">
+              <a href={productHref(around.prev)} class="group flex items-center gap-2 rounded-2xl border border-steel-200 p-3 text-sm hover:border-steel-900">
+                <Icon name="ChevronLeft" class="size-4 shrink-0 text-steel-500" />
+                <span class="min-w-0">
+                  <span class="block text-xs text-steel-500">Önceki</span>
+                  <span class="block truncate font-semibold group-hover:text-signal-500">{around.prev.code}</span>
+                </span>
+              </a>
+              <a href={productHref(around.next)} class="group flex items-center justify-end gap-2 rounded-2xl border border-steel-200 p-3 text-right text-sm hover:border-steel-900">
+                <span class="min-w-0">
+                  <span class="block text-xs text-steel-500">Sonraki</span>
+                  <span class="block truncate font-semibold group-hover:text-signal-500">{around.next.code}</span>
+                </span>
+                <Icon name="ChevronRight" class="size-4 shrink-0 text-steel-500" />
+              </a>
+            </nav>
+          )
+        }
+
+        <a href={node.href} class="btn-outline mt-3 w-full rounded-full">
+          Tüm {catName.toLocaleLowerCase('tr')} modelleri
+          <span class="text-steel-500">({countIn(node.path)})</span>
+        </a>
+      </aside>
+    </div>
+
+    <!-- Benzer ürünler -->
+    {
+      related.length > 0 && (
+        <section class="mt-16 border-t border-steel-200 pt-14 lg:mt-24" aria-labelledby="benzer-urunler">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="benzer-urunler" class="section-title">Benzer ürünler</h2>
+            <a href={node.href} class="text-sm font-semibold text-signal-500 hover:underline">Tümünü gör</a>
+          </div>
+          <ul class="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4" role="list">
+            {related.map((r) => <ProductCard product={r} showCategory={r.path.join('/') !== p.path.join('/')} />)}
+          </ul>
+        </section>
+      )
+    }
+
+    <RecentlyViewed currentId={p.id} />
+  </div>
+
+  <!-- Telefonda ürüne özel sabit eylem çubuğu -->
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-steel-200 bg-white/95 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur lg:hidden">
+    <div class="flex gap-3">
+      <a href={whatsappLink(whatsappText)} target="_blank" rel="noopener" class="btn-whatsapp min-h-12 flex-1 rounded-full px-3 text-sm" aria-label="WhatsApp'tan sor">
+        <BrandIcon name="whatsapp" class="size-5" />
+        Sor
+      </a>
+      <button type="button" class="btn-primary min-h-12 flex-[2] rounded-full px-3 text-sm" data-add-with-qty data-thumb={thumb}>
+        <Icon name="Plus" class="size-4" />
+        <span data-add-label>Teklif listesine ekle</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Kopyalama bildirimi -->
+  <div class="copy-toast pointer-events-none fixed inset-x-4 bottom-28 z-[70] mx-auto w-fit rounded-full bg-steel-950 px-4 py-2 text-sm text-white opacity-0 shadow-xl transition-opacity lg:bottom-8" role="status" aria-live="polite" data-copy-toast></div>
+</BaseLayout>
+
+<script>
+  import * as quote from '../../scripts/quote-list';
+
+  const root = document.querySelector<HTMLElement>('[data-product][data-href]')!;
+  const { id, name, code, href } = root.dataset as Record<string, string>;
+  const qtyInput = document.querySelector<HTMLInputElement>('[data-qty]')!;
+  const addButtons = document.querySelectorAll<HTMLButtonElement>('[data-add-with-qty]');
+  const toast = document.querySelector<HTMLElement>('[data-copy-toast]')!;
+
+  const clampQty = (n: number) => Math.max(1, Math.min(99999, Math.round(n) || 1));
+  document.querySelectorAll<HTMLButtonElement>('[data-qty-step]').forEach((b) =>
+    b.addEventListener('click', () => (qtyInput.value = String(clampQty(Number(qtyInput.value) + Number(b.dataset.qtyStep))))),
+  );
+  qtyInput.addEventListener('change', () => (qtyInput.value = String(clampQty(Number(qtyInput.value)))));
+
+  const syncLabels = () => {
+    const inList = quote.getItems().find((i) => i.id === id);
+    addButtons.forEach((b) => {
+      b.querySelector('[data-add-label]')!.textContent = inList ? `Listede (${inList.qty} adet): daha ekle` : 'Teklif listesine ekle';
+    });
+  };
+  addButtons.forEach((b) =>
+    b.addEventListener('click', () => {
+      quote.add({ id, name, code, thumb: b.dataset.thumb!, href }, clampQty(Number(qtyInput.value)));
+      qtyInput.value = '1';
+    }),
+  );
+  document.addEventListener(quote.CHANGE_EVENT, syncLabels);
+  syncLabels();
+
+  // Kopyalama
+  let toastTimer: number | undefined;
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) =>
+    b.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(b.dataset.copy!);
+        toast.textContent = b.dataset.copyLabel ?? `${b.dataset.copy} kopyalandı`;
+      } catch {
+        toast.textContent = 'Kopyalanamadı';
+      }
+      toast.style.opacity = '1';
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => (toast.style.opacity = '0'), 2000);
+    }),
+  );
+
+  // Son incelenenler
+  try {
+    const KEY = 'guney-son-bakilanlar';
+    const list: string[] = JSON.parse(localStorage.getItem(KEY) || '[]');
+    localStorage.setItem(KEY, JSON.stringify([id, ...list.filter((x) => x !== id)].slice(0, 12)));
+  } catch {
+    // Depolama kapalıysa sessizce geç
+  }
+</script>

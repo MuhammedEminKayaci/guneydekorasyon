@@ -6,6 +6,8 @@ export interface QuoteItem {
   name: string;
   code: string;
   thumb: string;
+  /** Ürün sayfası */
+  href?: string;
   qty: number;
 }
 

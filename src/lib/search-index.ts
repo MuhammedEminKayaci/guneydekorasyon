@@ -2,7 +2,7 @@
 // Build sırasında üretilir; sayfalar ilk ihtiyaç anında indirir.
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import { PRODUCTS, productImage, productCategoryName, allCategoryNodes, type AttrKey } from './catalog';
+import { PRODUCTS, productImage, productCategoryName, productHref, allCategoryNodes, type AttrKey } from './catalog';
 import { contentFor } from '../data/category-content';
 
 export interface SearchCategory {
@@ -20,6 +20,8 @@ export interface CatalogProduct {
   id: string;
   name: string;
   code: string;
+  /** Ürün sayfası */
+  href: string;
   /** Kategori adı (en derin) */
   cat: string;
   /** Kategori sayfası */
@@ -70,6 +72,7 @@ export async function getCatalogData(): Promise<CatalogData> {
       id: p.id,
       name: p.name,
       code: p.code,
+      href: productHref(p),
       cat: productCategoryName(p),
       catHref: node.href,
       intro: contentFor(node.path, node.name).intro,

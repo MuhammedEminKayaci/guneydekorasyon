@@ -201,7 +201,7 @@ import { CONTACT } from '../../config/site';
         <li class="flex gap-3 py-4" data-id="${i.id}">
           <img src="${i.thumb}" alt="" width="64" height="64" class="size-16 shrink-0 rounded-xl border border-steel-200 bg-white object-contain p-1" />
           <div class="min-w-0 flex-1">
-            <p class="font-semibold leading-snug">${escapeHtml(i.name)}</p>
+            ${i.href ? `<a href="${i.href}" class="font-semibold leading-snug hover:text-signal-500">${escapeHtml(i.name)}</a>` : `<p class="font-semibold leading-snug">${escapeHtml(i.name)}</p>`}
             <p class="mt-0.5 text-xs text-steel-500">Katalog no: ${escapeHtml(i.code)}</p>
             <div class="mt-2 flex items-center justify-between gap-3">
               <div class="inline-flex items-center rounded-full border border-steel-200">
@@ -281,8 +281,8 @@ import { CONTACT } from '../../config/site';
     const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-add-quote]');
     const card = btn?.closest<HTMLElement>('[data-product]');
     if (!btn || !card) return;
-    const { id, name, code } = card.dataset;
-    quote.toggle({ id: id!, name: name!, code: code!, thumb: btn.dataset.thumb! });
+    const { id, name, code, href } = card.dataset;
+    quote.toggle({ id: id!, name: name!, code: code!, thumb: btn.dataset.thumb!, href });
   });
   document.addEventListener(quote.CHANGE_EVENT, syncCardButtons);
   syncCardButtons();
