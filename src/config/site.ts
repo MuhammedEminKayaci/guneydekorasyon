@@ -1,5 +1,4 @@
 // Firma bilgileri tek yerde: header, footer, iletişim sayfası ve schema verisi buradan beslenir.
-// TODO: açık adres ve koordinatlar firmadan teyit edilecek (eski site ve canlı sitede sadece "Güngören, İstanbul" var).
 
 export const SITE = {
   url: 'https://guneydekorasyonraf.com',
@@ -11,6 +10,9 @@ export const SITE = {
   lang: 'tr',
 } as const;
 
+// Google işletme kaydı (Güney Mağaza Dekorasyon, Güngören). CID = ftid 0x70869acda501e91'in ondalık hali.
+const MAPS_CID = '506771149197155985';
+
 export const CONTACT = {
   phones: [
     { label: 'Mobil', display: '+90 532 291 92 77', tel: '+905322919277' },
@@ -20,27 +22,41 @@ export const CONTACT = {
   whatsapp: '905322919277',
   email: 'guneydekorasyonraf@gmail.com',
   address: {
-    street: '', // TODO: açık adres
+    street: 'Mehmet Nesih Özmen Mh., Mehmet Akif Cd., Sedir Sk. No:12-9',
     district: 'Güngören',
     city: 'İstanbul',
-    postalCode: '',
+    postalCode: '34173',
     country: 'TR',
   },
-  geo: null as { lat: number; lng: number } | null, // TODO: dükkan koordinatları
-  // Harita araması. Açık adres gelince buraya yazılacak (ör. "Güney Mağaza Dekorasyon, ... Sok. No:.., Güngören").
-  mapQuery: 'Güngören, İstanbul',
+  geo: { lat: 41.013544, lng: 28.8814898 } as { lat: number; lng: number } | null,
+  map: {
+    /** İşletme kaydını gösteren gömülü harita */
+    embed: `https://www.google.com/maps?cid=${MAPS_CID}&hl=tr&output=embed`,
+    /** Google Haritalar'da işletme sayfası */
+    place: `https://www.google.com/maps?cid=${MAPS_CID}`,
+    /** Yol tarifi */
+    directions: 'https://www.google.com/maps/dir/?api=1&destination=41.013544,28.8814898',
+  },
+  // Google İşletme puanı (Haritalar'dan elle alındı, 29.09.2026). Değiştikçe güncelleyin.
+  // Kendi sitesinde işaretlenen puanı Google yok saydığı için schema'ya eklenmez, sadece rozet olarak gösterilir.
+  googleRating: { score: '5,0', count: 8 },
   hours: {
     label: 'Pzt–Cmt: 09.00–19.00',
     days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     opens: '09:00',
     closes: '19:00',
   },
+  // Sosyal medya hesabı yok; link eklenirse footer'da otomatik görünür
   social: {
-    instagram: '', // TODO: hesap linkleri
+    instagram: '',
     facebook: '',
     youtube: '',
   },
 } as const;
+
+/** Tek satır adres: "…Sedir Sk. No:12-9, 34173 Güngören/İstanbul" */
+export const fullAddress = () =>
+  `${CONTACT.address.street}, ${CONTACT.address.postalCode} ${CONTACT.address.district}/${CONTACT.address.city}`;
 
 export const whatsappLink = (message?: string) =>
   `https://wa.me/${CONTACT.whatsapp}${message ? `?text=${encodeURIComponent(message)}` : ''}`;

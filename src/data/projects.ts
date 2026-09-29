@@ -1,6 +1,5 @@
 // Referans projeler. Kaynak: eski sitenin projeler sayfası.
 // Aynı projenin farklı görselleri tek projede galeri olarak birleştirildi.
-// TODO: "Afrika" ve "Fransa" konumları ile proje adları firmadan teyit edilmeli.
 import type { ImageMetadata } from 'astro';
 import p1 from '../assets/images/anasayfa/slider/1.jpg';
 import p2 from '../assets/images/anasayfa/slider/2.jpg';

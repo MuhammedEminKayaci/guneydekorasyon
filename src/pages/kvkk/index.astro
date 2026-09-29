@@ -1,23 +1,31 @@
 ---
-// KVKK aydınlatma metni. TODO: Yayından önce firmanın hukuk danışmanı tarafından gözden geçirilmeli;
-// unvan, adres ve MERSİS/vergi bilgileri firmadan alınıp eklenmeli.
+// KVKK aydınlatma metni. Veri sorumlusu ticari ad ve adresle tanımlanır; şirket türü/MERSİS bilgisi
+// kesinleşirse "Veri sorumlusu" bölümüne eklenebilir.
 import LegalLayout from '../../layouts/LegalLayout.astro';
-import { CONTACT, SITE } from '../../config/site';
+import { CONTACT, SITE, fullAddress } from '../../config/site';
 
-const address = [CONTACT.address.street, CONTACT.address.district, CONTACT.address.city].filter(Boolean).join(', ');
+const address = fullAddress();
 ---
 
 <LegalLayout
   title="KVKK Aydınlatma Metni"
   description="Güney Mağaza Dekorasyon kişisel verilerin korunması ve işlenmesi hakkında aydınlatma metni."
   path="/kvkk/"
-  updated="24 Eylül 2026"
+  updated="29 Eylül 2026"
 >
   <p>
     {SITE.name} (“Firma”) olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında veri sorumlusu
     sıfatıyla, kişisel verilerinizin hangi amaçla işlendiği, kimlere aktarılabileceği ve haklarınız hakkında sizi
     bilgilendirmek isteriz.
   </p>
+
+  <h2>Veri sorumlusu</h2>
+  <ul>
+    <li><strong>Ticari ad:</strong> {SITE.name}</li>
+    <li><strong>Adres:</strong> {address}</li>
+    <li><strong>E-posta:</strong> <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+    <li><strong>Telefon:</strong> <a href={`tel:${CONTACT.phones[2].tel}`}>{CONTACT.phones[2].display}</a></li>
+  </ul>
 
   <h2>1. İşlenen kişisel veriler</h2>
   <ul>

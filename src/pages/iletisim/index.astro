@@ -4,14 +4,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
 import Icon from '../../components/ui/Icon.astro';
 import BrandIcon from '../../components/ui/BrandIcon.astro';
-import { CONTACT, SITE, whatsappLink } from '../../config/site';
+import { CONTACT, SITE, fullAddress, whatsappLink } from '../../config/site';
 import { breadcrumbSchema, localBusinessSchema } from '../../lib/schema';
 
 // E-posta sadece @ işaretinden sonra satır atlasın
 const [emailUser, emailDomain] = CONTACT.email.split('@');
-const address = [CONTACT.address.street, CONTACT.address.district, CONTACT.address.city].filter(Boolean).join(', ');
-const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(CONTACT.mapQuery)}&hl=tr&z=14&output=embed`;
-const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapQuery)}`;
+const address = fullAddress();
+const mapEmbed = CONTACT.map.embed;
+const mapLink = CONTACT.map.directions;
 ---
 
 <BaseLayout

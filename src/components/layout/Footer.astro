@@ -4,7 +4,7 @@ import Logo from '../ui/Logo.astro';
 import Icon from '../ui/Icon.astro';
 import BrandIcon from '../ui/BrandIcon.astro';
 import { CATEGORIES, categoryHref } from '../../data/categories';
-import { CONTACT, SITE, whatsappLink } from '../../config/site';
+import { CONTACT, SITE, fullAddress, whatsappLink } from '../../config/site';
 
 const corporate = [
   { name: 'Hakkımızda', href: '/hakkimizda/' },
@@ -21,9 +21,9 @@ const socials = (
   ] as const
 ).filter((s) => s.href);
 
-const address = [CONTACT.address.street, CONTACT.address.district, CONTACT.address.city].filter(Boolean).join(', ');
-const mapEmbed = `https://www.google.com/maps?q=${encodeURIComponent(CONTACT.mapQuery)}&hl=tr&z=14&output=embed`;
-const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapQuery)}`;
+const address = fullAddress();
+const mapEmbed = CONTACT.map.embed;
+const mapLink = CONTACT.map.directions;
 const year = new Date().getFullYear();
 ---
 

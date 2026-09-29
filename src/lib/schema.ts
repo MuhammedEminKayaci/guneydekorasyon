@@ -13,11 +13,10 @@ export const localBusinessSchema = () => ({
   email: CONTACT.email,
   address: {
     '@type': 'PostalAddress',
-    // Boş alanlar undefined olur ve JSON'a hiç yazılmaz.
-    streetAddress: CONTACT.address.street || undefined,
+    streetAddress: CONTACT.address.street,
     addressLocality: CONTACT.address.district,
     addressRegion: CONTACT.address.city,
-    postalCode: CONTACT.address.postalCode || undefined,
+    postalCode: CONTACT.address.postalCode,
     addressCountry: CONTACT.address.country,
   },
   ...(CONTACT.geo && {
@@ -29,7 +28,9 @@ export const localBusinessSchema = () => ({
     opens: CONTACT.hours.opens,
     closes: CONTACT.hours.closes,
   },
-  sameAs: Object.values(CONTACT.social).filter(Boolean),
+  hasMap: CONTACT.map.place,
+  areaServed: { '@type': 'Country', name: 'Türkiye' },
+  sameAs: [CONTACT.map.place, ...Object.values(CONTACT.social).filter(Boolean)],
 });
 
 export const faqSchema = (items: readonly { q: string; a: string }[]) => ({

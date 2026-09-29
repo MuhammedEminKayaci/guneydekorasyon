@@ -4,10 +4,6 @@ import slide1 from '../assets/images/anasayfa/slider/6.jpg';
 import slide2 from '../assets/images/anasayfa/slider/4.jpg';
 import slide3 from '../assets/images/anasayfa/slider/3.jpg';
 import slide4 from '../assets/images/anasayfa/slider/11.jpg';
-import project1 from '../assets/images/anasayfa/slider/1.jpg';
-import project2 from '../assets/images/anasayfa/slider/2.jpg';
-import project3 from '../assets/images/anasayfa/slider/13.jpg';
-import project4 from '../assets/images/anasayfa/slider/9.jpg';
 import aboutMain from '../assets/images/anasayfa/slider/10.jpg';
 import aboutSmall from '../assets/images/anasayfa/slider/5.jpg';
 import faqImage from '../assets/images/anasayfa/slider/7.jpg';
@@ -43,7 +39,7 @@ export const HERO_SLIDES = [
   },
 ] as const;
 
-// TODO: Eski sitede çelişkili rakamlar vardı (35 yıl / "10+ yıl", 30 usta / "25 usta"). Firmadan teyit edilecek.
+// Rakamlar firma tarafından teyit edildi (29.09.2026).
 export const STATS = [
   { value: '35', unit: 'yıl', label: 'sektör tecrübesi' },
   { value: '30', unit: 'kişi', label: 'usta üretim ve montaj ekibi' },
@@ -68,37 +64,8 @@ export const PROMISES = [
   { icon: 'Headset', title: 'Satış sonrası destek', text: 'Montajdan sonra da ulaşabileceğiniz bir ekip.' },
 ] as const;
 
-// TODO: Yorumlar eski siteden. Yayına almadan önce gerçek müşteri yorumlarıyla (tercihen Google) değiştirilmeli.
-export const TESTIMONIALS = [
-  {
-    image: project1,
-    alt: 'Motosiklet aksesuar mağazası için metal raf sistemi',
-    quote: 'Mağazamızın dekorasyonunda gösterdikleri profesyonellik ve titizlik için teşekkür ederiz.',
-    author: 'Tekstil mağazası',
-    city: 'İstanbul',
-  },
-  {
-    image: project2,
-    alt: 'Ayakkabı mağazası için duvar teşhir rafları',
-    quote: 'Zamanında ve titizlikle teslim ettiler. Raf sistemleri çok kullanışlı.',
-    author: 'Ayakkabı mağazası',
-    city: 'Ankara',
-  },
-  {
-    image: project3,
-    alt: 'Butik mağaza için altın rengi duvar askılık ünitesi',
-    quote: 'Vitrin tasarımı satışlarımızı olumlu etkiledi. Teşekkürler.',
-    author: 'Butik',
-    city: 'İzmir',
-  },
-  {
-    image: project4,
-    alt: 'Giyim mağazası için ahşap tablalı teşhir masaları ve duvar askılıkları',
-    quote: 'Montaj ekibi çok düzenli çalıştı, sonuç mükemmel.',
-    author: 'Market',
-    city: 'Bursa',
-  },
-] as const;
+// Ana sayfadaki "Kurduğumuz mağazalar" bölümünde gösterilen gerçek projeler (data/projects.ts)
+export const FEATURED_PROJECTS = ['dekohop-taksim', 'converse', 'bayan-butik-ucyuzlu', 'erkek-butik-sariyer'];
 
 export const FAQ = {
   image: faqImage,
