@@ -1,5 +1,7 @@
 # Güney Mağaza Dekorasyon — Astro sitesi
 
+Domain: https://guneydekorasyonraf.com (www'suz). Eski site şu an guneydekorasyonraf.com.tr'de yayında; yayına geçişte `deploy/eski-domain/.htaccess` o sunucuya konur.
+
 Eski statik site (sadece referans, dokunma): `~/Desktop/PROJELERİM/İsmail Duman - Güney Dekorasyon`
 
 ## Komutlar

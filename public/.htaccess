@@ -1,8 +1,18 @@
 # Otomatik üretildi: scripts/build-redirects.mjs — elle düzenlemeyin.
-# Eski site adreslerinden yeni sayfalara kalıcı (301) yönlendirmeler.
 AddDefaultCharset UTF-8
 ErrorDocument 404 /404.html
 
+# Tek adres: http ve www istekleri https://guneydekorasyonraf.com adresine
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://guneydekorasyonraf.com%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} !^guneydekorasyonraf\.com$ [NC]
+  RewriteRule ^ https://guneydekorasyonraf.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Eski site adreslerinden yeni sayfalara kalıcı (301) yönlendirmeler
 Redirect 301 "/ahsapaskılar-ahsap.html" "/askilar/ahsap-aski/klasik/"
 Redirect 301 "/ahsapaskılar-bluz.html" "/askilar/ahsap-aski/bluz/"
 Redirect 301 "/ahsapaskılar-ceket.html" "/askilar/ahsap-aski/ceket/"

@@ -8,9 +8,13 @@
 //   src/data/redirects.json  → 404 sayfasındaki yedek yönlendirme (her sunucuda çalışır)
 //   public/.htaccess         → Apache / cPanel hosting (gerçek 301)
 //   public/_redirects        → Netlify / Cloudflare Pages (gerçek 301)
+//   deploy/eski-domain/.htaccess → eski guneydekorasyonraf.com.tr sunucusuna konur:
+//                                  her eski sayfayı yeni domaindeki karşılığına taşır
 import fs from 'node:fs';
 import path from 'node:path';
 
+const SITE_URL = 'https://guneydekorasyonraf.com';
+const SITE_HOST = new URL(SITE_URL).host;
 const OLD_ROOT = path.join(process.env.HOME, 'Desktop/PROJELERİM/İsmail Duman - Güney Dekorasyon');
 const imageMap = JSON.parse(fs.readFileSync('scripts/gorsel-eslesme.json', 'utf8'));
 const catalog = JSON.parse(fs.readFileSync('src/data/catalog.json', 'utf8'));
@@ -95,10 +99,20 @@ fs.writeFileSync('src/data/redirects.json', JSON.stringify(sorted, null, 1) + '\
 // Apache (.htaccess): mod_alias Redirect, çözülmüş (UTF-8) yolla eşleşir
 const htaccess = [
   '# Otomatik üretildi: scripts/build-redirects.mjs — elle düzenlemeyin.',
-  '# Eski site adreslerinden yeni sayfalara kalıcı (301) yönlendirmeler.',
   'AddDefaultCharset UTF-8',
   'ErrorDocument 404 /404.html',
   '',
+  '# Tek adres: http ve www istekleri https://' + SITE_HOST + ' adresine',
+  '<IfModule mod_rewrite.c>',
+  '  RewriteEngine On',
+  '  RewriteCond %{HTTPS} off',
+  '  RewriteCond %{HTTP:X-Forwarded-Proto} !https',
+  `  RewriteRule ^ ${SITE_URL}%{REQUEST_URI} [L,R=301]`,
+  `  RewriteCond %{HTTP_HOST} !^${SITE_HOST.replace(/\./g, '\\.')}$ [NC]`,
+  `  RewriteRule ^ ${SITE_URL}%{REQUEST_URI} [L,R=301]`,
+  '</IfModule>',
+  '',
+  '# Eski site adreslerinden yeni sayfalara kalıcı (301) yönlendirmeler',
   ...Object.entries(sorted).map(([from, to]) => `Redirect 301 "${from}" "${to}"`),
   '',
 ].join('\n');
@@ -112,5 +126,22 @@ for (const [from, to] of Object.entries(sorted)) {
   if (encoded !== from) lines.push(`${encoded}  ${to}  301`);
 }
 fs.writeFileSync('public/_redirects', lines.join('\n') + '\n');
+
+// Eski domain (.com.tr): her eski sayfa yeni domaindeki karşılığına, kalan her şey yeni ana sayfaya
+fs.mkdirSync('deploy/eski-domain', { recursive: true });
+fs.writeFileSync(
+  'deploy/eski-domain/.htaccess',
+  [
+    '# Otomatik üretildi: scripts/build-redirects.mjs',
+    '# Bu dosya ESKİ domainin (guneydekorasyonraf.com.tr) sunucusuna, eski dosyaların yerine konur.',
+    'AddDefaultCharset UTF-8',
+    '',
+    ...Object.entries(sorted).map(([from, to]) => `Redirect 301 "${from}" "${SITE_URL}${to}"`),
+    '',
+    '# Eşlenmeyen her adres (eski görseller, bilinmeyen sayfalar) yeni ana sayfaya',
+    `RedirectMatch 301 ^/.*$ ${SITE_URL}/`,
+    '',
+  ].join('\n'),
+);
 
 console.log(`${Object.keys(sorted).length} yönlendirme: ${stats.product} ürün, ${stats.static} sayfa, ${stats.fallback} kategoriye yedek`);

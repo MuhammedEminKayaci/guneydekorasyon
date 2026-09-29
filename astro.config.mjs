@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.guneymagazadekorasyon.com', // TODO: gerçek domain (src/config/site.ts ile aynı olmalı)
+  site: 'https://guneydekorasyonraf.com', // src/config/site.ts ile aynı olmalı
   trailingSlash: 'always',
 
   fonts: [

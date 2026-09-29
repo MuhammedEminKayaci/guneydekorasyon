@@ -1,8 +1,8 @@
 // Firma bilgileri tek yerde: header, footer, iletişim sayfası ve schema verisi buradan beslenir.
-// TODO: domain, açık adres ve koordinatlar firmadan teyit edilecek.
+// TODO: açık adres ve koordinatlar firmadan teyit edilecek (eski site ve canlı sitede sadece "Güngören, İstanbul" var).
 
 export const SITE = {
-  url: 'https://www.guneymagazadekorasyon.com', // TODO: gerçek domain
+  url: 'https://guneydekorasyonraf.com',
   name: 'Güney Mağaza Dekorasyon',
   shortName: 'Güney Dekorasyon',
   description:
