@@ -99,5 +99,6 @@ Google Haritalar'daki **Güney Mağaza Dekorasyon** kaydında web sitesi adresin
 | Firma bilgisi (telefon, adres, saat) | `src/config/site.ts` → `npm run paket` |
 | Yeni ürün görseli | Görseli ilgili klasöre koy → `npm run catalog` → `npm run paket` |
 | Metin, kategori açıklaması | `src/data/…` → `npm run paket` |
+| Yeni blog yazısı | `src/content/blog/` altına `.md` dosyası ekle (AGENTS.md → Blog) → `npm run paket` |
 
 Her güncellemeden sonra sadece yeni `guneydekorasyonraf.com.zip` dosyasını yükle. Eski domain dosyası değişmez.

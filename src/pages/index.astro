@@ -7,6 +7,7 @@ import Promises from '../components/home/Promises.astro';
 import Testimonials from '../components/home/Testimonials.astro';
 import Faq from '../components/home/Faq.astro';
 import QuoteBand from '../components/home/QuoteBand.astro';
+import LatestPosts from '../components/home/LatestPosts.astro';
 import { faqSchema, localBusinessSchema } from '../lib/schema';
 import { FAQ, HERO_SLIDES } from '../data/home';
 ---
@@ -21,6 +22,7 @@ import { FAQ, HERO_SLIDES } from '../data/home';
   <Promises />
   <About />
   <Testimonials />
+  <LatestPosts />
   <Faq />
   <QuoteBand />
 </BaseLayout>

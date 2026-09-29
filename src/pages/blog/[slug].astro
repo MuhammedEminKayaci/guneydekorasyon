@@ -1,0 +1,284 @@
+---
+// Blog yazısı: /blog/<slug>/
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Icon from '../../components/ui/Icon.astro';
+import BrandIcon from '../../components/ui/BrandIcon.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+import ProductCard from '../../components/product/ProductCard.astro';
+import QuoteBand from '../../components/home/QuoteBand.astro';
+import { publishedPosts, postHref, readingMinutes, relatedPosts, formatDate, type Post } from '../../lib/blog';
+import { blogCategory } from '../../data/blog-categories';
+import { PRODUCTS, allCategoryNodes, countIn } from '../../lib/catalog';
+import { breadcrumbSchema, faqSchema } from '../../lib/schema';
+import { SITE, whatsappLink } from '../../config/site';
+
+export const getStaticPaths = (async () => {
+  const posts = await publishedPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post, posts } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: Post;
+  posts: Post[];
+}
+
+const { post, posts } = Astro.props;
+const { data } = post;
+const { Content, headings } = await render(post);
+const category = blogCategory(data.category);
+const url = new URL(postHref(post), SITE.url).href;
+const toc = headings.filter((h) => h.depth === 2);
+const related = relatedPosts(post, posts, 3);
+
+// Yazıda anılan ürünler: katalogda olmayan kod varsa build durur (kırık link yayına çıkmasın)
+const products = data.products.map((code) => {
+  const product = PRODUCTS.find((p) => p.code === code);
+  if (!product) throw new Error(`Blog "${post.id}": katalogda olmayan ürün kodu ${code}`);
+  return product;
+});
+const relatedNode = data.relatedCategory
+  ? allCategoryNodes().find((n) => n.path.join('/') === data.relatedCategory)
+  : undefined;
+if (data.relatedCategory && !relatedNode) throw new Error(`Blog "${post.id}": bilinmeyen kategori ${data.relatedCategory}`);
+
+const trail = [
+  { name: 'Blog', href: '/blog/' },
+  { name: category.name, href: `/blog/kategori/${category.slug}/` },
+  { name: data.title, href: postHref(post) },
+];
+
+const og = await getImage({
+  src: data.cover,
+  width: 1200,
+  height: 630,
+  fit: data.coverFit === 'contain' ? 'contain' : 'cover',
+  background: '#eef0f2',
+  format: 'jpg',
+  quality: 85,
+});
+const ogUrl = new URL(og.src, SITE.url).href;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${url}#yazi`,
+    headline: data.title,
+    description: data.description,
+    image: [ogUrl],
+    datePublished: data.pubDate.toISOString(),
+    dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+    articleSection: category.name,
+    wordCount: (post.body ?? '').split(/\s+/).filter(Boolean).length,
+    inLanguage: 'tr-TR',
+    mainEntityOfPage: url,
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      logo: { '@type': 'ImageObject', url: `${SITE.url}/logo.png` },
+    },
+  },
+  breadcrumbSchema([{ name: 'Ana sayfa', path: '/' }, ...trail.map((t) => ({ name: t.name, path: t.href }))]),
+  ...(data.faq.length ? [faqSchema(data.faq)] : []),
+];
+---
+
+<BaseLayout title={data.title} description={data.description} image={og.src} type="article" jsonLd={jsonLd}>
+  <article>
+    <!-- Başlık -->
+    <header class="container-page pt-6">
+      <Breadcrumbs items={trail} />
+      <div class="mx-auto mt-10 max-w-3xl text-center">
+        <a href={`/blog/kategori/${category.slug}/`} class="inline-flex rounded-full bg-signal-50 px-3 py-1 text-sm font-semibold text-signal-600 hover:bg-signal-500 hover:text-white">
+          {category.name}
+        </a>
+        <h1 class="mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight text-balance sm:text-5xl">{data.title}</h1>
+        <p class="mt-5 text-lg text-steel-700 sm:text-xl">{data.description}</p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-steel-500">
+          <span class="inline-flex items-center gap-1.5"><Icon name="Calendar" class="size-4" /><time datetime={data.pubDate.toISOString()}>{formatDate(data.pubDate)}</time></span>
+          {
+            data.updatedDate && (
+              <span class="inline-flex items-center gap-1.5">
+                <Icon name="RefreshCw" class="size-4" />
+                Güncellendi: <time datetime={data.updatedDate.toISOString()}>{formatDate(data.updatedDate)}</time>
+              </span>
+            )
+          }
+          <span class="inline-flex items-center gap-1.5"><Icon name="Clock" class="size-4" />{readingMinutes(post)} dk okuma</span>
+        </div>
+      </div>
+      <div class="mt-10 overflow-hidden rounded-3xl bg-galvanized">
+        <Image
+          src={data.cover}
+          alt={data.coverAlt}
+          widths={[640, 960, 1280, 1920]}
+          sizes="(min-width: 80rem) 78rem, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class:list={[
+            'aspect-16/9 w-full lg:aspect-21/9',
+            data.coverFit === 'contain' ? 'object-contain p-8 mix-blend-multiply lg:p-12' : 'object-cover',
+          ]}
+        />
+      </div>
+    </header>
+
+    <!-- Gövde -->
+    <div class="container-page mt-12 grid gap-10 lg:mt-16 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16 xl:grid-cols-[17rem_minmax(0,46rem)_1fr]">
+      {
+        toc.length > 1 && (
+          <aside class="lg:sticky lg:top-40 lg:self-start" aria-label="İçindekiler">
+            <details class="group rounded-2xl border border-steel-200 p-5 lg:border-0 lg:p-0" open>
+              <summary class="flex cursor-pointer list-none items-center justify-between font-bold lg:cursor-default [&::-webkit-details-marker]:hidden">
+                İçindekiler
+                <Icon name="ChevronDown" class="size-4 text-steel-500 transition-transform group-open:rotate-180 lg:hidden" />
+              </summary>
+              <ol class="mt-4 space-y-1 border-l border-steel-200 text-sm" role="list" data-toc>
+                {toc.map((h) => (
+                  <li>
+                    <a href={`#${h.slug}`} class="-ml-px block border-l-2 border-transparent py-1.5 pl-4 text-steel-500 transition-colors hover:text-steel-950 aria-[current=true]:border-signal-500 aria-[current=true]:font-semibold aria-[current=true]:text-steel-950" data-toc-link={h.slug}>
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </details>
+          </aside>
+        )
+      }
+
+      <div class:list={['min-w-0', toc.length <= 1 && 'lg:col-span-2 xl:col-start-2']}>
+        <div class="prose prose-guney max-w-none" data-post-body>
+          <Content />
+        </div>
+
+        {
+          data.faq.length > 0 && (
+            <section class="mt-14" aria-labelledby="yazi-sss">
+              <h2 id="yazi-sss" class="text-2xl font-bold">Sıkça sorulan sorular</h2>
+              <div class="mt-5 divide-y divide-steel-200 border-y border-steel-200">
+                {data.faq.map((item, i) => (
+                  <details class="group" name="yazi-sss" open={i === 0}>
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-4 font-semibold [&::-webkit-details-marker]:hidden">
+                      {item.q}
+                      <Icon name="Plus" class="size-5 shrink-0 text-steel-500 transition-transform group-open:rotate-45" />
+                    </summary>
+                    <p class="pb-5 text-steel-700">{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        <!-- Paylaş + firma kutusu -->
+        <div class="mt-14 flex flex-wrap items-center gap-3 border-t border-steel-200 pt-8 text-sm">
+          <span class="font-semibold">Bu yazıyı paylaşın:</span>
+          <a href={`https://wa.me/?text=${encodeURIComponent(`${data.title}\n${url}`)}`} target="_blank" rel="noopener" class="grid size-10 place-items-center rounded-full border border-steel-200 hover:border-steel-900" aria-label="WhatsApp ile paylaş">
+            <BrandIcon name="whatsapp" class="size-4" />
+          </a>
+          <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noopener" class="grid size-10 place-items-center rounded-full border border-steel-200 hover:border-steel-900" aria-label="Facebook'ta paylaş">
+            <BrandIcon name="facebook" class="size-4" />
+          </a>
+          <button type="button" class="inline-flex h-10 items-center gap-1.5 rounded-full border border-steel-200 px-4 hover:border-steel-900" data-copy-link={url}>
+            <Icon name="Link" class="size-4" />
+            <span data-copy-label>Bağlantıyı kopyala</span>
+          </button>
+        </div>
+
+        <div class="mt-8 flex flex-col gap-5 rounded-3xl bg-steel-950 p-6 text-white sm:flex-row sm:items-center sm:p-8">
+          <div class="flex-1">
+            <p class="text-lg font-bold">{SITE.name}</p>
+            <p class="mt-1 text-steel-300">
+              Raf sistemleri, orta sistemler, stand, manken ve askıda tasarımdan montaja anahtar teslim çözümler. Güngören, İstanbul.
+            </p>
+          </div>
+          <a href={whatsappLink(`Merhaba, "${data.title}" yazınızı okudum, bilgi almak istiyorum.`)} target="_blank" rel="noopener" class="btn-whatsapp shrink-0 rounded-full px-6">
+            <BrandIcon name="whatsapp" class="size-5" />
+            Bize yazın
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Yazıda geçen ürünler -->
+  {
+    products.length > 0 && (
+      <section class="container-page mt-20 border-t border-steel-200 pt-14" aria-labelledby="yazidaki-urunler">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="yazidaki-urunler" class="section-title">Yazıda geçen ürünler</h2>
+          {relatedNode && (
+            <a href={relatedNode.href} class="inline-flex items-center gap-1.5 font-semibold text-signal-500 hover:underline">
+              Tüm {relatedNode.name.toLocaleLowerCase('tr')} ({countIn(relatedNode.path)})
+              <Icon name="ArrowRight" class="size-4" />
+            </a>
+          )}
+        </div>
+        <ul class="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4" role="list">
+          {products.map((p) => <ProductCard product={p} />)}
+        </ul>
+      </section>
+    )
+  }
+
+  <!-- Benzer yazılar -->
+  {
+    related.length > 0 && (
+      <section class="container-page mt-20 border-t border-steel-200 pt-14 pb-4" aria-labelledby="benzer-yazilar">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="benzer-yazilar" class="section-title">Bunlar da ilginizi çekebilir</h2>
+          <a href="/blog/" class="font-semibold text-signal-500 hover:underline">Tüm yazılar</a>
+        </div>
+        <ul class="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          {related.map((r) => (
+            <li>
+              <BlogCard post={r} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <QuoteBand />
+</BaseLayout>
+
+<script>
+  // İçindekiler: okunan bölümü işaretle
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+  if (links.length) {
+    const sections = links
+      .map((l) => document.getElementById(l.dataset.tocLink!))
+      .filter((el): el is HTMLElement => !!el);
+    const setCurrent = (id: string) => links.forEach((l) => l.setAttribute('aria-current', String(l.dataset.tocLink === id)));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setCurrent(visible[0].target.id);
+      },
+      { rootMargin: '-160px 0px -60% 0px' },
+    );
+    sections.forEach((s) => observer.observe(s));
+    // Mobilde içindekiler başta kapalı dursun
+    if (matchMedia('(max-width: 63.99rem)').matches) document.querySelector('[aria-label="İçindekiler"] details')?.removeAttribute('open');
+  }
+
+  // Bağlantıyı kopyala
+  document.querySelector<HTMLButtonElement>('[data-copy-link]')?.addEventListener('click', async (e) => {
+    const btn = e.currentTarget as HTMLButtonElement;
+    const label = btn.querySelector('[data-copy-label]')!;
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copyLink!);
+      label.textContent = 'Kopyalandı';
+    } catch {
+      label.textContent = 'Kopyalanamadı';
+    }
+    setTimeout(() => (label.textContent = 'Bağlantıyı kopyala'), 2000);
+  });
+</script>

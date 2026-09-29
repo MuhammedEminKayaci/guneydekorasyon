@@ -17,7 +17,9 @@
     "paket": "node scripts/paket.mjs"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.5",
     "lucide-static": "^1.48.0",

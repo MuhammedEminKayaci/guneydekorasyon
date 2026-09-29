@@ -37,3 +37,10 @@ Eski statik site (sadece referans, dokunma): `~/Desktop/PROJELERİM/İsmail Duma
 
 ## Dokümantasyon
 https://docs.astro.build — routing, content collections, styling, fonts, images rehberlerine bakmadan ilgili işe başlama.
+
+## Blog
+- Yazılar `src/content/blog/<adres>.md` (dosya adı = `/blog/<adres>/`). Şema: `src/content.config.ts`; kategoriler: `src/data/blog-categories.ts`.
+- Zorunlu alanlar: title (≤62 karakter önerilir), description (80–165), pubDate, category, cover (+coverAlt; ürün görseliyse `coverFit: contain`).
+- `products` alanına katalog numaraları yazılır; katalogda olmayan kod veya bilinmeyen `relatedCategory` build'i durdurur.
+- Yazılarda sadece doğrulanmış firma bilgisi kullanılır (7–15 gün üretim, 1–3 gün montaj, 2 yıl garanti, Türkiye geneli montaj); uydurma rakam/fiyat yazılmaz.
+- Blog listesi, kategori sayfaları, sayfalama, RSS (`/blog/rss.xml`), ana sayfa "Blogdan" bölümü ve header araması yeni yazıyı otomatik alır.

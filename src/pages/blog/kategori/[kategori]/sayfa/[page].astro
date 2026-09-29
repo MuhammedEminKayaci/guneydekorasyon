@@ -1,0 +1,40 @@
+---
+// Kategori sayfalaması: /blog/kategori/<slug>/sayfa/2/ …
+import type { GetStaticPaths } from 'astro';
+import BlogListing from '../../../../../components/blog/BlogListing.astro';
+import { BLOG_CATEGORIES } from '../../../../../data/blog-categories';
+import { POSTS_PER_PAGE, publishedPosts } from '../../../../../lib/blog';
+
+export const getStaticPaths = (async () => {
+  const all = await publishedPosts();
+  return BLOG_CATEGORIES.flatMap((category) => {
+    const count = all.filter((p) => p.data.category === category.slug).length;
+    const pages = Math.ceil(count / POSTS_PER_PAGE);
+    return Array.from({ length: Math.max(0, pages - 1) }, (_, i) => ({
+      params: { kategori: category.slug, page: String(i + 2) },
+      props: { category, all },
+    }));
+  });
+}) satisfies GetStaticPaths;
+
+const { category, all } = Astro.props;
+const page = Number(Astro.params.page);
+const posts = all.filter((p) => p.data.category === category.slug);
+---
+
+<BlogListing
+  posts={posts}
+  allPosts={all}
+  page={page}
+  basePath={`/blog/kategori/${category.slug}/`}
+  title={category.name}
+  intro={category.description}
+  metaTitle={`${category.name} Yazıları | Blog`}
+  metaDescription={`${category.description} Güney Mağaza Dekorasyon blogunda ${category.name.toLocaleLowerCase('tr')} üzerine rehberler ve öneriler.`}
+  activeCategory={category.slug}
+  trail={[
+    { name: 'Blog', href: '/blog/' },
+    { name: category.name, href: `/blog/kategori/${category.slug}/` },
+    { name: `Sayfa ${page}`, href: `/blog/kategori/${category.slug}/sayfa/${page}/` },
+  ]}
+/>

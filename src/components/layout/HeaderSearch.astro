@@ -95,12 +95,14 @@ const { id, class: className, hotkey = false } = Astro.props;
 </div>
 
 <script>
-  import type { CatalogData, CatalogProduct, SearchCategory } from '../../lib/search-index';
+  import type { CatalogData, CatalogProduct, SearchCategory, SearchPost } from '../../lib/search-index';
   import { loadCatalog, normalize, wordMatch, matchesAll, escapeHtml } from '../../scripts/catalog-client';
 
   type Indexed<T> = T & { _name: string[]; _all: string[] };
   type Option = { href: string };
-  let index: { categories: Indexed<SearchCategory>[]; products: Indexed<CatalogProduct>[] } | undefined;
+  let index:
+    | { categories: Indexed<SearchCategory>[]; products: Indexed<CatalogProduct>[]; posts: Indexed<SearchPost>[] }
+    | undefined;
 
   const words = (s: string) => normalize(s).split(' ').filter(Boolean);
   const buildIndex = (data: CatalogData) => ({
@@ -110,6 +112,7 @@ const { id, class: className, hotkey = false } = Astro.props;
       _name: words(p.name),
       _all: words(`${p.name} ${p.code} ${p.cat} ${Object.values(p.attrs).join(' ')}`),
     })),
+    posts: data.posts.map((p) => ({ ...p, _name: words(p.title), _all: words(`${p.title} ${p.category} ${p.terms}`) })),
   });
 
   // Puan: adda geçen her kelime +2, aranan kelimelerin hepsi adda geçiyorsa +3,
@@ -197,9 +200,11 @@ const { id, class: className, hotkey = false } = Astro.props;
 
       const cats = rank(index.categories, tokens, 3);
       const prods = rank(index.products, tokens, 6, (p) => p.code);
+      const posts = rank(index.posts, tokens, 2);
       const catOptions: Option[] = cats.map((c) => ({ href: c.href }));
       const prodOptions: Option[] = prods.map((p) => ({ href: p.href }));
-      options = [...catOptions, ...prodOptions];
+      const postOptions: Option[] = posts.map((p) => ({ href: p.href }));
+      options = [...catOptions, ...prodOptions, ...postOptions];
 
       let html = '';
       if (cats.length) {
@@ -212,6 +217,12 @@ const { id, class: className, hotkey = false } = Astro.props;
           .map((p, j) =>
             optionHtml(cats.length + j, prodOptions[j], p.thumb, p.name, `${p.cat} · ${p.code}`, p.fit === 'cover'),
           )
+          .join('');
+      }
+      if (posts.length) {
+        html += heading('Blog yazıları');
+        html += posts
+          .map((p, j) => optionHtml(cats.length + prods.length + j, postOptions[j], p.thumb, p.title, `Blog · ${p.category}`, true))
           .join('');
       }
       list.innerHTML = html + (options.length ? '<div class="h-2"></div>' : '');

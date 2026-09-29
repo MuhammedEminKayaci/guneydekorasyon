@@ -1,0 +1,34 @@
+---
+// Ana sayfa: blogdan son yazılar (iç linkleme ve güncel içerik sinyali için)
+import BlogCard from '../blog/BlogCard.astro';
+import Icon from '../ui/Icon.astro';
+import { publishedPosts } from '../../lib/blog';
+
+const posts = (await publishedPosts()).slice(0, 3);
+---
+
+{
+  posts.length > 0 && (
+    <section class="py-16 sm:py-24" aria-labelledby="blog-baslik">
+      <div class="container-page">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <h2 id="blog-baslik" class="section-title">Blogdan</h2>
+            <p class="section-lead">Mağaza dekorasyonu, raf, manken ve askı seçimi üzerine rehberler.</p>
+          </div>
+          <a href="/blog/" class="btn-outline rounded-full px-6">
+            Tüm yazılar
+            <Icon name="ArrowRight" class="size-4" />
+          </a>
+        </div>
+        <ul class="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          {posts.map((post) => (
+            <li>
+              <BlogCard post={post} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}

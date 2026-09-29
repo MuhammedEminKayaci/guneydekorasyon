@@ -1,0 +1,27 @@
+---
+// Blog sayfalaması: /blog/sayfa/2/ … (1. sayfa /blog/)
+import type { GetStaticPaths } from 'astro';
+import BlogListing from '../../../components/blog/BlogListing.astro';
+import { POSTS_PER_PAGE, publishedPosts } from '../../../lib/blog';
+
+export const getStaticPaths = (async () => {
+  const posts = await publishedPosts();
+  const pages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  return Array.from({ length: Math.max(0, pages - 1) }, (_, i) => ({ params: { page: String(i + 2) }, props: { posts } }));
+}) satisfies GetStaticPaths;
+
+const { posts } = Astro.props;
+const page = Number(Astro.params.page);
+---
+
+<BlogListing
+  posts={posts}
+  allPosts={posts}
+  page={page}
+  basePath="/blog/"
+  title="Blog"
+  intro="Mağaza dekorasyonu, raf sistemleri, manken ve askı seçimi üzerine rehberler."
+  metaTitle="Blog: Mağaza Dekorasyonu Rehberleri"
+  metaDescription="Mağaza dekorasyonu, raf sistemi, manken ve askı seçimi üzerine rehberler ve proje örnekleri. Güney Mağaza Dekorasyon blogu."
+  trail={[{ name: 'Blog', href: '/blog/' }, { name: `Sayfa ${page}`, href: `/blog/sayfa/${page}/` }]}
+/>

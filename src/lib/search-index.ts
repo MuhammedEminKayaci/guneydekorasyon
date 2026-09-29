@@ -4,6 +4,8 @@ import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { PRODUCTS, productImage, productCategoryName, productHref, allCategoryNodes, type AttrKey } from './catalog';
 import { contentFor } from '../data/category-content';
+import { publishedPosts, postHref } from './blog';
+import { blogCategory } from '../data/blog-categories';
 
 export interface SearchCategory {
   name: string;
@@ -35,9 +37,19 @@ export interface CatalogProduct {
   specs?: [string, string][];
 }
 
+export interface SearchPost {
+  title: string;
+  href: string;
+  thumb: string;
+  category: string;
+  /** Aramada eşleşme için açıklama */
+  terms: string;
+}
+
 export interface CatalogData {
   categories: SearchCategory[];
   products: CatalogProduct[];
+  posts: SearchPost[];
 }
 
 const thumb = async (image: ImageMetadata, fit: 'contain' | 'cover' = 'contain') =>
@@ -84,7 +96,18 @@ export async function getCatalogData(): Promise<CatalogData> {
     });
   }
 
-  cache = { categories, products };
+  const posts: SearchPost[] = [];
+  for (const post of await publishedPosts()) {
+    posts.push({
+      title: post.data.title,
+      href: postHref(post),
+      thumb: await thumb(post.data.cover, post.data.coverFit),
+      category: blogCategory(post.data.category).name,
+      terms: post.data.description,
+    });
+  }
+
+  cache = { categories, products, posts };
   return cache;
 }
 

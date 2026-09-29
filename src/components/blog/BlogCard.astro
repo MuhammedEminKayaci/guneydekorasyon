@@ -1,0 +1,59 @@
+---
+// Blog yazı kartı. "featured": listenin başında büyük, yatay kart.
+import { Image } from 'astro:assets';
+import Icon from '../ui/Icon.astro';
+import { blogCategory } from '../../data/blog-categories';
+import { formatDate, postHref, readingMinutes, type Post } from '../../lib/blog';
+
+export interface Props {
+  post: Post;
+  featured?: boolean;
+  eager?: boolean;
+  /** Karanlık zeminde (ör. ana sayfa bölümü) kullanım */
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { post, featured = false, eager = false, headingLevel = 'h3' } = Astro.props;
+const { data } = post;
+const href = postHref(post);
+const category = blogCategory(data.category);
+const contain = data.coverFit === 'contain';
+const Heading = headingLevel;
+---
+
+<article class:list={['group relative', featured && 'grid gap-6 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-12']}>
+  <a href={href} class="block overflow-hidden rounded-3xl bg-galvanized" tabindex="-1" aria-hidden="true">
+    <Image
+      src={data.cover}
+      alt=""
+      widths={featured ? [640, 960, 1280] : [400, 640, 800]}
+      sizes={featured ? '(min-width: 1024px) 55vw, 100vw' : '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw'}
+      loading={eager ? 'eager' : 'lazy'}
+      class:list={[
+        'aspect-16/10 w-full transition-transform duration-700 ease-out-quart group-hover:scale-[1.03]',
+        contain ? 'object-contain p-8 mix-blend-multiply' : 'object-cover',
+      ]}
+    />
+  </a>
+  <div class:list={[!featured && 'mt-5']}>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-steel-500">
+      <a href={`/blog/kategori/${category.slug}/`} class="relative z-10 font-semibold text-signal-500 hover:underline">{category.name}</a>
+      <span aria-hidden="true">·</span>
+      <time datetime={data.pubDate.toISOString()}>{formatDate(data.pubDate)}</time>
+      <span aria-hidden="true">·</span>
+      <span class="inline-flex items-center gap-1"><Icon name="Clock" class="size-3.5" />{readingMinutes(post)} dk okuma</span>
+    </div>
+    <Heading class:list={['mt-3 leading-tight font-bold tracking-tight group-hover:text-signal-500', featured ? 'text-3xl sm:text-4xl' : 'text-xl']}>
+      <a href={href} class="after:absolute after:inset-0">{data.title}</a>
+    </Heading>
+    <p class:list={['mt-3 text-steel-700', featured ? 'text-lg' : 'line-clamp-3']}>{data.description}</p>
+    {
+      featured && (
+        <span class="mt-6 inline-flex items-center gap-2 font-semibold text-signal-500">
+          Yazıyı okuyun
+          <Icon name="ArrowRight" class="size-4 transition-transform group-hover:translate-x-1" />
+        </span>
+      )
+    }
+  </div>
+</article>

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /*
   Tasarım değişkenleri
@@ -130,5 +131,57 @@
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Blog yazı gövdesi: tipografi eklentisi sitenin renk ve ölçüleriyle */
+@utility prose-guney {
+  --tw-prose-body: var(--color-steel-700);
+  --tw-prose-headings: var(--color-steel-950);
+  --tw-prose-links: var(--color-signal-600);
+  --tw-prose-bold: var(--color-steel-950);
+  --tw-prose-bullets: var(--color-signal-500);
+  --tw-prose-counters: var(--color-signal-500);
+  --tw-prose-quotes: var(--color-steel-900);
+  --tw-prose-quote-borders: var(--color-signal-500);
+  --tw-prose-th-borders: var(--color-steel-200);
+  --tw-prose-td-borders: var(--color-steel-200);
+  --tw-prose-hr: var(--color-steel-200);
+  font-size: 1.125rem;
+  line-height: 1.8;
+
+  & :where(h2) {
+    scroll-margin-top: 10rem;
+    letter-spacing: -0.02em;
+  }
+  & :where(h3) {
+    scroll-margin-top: 10rem;
+  }
+  & :where(a) {
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  & :where(img) {
+    border-radius: 1.5rem;
+    width: 100%;
+  }
+  & :where(blockquote) {
+    font-style: normal;
+    background: var(--color-galvanized);
+    border-radius: 0 1rem 1rem 0;
+    padding: 0.75rem 1.25rem;
+  }
+  & :where(blockquote p::before, blockquote p::after) {
+    content: none;
+  }
+  & :where(table) {
+    font-size: 0.95rem;
+  }
+  & :where(thead th) {
+    background: var(--color-galvanized);
+    padding: 0.75rem;
+  }
+  & :where(tbody td) {
+    padding: 0.75rem;
   }
 }

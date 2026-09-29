@@ -1,0 +1,18 @@
+---
+import BlogListing from '../../components/blog/BlogListing.astro';
+import { publishedPosts } from '../../lib/blog';
+
+const posts = await publishedPosts();
+---
+
+<BlogListing
+  posts={posts}
+  allPosts={posts}
+  page={1}
+  basePath="/blog/"
+  title="Blog"
+  intro="Mağaza dekorasyonu, raf sistemleri, manken ve askı seçimi üzerine projelerimizden edindiğimiz deneyimle hazırladığımız rehberler."
+  metaTitle="Blog: Mağaza Dekorasyonu Rehberleri"
+  metaDescription="Mağaza dekorasyonu, raf sistemi, terzi mankeni, vitrin mankeni ve askı seçimi üzerine rehberler ve proje örnekleri. Güney Mağaza Dekorasyon blogu."
+  trail={[{ name: 'Blog', href: '/blog/' }]}
+/>

@@ -1,0 +1,159 @@
+---
+// Blog liste düzeni: başlık, kategori sekmeleri, (ilk sayfada) öne çıkan yazı, yazı ızgarası, sayfalama.
+// /blog/, /blog/sayfa/N/ ve /blog/kategori/<slug>/ sayfaları kullanır.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../ui/Breadcrumbs.astro';
+import Icon from '../ui/Icon.astro';
+import BlogCard from './BlogCard.astro';
+import QuoteBand from '../home/QuoteBand.astro';
+import { BLOG_CATEGORIES } from '../../data/blog-categories';
+import { POSTS_PER_PAGE, postHref, type Post } from '../../lib/blog';
+import { breadcrumbSchema } from '../../lib/schema';
+import { SITE } from '../../config/site';
+
+export interface Props {
+  /** Bu listedeki tüm yazılar (tarih sırasıyla) */
+  posts: Post[];
+  /** Kategori sekmesi sayıları için bütün yazılar */
+  allPosts: Post[];
+  page: number;
+  /** Liste kökü: "/blog/" veya "/blog/kategori/<slug>/" */
+  basePath: string;
+  title: string;
+  intro: string;
+  metaTitle: string;
+  metaDescription: string;
+  activeCategory?: string;
+  trail: { name: string; href: string }[];
+}
+
+const { posts, allPosts, page, basePath, title, intro, metaTitle, metaDescription, activeCategory, trail } = Astro.props;
+
+const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+const pageHref = (n: number) => (n === 1 ? basePath : `${basePath}sayfa/${n}/`);
+const pagePosts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
+
+// İlk sayfada (kategori filtresi yokken) öne çıkan yazı büyük gösterilir
+const featured = page === 1 && !activeCategory ? (pagePosts.find((p) => p.data.featured) ?? pagePosts[0]) : undefined;
+const gridPosts = pagePosts.filter((p) => p !== featured);
+
+const tabs = [
+  { name: 'Tümü', href: '/blog/', count: allPosts.length, active: !activeCategory },
+  ...BLOG_CATEGORIES.map((c) => ({
+    name: c.name,
+    href: `/blog/kategori/${c.slug}/`,
+    count: allPosts.filter((p) => p.data.category === c.slug).length,
+    active: activeCategory === c.slug,
+  })).filter((t) => t.count > 0),
+];
+
+const pageTitle = page > 1 ? `${metaTitle} (Sayfa ${page})` : metaTitle;
+const jsonLd = [
+  breadcrumbSchema([{ name: 'Ana sayfa', path: '/' }, ...trail.map((t) => ({ name: t.name, path: t.href }))]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: metaTitle,
+    description: metaDescription,
+    url: new URL(pageHref(page), SITE.url).href,
+    blogPost: pagePosts.map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.data.title,
+      url: new URL(postHref(p), SITE.url).href,
+      datePublished: p.data.pubDate.toISOString(),
+    })),
+  },
+];
+---
+
+<BaseLayout title={pageTitle} description={metaDescription} jsonLd={jsonLd}>
+  <section class="border-b border-steel-200 bg-galvanized">
+    <div class="container-page pt-6 pb-10">
+      <Breadcrumbs items={trail} />
+      <div class="mt-6 flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl">{title}</h1>
+          <p class="mt-4 text-lg text-steel-700">{intro}</p>
+        </div>
+        <a href="/blog/rss.xml" class="inline-flex items-center gap-2 text-sm font-semibold text-steel-500 hover:text-signal-500">
+          <Icon name="Rss" class="size-4" />
+          RSS ile takip edin
+        </a>
+      </div>
+      <nav class="mt-8 flex flex-wrap gap-2" aria-label="Blog kategorileri">
+        {
+          tabs.map((t) => (
+            <a
+              href={t.href}
+              aria-current={t.active ? 'page' : undefined}
+              class:list={[
+                'inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-colors',
+                t.active ? 'border-steel-950 bg-steel-950 text-white' : 'border-steel-200 bg-white hover:border-steel-900',
+              ]}
+            >
+              {t.name}
+              <span class:list={['text-xs', t.active ? 'text-steel-300' : 'text-steel-500']}>{t.count}</span>
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  <div class="container-page py-12 lg:py-16">
+    {
+      featured && (
+        <div class="mb-16 border-b border-steel-200 pb-16">
+          <BlogCard post={featured} featured eager headingLevel="h2" />
+        </div>
+      )
+    }
+
+    {
+      gridPosts.length > 0 ? (
+        <ul class="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          {gridPosts.map((post, i) => (
+            <li>
+              <BlogCard post={post} eager={!featured && i < 3} headingLevel="h2" />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        !featured && <p class="text-steel-500">Bu kategoride henüz yazı yok.</p>
+      )
+    }
+
+    {
+      totalPages > 1 && (
+        <nav class="mt-16 flex flex-wrap items-center justify-center gap-2" aria-label="Sayfalar">
+          {page > 1 && (
+            <a href={pageHref(page - 1)} class="btn-outline min-h-11 rounded-full px-5" rel="prev">
+              <Icon name="ChevronLeft" class="size-4" />
+              Önceki
+            </a>
+          )}
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+            <a
+              href={pageHref(n)}
+              aria-current={n === page ? 'page' : undefined}
+              class:list={[
+                'grid size-11 place-items-center rounded-full text-sm font-semibold',
+                n === page ? 'bg-steel-950 text-white' : 'border border-steel-200 hover:border-steel-900',
+              ]}
+            >
+              {n}
+            </a>
+          ))}
+          {page < totalPages && (
+            <a href={pageHref(page + 1)} class="btn-outline min-h-11 rounded-full px-5" rel="next">
+              Sonraki
+              <Icon name="ChevronRight" class="size-4" />
+            </a>
+          )}
+        </nav>
+      )
+    }
+  </div>
+
+  <QuoteBand />
+</BaseLayout>
