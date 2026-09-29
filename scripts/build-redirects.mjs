@@ -8,8 +8,9 @@
 //   src/data/redirects.json  → 404 sayfasındaki yedek yönlendirme (her sunucuda çalışır)
 //   public/.htaccess         → Apache / cPanel hosting (gerçek 301)
 //   public/_redirects        → Netlify / Cloudflare Pages (gerçek 301)
-//   deploy/eski-domain/.htaccess → eski guneydekorasyonraf.com.tr sunucusuna konur:
-//                                  her eski sayfayı yeni domaindeki karşılığına taşır
+//   public/web.config        → Windows / IIS (Plesk) hosting (gerçek 301, URL Rewrite modülü)
+//   deploy/eski-domain/.htaccess + web.config → eski guneydekorasyonraf.com.tr sunucusuna konur
+//                                  (şu an Windows Plesk/IIS): her eski sayfayı yeni domaindeki karşılığına taşır
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -102,6 +103,17 @@ const htaccess = [
   'AddDefaultCharset UTF-8',
   'ErrorDocument 404 /404.html',
   '',
+  '# IIS yapılandırma dosyası Apache\'de dışarıya sunulmasın',
+  '<Files "web.config">',
+  '  <IfModule mod_authz_core.c>',
+  '    Require all denied',
+  '  </IfModule>',
+  '  <IfModule !mod_authz_core.c>',
+  '    Order allow,deny',
+  '    Deny from all',
+  '  </IfModule>',
+  '</Files>',
+  '',
   '# Tek adres: http ve www istekleri https://' + SITE_HOST + ' adresine',
   '<IfModule mod_rewrite.c>',
   '  RewriteEngine On',
@@ -145,3 +157,105 @@ fs.writeFileSync(
 );
 
 console.log(`${Object.keys(sorted).length} yönlendirme: ${stats.product} ürün, ${stats.static} sayfa, ${stats.fallback} kategoriye yedek`);
+
+// ---------------------------------------------------------------------------
+// Windows / IIS (web.config). Türkçe karakterli yollar hem çözülmüş ({URL}) hem yüzde kodlu
+// ({UNENCODED_URL}) haliyle haritaya girer; hangisi gelirse eşleşir.
+const xml = (v) => v.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const mapEntries = (prefix) =>
+  Object.entries(sorted)
+    .flatMap(([from, to]) => {
+      const rows = [[from, prefix + to]];
+      const encoded = encodeURI(from);
+      if (encoded !== from) rows.push([encoded, prefix + to]);
+      return rows;
+    })
+    .map(([k, v]) => `          <add key="${xml(k)}" value="${xml(v)}" />`)
+    .join('\n');
+const mapRules = (name) => `
+        <rule name="${name}" stopProcessing="true">
+          <match url=".*" />
+          <conditions logicalGrouping="MatchAny">
+            <add input="{EskiAdresler:{URL}}" pattern="(.+)" />
+            <add input="{EskiAdresler:{UNENCODED_URL}}" pattern="(.+)" />
+          </conditions>
+          <action type="Redirect" url="{C:1}" redirectType="Permanent" appendQueryString="false" />
+        </rule>`;
+
+const iisNew = `<?xml version="1.0" encoding="UTF-8"?>
+<!-- Otomatik üretildi: scripts/build-redirects.mjs — elle düzenlemeyin. Windows / IIS (Plesk) için. -->
+<configuration>
+  <system.webServer>
+    <rewrite>
+      <rewriteMaps>
+        <rewriteMap name="EskiAdresler">
+${mapEntries('')}
+        </rewriteMap>
+      </rewriteMaps>
+      <rules>
+        <rule name="HTTPS ve tek alan adi" stopProcessing="true">
+          <match url=".*" />
+          <conditions logicalGrouping="MatchAny">
+            <add input="{HTTPS}" pattern="^OFF$" />
+            <add input="{HTTP_HOST}" pattern="^${SITE_HOST.replace(/\./g, '\\.')}$" negate="true" />
+          </conditions>
+          <action type="Redirect" url="${SITE_URL}{UNENCODED_URL}" redirectType="Permanent" appendQueryString="false" />
+        </rule>${mapRules('Eski site adresleri')}
+      </rules>
+    </rewrite>
+    <defaultDocument enabled="true">
+      <files>
+        <remove value="index.html" />
+        <add value="index.html" />
+      </files>
+    </defaultDocument>
+    <staticContent>
+      <remove fileExtension=".webp" />
+      <mimeMap fileExtension=".webp" mimeType="image/webp" />
+      <remove fileExtension=".avif" />
+      <mimeMap fileExtension=".avif" mimeType="image/avif" />
+      <remove fileExtension=".woff2" />
+      <mimeMap fileExtension=".woff2" mimeType="font/woff2" />
+      <remove fileExtension=".json" />
+      <mimeMap fileExtension=".json" mimeType="application/json" />
+    </staticContent>
+    <!-- Sunucu 500 hatası verirse (hosting bu bölümü kilitlemişse) aşağıdaki httpErrors bloğunu silin. -->
+    <httpErrors errorMode="Custom" existingResponse="Replace">
+      <remove statusCode="404" subStatusCode="-1" />
+      <error statusCode="404" path="/404.html" responseMode="ExecuteURL" />
+    </httpErrors>
+  </system.webServer>
+  <!-- Dosya adları içerik özetli (hash) olduğundan _astro altındaki dosyalar 1 yıl önbelleğe alınabilir -->
+  <location path="_astro">
+    <system.webServer>
+      <staticContent>
+        <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="365.00:00:00" />
+      </staticContent>
+    </system.webServer>
+  </location>
+</configuration>
+`;
+fs.writeFileSync('public/web.config', iisNew);
+
+const iisOld = `<?xml version="1.0" encoding="UTF-8"?>
+<!-- Otomatik üretildi: scripts/build-redirects.mjs -->
+<!-- Bu dosya ESKİ domainin (guneydekorasyonraf.com.tr) sunucusuna, eski dosyaların yerine konur (Windows / IIS). -->
+<configuration>
+  <system.webServer>
+    <rewrite>
+      <rewriteMaps>
+        <rewriteMap name="EskiAdresler">
+${mapEntries(SITE_URL)}
+        </rewriteMap>
+      </rewriteMaps>
+      <rules>${mapRules('Eski sayfalar yeni karsiliklarina')}
+        <rule name="Kalan her sey yeni ana sayfaya" stopProcessing="true">
+          <match url=".*" />
+          <action type="Redirect" url="${SITE_URL}/" redirectType="Permanent" appendQueryString="false" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>
+`;
+fs.writeFileSync('deploy/eski-domain/web.config', iisOld);

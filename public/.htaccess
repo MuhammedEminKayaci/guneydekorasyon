@@ -2,6 +2,17 @@
 AddDefaultCharset UTF-8
 ErrorDocument 404 /404.html
 
+# IIS yapılandırma dosyası Apache'de dışarıya sunulmasın
+<Files "web.config">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</Files>
+
 # Tek adres: http ve www istekleri https://guneydekorasyonraf.com adresine
 <IfModule mod_rewrite.c>
   RewriteEngine On
