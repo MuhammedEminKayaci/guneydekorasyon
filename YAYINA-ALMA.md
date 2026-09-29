@@ -102,3 +102,11 @@ Google Haritalar'daki **Güney Mağaza Dekorasyon** kaydında web sitesi adresin
 | Yeni blog yazısı | `src/content/blog/` altına `.md` dosyası ekle (AGENTS.md → Blog) → `npm run paket` |
 
 Her güncellemeden sonra sadece yeni `guneydekorasyonraf.com.zip` dosyasını yükle. Eski domain dosyası değişmez.
+
+## Alternatif: Vercel ile yayın
+
+1. Vercel'de **Add New → Project** ile bu GitHub deposunu içe aktarın. Framework otomatik olarak **Astro** algılanır; ayar değiştirmeye gerek yok (Build: `npm run build`, Output: `dist`).
+2. **Settings → Domains** bölümüne `guneydekorasyonraf.com` ve `www.guneydekorasyonraf.com` ekleyin. Vercel'in gösterdiği DNS kayıtlarını (apex için A kaydı, www için CNAME) alan adının DNS yönetiminden girin. SSL otomatik verilir.
+3. Eski site adreslerinden yönlendirmeler `vercel.json` içindedir (`npm run redirects` ile üretilir); ayrıca bir işlem gerekmez.
+4. Eski domain (.com.tr) için `deploy/eski-domain/` dosyaları yine eski TurkTicaret hostinge yüklenir (yukarıdaki adımlar).
+5. Her `git push` sonrası Vercel siteyi otomatik yeniden yayınlar.

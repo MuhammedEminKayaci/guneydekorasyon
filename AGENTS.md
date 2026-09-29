@@ -10,7 +10,7 @@ Eski statik site (sadece referans, dokunma): `~/Desktop/PROJELERİM/İsmail Duma
 - `npm run check` — TypeScript / Astro tip kontrolü
 - `npm run images` — eski siteden görselleri yeniden taşır (eşleme: `scripts/gorsel-eslesme.json`)
 - `npm run catalog` — ürün kataloğunu görsel klasörlerinden yeniden üretir → `src/data/catalog.json`
-- `npm run redirects` — eski site adreslerinden 301 haritası → `src/data/redirects.json`, `public/.htaccess`, `public/_redirects` (katalog değişince yeniden çalıştır)
+- `npm run redirects` — eski site adreslerinden 301 haritası → `src/data/redirects.json`, `public/.htaccess`, `public/_redirects`, `vercel.json` (katalog değişince yeniden çalıştır)
 
 ## Ürün kataloğu
 - 500 ürün `scripts/build-catalog.mjs` ile üretilir: klasör → kategori yolu, ad, katalog no, filtre özellikleri (renk/cinsiyet/tip/kol), teknik özellikler.

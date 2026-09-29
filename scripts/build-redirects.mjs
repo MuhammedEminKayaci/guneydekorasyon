@@ -8,6 +8,7 @@
 //   src/data/redirects.json  → 404 sayfasındaki yedek yönlendirme (her sunucuda çalışır)
 //   public/.htaccess         → Apache / cPanel hosting (gerçek 301)
 //   public/_redirects        → Netlify / Cloudflare Pages (gerçek 301)
+//   vercel.json              → Vercel (gerçek 301, www → apex)
 //   public/web.config        → Windows / IIS (Plesk) hosting (gerçek 301, URL Rewrite modülü)
 //   deploy/eski-domain/.htaccess + web.config → eski guneydekorasyonraf.com.tr sunucusuna konur
 //                                  (şu an Windows Plesk/IIS): her eski sayfayı yeni domaindeki karşılığına taşır
@@ -138,6 +139,36 @@ for (const [from, to] of Object.entries(sorted)) {
   if (encoded !== from) lines.push(`${encoded}  ${to}  301`);
 }
 fs.writeFileSync('public/_redirects', lines.join('\n') + '\n');
+
+// Vercel (vercel.json): kaynak yollar yüzde kodlu yazılır; www ve eski alan adı tek adrese
+const vercelRedirects = [
+  {
+    source: '/:path*',
+    has: [{ type: 'host', value: 'www.' + SITE_HOST }],
+    destination: SITE_URL + '/:path*',
+    permanent: true,
+  },
+  ...Object.entries(sorted).map(([from, to]) => ({ source: encodeURI(from), destination: to, permanent: true })),
+];
+fs.writeFileSync(
+  'vercel.json',
+  JSON.stringify(
+    {
+      $schema: 'https://openapi.vercel.sh/vercel.json',
+      framework: 'astro',
+      trailingSlash: true,
+      redirects: vercelRedirects,
+      headers: [
+        {
+          source: '/_astro/(.*)',
+          headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        },
+      ],
+    },
+    null,
+    2,
+  ) + '\n',
+);
 
 // Eski domain (.com.tr): her eski sayfa yeni domaindeki karşılığına, kalan her şey yeni ana sayfaya
 fs.mkdirSync('deploy/eski-domain', { recursive: true });

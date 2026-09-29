@@ -1,0 +1,1504 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.guneydekorasyonraf.com"
+        }
+      ],
+      "destination": "https://guneydekorasyonraf.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/ahsapask%C4%B1lar-ahsap.html",
+      "destination": "/askilar/ahsap-aski/klasik/",
+      "permanent": true
+    },
+    {
+      "source": "/ahsapask%C4%B1lar-bluz.html",
+      "destination": "/askilar/ahsap-aski/bluz/",
+      "permanent": true
+    },
+    {
+      "source": "/ahsapask%C4%B1lar-ceket.html",
+      "destination": "/askilar/ahsap-aski/ceket/",
+      "permanent": true
+    },
+    {
+      "source": "/ahsapask%C4%B1lar-cocuk.html",
+      "destination": "/askilar/ahsap-aski/cocuk/",
+      "permanent": true
+    },
+    {
+      "source": "/ahsapask%C4%B1lar-pantalon.html",
+      "destination": "/askilar/ahsap-aski/pantolon/",
+      "permanent": true
+    },
+    {
+      "source": "/ahsapask%C4%B1lar.html",
+      "destination": "/askilar/ahsap-aski/",
+      "permanent": true
+    },
+    {
+      "source": "/ask%C4%B1lar.html",
+      "destination": "/askilar/",
+      "permanent": true
+    },
+    {
+      "source": "/boru-rafsistemleri-urun-1.html",
+      "destination": "/urun/silindir-boru-raf-sistemi-br-01/",
+      "permanent": true
+    },
+    {
+      "source": "/boru-rafsistemleri-urun-2.html",
+      "destination": "/urun/boru-raf-sistemi-model-2-br-02/",
+      "permanent": true
+    },
+    {
+      "source": "/boru-rafsistemleri-urun-3.html",
+      "destination": "/urun/boru-raf-sistemi-model-3-br-03/",
+      "permanent": true
+    },
+    {
+      "source": "/boru-rafsistemleri.html",
+      "destination": "/raf-sistemleri/boru-raf/",
+      "permanent": true
+    },
+    {
+      "source": "/deporafsistemleri.html",
+      "destination": "/raf-sistemleri/depo-raf/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-1.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-01/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-2.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-02/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-3.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-03/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-4.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-04/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-5.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-05/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-6.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-06/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-7.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-07/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-8.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-08/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-9.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-09/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-10.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-10/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-11.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-11/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-12.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-12/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-13.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-13/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-14.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-14/",
+      "permanent": true
+    },
+    {
+      "source": "/erkekterzi-urun-15.html",
+      "destination": "/urun/erkek-terzi-mankeni-etm-15/",
+      "permanent": true
+    },
+    {
+      "source": "/hakk%C4%B1m%C4%B1zda.html",
+      "destination": "/hakkimizda/",
+      "permanent": true
+    },
+    {
+      "source": "/ileti%C5%9Fim.html",
+      "destination": "/iletisim/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-1.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-01/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-2.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-02/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-3.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-03/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-4.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-04/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-5.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-05/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-6.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-06/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-7.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-07/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-8.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-08/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-9.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-09/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-10.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-10/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-11.html",
+      "destination": "/mankenler/terzi-mankeni/kadin/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-12.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-12/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-13.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-13/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-14.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-14/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-15.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-15/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-16.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-16/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-17.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-17/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-18.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-18/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-19.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-19/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-20.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-20/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-21.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-21/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-22.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-22/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-23.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-23/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-24.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-24/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-25.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-25/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-26.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-26/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-27.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-27/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-28.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-28/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-29.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-29/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-30.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-30/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-31.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-31/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-32.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-32/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-33.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-33/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-34.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-34/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-35.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-35/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-36.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-36/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-37.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-37/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-38.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-38/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-39.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-39/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-40.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-40/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-41.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-41/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-42.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-42/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-43.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-43/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-44.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-44/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-45.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-45/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-46.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-46/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-47.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-47/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-48.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-48/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-49.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-49/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-50.html",
+      "destination": "/urun/kollu-kadin-terzi-mankeni-ktm-50/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-51.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-01/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-52.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-02/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-53.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-03/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-54.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-04/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-55.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-05/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-56.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-06/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-57.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-07/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-58.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-08/",
+      "permanent": true
+    },
+    {
+      "source": "/kadinterzi-urun-59.html",
+      "destination": "/urun/kolsuz-kadin-terzi-mankeni-kts-09/",
+      "permanent": true
+    },
+    {
+      "source": "/mankenlerkatagori.html",
+      "destination": "/mankenler/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-1.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-01/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-2.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-02/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-3.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-03/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-4.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-04/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-5.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-05/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-6.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-06/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-7.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-07/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-8.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-08/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-9.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-09/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-10.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-10/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-11.html",
+      "destination": "/urun/gumus-orta-teshir-unitesi-os-11/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-12.html",
+      "destination": "/urun/gumus-orta-teshir-unitesi-os-12/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-13.html",
+      "destination": "/urun/gumus-orta-teshir-unitesi-os-13/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-14.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-14/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-15.html",
+      "destination": "/urun/siyah-orta-teshir-unitesi-os-15/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-16.html",
+      "destination": "/urun/siyah-orta-teshir-unitesi-os-16/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-17.html",
+      "destination": "/urun/siyah-orta-teshir-unitesi-os-17/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-18.html",
+      "destination": "/urun/siyah-orta-teshir-unitesi-os-18/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-19.html",
+      "destination": "/urun/siyah-orta-teshir-unitesi-os-19/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-20.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-20/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-21.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-21/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-22.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-22/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-23.html",
+      "destination": "/urun/altin-orta-teshir-unitesi-os-23/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-24.html",
+      "destination": "/urun/siyah-orta-teshir-unitesi-os-24/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri-urun-25.html",
+      "destination": "/urun/gumus-orta-teshir-unitesi-os-25/",
+      "permanent": true
+    },
+    {
+      "source": "/ortasistemleri.html",
+      "destination": "/orta-sistemleri/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-1.html",
+      "destination": "/urun/beyaz-plastik-ceket-askisi-pa-01/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-2.html",
+      "destination": "/urun/beyaz-plastik-ceket-askisi-pa-02/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-3.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-03/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-4.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-04/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-5.html",
+      "destination": "/urun/altin-plastik-ceket-askisi-pa-05/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-6.html",
+      "destination": "/urun/gumus-plastik-ceket-askisi-pa-06/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-7.html",
+      "destination": "/urun/bakir-plastik-ceket-askisi-pa-07/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-8.html",
+      "destination": "/urun/gumus-plastik-ceket-askisi-pa-08/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-9.html",
+      "destination": "/urun/beyaz-plastik-ceket-askisi-pa-09/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-10.html",
+      "destination": "/urun/gri-plastik-ceket-askisi-pa-10/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-11.html",
+      "destination": "/urun/gumus-plastik-ceket-askisi-pa-11/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-12.html",
+      "destination": "/urun/gumus-plastik-ceket-askisi-pa-12/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-13.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-13/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-14.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-14/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-15.html",
+      "destination": "/urun/altin-plastik-ceket-askisi-pa-15/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-16.html",
+      "destination": "/urun/altin-plastik-ceket-askisi-pa-16/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-17.html",
+      "destination": "/urun/altin-plastik-ceket-askisi-pa-17/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-18.html",
+      "destination": "/urun/altin-plastik-ceket-askisi-pa-18/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-19.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-19/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-20.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-20/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-21.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-21/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-22.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-22/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-23.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-23/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-24.html",
+      "destination": "/urun/beyaz-plastik-ceket-askisi-pa-24/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-25.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-25/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-26.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-26/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-27.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-27/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-28.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-28/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-29.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-29/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-30.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-30/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-31.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-31/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-32.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-32/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-33.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-33/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-34.html",
+      "destination": "/urun/mavi-plastik-ceket-askisi-pa-34/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar-urun-35.html",
+      "destination": "/urun/siyah-plastik-ceket-askisi-pa-35/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikask%C4%B1lar.html",
+      "destination": "/askilar/plastik-aski/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikmanken.html",
+      "destination": "/mankenler/plastik-manken/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-1.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-p01/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-2.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-p02/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-3.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-p03/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-4.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-p04/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-5.html",
+      "destination": "/urun/erkek-plastik-govde-manken-pm-p05/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-6.html",
+      "destination": "/urun/erkek-plastik-govde-manken-pm-p06/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-7.html",
+      "destination": "/urun/kadin-plastik-manken-kafasi-pm-p07/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-8.html",
+      "destination": "/urun/erkek-plastik-manken-kafasi-pm-p08/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-9.html",
+      "destination": "/urun/erkek-plastik-manken-kafasi-pm-p09/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-10.html",
+      "destination": "/urun/erkek-plastik-manken-kafasi-pm-p10/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-11.html",
+      "destination": "/urun/erkek-plastik-manken-kafasi-pm-p11/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-12.html",
+      "destination": "/urun/kadin-plastik-manken-kafasi-pm-p12/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-13.html",
+      "destination": "/urun/kadin-plastik-manken-kafasi-pm-p13/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-14.html",
+      "destination": "/urun/cocuk-plastik-manken-kafasi-pm-p14/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-15.html",
+      "destination": "/urun/cocuk-plastik-manken-kafasi-pm-p15/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-16.html",
+      "destination": "/urun/plastik-bacak-manken-pm-p16/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-17.html",
+      "destination": "/urun/plastik-bacak-manken-pm-p17/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-18.html",
+      "destination": "/urun/plastik-bacak-manken-pm-p18/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-19.html",
+      "destination": "/urun/plastik-bacak-manken-pm-p19/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-20.html",
+      "destination": "/urun/kadin-ve-erkek-tam-boy-plastik-manken-seti-pm-p20/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-21.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-01/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-22.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-02/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-23.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-03/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-24.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-04/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-25.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-05/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-26.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-06/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-27.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-07/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-28.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-08/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-29.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-09/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-30.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-10/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-31.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-11/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-32.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-12/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-33.html",
+      "destination": "/urun/kadin-plastik-govde-manken-pm-13/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-34.html",
+      "destination": "/urun/cocuk-plastik-govde-manken-pm-14/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-35.html",
+      "destination": "/urun/erkek-plastik-govde-manken-pm-15/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-36.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-16/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-37.html",
+      "destination": "/urun/erkek-plastik-govde-manken-pm-17/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-38.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-18/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-39.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-19/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-40.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-20/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-41.html",
+      "destination": "/urun/cocuk-plastik-govde-manken-pm-21/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-42.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-22/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-43.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-23/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-44.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-24/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-45.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-25/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-46.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-26/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-47.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-27/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-48.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-28/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-49.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-29/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-50.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-30/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-51.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-31/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-52.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-32/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-53.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-33/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-54.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-34/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-55.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-35/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-56.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-36/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-57.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-37/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-58.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-38/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-59.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-39/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-60.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-40/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-61.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-41/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-62.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-42/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-63.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-43/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-64.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-44/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-65.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-45/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-66.html",
+      "destination": "/urun/plastik-alt-beden-manken-pm-46/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-67.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-47/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-68.html",
+      "destination": "/urun/erkek-tam-boy-plastik-manken-pm-48/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-69.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-49/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-70.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-50/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-71.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-51/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-72.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-52/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-73.html",
+      "destination": "/urun/erkek-plastik-govde-manken-pm-53/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-74.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-54/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-75.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-55/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-76.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-56/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-77.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-57/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-78.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-58/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-79.html",
+      "destination": "/urun/kadin-tam-boy-plastik-manken-pm-59/",
+      "permanent": true
+    },
+    {
+      "source": "/plastikterzi-urun-80.html",
+      "destination": "/urun/cocuk-tam-boy-plastik-manken-pm-60/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-cocuk-urun-1.html",
+      "destination": "/urun/altin-cocuk-polyester-manken-pcm-06/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-cocuk.html",
+      "destination": "/mankenler/polyester-manken/cocuk/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-1.html",
+      "destination": "/urun/gumus-erkek-polyester-manken-pem-b-01/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-2.html",
+      "destination": "/urun/gri-erkek-polyester-manken-pem-b-03/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-3.html",
+      "destination": "/urun/beyaz-erkek-polyester-manken-pem-b-04/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-4.html",
+      "destination": "/urun/beyaz-erkek-polyester-manken-pem-b-05/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-5.html",
+      "destination": "/urun/siyah-erkek-polyester-manken-pem-b-06/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-6.html",
+      "destination": "/urun/beyaz-erkek-polyester-manken-pem-b-07/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-7.html",
+      "destination": "/urun/beyaz-erkek-polyester-manken-pem-b-08/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-8.html",
+      "destination": "/urun/bakir-erkek-polyester-manken-pem-b-09/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-9.html",
+      "destination": "/urun/siyah-erkek-polyester-manken-pem-b-10/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-10.html",
+      "destination": "/urun/bronz-erkek-polyester-manken-pem-b-11/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-11.html",
+      "destination": "/urun/siyah-erkek-polyester-manken-pem-b-02/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-12.html",
+      "destination": "/urun/altin-erkek-polyester-manken-pem-a-02/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-13.html",
+      "destination": "/urun/altin-erkek-polyester-manken-pem-a-03/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek-urun-14.html",
+      "destination": "/urun/altin-erkek-polyester-manken-pem-a-04/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-erkek.html",
+      "destination": "/mankenler/polyester-manken/erkek/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-1.html",
+      "destination": "/urun/beyaz-kadin-polyester-manken-pkm-b-10/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-2.html",
+      "destination": "/urun/beyaz-kadin-polyester-manken-pkm-b-09/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-3.html",
+      "destination": "/urun/beyaz-kadin-polyester-manken-pkm-b-08/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-4.html",
+      "destination": "/urun/beyaz-kadin-polyester-manken-pkm-c-08/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-5.html",
+      "destination": "/urun/gumus-kadin-polyester-manken-pkm-b-01/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-6.html",
+      "destination": "/urun/bronz-kadin-polyester-manken-pkm-b-02/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-7.html",
+      "destination": "/urun/bronz-kadin-polyester-manken-pkm-b-03/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-8.html",
+      "destination": "/urun/siyah-kadin-polyester-manken-pkm-b-04/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-9.html",
+      "destination": "/urun/gri-kadin-polyester-manken-pkm-b-05/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-10.html",
+      "destination": "/urun/siyah-kadin-polyester-manken-pkm-b-06/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-11.html",
+      "destination": "/urun/siyah-kadin-polyester-manken-pkm-b-07/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-12.html",
+      "destination": "/urun/altin-kadin-polyester-manken-pkm-a-01/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-13.html",
+      "destination": "/urun/altin-kadin-polyester-manken-pkm-a-07/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-14.html",
+      "destination": "/urun/altin-kadin-polyester-manken-pkm-a-05/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-15.html",
+      "destination": "/urun/ten-rengi-kadin-polyester-manken-pkm-c-10/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-16.html",
+      "destination": "/urun/ten-rengi-kadin-polyester-manken-pkm-c-09/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-17.html",
+      "destination": "/urun/altin-kadin-polyester-manken-pkm-a-08/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-18.html",
+      "destination": "/urun/ten-rengi-kadin-polyester-manken-pkm-c-07/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-19.html",
+      "destination": "/urun/altin-kadin-polyester-manken-pkm-c-06/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-20.html",
+      "destination": "/urun/altin-kadin-polyester-manken-pkm-c-05/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-21.html",
+      "destination": "/urun/altin-kadin-polyester-manken-pkm-c-04/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-22.html",
+      "destination": "/urun/gumus-kadin-polyester-manken-pkm-c-03/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-23.html",
+      "destination": "/urun/gumus-kadin-polyester-manken-pkm-c-02/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin-urun-24.html",
+      "destination": "/urun/gumus-kadin-polyester-manken-pkm-c-01/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken-kadin.html",
+      "destination": "/mankenler/polyester-manken/kadin/",
+      "permanent": true
+    },
+    {
+      "source": "/polyestermanken.html",
+      "destination": "/mankenler/polyester-manken/",
+      "permanent": true
+    },
+    {
+      "source": "/projeler.html",
+      "destination": "/projeler/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-40-40.html",
+      "destination": "/raf-sistemleri/40x40-raf/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-40x40-urun-1.html",
+      "destination": "/urun/40x40-raf-sistemi-model-1-r40-m1/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-40x40-urun-2.html",
+      "destination": "/urun/40x40-raf-sistemi-model-2-r40-m2/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-1.html",
+      "destination": "/urun/metal-depo-rafi-dr-01/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-2.html",
+      "destination": "/urun/metal-depo-rafi-dr-02/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-3.html",
+      "destination": "/urun/metal-depo-rafi-dr-03/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-4.html",
+      "destination": "/urun/metal-depo-rafi-dr-04/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-5.html",
+      "destination": "/urun/metal-depo-rafi-dr-05/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-6.html",
+      "destination": "/urun/metal-depo-rafi-dr-06/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-7.html",
+      "destination": "/urun/metal-depo-rafi-dr-07/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-8.html",
+      "destination": "/urun/metal-depo-rafi-dr-08/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-9.html",
+      "destination": "/urun/metal-depo-rafi-dr-09/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri-urun-10.html",
+      "destination": "/urun/depo-raf-sistemi-uygulamasi-dr-10/",
+      "permanent": true
+    },
+    {
+      "source": "/rafsistemleri.html",
+      "destination": "/raf-sistemleri/",
+      "permanent": true
+    },
+    {
+      "source": "/standlar.html",
+      "destination": "/standlar/",
+      "permanent": true
+    },
+    {
+      "source": "/terzimanken.html",
+      "destination": "/mankenler/terzi-mankeni/",
+      "permanent": true
+    },
+    {
+      "source": "/terzimankenlerierkek.html",
+      "destination": "/mankenler/terzi-mankeni/erkek/",
+      "permanent": true
+    },
+    {
+      "source": "/terzimankenlerikadin.html",
+      "destination": "/mankenler/terzi-mankeni/kadin/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
